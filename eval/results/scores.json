@@ -1,0 +1,88 @@
+{
+  "mvbench": {
+    "benchmark": "MVBench",
+    "n": 3800,
+    "n_tasks": 19,
+    "mean_of_tasks_acc": 0.6637,
+    "micro_acc": 0.6637,
+    "media_errors": 18,
+    "per_task": {
+      "action_antonym": 0.775,
+      "action_count": 0.48,
+      "action_localization": 0.44,
+      "action_prediction": 0.7,
+      "action_sequence": 0.695,
+      "character_order": 0.73,
+      "counterfactual_inference": 0.675,
+      "egocentric_navigation": 0.4,
+      "episodic_reasoning": 0.565,
+      "fine_grained_action": 0.455,
+      "moving_attribute": 0.93,
+      "moving_count": 0.67,
+      "moving_direction": 0.615,
+      "object_existence": 0.86,
+      "object_interaction": 0.72,
+      "object_shuffle": 0.405,
+      "scene_transition": 0.925,
+      "state_change": 0.725,
+      "unexpected_action": 0.845
+    }
+  },
+  "temporalbench_short": {
+    "benchmark": "TemporalBench-short",
+    "n": 9867,
+    "n_videos": 2179,
+    "binary_acc": 0.6839,
+    "multiple_binary_acc": 0.2827,
+    "per_category": {
+      "Action Effector": 0.6348,
+      "Action Frequency": 0.566,
+      "Action Order": 0.6124,
+      "Action Type": 0.7156,
+      "Event Order": 0.696,
+      "Motion Direction/Orientation": 0.5898,
+      "Motion Magnitude": 0.6781,
+      "Others": 0.8018
+    },
+    "per_dataset": {
+      "ActivityNet": 0.731,
+      "COIN": 0.6819,
+      "Charades": 0.6782,
+      "EgoExo4D": 0.7121,
+      "FineGym": 0.5389,
+      "Movie_Description": 0.7416,
+      "Oops": 0.7193
+    }
+  },
+  "temporalbench_long": {
+    "benchmark": "TemporalBench-long",
+    "n": 5485,
+    "n_videos": 1574,
+    "binary_acc": 0.6514,
+    "multiple_binary_acc": 0.2573,
+    "per_category": {
+      "uncat": 0.6514
+    },
+    "per_dataset": {
+      "ActivityNet": 0.6661,
+      "COIN": 0.6584,
+      "Charades": 0.6303,
+      "EgoExo4D": 0.6632,
+      "FineGym": 0.5565
+    }
+  },
+  "tomato": {
+    "benchmark": "TOMATO",
+    "n": 1484,
+    "acc": 0.3464,
+    "media_errors": 0,
+    "per_reason_type": {
+      "count": 0.3288,
+      "direction": 0.4541,
+      "rotation": 0.2308,
+      "shape&trend": 0.3363,
+      "velocity&frequency": 0.3286,
+      "visual cues": 0.3571
+    }
+  }
+}

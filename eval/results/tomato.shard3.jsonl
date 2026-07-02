@@ -1,0 +1,371 @@
+{"uid": "tomato/direction/3", "benchmark": "tomato", "task": "direction", "gt": "D", "pred": "D", "correct": true, "raw": "(D) Up.", "group": null}
+{"uid": "tomato/direction/7", "benchmark": "tomato", "task": "direction", "gt": "A", "pred": "B", "correct": false, "raw": "B", "group": null}
+{"uid": "tomato/direction/11", "benchmark": "tomato", "task": "direction", "gt": "C", "pred": "D", "correct": false, "raw": "(D) Upwards then downwards.", "group": null}
+{"uid": "tomato/direction/15", "benchmark": "tomato", "task": "direction", "gt": "C", "pred": "C", "correct": true, "raw": "C", "group": null}
+{"uid": "tomato/direction/19", "benchmark": "tomato", "task": "direction", "gt": "D", "pred": "A", "correct": false, "raw": "A", "group": null}
+{"uid": "tomato/direction/23", "benchmark": "tomato", "task": "direction", "gt": "C", "pred": "B", "correct": false, "raw": "B", "group": null}
+{"uid": "tomato/direction/27", "benchmark": "tomato", "task": "direction", "gt": "B", "pred": "D", "correct": false, "raw": "(D) Rightwards then leftwards.", "group": null}
+{"uid": "tomato/direction/31", "benchmark": "tomato", "task": "direction", "gt": "E", "pred": "E", "correct": true, "raw": "(E) Upwards then downwards.", "group": null}
+{"uid": "tomato/direction/35", "benchmark": "tomato", "task": "direction", "gt": "D", "pred": "D", "correct": true, "raw": "(D) Upwards then rightwards.", "group": null}
+{"uid": "tomato/direction/39", "benchmark": "tomato", "task": "direction", "gt": "C", "pred": "C", "correct": true, "raw": "(C) Rightwards then upwards.", "group": null}
+{"uid": "tomato/direction/43", "benchmark": "tomato", "task": "direction", "gt": "C", "pred": "C", "correct": true, "raw": "(C) Rightwards then downwards.", "group": null}
+{"uid": "tomato/direction/47", "benchmark": "tomato", "task": "direction", "gt": "A", "pred": "A", "correct": true, "raw": "(A) Downwards then leftwards.", "group": null}
+{"uid": "tomato/direction/51", "benchmark": "tomato", "task": "direction", "gt": "A", "pred": "A", "correct": true, "raw": "(A) Downwards then rightwards.", "group": null}
+{"uid": "tomato/direction/55", "benchmark": "tomato", "task": "direction", "gt": "C", "pred": "E", "correct": false, "raw": "(E) Rightwards then leftwards.", "group": null}
+{"uid": "tomato/direction/59", "benchmark": "tomato", "task": "direction", "gt": "B", "pred": "E", "correct": false, "raw": "(E) Downwards then upwards", "group": null}
+{"uid": "tomato/direction/63", "benchmark": "tomato", "task": "direction", "gt": "F", "pred": "F", "correct": true, "raw": "(F) Upwards then leftwards.", "group": null}
+{"uid": "tomato/direction/67", "benchmark": "tomato", "task": "direction", "gt": "C", "pred": "C", "correct": true, "raw": "(C) Upwards then rightwards.", "group": null}
+{"uid": "tomato/direction/71", "benchmark": "tomato", "task": "direction", "gt": "F", "pred": "B", "correct": false, "raw": "(B) Upwards then downwards.", "group": null}
+{"uid": "tomato/direction/75", "benchmark": "tomato", "task": "direction", "gt": "D", "pred": "C", "correct": false, "raw": "(C) Upwards then downwards.", "group": null}
+{"uid": "tomato/direction/79", "benchmark": "tomato", "task": "direction", "gt": "B", "pred": "B", "correct": true, "raw": "(B) Downwards then leftwards.", "group": null}
+{"uid": "tomato/direction/83", "benchmark": "tomato", "task": "direction", "gt": "F", "pred": "D", "correct": false, "raw": "(D) Downwards then leftwards.", "group": null}
+{"uid": "tomato/direction/87", "benchmark": "tomato", "task": "direction", "gt": "B", "pred": "F", "correct": false, "raw": "(F) Downwards then upwards", "group": null}
+{"uid": "tomato/direction/91", "benchmark": "tomato", "task": "direction", "gt": "F", "pred": "B", "correct": false, "raw": "(B) Rightwards then leftwards.", "group": null}
+{"uid": "tomato/direction/95", "benchmark": "tomato", "task": "direction", "gt": "B", "pred": "B", "correct": true, "raw": "(B) Upwards then leftwards.", "group": null}
+{"uid": "tomato/direction/99", "benchmark": "tomato", "task": "direction", "gt": "F", "pred": "F", "correct": true, "raw": "(F) Upwards then rightwards.", "group": null}
+{"uid": "tomato/direction/103", "benchmark": "tomato", "task": "direction", "gt": "B", "pred": "B", "correct": true, "raw": "(B) Rightwards then upwards.", "group": null}
+{"uid": "tomato/direction/107", "benchmark": "tomato", "task": "direction", "gt": "D", "pred": "D", "correct": true, "raw": "(D) Rightwards then downwards.", "group": null}
+{"uid": "tomato/direction/111", "benchmark": "tomato", "task": "direction", "gt": "E", "pred": "D", "correct": false, "raw": "(D) Rightwards then leftwards.", "group": null}
+{"uid": "tomato/direction/115", "benchmark": "tomato", "task": "direction", "gt": "E", "pred": "E", "correct": true, "raw": "(E) Downwards then rightwards.", "group": null}
+{"uid": "tomato/direction/119", "benchmark": "tomato", "task": "direction", "gt": "A", "pred": "C", "correct": false, "raw": "(C) Stay still.", "group": null}
+{"uid": "tomato/direction/123", "benchmark": "tomato", "task": "direction", "gt": "B", "pred": "E", "correct": false, "raw": "(E) Upwards then downwards.", "group": null}
+{"uid": "tomato/direction/127", "benchmark": "tomato", "task": "direction", "gt": "E", "pred": "E", "correct": true, "raw": "(E) Downwards then leftwards.", "group": null}
+{"uid": "tomato/direction/131", "benchmark": "tomato", "task": "direction", "gt": "F", "pred": "F", "correct": true, "raw": "(F) Rightwards then upwards.", "group": null}
+{"uid": "tomato/direction/135", "benchmark": "tomato", "task": "direction", "gt": "E", "pred": "D", "correct": false, "raw": "(D) Upwards then leftwards.", "group": null}
+{"uid": "tomato/direction/139", "benchmark": "tomato", "task": "direction", "gt": "C", "pred": "C", "correct": true, "raw": "(C) Rightwards then upwards.", "group": null}
+{"uid": "tomato/direction/143", "benchmark": "tomato", "task": "direction", "gt": "A", "pred": "A", "correct": true, "raw": "(A) Rightwards then upwards.", "group": null}
+{"uid": "tomato/direction/147", "benchmark": "tomato", "task": "direction", "gt": "F", "pred": "C", "correct": false, "raw": "(C) Rightwards then leftwards.", "group": null}
+{"uid": "tomato/direction/151", "benchmark": "tomato", "task": "direction", "gt": "C", "pred": "F", "correct": false, "raw": "(F) Rightwards then leftwards.", "group": null}
+{"uid": "tomato/direction/155", "benchmark": "tomato", "task": "direction", "gt": "D", "pred": "C", "correct": false, "raw": "(C) Upwards then leftwards.", "group": null}
+{"uid": "tomato/direction/159", "benchmark": "tomato", "task": "direction", "gt": "F", "pred": "E", "correct": false, "raw": "(E) Upwards then leftwards.", "group": null}
+{"uid": "tomato/direction/163", "benchmark": "tomato", "task": "direction", "gt": "A", "pred": "B", "correct": false, "raw": "(B) Upwards then downwards.", "group": null}
+{"uid": "tomato/direction/167", "benchmark": "tomato", "task": "direction", "gt": "F", "pred": "A", "correct": false, "raw": "(A) Upwards then downwards.", "group": null}
+{"uid": "tomato/direction/171", "benchmark": "tomato", "task": "direction", "gt": "D", "pred": "D", "correct": true, "raw": "(D) Rightwards then leftwards.", "group": null}
+{"uid": "tomato/direction/175", "benchmark": "tomato", "task": "direction", "gt": "B", "pred": "B", "correct": true, "raw": "(B) Downwards then rightwards.", "group": null}
+{"uid": "tomato/direction/179", "benchmark": "tomato", "task": "direction", "gt": "B", "pred": "C", "correct": false, "raw": "C", "group": null}
+{"uid": "tomato/direction/183", "benchmark": "tomato", "task": "direction", "gt": "B", "pred": "B", "correct": true, "raw": "(B) Upwards then leftwards.", "group": null}
+{"uid": "tomato/direction/187", "benchmark": "tomato", "task": "direction", "gt": "D", "pred": "D", "correct": true, "raw": "(D) Upwards then downwards.", "group": null}
+{"uid": "tomato/direction/191", "benchmark": "tomato", "task": "direction", "gt": "C", "pred": "E", "correct": false, "raw": "(E) Moving Further.", "group": null}
+{"uid": "tomato/direction/195", "benchmark": "tomato", "task": "direction", "gt": "B", "pred": "A", "correct": false, "raw": "(A) Moving Closer.", "group": null}
+{"uid": "tomato/direction/199", "benchmark": "tomato", "task": "direction", "gt": "F", "pred": "B", "correct": false, "raw": "(B) Rightwards then leftwards.", "group": null}
+{"uid": "tomato/direction/203", "benchmark": "tomato", "task": "direction", "gt": "E", "pred": "D", "correct": false, "raw": "(D) Downwards then upwards", "group": null}
+{"uid": "tomato/direction/207", "benchmark": "tomato", "task": "direction", "gt": "F", "pred": "F", "correct": true, "raw": "(F) Downwards then rightwards.", "group": null}
+{"uid": "tomato/direction/211", "benchmark": "tomato", "task": "direction", "gt": "F", "pred": "D", "correct": false, "raw": "(D) Upwards then leftwards.", "group": null}
+{"uid": "tomato/direction/215", "benchmark": "tomato", "task": "direction", "gt": "B", "pred": "C", "correct": false, "raw": "(C) Moving Closer.", "group": null}
+{"uid": "tomato/direction/219", "benchmark": "tomato", "task": "direction", "gt": "B", "pred": "C", "correct": false, "raw": "(C) Moving Closer.", "group": null}
+{"uid": "tomato/direction/223", "benchmark": "tomato", "task": "direction", "gt": "E", "pred": "D", "correct": false, "raw": "(D) Moving Closer.", "group": null}
+{"uid": "tomato/direction/227", "benchmark": "tomato", "task": "direction", "gt": "C", "pred": "E", "correct": false, "raw": "(E) Moving Closer.", "group": null}
+{"uid": "tomato/direction/231", "benchmark": "tomato", "task": "direction", "gt": "E", "pred": "E", "correct": true, "raw": "(E) Rightwards then upwards.", "group": null}
+{"uid": "tomato/direction/235", "benchmark": "tomato", "task": "direction", "gt": "F", "pred": "F", "correct": true, "raw": "(F) Upwards then downwards.", "group": null}
+{"uid": "tomato/direction/239", "benchmark": "tomato", "task": "direction", "gt": "B", "pred": "B", "correct": true, "raw": "(B) Leftwards then upwards.", "group": null}
+{"uid": "tomato/direction/243", "benchmark": "tomato", "task": "direction", "gt": "B", "pred": "B", "correct": true, "raw": "(B) Upwards then downwards.", "group": null}
+{"uid": "tomato/direction/247", "benchmark": "tomato", "task": "direction", "gt": "D", "pred": "B", "correct": false, "raw": "(B) Rightwards then upwards.", "group": null}
+{"uid": "tomato/direction/251", "benchmark": "tomato", "task": "direction", "gt": "F", "pred": "F", "correct": true, "raw": "(F) Leftwards then rightwards.", "group": null}
+{"uid": "tomato/direction/255", "benchmark": "tomato", "task": "direction", "gt": "B", "pred": "B", "correct": true, "raw": "(B) Rightwards then leftwards.", "group": null}
+{"uid": "tomato/direction/259", "benchmark": "tomato", "task": "direction", "gt": "C", "pred": "B", "correct": false, "raw": "(B) Rightwards then downwards.", "group": null}
+{"uid": "tomato/direction/263", "benchmark": "tomato", "task": "direction", "gt": "B", "pred": "B", "correct": true, "raw": "(B) Upwards then downwards.", "group": null}
+{"uid": "tomato/direction/267", "benchmark": "tomato", "task": "direction", "gt": "D", "pred": "E", "correct": false, "raw": "(E) Upwards then downwards.", "group": null}
+{"uid": "tomato/direction/271", "benchmark": "tomato", "task": "direction", "gt": "A", "pred": "A", "correct": true, "raw": "(A) Upwards then downwards.", "group": null}
+{"uid": "tomato/direction/275", "benchmark": "tomato", "task": "direction", "gt": "F", "pred": "D", "correct": false, "raw": "(D) Downwards then rightwards", "group": null}
+{"uid": "tomato/direction/279", "benchmark": "tomato", "task": "direction", "gt": "D", "pred": "D", "correct": true, "raw": "(D) Rightwards then leftwards.", "group": null}
+{"uid": "tomato/direction/283", "benchmark": "tomato", "task": "direction", "gt": "C", "pred": "B", "correct": false, "raw": "(B) Forward", "group": null}
+{"uid": "tomato/direction/287", "benchmark": "tomato", "task": "direction", "gt": "B", "pred": "C", "correct": false, "raw": "C", "group": null}
+{"uid": "tomato/direction/291", "benchmark": "tomato", "task": "direction", "gt": "C", "pred": "C", "correct": true, "raw": "C", "group": null}
+{"uid": "tomato/direction/295", "benchmark": "tomato", "task": "direction", "gt": "C", "pred": "A", "correct": false, "raw": "A", "group": null}
+{"uid": "tomato/direction/299", "benchmark": "tomato", "task": "direction", "gt": "B", "pred": "B", "correct": true, "raw": "B", "group": null}
+{"uid": "tomato/direction/303", "benchmark": "tomato", "task": "direction", "gt": "A", "pred": "A", "correct": true, "raw": "A", "group": null}
+{"uid": "tomato/direction/307", "benchmark": "tomato", "task": "direction", "gt": "B", "pred": "B", "correct": true, "raw": "B", "group": null}
+{"uid": "tomato/direction/311", "benchmark": "tomato", "task": "direction", "gt": "C", "pred": "E", "correct": false, "raw": "E", "group": null}
+{"uid": "tomato/direction/315", "benchmark": "tomato", "task": "direction", "gt": "B", "pred": "A", "correct": false, "raw": "A", "group": null}
+{"uid": "tomato/direction/319", "benchmark": "tomato", "task": "direction", "gt": "A", "pred": "D", "correct": false, "raw": "(D) First to the left then to the right.", "group": null}
+{"uid": "tomato/direction/323", "benchmark": "tomato", "task": "direction", "gt": "D", "pred": "D", "correct": true, "raw": "(D) Left.", "group": null}
+{"uid": "tomato/direction/327", "benchmark": "tomato", "task": "direction", "gt": "E", "pred": "B", "correct": false, "raw": "(B) Upwards then downwards.", "group": null}
+{"uid": "tomato/direction/331", "benchmark": "tomato", "task": "direction", "gt": "C", "pred": "C", "correct": true, "raw": "C", "group": null}
+{"uid": "tomato/direction/335", "benchmark": "tomato", "task": "direction", "gt": "E", "pred": "B", "correct": false, "raw": "(B) Rightwards.", "group": null}
+{"uid": "tomato/direction/339", "benchmark": "tomato", "task": "direction", "gt": "A", "pred": "D", "correct": false, "raw": "(D) Rightwards.", "group": null}
+{"uid": "tomato/direction/343", "benchmark": "tomato", "task": "direction", "gt": "D", "pred": "E", "correct": false, "raw": "(E) Upwards.", "group": null}
+{"uid": "tomato/direction/347", "benchmark": "tomato", "task": "direction", "gt": "C", "pred": "B", "correct": false, "raw": "(B) Downwards.", "group": null}
+{"uid": "tomato/direction/351", "benchmark": "tomato", "task": "direction", "gt": "D", "pred": "D", "correct": true, "raw": "(D) Rightwards.", "group": null}
+{"uid": "tomato/direction/355", "benchmark": "tomato", "task": "direction", "gt": "D", "pred": "D", "correct": true, "raw": "(D) Upwards.", "group": null}
+{"uid": "tomato/direction/359", "benchmark": "tomato", "task": "direction", "gt": "B", "pred": "B", "correct": true, "raw": "B", "group": null}
+{"uid": "tomato/direction/363", "benchmark": "tomato", "task": "direction", "gt": "A", "pred": "B", "correct": false, "raw": "(B) Moving Forward.", "group": null}
+{"uid": "tomato/direction/367", "benchmark": "tomato", "task": "direction", "gt": "B", "pred": "A", "correct": false, "raw": "(A) Moving Forward.", "group": null}
+{"uid": "tomato/direction/371", "benchmark": "tomato", "task": "direction", "gt": "C", "pred": "B", "correct": false, "raw": "B", "group": null}
+{"uid": "tomato/direction/375", "benchmark": "tomato", "task": "direction", "gt": "C", "pred": "D", "correct": false, "raw": "(D) Downwards then upwards.", "group": null}
+{"uid": "tomato/direction/379", "benchmark": "tomato", "task": "direction", "gt": "D", "pred": "C", "correct": false, "raw": "(C) First to the left then to the right.", "group": null}
+{"uid": "tomato/direction/383", "benchmark": "tomato", "task": "direction", "gt": "A", "pred": "B", "correct": false, "raw": "B", "group": null}
+{"uid": "tomato/direction/387", "benchmark": "tomato", "task": "direction", "gt": "B", "pred": "A", "correct": false, "raw": "A", "group": null}
+{"uid": "tomato/direction/391", "benchmark": "tomato", "task": "direction", "gt": "F", "pred": "D", "correct": false, "raw": "(D) Rightwards then leftwards.", "group": null}
+{"uid": "tomato/direction/395", "benchmark": "tomato", "task": "direction", "gt": "A", "pred": "B", "correct": false, "raw": "(B) Leftwards then downwards.", "group": null}
+{"uid": "tomato/direction/399", "benchmark": "tomato", "task": "direction", "gt": "B", "pred": "A", "correct": false, "raw": "(A) Rightwards then downwards.", "group": null}
+{"uid": "tomato/count/403", "benchmark": "tomato", "task": "count", "gt": "C", "pred": "B", "correct": false, "raw": "(B) 1", "group": null}
+{"uid": "tomato/count/407", "benchmark": "tomato", "task": "count", "gt": "A", "pred": "B", "correct": false, "raw": "(B) 0", "group": null}
+{"uid": "tomato/count/411", "benchmark": "tomato", "task": "count", "gt": "F", "pred": "C", "correct": false, "raw": "(C) 3", "group": null}
+{"uid": "tomato/count/415", "benchmark": "tomato", "task": "count", "gt": "E", "pred": "C", "correct": false, "raw": "(C) 1", "group": null}
+{"uid": "tomato/count/419", "benchmark": "tomato", "task": "count", "gt": "E", "pred": "C", "correct": false, "raw": "(C) 3", "group": null}
+{"uid": "tomato/count/423", "benchmark": "tomato", "task": "count", "gt": "A", "pred": "B", "correct": false, "raw": "(B) 3", "group": null}
+{"uid": "tomato/count/427", "benchmark": "tomato", "task": "count", "gt": "C", "pred": "A", "correct": false, "raw": "(A) 2", "group": null}
+{"uid": "tomato/count/431", "benchmark": "tomato", "task": "count", "gt": "C", "pred": "C", "correct": true, "raw": "(C) 1", "group": null}
+{"uid": "tomato/count/435", "benchmark": "tomato", "task": "count", "gt": "A", "pred": "A", "correct": true, "raw": "(A) 3", "group": null}
+{"uid": "tomato/count/439", "benchmark": "tomato", "task": "count", "gt": "C", "pred": "C", "correct": true, "raw": "(C) 3", "group": null}
+{"uid": "tomato/count/443", "benchmark": "tomato", "task": "count", "gt": "D", "pred": "D", "correct": true, "raw": "(D) 3", "group": null}
+{"uid": "tomato/count/447", "benchmark": "tomato", "task": "count", "gt": "C", "pred": "A", "correct": false, "raw": "(A) 1", "group": null}
+{"uid": "tomato/count/451", "benchmark": "tomato", "task": "count", "gt": "F", "pred": "C", "correct": false, "raw": "(C) 3", "group": null}
+{"uid": "tomato/count/455", "benchmark": "tomato", "task": "count", "gt": "A", "pred": "E", "correct": false, "raw": "(E) 3", "group": null}
+{"uid": "tomato/count/459", "benchmark": "tomato", "task": "count", "gt": "D", "pred": "D", "correct": true, "raw": "(D) 3", "group": null}
+{"uid": "tomato/count/463", "benchmark": "tomato", "task": "count", "gt": "C", "pred": "C", "correct": true, "raw": "(C) 3", "group": null}
+{"uid": "tomato/count/467", "benchmark": "tomato", "task": "count", "gt": "B", "pred": "F", "correct": false, "raw": "(F) 2", "group": null}
+{"uid": "tomato/count/471", "benchmark": "tomato", "task": "count", "gt": "F", "pred": "D", "correct": false, "raw": "(D) 2", "group": null}
+{"uid": "tomato/count/475", "benchmark": "tomato", "task": "count", "gt": "E", "pred": "E", "correct": true, "raw": "(E) 4", "group": null}
+{"uid": "tomato/count/479", "benchmark": "tomato", "task": "count", "gt": "E", "pred": "C", "correct": false, "raw": "(C) 2", "group": null}
+{"uid": "tomato/count/483", "benchmark": "tomato", "task": "count", "gt": "E", "pred": "A", "correct": false, "raw": "(A) 1", "group": null}
+{"uid": "tomato/count/487", "benchmark": "tomato", "task": "count", "gt": "B", "pred": "E", "correct": false, "raw": "(E) 0", "group": null}
+{"uid": "tomato/count/491", "benchmark": "tomato", "task": "count", "gt": "D", "pred": "B", "correct": false, "raw": "(B) 1", "group": null}
+{"uid": "tomato/count/495", "benchmark": "tomato", "task": "count", "gt": "F", "pred": "C", "correct": false, "raw": "(C) 1", "group": null}
+{"uid": "tomato/count/499", "benchmark": "tomato", "task": "count", "gt": "D", "pred": "C", "correct": false, "raw": "C", "group": null}
+{"uid": "tomato/count/503", "benchmark": "tomato", "task": "count", "gt": "A", "pred": "B", "correct": false, "raw": "(B) 2", "group": null}
+{"uid": "tomato/count/507", "benchmark": "tomato", "task": "count", "gt": "A", "pred": "C", "correct": false, "raw": "C", "group": null}
+{"uid": "tomato/count/511", "benchmark": "tomato", "task": "count", "gt": "D", "pred": "B", "correct": false, "raw": "B", "group": null}
+{"uid": "tomato/count/515", "benchmark": "tomato", "task": "count", "gt": "F", "pred": "F", "correct": true, "raw": "F", "group": null}
+{"uid": "tomato/count/519", "benchmark": "tomato", "task": "count", "gt": "D", "pred": "D", "correct": true, "raw": "(D) 3", "group": null}
+{"uid": "tomato/count/523", "benchmark": "tomato", "task": "count", "gt": "D", "pred": "A", "correct": false, "raw": "A", "group": null}
+{"uid": "tomato/count/527", "benchmark": "tomato", "task": "count", "gt": "D", "pred": "B", "correct": false, "raw": "B", "group": null}
+{"uid": "tomato/count/531", "benchmark": "tomato", "task": "count", "gt": "B", "pred": "E", "correct": false, "raw": "E", "group": null}
+{"uid": "tomato/count/535", "benchmark": "tomato", "task": "count", "gt": "D", "pred": "C", "correct": false, "raw": "(C) 3", "group": null}
+{"uid": "tomato/count/539", "benchmark": "tomato", "task": "count", "gt": "F", "pred": "B", "correct": false, "raw": "B", "group": null}
+{"uid": "tomato/count/543", "benchmark": "tomato", "task": "count", "gt": "D", "pred": "D", "correct": true, "raw": "D", "group": null}
+{"uid": "tomato/count/547", "benchmark": "tomato", "task": "count", "gt": "F", "pred": "B", "correct": false, "raw": "B", "group": null}
+{"uid": "tomato/count/551", "benchmark": "tomato", "task": "count", "gt": "C", "pred": "C", "correct": true, "raw": "C", "group": null}
+{"uid": "tomato/count/555", "benchmark": "tomato", "task": "count", "gt": "F", "pred": "D", "correct": false, "raw": "(D) 3", "group": null}
+{"uid": "tomato/count/559", "benchmark": "tomato", "task": "count", "gt": "F", "pred": "C", "correct": false, "raw": "(C) 4", "group": null}
+{"uid": "tomato/count/563", "benchmark": "tomato", "task": "count", "gt": "C", "pred": "C", "correct": true, "raw": "(C) 4", "group": null}
+{"uid": "tomato/count/567", "benchmark": "tomato", "task": "count", "gt": "D", "pred": "D", "correct": true, "raw": "(D) 2", "group": null}
+{"uid": "tomato/count/571", "benchmark": "tomato", "task": "count", "gt": "A", "pred": "D", "correct": false, "raw": "(D) 2", "group": null}
+{"uid": "tomato/count/575", "benchmark": "tomato", "task": "count", "gt": "F", "pred": "A", "correct": false, "raw": "A", "group": null}
+{"uid": "tomato/count/579", "benchmark": "tomato", "task": "count", "gt": "C", "pred": "C", "correct": true, "raw": "C", "group": null}
+{"uid": "tomato/count/583", "benchmark": "tomato", "task": "count", "gt": "B", "pred": "A", "correct": false, "raw": "(A) 4", "group": null}
+{"uid": "tomato/count/587", "benchmark": "tomato", "task": "count", "gt": "B", "pred": "B", "correct": true, "raw": "B", "group": null}
+{"uid": "tomato/count/591", "benchmark": "tomato", "task": "count", "gt": "E", "pred": "D", "correct": false, "raw": "(D) 4", "group": null}
+{"uid": "tomato/count/595", "benchmark": "tomato", "task": "count", "gt": "E", "pred": "B", "correct": false, "raw": "B", "group": null}
+{"uid": "tomato/count/599", "benchmark": "tomato", "task": "count", "gt": "D", "pred": "D", "correct": true, "raw": "(D) 3", "group": null}
+{"uid": "tomato/count/603", "benchmark": "tomato", "task": "count", "gt": "A", "pred": "A", "correct": true, "raw": "A", "group": null}
+{"uid": "tomato/count/607", "benchmark": "tomato", "task": "count", "gt": "D", "pred": "C", "correct": false, "raw": "(C) 3", "group": null}
+{"uid": "tomato/count/611", "benchmark": "tomato", "task": "count", "gt": "A", "pred": "B", "correct": false, "raw": "B", "group": null}
+{"uid": "tomato/count/615", "benchmark": "tomato", "task": "count", "gt": "E", "pred": "E", "correct": true, "raw": "E", "group": null}
+{"uid": "tomato/count/619", "benchmark": "tomato", "task": "count", "gt": "E", "pred": "D", "correct": false, "raw": "D", "group": null}
+{"uid": "tomato/count/623", "benchmark": "tomato", "task": "count", "gt": "B", "pred": "C", "correct": false, "raw": "(C) 2", "group": null}
+{"uid": "tomato/count/627", "benchmark": "tomato", "task": "count", "gt": "E", "pred": "B", "correct": false, "raw": "B", "group": null}
+{"uid": "tomato/count/631", "benchmark": "tomato", "task": "count", "gt": "A", "pred": "C", "correct": false, "raw": "(C) 4", "group": null}
+{"uid": "tomato/count/635", "benchmark": "tomato", "task": "count", "gt": "D", "pred": "B", "correct": false, "raw": "B", "group": null}
+{"uid": "tomato/count/639", "benchmark": "tomato", "task": "count", "gt": "D", "pred": "E", "correct": false, "raw": "(E) 3", "group": null}
+{"uid": "tomato/count/643", "benchmark": "tomato", "task": "count", "gt": "E", "pred": "B", "correct": false, "raw": "B", "group": null}
+{"uid": "tomato/count/647", "benchmark": "tomato", "task": "count", "gt": "E", "pred": "D", "correct": false, "raw": "(D) 2", "group": null}
+{"uid": "tomato/count/651", "benchmark": "tomato", "task": "count", "gt": "A", "pred": "C", "correct": false, "raw": "(C) 3", "group": null}
+{"uid": "tomato/count/655", "benchmark": "tomato", "task": "count", "gt": "B", "pred": "C", "correct": false, "raw": "C", "group": null}
+{"uid": "tomato/count/659", "benchmark": "tomato", "task": "count", "gt": "A", "pred": "D", "correct": false, "raw": "D", "group": null}
+{"uid": "tomato/count/663", "benchmark": "tomato", "task": "count", "gt": "A", "pred": "E", "correct": false, "raw": "E", "group": null}
+{"uid": "tomato/count/667", "benchmark": "tomato", "task": "count", "gt": "D", "pred": "C", "correct": false, "raw": "C", "group": null}
+{"uid": "tomato/count/671", "benchmark": "tomato", "task": "count", "gt": "D", "pred": "A", "correct": false, "raw": "A", "group": null}
+{"uid": "tomato/count/675", "benchmark": "tomato", "task": "count", "gt": "C", "pred": "E", "correct": false, "raw": "(E) 0", "group": null}
+{"uid": "tomato/count/679", "benchmark": "tomato", "task": "count", "gt": "B", "pred": "A", "correct": false, "raw": "(A) 0", "group": null}
+{"uid": "tomato/count/683", "benchmark": "tomato", "task": "count", "gt": "D", "pred": "B", "correct": false, "raw": "(B) 3", "group": null}
+{"uid": "tomato/count/687", "benchmark": "tomato", "task": "count", "gt": "A", "pred": "D", "correct": false, "raw": "(D) 0", "group": null}
+{"uid": "tomato/count/691", "benchmark": "tomato", "task": "count", "gt": "C", "pred": "A", "correct": false, "raw": "(A) 3", "group": null}
+{"uid": "tomato/rotation/695", "benchmark": "tomato", "task": "rotation", "gt": "D", "pred": "C", "correct": false, "raw": "C", "group": null}
+{"uid": "tomato/rotation/699", "benchmark": "tomato", "task": "rotation", "gt": "E", "pred": "B", "correct": false, "raw": "B", "group": null}
+{"uid": "tomato/rotation/703", "benchmark": "tomato", "task": "rotation", "gt": "C", "pred": "E", "correct": false, "raw": "E", "group": null}
+{"uid": "tomato/rotation/707", "benchmark": "tomato", "task": "rotation", "gt": "B", "pred": "E", "correct": false, "raw": "E", "group": null}
+{"uid": "tomato/rotation/711", "benchmark": "tomato", "task": "rotation", "gt": "A", "pred": "C", "correct": false, "raw": "C", "group": null}
+{"uid": "tomato/rotation/715", "benchmark": "tomato", "task": "rotation", "gt": "C", "pred": "B", "correct": false, "raw": "B", "group": null}
+{"uid": "tomato/rotation/719", "benchmark": "tomato", "task": "rotation", "gt": "C", "pred": "A", "correct": false, "raw": "A", "group": null}
+{"uid": "tomato/rotation/723", "benchmark": "tomato", "task": "rotation", "gt": "B", "pred": "B", "correct": true, "raw": "B", "group": null}
+{"uid": "tomato/rotation/727", "benchmark": "tomato", "task": "rotation", "gt": "D", "pred": "C", "correct": false, "raw": "C", "group": null}
+{"uid": "tomato/rotation/731", "benchmark": "tomato", "task": "rotation", "gt": "A", "pred": "C", "correct": false, "raw": "C", "group": null}
+{"uid": "tomato/rotation/735", "benchmark": "tomato", "task": "rotation", "gt": "A", "pred": "C", "correct": false, "raw": "(C) Clockwise then counter-clockwise.", "group": null}
+{"uid": "tomato/rotation/739", "benchmark": "tomato", "task": "rotation", "gt": "D", "pred": "A", "correct": false, "raw": "A", "group": null}
+{"uid": "tomato/rotation/743", "benchmark": "tomato", "task": "rotation", "gt": "E", "pred": "D", "correct": false, "raw": "(D) Counter-clockwise throughout.", "group": null}
+{"uid": "tomato/rotation/747", "benchmark": "tomato", "task": "rotation", "gt": "E", "pred": "C", "correct": false, "raw": "(C) Clockwise throughout.", "group": null}
+{"uid": "tomato/rotation/751", "benchmark": "tomato", "task": "rotation", "gt": "C", "pred": "B", "correct": false, "raw": "B", "group": null}
+{"uid": "tomato/rotation/755", "benchmark": "tomato", "task": "rotation", "gt": "D", "pred": "B", "correct": false, "raw": "B", "group": null}
+{"uid": "tomato/rotation/759", "benchmark": "tomato", "task": "rotation", "gt": "B", "pred": "B", "correct": true, "raw": "B", "group": null}
+{"uid": "tomato/rotation/763", "benchmark": "tomato", "task": "rotation", "gt": "A", "pred": "E", "correct": false, "raw": "E", "group": null}
+{"uid": "tomato/rotation/767", "benchmark": "tomato", "task": "rotation", "gt": "D", "pred": "D", "correct": true, "raw": "(D) Counter-clockwise throughout.", "group": null}
+{"uid": "tomato/rotation/771", "benchmark": "tomato", "task": "rotation", "gt": "B", "pred": "E", "correct": false, "raw": "E", "group": null}
+{"uid": "tomato/rotation/775", "benchmark": "tomato", "task": "rotation", "gt": "C", "pred": "C", "correct": true, "raw": "(C) Clockwise throughout.", "group": null}
+{"uid": "tomato/rotation/779", "benchmark": "tomato", "task": "rotation", "gt": "C", "pred": "B", "correct": false, "raw": "(B) Clockwise throughout.", "group": null}
+{"uid": "tomato/rotation/783", "benchmark": "tomato", "task": "rotation", "gt": "B", "pred": "C", "correct": false, "raw": "(C) Clockwise then counter-clockwise.", "group": null}
+{"uid": "tomato/rotation/787", "benchmark": "tomato", "task": "rotation", "gt": "B", "pred": "A", "correct": false, "raw": "(A) Clockwise throughout.", "group": null}
+{"uid": "tomato/rotation/791", "benchmark": "tomato", "task": "rotation", "gt": "D", "pred": "B", "correct": false, "raw": "B", "group": null}
+{"uid": "tomato/rotation/795", "benchmark": "tomato", "task": "rotation", "gt": "B", "pred": "D", "correct": false, "raw": "(D) Clockwise then counter-clockwise.", "group": null}
+{"uid": "tomato/rotation/799", "benchmark": "tomato", "task": "rotation", "gt": "C", "pred": "E", "correct": false, "raw": "(E) Counter-clockwise throughout.", "group": null}
+{"uid": "tomato/rotation/803", "benchmark": "tomato", "task": "rotation", "gt": "A", "pred": "A", "correct": true, "raw": "A", "group": null}
+{"uid": "tomato/rotation/807", "benchmark": "tomato", "task": "rotation", "gt": "B", "pred": "A", "correct": false, "raw": "(A) Clockwise then counter-clockwise.", "group": null}
+{"uid": "tomato/rotation/811", "benchmark": "tomato", "task": "rotation", "gt": "C", "pred": "E", "correct": false, "raw": "E", "group": null}
+{"uid": "tomato/rotation/815", "benchmark": "tomato", "task": "rotation", "gt": "E", "pred": "B", "correct": false, "raw": "B", "group": null}
+{"uid": "tomato/rotation/819", "benchmark": "tomato", "task": "rotation", "gt": "B", "pred": "E", "correct": false, "raw": "E", "group": null}
+{"uid": "tomato/rotation/823", "benchmark": "tomato", "task": "rotation", "gt": "C", "pred": "B", "correct": false, "raw": "B", "group": null}
+{"uid": "tomato/rotation/827", "benchmark": "tomato", "task": "rotation", "gt": "A", "pred": "C", "correct": false, "raw": "(C) Counter-clockwise throughout.", "group": null}
+{"uid": "tomato/rotation/831", "benchmark": "tomato", "task": "rotation", "gt": "B", "pred": "B", "correct": true, "raw": "B", "group": null}
+{"uid": "tomato/rotation/835", "benchmark": "tomato", "task": "rotation", "gt": "E", "pred": "C", "correct": false, "raw": "C", "group": null}
+{"uid": "tomato/rotation/839", "benchmark": "tomato", "task": "rotation", "gt": "C", "pred": "C", "correct": true, "raw": "C", "group": null}
+{"uid": "tomato/rotation/843", "benchmark": "tomato", "task": "rotation", "gt": "A", "pred": "B", "correct": false, "raw": "B", "group": null}
+{"uid": "tomato/rotation/847", "benchmark": "tomato", "task": "rotation", "gt": "B", "pred": "C", "correct": false, "raw": "C", "group": null}
+{"uid": "tomato/rotation/851", "benchmark": "tomato", "task": "rotation", "gt": "B", "pred": "D", "correct": false, "raw": "(D) Counter-clockwise throughout.", "group": null}
+{"uid": "tomato/rotation/855", "benchmark": "tomato", "task": "rotation", "gt": "C", "pred": "A", "correct": false, "raw": "A", "group": null}
+{"uid": "tomato/rotation/859", "benchmark": "tomato", "task": "rotation", "gt": "E", "pred": "C", "correct": false, "raw": "(C) Counter-clockwise throughout.", "group": null}
+{"uid": "tomato/rotation/863", "benchmark": "tomato", "task": "rotation", "gt": "B", "pred": "E", "correct": false, "raw": "(E) Clockwise throughout.", "group": null}
+{"uid": "tomato/rotation/867", "benchmark": "tomato", "task": "rotation", "gt": "E", "pred": "A", "correct": false, "raw": "(A) Clockwise throughout.", "group": null}
+{"uid": "tomato/rotation/871", "benchmark": "tomato", "task": "rotation", "gt": "D", "pred": "C", "correct": false, "raw": "(C) Clockwise throughout.", "group": null}
+{"uid": "tomato/rotation/875", "benchmark": "tomato", "task": "rotation", "gt": "C", "pred": "B", "correct": false, "raw": "B", "group": null}
+{"uid": "tomato/rotation/879", "benchmark": "tomato", "task": "rotation", "gt": "A", "pred": "E", "correct": false, "raw": "E", "group": null}
+{"uid": "tomato/rotation/883", "benchmark": "tomato", "task": "rotation", "gt": "C", "pred": "C", "correct": true, "raw": "C", "group": null}
+{"uid": "tomato/rotation/887", "benchmark": "tomato", "task": "rotation", "gt": "A", "pred": "D", "correct": false, "raw": "D", "group": null}
+{"uid": "tomato/rotation/891", "benchmark": "tomato", "task": "rotation", "gt": "E", "pred": "C", "correct": false, "raw": "C", "group": null}
+{"uid": "tomato/rotation/895", "benchmark": "tomato", "task": "rotation", "gt": "E", "pred": "A", "correct": false, "raw": "A", "group": null}
+{"uid": "tomato/rotation/899", "benchmark": "tomato", "task": "rotation", "gt": "A", "pred": "C", "correct": false, "raw": "C", "group": null}
+{"uid": "tomato/rotation/903", "benchmark": "tomato", "task": "rotation", "gt": "B", "pred": "E", "correct": false, "raw": "(E) Clockwise throughout.", "group": null}
+{"uid": "tomato/rotation/907", "benchmark": "tomato", "task": "rotation", "gt": "C", "pred": "D", "correct": false, "raw": "(D) Clockwise throughout.", "group": null}
+{"uid": "tomato/rotation/911", "benchmark": "tomato", "task": "rotation", "gt": "D", "pred": "A", "correct": false, "raw": "A", "group": null}
+{"uid": "tomato/rotation/915", "benchmark": "tomato", "task": "rotation", "gt": "D", "pred": "C", "correct": false, "raw": "(C) Clockwise then counter-clockwise.", "group": null}
+{"uid": "tomato/rotation/919", "benchmark": "tomato", "task": "rotation", "gt": "B", "pred": "A", "correct": false, "raw": "A", "group": null}
+{"uid": "tomato/rotation/923", "benchmark": "tomato", "task": "rotation", "gt": "D", "pred": "E", "correct": false, "raw": "(E) Clockwise then counter-clockwise.", "group": null}
+{"uid": "tomato/rotation/927", "benchmark": "tomato", "task": "rotation", "gt": "C", "pred": "C", "correct": true, "raw": "(C) Counter-clockwise then clockwise.", "group": null}
+{"uid": "tomato/rotation/931", "benchmark": "tomato", "task": "rotation", "gt": "E", "pred": "E", "correct": true, "raw": "(E) Clockwise then counter-clockwise.", "group": null}
+{"uid": "tomato/rotation/935", "benchmark": "tomato", "task": "rotation", "gt": "D", "pred": "B", "correct": false, "raw": "(B) Clockwise then counter-clockwise.", "group": null}
+{"uid": "tomato/rotation/939", "benchmark": "tomato", "task": "rotation", "gt": "C", "pred": "E", "correct": false, "raw": "E", "group": null}
+{"uid": "tomato/rotation/943", "benchmark": "tomato", "task": "rotation", "gt": "B", "pred": "D", "correct": false, "raw": "(D) Clockwise throughout.", "group": null}
+{"uid": "tomato/rotation/947", "benchmark": "tomato", "task": "rotation", "gt": "B", "pred": "C", "correct": false, "raw": "C", "group": null}
+{"uid": "tomato/rotation/951", "benchmark": "tomato", "task": "rotation", "gt": "D", "pred": "E", "correct": false, "raw": "(E) Clockwise then counter-clockwise.", "group": null}
+{"uid": "tomato/rotation/955", "benchmark": "tomato", "task": "rotation", "gt": "D", "pred": "E", "correct": false, "raw": "(E) Clockwise then counter-clockwise.", "group": null}
+{"uid": "tomato/rotation/959", "benchmark": "tomato", "task": "rotation", "gt": "D", "pred": "E", "correct": false, "raw": "E", "group": null}
+{"uid": "tomato/rotation/963", "benchmark": "tomato", "task": "rotation", "gt": "E", "pred": "D", "correct": false, "raw": "D", "group": null}
+{"uid": "tomato/rotation/967", "benchmark": "tomato", "task": "rotation", "gt": "B", "pred": "E", "correct": false, "raw": "(E) Counter-clockwise then clockwise.", "group": null}
+{"uid": "tomato/rotation/971", "benchmark": "tomato", "task": "rotation", "gt": "C", "pred": "C", "correct": true, "raw": "C", "group": null}
+{"uid": "tomato/rotation/975", "benchmark": "tomato", "task": "rotation", "gt": "B", "pred": "D", "correct": false, "raw": "D", "group": null}
+{"uid": "tomato/rotation/979", "benchmark": "tomato", "task": "rotation", "gt": "E", "pred": "C", "correct": false, "raw": "(C) Counter-clockwise then clockwise.", "group": null}
+{"uid": "tomato/shape&trend/983", "benchmark": "tomato", "task": "shape&trend", "gt": "B", "pred": "C", "correct": false, "raw": "C", "group": null}
+{"uid": "tomato/shape&trend/987", "benchmark": "tomato", "task": "shape&trend", "gt": "A", "pred": "D", "correct": false, "raw": "(D) Triangle.", "group": null}
+{"uid": "tomato/shape&trend/991", "benchmark": "tomato", "task": "shape&trend", "gt": "D", "pred": "E", "correct": false, "raw": "(E) Triangle.", "group": null}
+{"uid": "tomato/shape&trend/995", "benchmark": "tomato", "task": "shape&trend", "gt": "A", "pred": "B", "correct": false, "raw": "B", "group": null}
+{"uid": "tomato/shape&trend/999", "benchmark": "tomato", "task": "shape&trend", "gt": "E", "pred": "E", "correct": true, "raw": "E", "group": null}
+{"uid": "tomato/shape&trend/1003", "benchmark": "tomato", "task": "shape&trend", "gt": "C", "pred": "C", "correct": true, "raw": "(C) Circle.", "group": null}
+{"uid": "tomato/shape&trend/1007", "benchmark": "tomato", "task": "shape&trend", "gt": "C", "pred": "C", "correct": true, "raw": "(C) Moving Up then Down.", "group": null}
+{"uid": "tomato/shape&trend/1011", "benchmark": "tomato", "task": "shape&trend", "gt": "B", "pred": "B", "correct": true, "raw": "(B) Moving Left.", "group": null}
+{"uid": "tomato/shape&trend/1015", "benchmark": "tomato", "task": "shape&trend", "gt": "D", "pred": "A", "correct": false, "raw": "(A) Moving Up then Down.", "group": null}
+{"uid": "tomato/shape&trend/1019", "benchmark": "tomato", "task": "shape&trend", "gt": "D", "pred": "B", "correct": false, "raw": "(B) Moving Up then Down.", "group": null}
+{"uid": "tomato/shape&trend/1023", "benchmark": "tomato", "task": "shape&trend", "gt": "C", "pred": "A", "correct": false, "raw": "(A) Moving Right then Left", "group": null}
+{"uid": "tomato/shape&trend/1027", "benchmark": "tomato", "task": "shape&trend", "gt": "E", "pred": "B", "correct": false, "raw": "B", "group": null}
+{"uid": "tomato/shape&trend/1031", "benchmark": "tomato", "task": "shape&trend", "gt": "C", "pred": "C", "correct": true, "raw": "(C) Moving Up then Down.", "group": null}
+{"uid": "tomato/shape&trend/1035", "benchmark": "tomato", "task": "shape&trend", "gt": "D", "pred": "D", "correct": true, "raw": "(D) Moving Right.", "group": null}
+{"uid": "tomato/shape&trend/1039", "benchmark": "tomato", "task": "shape&trend", "gt": "A", "pred": "B", "correct": false, "raw": "(B) Circle.", "group": null}
+{"uid": "tomato/shape&trend/1043", "benchmark": "tomato", "task": "shape&trend", "gt": "B", "pred": "C", "correct": false, "raw": "(C) Circle.", "group": null}
+{"uid": "tomato/shape&trend/1047", "benchmark": "tomato", "task": "shape&trend", "gt": "C", "pred": "D", "correct": false, "raw": "(D) Triangle.", "group": null}
+{"uid": "tomato/shape&trend/1051", "benchmark": "tomato", "task": "shape&trend", "gt": "A", "pred": "C", "correct": false, "raw": "(C) Moving Right then Left", "group": null}
+{"uid": "tomato/shape&trend/1055", "benchmark": "tomato", "task": "shape&trend", "gt": "E", "pred": "E", "correct": true, "raw": "(E) Moving Up.", "group": null}
+{"uid": "tomato/shape&trend/1059", "benchmark": "tomato", "task": "shape&trend", "gt": "A", "pred": "B", "correct": false, "raw": "B", "group": null}
+{"uid": "tomato/shape&trend/1063", "benchmark": "tomato", "task": "shape&trend", "gt": "B", "pred": "D", "correct": false, "raw": "(D) Moving Up then Down.", "group": null}
+{"uid": "tomato/shape&trend/1067", "benchmark": "tomato", "task": "shape&trend", "gt": "D", "pred": "D", "correct": true, "raw": "(D) Circle.", "group": null}
+{"uid": "tomato/shape&trend/1071", "benchmark": "tomato", "task": "shape&trend", "gt": "A", "pred": "F", "correct": false, "raw": "(F) Circle.", "group": null}
+{"uid": "tomato/shape&trend/1075", "benchmark": "tomato", "task": "shape&trend", "gt": "F", "pred": "E", "correct": false, "raw": "(E) Diamond.", "group": null}
+{"uid": "tomato/shape&trend/1079", "benchmark": "tomato", "task": "shape&trend", "gt": "A", "pred": "F", "correct": false, "raw": "(F) Circle.", "group": null}
+{"uid": "tomato/shape&trend/1083", "benchmark": "tomato", "task": "shape&trend", "gt": "A", "pred": "A", "correct": true, "raw": "(A) Moving Up then Down.", "group": null}
+{"uid": "tomato/shape&trend/1087", "benchmark": "tomato", "task": "shape&trend", "gt": "B", "pred": "D", "correct": false, "raw": "(D) Moving Up then Down.", "group": null}
+{"uid": "tomato/shape&trend/1091", "benchmark": "tomato", "task": "shape&trend", "gt": "A", "pred": "A", "correct": true, "raw": "(A) Moving Up then Down.", "group": null}
+{"uid": "tomato/shape&trend/1095", "benchmark": "tomato", "task": "shape&trend", "gt": "B", "pred": "D", "correct": false, "raw": "(D) Moving Up then Down.", "group": null}
+{"uid": "tomato/shape&trend/1099", "benchmark": "tomato", "task": "shape&trend", "gt": "A", "pred": "D", "correct": false, "raw": "(D) Circle.", "group": null}
+{"uid": "tomato/shape&trend/1103", "benchmark": "tomato", "task": "shape&trend", "gt": "D", "pred": "C", "correct": false, "raw": "(C) Triangle.", "group": null}
+{"uid": "tomato/shape&trend/1107", "benchmark": "tomato", "task": "shape&trend", "gt": "B", "pred": "B", "correct": true, "raw": "(B) Triangle.", "group": null}
+{"uid": "tomato/shape&trend/1111", "benchmark": "tomato", "task": "shape&trend", "gt": "C", "pred": "E", "correct": false, "raw": "(E) Triangle.", "group": null}
+{"uid": "tomato/shape&trend/1115", "benchmark": "tomato", "task": "shape&trend", "gt": "B", "pred": "D", "correct": false, "raw": "(D) Triangle.", "group": null}
+{"uid": "tomato/shape&trend/1119", "benchmark": "tomato", "task": "shape&trend", "gt": "C", "pred": "F", "correct": false, "raw": "(F) Triangle.", "group": null}
+{"uid": "tomato/shape&trend/1123", "benchmark": "tomato", "task": "shape&trend", "gt": "E", "pred": "F", "correct": false, "raw": "(F) Triangle.", "group": null}
+{"uid": "tomato/shape&trend/1127", "benchmark": "tomato", "task": "shape&trend", "gt": "A", "pred": "C", "correct": false, "raw": "(C) Triangle.", "group": null}
+{"uid": "tomato/shape&trend/1131", "benchmark": "tomato", "task": "shape&trend", "gt": "D", "pred": "C", "correct": false, "raw": "(C) Triangle.", "group": null}
+{"uid": "tomato/shape&trend/1135", "benchmark": "tomato", "task": "shape&trend", "gt": "E", "pred": "B", "correct": false, "raw": "(B) Circle.", "group": null}
+{"uid": "tomato/shape&trend/1139", "benchmark": "tomato", "task": "shape&trend", "gt": "D", "pred": "A", "correct": false, "raw": "(A) Circle.", "group": null}
+{"uid": "tomato/shape&trend/1143", "benchmark": "tomato", "task": "shape&trend", "gt": "C", "pred": "C", "correct": true, "raw": "(C) Eight-shape.", "group": null}
+{"uid": "tomato/shape&trend/1147", "benchmark": "tomato", "task": "shape&trend", "gt": "C", "pred": "C", "correct": true, "raw": "(C) Moving Right.", "group": null}
+{"uid": "tomato/shape&trend/1151", "benchmark": "tomato", "task": "shape&trend", "gt": "A", "pred": "A", "correct": true, "raw": "A", "group": null}
+{"uid": "tomato/shape&trend/1155", "benchmark": "tomato", "task": "shape&trend", "gt": "B", "pred": "A", "correct": false, "raw": "(A) Diamond.", "group": null}
+{"uid": "tomato/shape&trend/1159", "benchmark": "tomato", "task": "shape&trend", "gt": "E", "pred": "E", "correct": true, "raw": "(E) Diamond.", "group": null}
+{"uid": "tomato/shape&trend/1163", "benchmark": "tomato", "task": "shape&trend", "gt": "B", "pred": "D", "correct": false, "raw": "(D) Square/rectangle.", "group": null}
+{"uid": "tomato/shape&trend/1167", "benchmark": "tomato", "task": "shape&trend", "gt": "B", "pred": "D", "correct": false, "raw": "(D) Circle.", "group": null}
+{"uid": "tomato/shape&trend/1171", "benchmark": "tomato", "task": "shape&trend", "gt": "C", "pred": "B", "correct": false, "raw": "(B) Right then Left.", "group": null}
+{"uid": "tomato/shape&trend/1175", "benchmark": "tomato", "task": "shape&trend", "gt": "B", "pred": "B", "correct": true, "raw": "(B) Infinity-shape.", "group": null}
+{"uid": "tomato/shape&trend/1179", "benchmark": "tomato", "task": "shape&trend", "gt": "B", "pred": "C", "correct": false, "raw": "(C) Circle.", "group": null}
+{"uid": "tomato/shape&trend/1183", "benchmark": "tomato", "task": "shape&trend", "gt": "B", "pred": "A", "correct": false, "raw": "(A) Moving Up.", "group": null}
+{"uid": "tomato/shape&trend/1187", "benchmark": "tomato", "task": "shape&trend", "gt": "B", "pred": "B", "correct": true, "raw": "(B) Moving Down.", "group": null}
+{"uid": "tomato/shape&trend/1191", "benchmark": "tomato", "task": "shape&trend", "gt": "C", "pred": "C", "correct": true, "raw": "(C) Moving Left.", "group": null}
+{"uid": "tomato/shape&trend/1195", "benchmark": "tomato", "task": "shape&trend", "gt": "E", "pred": "B", "correct": false, "raw": "(B) Moving Left then Right.", "group": null}
+{"uid": "tomato/shape&trend/1199", "benchmark": "tomato", "task": "shape&trend", "gt": "A", "pred": "B", "correct": false, "raw": "(B) Moving Right then Left", "group": null}
+{"uid": "tomato/shape&trend/1203", "benchmark": "tomato", "task": "shape&trend", "gt": "E", "pred": "E", "correct": true, "raw": "(E) Moving Down then Up", "group": null}
+{"uid": "tomato/velocity&frequency/1207", "benchmark": "tomato", "task": "velocity&frequency", "gt": "A", "pred": "C", "correct": false, "raw": "(C) Constant speed.", "group": null}
+{"uid": "tomato/velocity&frequency/1211", "benchmark": "tomato", "task": "velocity&frequency", "gt": "B", "pred": "A", "correct": false, "raw": "A", "group": null}
+{"uid": "tomato/velocity&frequency/1215", "benchmark": "tomato", "task": "velocity&frequency", "gt": "B", "pred": "C", "correct": false, "raw": "(C) Remains Constant.", "group": null}
+{"uid": "tomato/velocity&frequency/1219", "benchmark": "tomato", "task": "velocity&frequency", "gt": "D", "pred": "B", "correct": false, "raw": "(B) Constant speed.", "group": null}
+{"uid": "tomato/velocity&frequency/1223", "benchmark": "tomato", "task": "velocity&frequency", "gt": "B", "pred": "A", "correct": false, "raw": "(A) Constant speed.", "group": null}
+{"uid": "tomato/velocity&frequency/1227", "benchmark": "tomato", "task": "velocity&frequency", "gt": "D", "pred": "C", "correct": false, "raw": "(C) Increasing gradually.", "group": null}
+{"uid": "tomato/velocity&frequency/1231", "benchmark": "tomato", "task": "velocity&frequency", "gt": "C", "pred": "D", "correct": false, "raw": "(D) Increasing gradually.", "group": null}
+{"uid": "tomato/velocity&frequency/1235", "benchmark": "tomato", "task": "velocity&frequency", "gt": "A", "pred": "A", "correct": true, "raw": "(A) Decreasing gradually.", "group": null}
+{"uid": "tomato/velocity&frequency/1239", "benchmark": "tomato", "task": "velocity&frequency", "gt": "D", "pred": "E", "correct": false, "raw": "(E) Remains Constant.", "group": null}
+{"uid": "tomato/velocity&frequency/1243", "benchmark": "tomato", "task": "velocity&frequency", "gt": "A", "pred": "A", "correct": true, "raw": "(A) Decelerating.", "group": null}
+{"uid": "tomato/velocity&frequency/1247", "benchmark": "tomato", "task": "velocity&frequency", "gt": "C", "pred": "B", "correct": false, "raw": "(B) Constant speed.", "group": null}
+{"uid": "tomato/velocity&frequency/1251", "benchmark": "tomato", "task": "velocity&frequency", "gt": "D", "pred": "D", "correct": true, "raw": "(D) Accelerating.", "group": null}
+{"uid": "tomato/velocity&frequency/1255", "benchmark": "tomato", "task": "velocity&frequency", "gt": "C", "pred": "D", "correct": false, "raw": "(D) Constant speed.", "group": null}
+{"uid": "tomato/velocity&frequency/1259", "benchmark": "tomato", "task": "velocity&frequency", "gt": "C", "pred": "D", "correct": false, "raw": "(D) Constant speed.", "group": null}
+{"uid": "tomato/velocity&frequency/1263", "benchmark": "tomato", "task": "velocity&frequency", "gt": "A", "pred": "A", "correct": true, "raw": "(A) Decelerating.", "group": null}
+{"uid": "tomato/velocity&frequency/1267", "benchmark": "tomato", "task": "velocity&frequency", "gt": "C", "pred": "C", "correct": true, "raw": "(C) Accelerating.", "group": null}
+{"uid": "tomato/velocity&frequency/1271", "benchmark": "tomato", "task": "velocity&frequency", "gt": "C", "pred": "A", "correct": false, "raw": "(A) Constant speed.", "group": null}
+{"uid": "tomato/velocity&frequency/1275", "benchmark": "tomato", "task": "velocity&frequency", "gt": "B", "pred": "D", "correct": false, "raw": "(D) Constant speed.", "group": null}
+{"uid": "tomato/velocity&frequency/1279", "benchmark": "tomato", "task": "velocity&frequency", "gt": "B", "pred": "B", "correct": true, "raw": "(B) Decelerating.", "group": null}
+{"uid": "tomato/velocity&frequency/1283", "benchmark": "tomato", "task": "velocity&frequency", "gt": "C", "pred": "C", "correct": true, "raw": "(C) Constant speed.", "group": null}
+{"uid": "tomato/velocity&frequency/1287", "benchmark": "tomato", "task": "velocity&frequency", "gt": "D", "pred": "B", "correct": false, "raw": "(B) Accelerating.", "group": null}
+{"uid": "tomato/velocity&frequency/1291", "benchmark": "tomato", "task": "velocity&frequency", "gt": "B", "pred": "C", "correct": false, "raw": "(C) Constant speed.", "group": null}
+{"uid": "tomato/velocity&frequency/1295", "benchmark": "tomato", "task": "velocity&frequency", "gt": "B", "pred": "B", "correct": true, "raw": "(B) Accelerating.", "group": null}
+{"uid": "tomato/velocity&frequency/1299", "benchmark": "tomato", "task": "velocity&frequency", "gt": "D", "pred": "C", "correct": false, "raw": "(C) Constant speed.", "group": null}
+{"uid": "tomato/velocity&frequency/1303", "benchmark": "tomato", "task": "velocity&frequency", "gt": "C", "pred": "B", "correct": false, "raw": "(B) Constant speed.", "group": null}
+{"uid": "tomato/velocity&frequency/1307", "benchmark": "tomato", "task": "velocity&frequency", "gt": "B", "pred": "A", "correct": false, "raw": "(A) Constant speed.", "group": null}
+{"uid": "tomato/velocity&frequency/1311", "benchmark": "tomato", "task": "velocity&frequency", "gt": "D", "pred": "A", "correct": false, "raw": "(A) Constant speed.", "group": null}
+{"uid": "tomato/velocity&frequency/1315", "benchmark": "tomato", "task": "velocity&frequency", "gt": "C", "pred": "A", "correct": false, "raw": "(A) Constant speed.", "group": null}
+{"uid": "tomato/velocity&frequency/1319", "benchmark": "tomato", "task": "velocity&frequency", "gt": "B", "pred": "C", "correct": false, "raw": "(C) Constant speed.", "group": null}
+{"uid": "tomato/velocity&frequency/1323", "benchmark": "tomato", "task": "velocity&frequency", "gt": "B", "pred": "D", "correct": false, "raw": "(D) Accelerating.", "group": null}
+{"uid": "tomato/velocity&frequency/1327", "benchmark": "tomato", "task": "velocity&frequency", "gt": "D", "pred": "A", "correct": false, "raw": "(A) Accelerating.", "group": null}
+{"uid": "tomato/velocity&frequency/1331", "benchmark": "tomato", "task": "velocity&frequency", "gt": "B", "pred": "A", "correct": false, "raw": "(A) Accelerating.", "group": null}
+{"uid": "tomato/velocity&frequency/1335", "benchmark": "tomato", "task": "velocity&frequency", "gt": "D", "pred": "B", "correct": false, "raw": "(B) Constant speed.", "group": null}
+{"uid": "tomato/velocity&frequency/1339", "benchmark": "tomato", "task": "velocity&frequency", "gt": "A", "pred": "D", "correct": false, "raw": "(D) Constant speed.", "group": null}
+{"uid": "tomato/velocity&frequency/1343", "benchmark": "tomato", "task": "velocity&frequency", "gt": "A", "pred": "D", "correct": false, "raw": "(D) Constant speed.", "group": null}
+{"uid": "tomato/velocity&frequency/1347", "benchmark": "tomato", "task": "velocity&frequency", "gt": "A", "pred": "D", "correct": false, "raw": "(D) Constant speed.", "group": null}
+{"uid": "tomato/velocity&frequency/1351", "benchmark": "tomato", "task": "velocity&frequency", "gt": "A", "pred": "D", "correct": false, "raw": "(D) Constant speed.", "group": null}
+{"uid": "tomato/velocity&frequency/1355", "benchmark": "tomato", "task": "velocity&frequency", "gt": "D", "pred": "A", "correct": false, "raw": "(A) Constant speed.", "group": null}
+{"uid": "tomato/velocity&frequency/1359", "benchmark": "tomato", "task": "velocity&frequency", "gt": "B", "pred": "B", "correct": true, "raw": "(B) Accelerating.", "group": null}
+{"uid": "tomato/velocity&frequency/1363", "benchmark": "tomato", "task": "velocity&frequency", "gt": "D", "pred": "C", "correct": false, "raw": "(C) Constant speed.", "group": null}
+{"uid": "tomato/velocity&frequency/1367", "benchmark": "tomato", "task": "velocity&frequency", "gt": "C", "pred": "D", "correct": false, "raw": "(D) Constant speed.", "group": null}
+{"uid": "tomato/velocity&frequency/1371", "benchmark": "tomato", "task": "velocity&frequency", "gt": "C", "pred": "B", "correct": false, "raw": "B", "group": null}
+{"uid": "tomato/velocity&frequency/1375", "benchmark": "tomato", "task": "velocity&frequency", "gt": "A", "pred": "A", "correct": true, "raw": "(A) Constant speed.", "group": null}
+{"uid": "tomato/velocity&frequency/1379", "benchmark": "tomato", "task": "velocity&frequency", "gt": "D", "pred": "D", "correct": true, "raw": "(D) Constant speed.", "group": null}
+{"uid": "tomato/velocity&frequency/1383", "benchmark": "tomato", "task": "velocity&frequency", "gt": "C", "pred": "C", "correct": true, "raw": "(C)", "group": null}
+{"uid": "tomato/velocity&frequency/1387", "benchmark": "tomato", "task": "velocity&frequency", "gt": "C", "pred": "B", "correct": false, "raw": "(B) Accelerating.", "group": null}
+{"uid": "tomato/velocity&frequency/1391", "benchmark": "tomato", "task": "velocity&frequency", "gt": "D", "pred": "D", "correct": true, "raw": "(D) Constant speed.", "group": null}
+{"uid": "tomato/velocity&frequency/1395", "benchmark": "tomato", "task": "velocity&frequency", "gt": "A", "pred": "B", "correct": false, "raw": "B", "group": null}
+{"uid": "tomato/velocity&frequency/1399", "benchmark": "tomato", "task": "velocity&frequency", "gt": "C", "pred": "D", "correct": false, "raw": "(D) Constant speed.", "group": null}
+{"uid": "tomato/velocity&frequency/1403", "benchmark": "tomato", "task": "velocity&frequency", "gt": "A", "pred": "D", "correct": false, "raw": "(D) Constant speed.", "group": null}
+{"uid": "tomato/velocity&frequency/1407", "benchmark": "tomato", "task": "velocity&frequency", "gt": "B", "pred": "A", "correct": false, "raw": "(A) Moving at a constant speed.", "group": null}
+{"uid": "tomato/velocity&frequency/1411", "benchmark": "tomato", "task": "velocity&frequency", "gt": "B", "pred": "C", "correct": false, "raw": "(C) Increasing gradually.", "group": null}
+{"uid": "tomato/visual cues/1415", "benchmark": "tomato", "task": "visual cues", "gt": "D", "pred": "D", "correct": true, "raw": "(D) Piano.", "group": null}
+{"uid": "tomato/visual cues/1419", "benchmark": "tomato", "task": "visual cues", "gt": "C", "pred": "C", "correct": true, "raw": "(C) The right one.", "group": null}
+{"uid": "tomato/visual cues/1423", "benchmark": "tomato", "task": "visual cues", "gt": "B", "pred": "D", "correct": false, "raw": "D", "group": null}
+{"uid": "tomato/visual cues/1427", "benchmark": "tomato", "task": "visual cues", "gt": "B", "pred": "B", "correct": true, "raw": "B", "group": null}
+{"uid": "tomato/visual cues/1431", "benchmark": "tomato", "task": "visual cues", "gt": "D", "pred": "D", "correct": true, "raw": "(D) The left one.", "group": null}
+{"uid": "tomato/visual cues/1435", "benchmark": "tomato", "task": "visual cues", "gt": "A", "pred": "A", "correct": true, "raw": "(A) Flute.", "group": null}
+{"uid": "tomato/visual cues/1439", "benchmark": "tomato", "task": "visual cues", "gt": "A", "pred": "C", "correct": false, "raw": "(C) Pipa.", "group": null}
+{"uid": "tomato/visual cues/1443", "benchmark": "tomato", "task": "visual cues", "gt": "D", "pred": "D", "correct": true, "raw": "(D) Flute.", "group": null}
+{"uid": "tomato/visual cues/1447", "benchmark": "tomato", "task": "visual cues", "gt": "A", "pred": "D", "correct": false, "raw": "(D) Violin.", "group": null}
+{"uid": "tomato/visual cues/1451", "benchmark": "tomato", "task": "visual cues", "gt": "B", "pred": "B", "correct": true, "raw": "(B) Accordion.", "group": null}
+{"uid": "tomato/visual cues/1455", "benchmark": "tomato", "task": "visual cues", "gt": "D", "pred": "D", "correct": true, "raw": "(D) Cello.", "group": null}
+{"uid": "tomato/visual cues/1459", "benchmark": "tomato", "task": "visual cues", "gt": "C", "pred": "C", "correct": true, "raw": "(C) Guitar.", "group": null}
+{"uid": "tomato/visual cues/1463", "benchmark": "tomato", "task": "visual cues", "gt": "A", "pred": "A", "correct": true, "raw": "(A) Flute.", "group": null}
+{"uid": "tomato/visual cues/1467", "benchmark": "tomato", "task": "visual cues", "gt": "B", "pred": "D", "correct": false, "raw": "(D) Ukulele.", "group": null}
+{"uid": "tomato/visual cues/1471", "benchmark": "tomato", "task": "visual cues", "gt": "B", "pred": "A", "correct": false, "raw": "(A) Violin.", "group": null}
+{"uid": "tomato/visual cues/1475", "benchmark": "tomato", "task": "visual cues", "gt": "B", "pred": "A", "correct": false, "raw": "A", "group": null}
+{"uid": "tomato/visual cues/1479", "benchmark": "tomato", "task": "visual cues", "gt": "B", "pred": "C", "correct": false, "raw": "(C) Guitar.", "group": null}
+{"uid": "tomato/visual cues/1483", "benchmark": "tomato", "task": "visual cues", "gt": "D", "pred": "B", "correct": false, "raw": "(B) Saxophone.", "group": null}

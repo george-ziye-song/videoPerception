@@ -1,0 +1,950 @@
+{"uid": "mvbench/action_sequence/3", "benchmark": "mvbench", "task": "action_sequence", "gt": "D", "pred": "D", "correct": true, "raw": "(D) Threw the towel.", "group": null}
+{"uid": "mvbench/action_sequence/7", "benchmark": "mvbench", "task": "action_sequence", "gt": "D", "pred": "D", "correct": true, "raw": "(D) Put down the paper/notebook.", "group": null}
+{"uid": "mvbench/action_sequence/11", "benchmark": "mvbench", "task": "action_sequence", "gt": "A", "pred": "A", "correct": true, "raw": "(A) Tidied up the table.", "group": null}
+{"uid": "mvbench/action_sequence/15", "benchmark": "mvbench", "task": "action_sequence", "gt": "D", "pred": "D", "correct": true, "raw": "(D) Tidied up the blanket.", "group": null}
+{"uid": "mvbench/action_sequence/19", "benchmark": "mvbench", "task": "action_sequence", "gt": "B", "pred": "B", "correct": true, "raw": "(B) Took the paper/notebook.", "group": null}
+{"uid": "mvbench/action_sequence/23", "benchmark": "mvbench", "task": "action_sequence", "gt": "D", "pred": "C", "correct": false, "raw": "(C) Took the food.", "group": null}
+{"uid": "mvbench/action_sequence/27", "benchmark": "mvbench", "task": "action_sequence", "gt": "A", "pred": "A", "correct": true, "raw": "(A) Put down the dish.", "group": null}
+{"uid": "mvbench/action_sequence/31", "benchmark": "mvbench", "task": "action_sequence", "gt": "D", "pred": "D", "correct": true, "raw": "(D) Sat on the sofa/couch.", "group": null}
+{"uid": "mvbench/action_sequence/35", "benchmark": "mvbench", "task": "action_sequence", "gt": "B", "pred": "B", "correct": true, "raw": "(B) Threw the blanket.", "group": null}
+{"uid": "mvbench/action_sequence/39", "benchmark": "mvbench", "task": "action_sequence", "gt": "B", "pred": "B", "correct": true, "raw": "B", "group": null}
+{"uid": "mvbench/action_sequence/43", "benchmark": "mvbench", "task": "action_sequence", "gt": "C", "pred": "D", "correct": false, "raw": "(D) Took the picture.", "group": null}
+{"uid": "mvbench/action_sequence/47", "benchmark": "mvbench", "task": "action_sequence", "gt": "C", "pred": "C", "correct": true, "raw": "(C) Closed the closet/cabinet.", "group": null}
+{"uid": "mvbench/action_sequence/51", "benchmark": "mvbench", "task": "action_sequence", "gt": "B", "pred": "B", "correct": true, "raw": "(B) Took the book.", "group": null}
+{"uid": "mvbench/action_sequence/55", "benchmark": "mvbench", "task": "action_sequence", "gt": "B", "pred": "C", "correct": false, "raw": "(C) Opened the door.", "group": null}
+{"uid": "mvbench/action_sequence/59", "benchmark": "mvbench", "task": "action_sequence", "gt": "A", "pred": "A", "correct": true, "raw": "(A) Lied on the bed.", "group": null}
+{"uid": "mvbench/action_sequence/63", "benchmark": "mvbench", "task": "action_sequence", "gt": "D", "pred": "D", "correct": true, "raw": "(D) Took the paper/notebook.", "group": null}
+{"uid": "mvbench/action_sequence/67", "benchmark": "mvbench", "task": "action_sequence", "gt": "A", "pred": "A", "correct": true, "raw": "(A) Sat at the table.", "group": null}
+{"uid": "mvbench/action_sequence/71", "benchmark": "mvbench", "task": "action_sequence", "gt": "B", "pred": "B", "correct": true, "raw": "(B) Tidied up the table.", "group": null}
+{"uid": "mvbench/action_sequence/75", "benchmark": "mvbench", "task": "action_sequence", "gt": "A", "pred": "B", "correct": false, "raw": "(B) Put down the food.", "group": null}
+{"uid": "mvbench/action_sequence/79", "benchmark": "mvbench", "task": "action_sequence", "gt": "B", "pred": "B", "correct": true, "raw": "(B) Lied on the floor.", "group": null}
+{"uid": "mvbench/action_sequence/83", "benchmark": "mvbench", "task": "action_sequence", "gt": "C", "pred": "C", "correct": true, "raw": "(C) Sat on the sofa/couch.", "group": null}
+{"uid": "mvbench/action_sequence/87", "benchmark": "mvbench", "task": "action_sequence", "gt": "C", "pred": "C", "correct": true, "raw": "(C) Took the blanket.", "group": null}
+{"uid": "mvbench/action_sequence/91", "benchmark": "mvbench", "task": "action_sequence", "gt": "C", "pred": "C", "correct": true, "raw": "(C) Put down the towel.", "group": null}
+{"uid": "mvbench/action_sequence/95", "benchmark": "mvbench", "task": "action_sequence", "gt": "D", "pred": "D", "correct": true, "raw": "(D) Opened the box.", "group": null}
+{"uid": "mvbench/action_sequence/99", "benchmark": "mvbench", "task": "action_sequence", "gt": "A", "pred": "D", "correct": false, "raw": "(D) Threw the clothes.", "group": null}
+{"uid": "mvbench/action_sequence/103", "benchmark": "mvbench", "task": "action_sequence", "gt": "A", "pred": "C", "correct": false, "raw": "(C) Put down the towel.", "group": null}
+{"uid": "mvbench/action_sequence/107", "benchmark": "mvbench", "task": "action_sequence", "gt": "A", "pred": null, "correct": false, "raw": "ERR:KeyError('video_fps')", "group": null}
+{"uid": "mvbench/action_sequence/111", "benchmark": "mvbench", "task": "action_sequence", "gt": "D", "pred": "D", "correct": true, "raw": "(D) Opened the laptop.", "group": null}
+{"uid": "mvbench/action_sequence/115", "benchmark": "mvbench", "task": "action_sequence", "gt": "D", "pred": "C", "correct": false, "raw": "(C) Opened the book.", "group": null}
+{"uid": "mvbench/action_sequence/119", "benchmark": "mvbench", "task": "action_sequence", "gt": "B", "pred": "A", "correct": false, "raw": "(A) Put down the pillow.", "group": null}
+{"uid": "mvbench/action_sequence/123", "benchmark": "mvbench", "task": "action_sequence", "gt": "B", "pred": "B", "correct": true, "raw": "(B) Closed the refrigerator.", "group": null}
+{"uid": "mvbench/action_sequence/127", "benchmark": "mvbench", "task": "action_sequence", "gt": "C", "pred": "C", "correct": true, "raw": "(C) Opened the laptop.", "group": null}
+{"uid": "mvbench/action_sequence/131", "benchmark": "mvbench", "task": "action_sequence", "gt": "A", "pred": "C", "correct": false, "raw": "(C) Ate the medicine.", "group": null}
+{"uid": "mvbench/action_sequence/135", "benchmark": "mvbench", "task": "action_sequence", "gt": "B", "pred": "B", "correct": true, "raw": "(B) Sat on the sofa/couch.", "group": null}
+{"uid": "mvbench/action_sequence/139", "benchmark": "mvbench", "task": "action_sequence", "gt": "A", "pred": "A", "correct": true, "raw": "(A) Took the shoe.", "group": null}
+{"uid": "mvbench/action_sequence/143", "benchmark": "mvbench", "task": "action_sequence", "gt": "D", "pred": null, "correct": false, "raw": "ERR:KeyError('video_fps')", "group": null}
+{"uid": "mvbench/action_sequence/147", "benchmark": "mvbench", "task": "action_sequence", "gt": "B", "pred": "C", "correct": false, "raw": "(C) Took the picture.", "group": null}
+{"uid": "mvbench/action_sequence/151", "benchmark": "mvbench", "task": "action_sequence", "gt": "A", "pred": "A", "correct": true, "raw": "(A) Closed the laptop.", "group": null}
+{"uid": "mvbench/action_sequence/155", "benchmark": "mvbench", "task": "action_sequence", "gt": "B", "pred": "D", "correct": false, "raw": "(D) Opened the bag.", "group": null}
+{"uid": "mvbench/action_sequence/159", "benchmark": "mvbench", "task": "action_sequence", "gt": "A", "pred": "A", "correct": true, "raw": "(A) Put down the laptop.", "group": null}
+{"uid": "mvbench/action_sequence/163", "benchmark": "mvbench", "task": "action_sequence", "gt": "C", "pred": "C", "correct": true, "raw": "(C) Closed the refrigerator.", "group": null}
+{"uid": "mvbench/action_sequence/167", "benchmark": "mvbench", "task": "action_sequence", "gt": "C", "pred": "C", "correct": true, "raw": "(C) Took the book.", "group": null}
+{"uid": "mvbench/action_sequence/171", "benchmark": "mvbench", "task": "action_sequence", "gt": "D", "pred": "D", "correct": true, "raw": "(D) Threw the pillow.", "group": null}
+{"uid": "mvbench/action_sequence/175", "benchmark": "mvbench", "task": "action_sequence", "gt": "D", "pred": "D", "correct": true, "raw": "(D) Closed the closet/cabinet.", "group": null}
+{"uid": "mvbench/action_sequence/179", "benchmark": "mvbench", "task": "action_sequence", "gt": "B", "pred": "A", "correct": false, "raw": "(A) Took the broom.", "group": null}
+{"uid": "mvbench/action_sequence/183", "benchmark": "mvbench", "task": "action_sequence", "gt": "A", "pred": "A", "correct": true, "raw": "(A) Put down the paper/notebook.", "group": null}
+{"uid": "mvbench/action_sequence/187", "benchmark": "mvbench", "task": "action_sequence", "gt": "C", "pred": "C", "correct": true, "raw": "(C) Took the dish.", "group": null}
+{"uid": "mvbench/action_sequence/191", "benchmark": "mvbench", "task": "action_sequence", "gt": "D", "pred": "A", "correct": false, "raw": "(A) Put down the book.", "group": null}
+{"uid": "mvbench/action_sequence/195", "benchmark": "mvbench", "task": "action_sequence", "gt": "A", "pred": "A", "correct": true, "raw": "(A) Put down the blanket.", "group": null}
+{"uid": "mvbench/action_sequence/199", "benchmark": "mvbench", "task": "action_sequence", "gt": "B", "pred": "B", "correct": true, "raw": "(B) Put down the paper/notebook.", "group": null}
+{"uid": "mvbench/action_prediction/3", "benchmark": "mvbench", "task": "action_prediction", "gt": "D", "pred": "B", "correct": false, "raw": "(B) Put down the clothes.", "group": null}
+{"uid": "mvbench/action_prediction/7", "benchmark": "mvbench", "task": "action_prediction", "gt": "A", "pred": "A", "correct": true, "raw": "(A) Take the clothes.", "group": null}
+{"uid": "mvbench/action_prediction/11", "benchmark": "mvbench", "task": "action_prediction", "gt": "A", "pred": "C", "correct": false, "raw": "(C) Tidy up the table.", "group": null}
+{"uid": "mvbench/action_prediction/15", "benchmark": "mvbench", "task": "action_prediction", "gt": "D", "pred": "B", "correct": false, "raw": "B", "group": null}
+{"uid": "mvbench/action_prediction/19", "benchmark": "mvbench", "task": "action_prediction", "gt": "C", "pred": "C", "correct": true, "raw": "(C) Open the box.", "group": null}
+{"uid": "mvbench/action_prediction/23", "benchmark": "mvbench", "task": "action_prediction", "gt": "A", "pred": "A", "correct": true, "raw": "(A) Open the laptop.", "group": null}
+{"uid": "mvbench/action_prediction/27", "benchmark": "mvbench", "task": "action_prediction", "gt": "A", "pred": "A", "correct": true, "raw": "(A) Close the refrigerator.", "group": null}
+{"uid": "mvbench/action_prediction/31", "benchmark": "mvbench", "task": "action_prediction", "gt": "C", "pred": "C", "correct": true, "raw": "(C) Sit on the sofa/couch.", "group": null}
+{"uid": "mvbench/action_prediction/35", "benchmark": "mvbench", "task": "action_prediction", "gt": "A", "pred": "D", "correct": false, "raw": "(D) Tidy up the table.", "group": null}
+{"uid": "mvbench/action_prediction/39", "benchmark": "mvbench", "task": "action_prediction", "gt": "C", "pred": "B", "correct": false, "raw": "(B) Tidy up the blanket.", "group": null}
+{"uid": "mvbench/action_prediction/43", "benchmark": "mvbench", "task": "action_prediction", "gt": "D", "pred": "D", "correct": true, "raw": "(D) Put down the cup/glass/bottle.", "group": null}
+{"uid": "mvbench/action_prediction/47", "benchmark": "mvbench", "task": "action_prediction", "gt": "C", "pred": "C", "correct": true, "raw": "(C) Put down the blanket.", "group": null}
+{"uid": "mvbench/action_prediction/51", "benchmark": "mvbench", "task": "action_prediction", "gt": "C", "pred": "D", "correct": false, "raw": "(D) Throw the pillow.", "group": null}
+{"uid": "mvbench/action_prediction/55", "benchmark": "mvbench", "task": "action_prediction", "gt": "A", "pred": "C", "correct": false, "raw": "(C) Tidy up the towel.", "group": null}
+{"uid": "mvbench/action_prediction/59", "benchmark": "mvbench", "task": "action_prediction", "gt": "B", "pred": "B", "correct": true, "raw": "(B) Take the bag.", "group": null}
+{"uid": "mvbench/action_prediction/63", "benchmark": "mvbench", "task": "action_prediction", "gt": "A", "pred": "C", "correct": false, "raw": "(C) Open the closet/cabinet.", "group": null}
+{"uid": "mvbench/action_prediction/67", "benchmark": "mvbench", "task": "action_prediction", "gt": "C", "pred": "C", "correct": true, "raw": "(C) Put down the towel.", "group": null}
+{"uid": "mvbench/action_prediction/71", "benchmark": "mvbench", "task": "action_prediction", "gt": "D", "pred": "D", "correct": true, "raw": "(D) Put down the towel.", "group": null}
+{"uid": "mvbench/action_prediction/75", "benchmark": "mvbench", "task": "action_prediction", "gt": "D", "pred": "B", "correct": false, "raw": "(B) Take.", "group": null}
+{"uid": "mvbench/action_prediction/79", "benchmark": "mvbench", "task": "action_prediction", "gt": "D", "pred": "D", "correct": true, "raw": "(D) Sit on the bed.", "group": null}
+{"uid": "mvbench/action_prediction/83", "benchmark": "mvbench", "task": "action_prediction", "gt": "A", "pred": "A", "correct": true, "raw": "(A) Open the book.", "group": null}
+{"uid": "mvbench/action_prediction/87", "benchmark": "mvbench", "task": "action_prediction", "gt": "D", "pred": "D", "correct": true, "raw": "(D) Eat the sandwich.", "group": null}
+{"uid": "mvbench/action_prediction/91", "benchmark": "mvbench", "task": "action_prediction", "gt": "C", "pred": "C", "correct": true, "raw": "(C) Put down.", "group": null}
+{"uid": "mvbench/action_prediction/95", "benchmark": "mvbench", "task": "action_prediction", "gt": "A", "pred": "D", "correct": false, "raw": "(D) Open the closet/cabinet.", "group": null}
+{"uid": "mvbench/action_prediction/99", "benchmark": "mvbench", "task": "action_prediction", "gt": "A", "pred": "D", "correct": false, "raw": "(D) Lie on the sofa/couch.", "group": null}
+{"uid": "mvbench/action_prediction/103", "benchmark": "mvbench", "task": "action_prediction", "gt": "C", "pred": "C", "correct": true, "raw": "(C) Close the laptop.", "group": null}
+{"uid": "mvbench/action_prediction/107", "benchmark": "mvbench", "task": "action_prediction", "gt": "B", "pred": "B", "correct": true, "raw": "(B) Open the refrigerator.", "group": null}
+{"uid": "mvbench/action_prediction/111", "benchmark": "mvbench", "task": "action_prediction", "gt": "D", "pred": "D", "correct": true, "raw": "(D) Open the bag.", "group": null}
+{"uid": "mvbench/action_prediction/115", "benchmark": "mvbench", "task": "action_prediction", "gt": "A", "pred": "B", "correct": false, "raw": "(B) Put down the book.", "group": null}
+{"uid": "mvbench/action_prediction/119", "benchmark": "mvbench", "task": "action_prediction", "gt": "A", "pred": "A", "correct": true, "raw": "(A) Put down the shoe.", "group": null}
+{"uid": "mvbench/action_prediction/123", "benchmark": "mvbench", "task": "action_prediction", "gt": "D", "pred": "D", "correct": true, "raw": "(D) Throw the towel.", "group": null}
+{"uid": "mvbench/action_prediction/127", "benchmark": "mvbench", "task": "action_prediction", "gt": "B", "pred": "C", "correct": false, "raw": "(C) Eat the medicine.", "group": null}
+{"uid": "mvbench/action_prediction/131", "benchmark": "mvbench", "task": "action_prediction", "gt": "B", "pred": "A", "correct": false, "raw": "(A) Put down the food.", "group": null}
+{"uid": "mvbench/action_prediction/135", "benchmark": "mvbench", "task": "action_prediction", "gt": "D", "pred": "D", "correct": true, "raw": "(D) Put down the sandwich.", "group": null}
+{"uid": "mvbench/action_prediction/139", "benchmark": "mvbench", "task": "action_prediction", "gt": "D", "pred": "D", "correct": true, "raw": "(D) Put down the pillow.", "group": null}
+{"uid": "mvbench/action_prediction/143", "benchmark": "mvbench", "task": "action_prediction", "gt": "D", "pred": "D", "correct": true, "raw": "(D) Put down the bag.", "group": null}
+{"uid": "mvbench/action_prediction/147", "benchmark": "mvbench", "task": "action_prediction", "gt": "B", "pred": "B", "correct": true, "raw": "(B) Open the bag.", "group": null}
+{"uid": "mvbench/action_prediction/151", "benchmark": "mvbench", "task": "action_prediction", "gt": "C", "pred": "C", "correct": true, "raw": "(C) Take the shoe.", "group": null}
+{"uid": "mvbench/action_prediction/155", "benchmark": "mvbench", "task": "action_prediction", "gt": "A", "pred": "A", "correct": true, "raw": "(A) Take the shoe.", "group": null}
+{"uid": "mvbench/action_prediction/159", "benchmark": "mvbench", "task": "action_prediction", "gt": "B", "pred": "B", "correct": true, "raw": "B", "group": null}
+{"uid": "mvbench/action_prediction/163", "benchmark": "mvbench", "task": "action_prediction", "gt": "C", "pred": "C", "correct": true, "raw": "C", "group": null}
+{"uid": "mvbench/action_prediction/167", "benchmark": "mvbench", "task": "action_prediction", "gt": "A", "pred": "C", "correct": false, "raw": "(C) Close the refrigerator.", "group": null}
+{"uid": "mvbench/action_prediction/171", "benchmark": "mvbench", "task": "action_prediction", "gt": "C", "pred": "D", "correct": false, "raw": "(D) Put down the book.", "group": null}
+{"uid": "mvbench/action_prediction/175", "benchmark": "mvbench", "task": "action_prediction", "gt": "A", "pred": "A", "correct": true, "raw": "(A) Take the paper/notebook.", "group": null}
+{"uid": "mvbench/action_prediction/179", "benchmark": "mvbench", "task": "action_prediction", "gt": "C", "pred": "C", "correct": true, "raw": "(C) Put down the phone/camera.", "group": null}
+{"uid": "mvbench/action_prediction/183", "benchmark": "mvbench", "task": "action_prediction", "gt": "B", "pred": "B", "correct": true, "raw": "(B) Take the laptop.", "group": null}
+{"uid": "mvbench/action_prediction/187", "benchmark": "mvbench", "task": "action_prediction", "gt": "A", "pred": "A", "correct": true, "raw": "(A) Put down the towel.", "group": null}
+{"uid": "mvbench/action_prediction/191", "benchmark": "mvbench", "task": "action_prediction", "gt": "D", "pred": "D", "correct": true, "raw": "(D) Throw the book.", "group": null}
+{"uid": "mvbench/action_prediction/195", "benchmark": "mvbench", "task": "action_prediction", "gt": "D", "pred": "C", "correct": false, "raw": "C", "group": null}
+{"uid": "mvbench/action_prediction/199", "benchmark": "mvbench", "task": "action_prediction", "gt": "A", "pred": "C", "correct": false, "raw": "(C) Open the door.", "group": null}
+{"uid": "mvbench/action_antonym/3", "benchmark": "mvbench", "task": "action_antonym", "gt": "B", "pred": "B", "correct": true, "raw": "B", "group": null}
+{"uid": "mvbench/action_antonym/7", "benchmark": "mvbench", "task": "action_antonym", "gt": "C", "pred": "C", "correct": true, "raw": "C", "group": null}
+{"uid": "mvbench/action_antonym/11", "benchmark": "mvbench", "task": "action_antonym", "gt": "B", "pred": "B", "correct": true, "raw": "B", "group": null}
+{"uid": "mvbench/action_antonym/15", "benchmark": "mvbench", "task": "action_antonym", "gt": "C", "pred": "B", "correct": false, "raw": "B", "group": null}
+{"uid": "mvbench/action_antonym/19", "benchmark": "mvbench", "task": "action_antonym", "gt": "C", "pred": "C", "correct": true, "raw": "C", "group": null}
+{"uid": "mvbench/action_antonym/23", "benchmark": "mvbench", "task": "action_antonym", "gt": "C", "pred": "C", "correct": true, "raw": "(C) Covering something with something", "group": null}
+{"uid": "mvbench/action_antonym/27", "benchmark": "mvbench", "task": "action_antonym", "gt": "A", "pred": "A", "correct": true, "raw": "A", "group": null}
+{"uid": "mvbench/action_antonym/31", "benchmark": "mvbench", "task": "action_antonym", "gt": "C", "pred": "C", "correct": true, "raw": "(C) Opening something", "group": null}
+{"uid": "mvbench/action_antonym/35", "benchmark": "mvbench", "task": "action_antonym", "gt": "A", "pred": "C", "correct": false, "raw": "C", "group": null}
+{"uid": "mvbench/action_antonym/39", "benchmark": "mvbench", "task": "action_antonym", "gt": "A", "pred": "A", "correct": true, "raw": "A", "group": null}
+{"uid": "mvbench/action_antonym/43", "benchmark": "mvbench", "task": "action_antonym", "gt": "B", "pred": "B", "correct": true, "raw": "B", "group": null}
+{"uid": "mvbench/action_antonym/47", "benchmark": "mvbench", "task": "action_antonym", "gt": "B", "pred": "B", "correct": true, "raw": "B", "group": null}
+{"uid": "mvbench/action_antonym/51", "benchmark": "mvbench", "task": "action_antonym", "gt": "C", "pred": "C", "correct": true, "raw": "(C) Moving something towards the camera", "group": null}
+{"uid": "mvbench/action_antonym/55", "benchmark": "mvbench", "task": "action_antonym", "gt": "B", "pred": "B", "correct": true, "raw": "(B) Showing that something is empty", "group": null}
+{"uid": "mvbench/action_antonym/59", "benchmark": "mvbench", "task": "action_antonym", "gt": "A", "pred": "A", "correct": true, "raw": "A", "group": null}
+{"uid": "mvbench/action_antonym/63", "benchmark": "mvbench", "task": "action_antonym", "gt": "C", "pred": "C", "correct": true, "raw": "C", "group": null}
+{"uid": "mvbench/action_antonym/67", "benchmark": "mvbench", "task": "action_antonym", "gt": "B", "pred": "B", "correct": true, "raw": "B", "group": null}
+{"uid": "mvbench/action_antonym/71", "benchmark": "mvbench", "task": "action_antonym", "gt": "B", "pred": "B", "correct": true, "raw": "B", "group": null}
+{"uid": "mvbench/action_antonym/75", "benchmark": "mvbench", "task": "action_antonym", "gt": "C", "pred": "C", "correct": true, "raw": "C", "group": null}
+{"uid": "mvbench/action_antonym/79", "benchmark": "mvbench", "task": "action_antonym", "gt": "C", "pred": "C", "correct": true, "raw": "(C) Showing something next to something", "group": null}
+{"uid": "mvbench/action_antonym/83", "benchmark": "mvbench", "task": "action_antonym", "gt": "A", "pred": "A", "correct": true, "raw": "A", "group": null}
+{"uid": "mvbench/action_antonym/87", "benchmark": "mvbench", "task": "action_antonym", "gt": "B", "pred": "B", "correct": true, "raw": "B", "group": null}
+{"uid": "mvbench/action_antonym/91", "benchmark": "mvbench", "task": "action_antonym", "gt": "A", "pred": "A", "correct": true, "raw": "A", "group": null}
+{"uid": "mvbench/action_antonym/95", "benchmark": "mvbench", "task": "action_antonym", "gt": "A", "pred": "A", "correct": true, "raw": "A", "group": null}
+{"uid": "mvbench/action_antonym/99", "benchmark": "mvbench", "task": "action_antonym", "gt": "A", "pred": "A", "correct": true, "raw": "(A) Pushing something so that it slightly moves", "group": null}
+{"uid": "mvbench/action_antonym/103", "benchmark": "mvbench", "task": "action_antonym", "gt": "A", "pred": "A", "correct": true, "raw": "(A) Turning something upside down", "group": null}
+{"uid": "mvbench/action_antonym/107", "benchmark": "mvbench", "task": "action_antonym", "gt": "A", "pred": "A", "correct": true, "raw": "A", "group": null}
+{"uid": "mvbench/action_antonym/111", "benchmark": "mvbench", "task": "action_antonym", "gt": "C", "pred": "C", "correct": true, "raw": "C", "group": null}
+{"uid": "mvbench/action_antonym/115", "benchmark": "mvbench", "task": "action_antonym", "gt": "B", "pred": "B", "correct": true, "raw": "B", "group": null}
+{"uid": "mvbench/action_antonym/119", "benchmark": "mvbench", "task": "action_antonym", "gt": "B", "pred": "B", "correct": true, "raw": "B", "group": null}
+{"uid": "mvbench/action_antonym/123", "benchmark": "mvbench", "task": "action_antonym", "gt": "A", "pred": "A", "correct": true, "raw": "(A) Tipping something over", "group": null}
+{"uid": "mvbench/action_antonym/127", "benchmark": "mvbench", "task": "action_antonym", "gt": "B", "pred": "B", "correct": true, "raw": "(B) Throwing something", "group": null}
+{"uid": "mvbench/action_antonym/131", "benchmark": "mvbench", "task": "action_antonym", "gt": "C", "pred": "C", "correct": true, "raw": "C", "group": null}
+{"uid": "mvbench/action_antonym/135", "benchmark": "mvbench", "task": "action_antonym", "gt": "C", "pred": "C", "correct": true, "raw": "(C) Moving something away from the camera", "group": null}
+{"uid": "mvbench/action_antonym/139", "benchmark": "mvbench", "task": "action_antonym", "gt": "B", "pred": "C", "correct": false, "raw": "C", "group": null}
+{"uid": "mvbench/action_antonym/143", "benchmark": "mvbench", "task": "action_antonym", "gt": "A", "pred": "C", "correct": false, "raw": "C", "group": null}
+{"uid": "mvbench/action_antonym/147", "benchmark": "mvbench", "task": "action_antonym", "gt": "A", "pred": "A", "correct": true, "raw": "A", "group": null}
+{"uid": "mvbench/action_antonym/151", "benchmark": "mvbench", "task": "action_antonym", "gt": "A", "pred": "A", "correct": true, "raw": "A", "group": null}
+{"uid": "mvbench/action_antonym/155", "benchmark": "mvbench", "task": "action_antonym", "gt": "C", "pred": "C", "correct": true, "raw": "(C) Letting something roll up a slanted surface, so it rolls back down", "group": null}
+{"uid": "mvbench/action_antonym/159", "benchmark": "mvbench", "task": "action_antonym", "gt": "A", "pred": "A", "correct": true, "raw": "A", "group": null}
+{"uid": "mvbench/action_antonym/163", "benchmark": "mvbench", "task": "action_antonym", "gt": "C", "pred": "C", "correct": true, "raw": "C", "group": null}
+{"uid": "mvbench/action_antonym/167", "benchmark": "mvbench", "task": "action_antonym", "gt": "B", "pred": "B", "correct": true, "raw": "B", "group": null}
+{"uid": "mvbench/action_antonym/171", "benchmark": "mvbench", "task": "action_antonym", "gt": "C", "pred": "C", "correct": true, "raw": "C", "group": null}
+{"uid": "mvbench/action_antonym/175", "benchmark": "mvbench", "task": "action_antonym", "gt": "A", "pred": "A", "correct": true, "raw": "A", "group": null}
+{"uid": "mvbench/action_antonym/179", "benchmark": "mvbench", "task": "action_antonym", "gt": "B", "pred": "A", "correct": false, "raw": "(A) Putting something down", "group": null}
+{"uid": "mvbench/action_antonym/183", "benchmark": "mvbench", "task": "action_antonym", "gt": "C", "pred": "C", "correct": true, "raw": "(C) Putting something onto a slanted surface but it doesn't glide down", "group": null}
+{"uid": "mvbench/action_antonym/187", "benchmark": "mvbench", "task": "action_antonym", "gt": "B", "pred": "B", "correct": true, "raw": "B", "group": null}
+{"uid": "mvbench/action_antonym/191", "benchmark": "mvbench", "task": "action_antonym", "gt": "C", "pred": "C", "correct": true, "raw": "C", "group": null}
+{"uid": "mvbench/action_antonym/195", "benchmark": "mvbench", "task": "action_antonym", "gt": "B", "pred": "A", "correct": false, "raw": "(A) Pretending to divest something underneath something", "group": null}
+{"uid": "mvbench/action_antonym/199", "benchmark": "mvbench", "task": "action_antonym", "gt": "A", "pred": "C", "correct": false, "raw": "C", "group": null}
+{"uid": "mvbench/fine_grained_action/3", "benchmark": "mvbench", "task": "fine_grained_action", "gt": "A", "pred": "D", "correct": false, "raw": "(D) filling", "group": null}
+{"uid": "mvbench/fine_grained_action/7", "benchmark": "mvbench", "task": "fine_grained_action", "gt": "C", "pred": "B", "correct": false, "raw": "B", "group": null}
+{"uid": "mvbench/fine_grained_action/11", "benchmark": "mvbench", "task": "fine_grained_action", "gt": "D", "pred": "D", "correct": true, "raw": "(D) reaching", "group": null}
+{"uid": "mvbench/fine_grained_action/15", "benchmark": "mvbench", "task": "fine_grained_action", "gt": "B", "pred": "C", "correct": false, "raw": "(C) shaking", "group": null}
+{"uid": "mvbench/fine_grained_action/19", "benchmark": "mvbench", "task": "fine_grained_action", "gt": "D", "pred": "A", "correct": false, "raw": "(A) handcuffing", "group": null}
+{"uid": "mvbench/fine_grained_action/23", "benchmark": "mvbench", "task": "fine_grained_action", "gt": "B", "pred": "B", "correct": true, "raw": "B", "group": null}
+{"uid": "mvbench/fine_grained_action/27", "benchmark": "mvbench", "task": "fine_grained_action", "gt": "D", "pred": "D", "correct": true, "raw": "(D) wrapping", "group": null}
+{"uid": "mvbench/fine_grained_action/31", "benchmark": "mvbench", "task": "fine_grained_action", "gt": "A", "pred": "A", "correct": true, "raw": "A", "group": null}
+{"uid": "mvbench/fine_grained_action/35", "benchmark": "mvbench", "task": "fine_grained_action", "gt": "D", "pred": "D", "correct": true, "raw": "(D) feeding", "group": null}
+{"uid": "mvbench/fine_grained_action/39", "benchmark": "mvbench", "task": "fine_grained_action", "gt": "C", "pred": "C", "correct": true, "raw": "(C) gambling", "group": null}
+{"uid": "mvbench/fine_grained_action/43", "benchmark": "mvbench", "task": "fine_grained_action", "gt": "A", "pred": "C", "correct": false, "raw": "C", "group": null}
+{"uid": "mvbench/fine_grained_action/47", "benchmark": "mvbench", "task": "fine_grained_action", "gt": "A", "pred": "B", "correct": false, "raw": "(B) ascending", "group": null}
+{"uid": "mvbench/fine_grained_action/51", "benchmark": "mvbench", "task": "fine_grained_action", "gt": "D", "pred": "A", "correct": false, "raw": "(A) exiting", "group": null}
+{"uid": "mvbench/fine_grained_action/55", "benchmark": "mvbench", "task": "fine_grained_action", "gt": "A", "pred": "D", "correct": false, "raw": "D", "group": null}
+{"uid": "mvbench/fine_grained_action/59", "benchmark": "mvbench", "task": "fine_grained_action", "gt": "D", "pred": "C", "correct": false, "raw": "C", "group": null}
+{"uid": "mvbench/fine_grained_action/63", "benchmark": "mvbench", "task": "fine_grained_action", "gt": "B", "pred": "B", "correct": true, "raw": "(B) instructing", "group": null}
+{"uid": "mvbench/fine_grained_action/67", "benchmark": "mvbench", "task": "fine_grained_action", "gt": "C", "pred": "C", "correct": true, "raw": "C", "group": null}
+{"uid": "mvbench/fine_grained_action/71", "benchmark": "mvbench", "task": "fine_grained_action", "gt": "C", "pred": "C", "correct": true, "raw": "(C) squinting", "group": null}
+{"uid": "mvbench/fine_grained_action/75", "benchmark": "mvbench", "task": "fine_grained_action", "gt": "C", "pred": "B", "correct": false, "raw": "B", "group": null}
+{"uid": "mvbench/fine_grained_action/79", "benchmark": "mvbench", "task": "fine_grained_action", "gt": "A", "pred": "B", "correct": false, "raw": "B", "group": null}
+{"uid": "mvbench/fine_grained_action/83", "benchmark": "mvbench", "task": "fine_grained_action", "gt": "C", "pred": "D", "correct": false, "raw": "(D) preaching", "group": null}
+{"uid": "mvbench/fine_grained_action/87", "benchmark": "mvbench", "task": "fine_grained_action", "gt": "B", "pred": "C", "correct": false, "raw": "(C) swimming", "group": null}
+{"uid": "mvbench/fine_grained_action/91", "benchmark": "mvbench", "task": "fine_grained_action", "gt": "C", "pred": "D", "correct": false, "raw": "(D) taping", "group": null}
+{"uid": "mvbench/fine_grained_action/95", "benchmark": "mvbench", "task": "fine_grained_action", "gt": "B", "pred": "B", "correct": true, "raw": "(B) shredding", "group": null}
+{"uid": "mvbench/fine_grained_action/99", "benchmark": "mvbench", "task": "fine_grained_action", "gt": "B", "pred": "C", "correct": false, "raw": "(C) fighting", "group": null}
+{"uid": "mvbench/fine_grained_action/103", "benchmark": "mvbench", "task": "fine_grained_action", "gt": "C", "pred": "C", "correct": true, "raw": "(C) guarding", "group": null}
+{"uid": "mvbench/fine_grained_action/107", "benchmark": "mvbench", "task": "fine_grained_action", "gt": "B", "pred": "A", "correct": false, "raw": "(A) grilling", "group": null}
+{"uid": "mvbench/fine_grained_action/111", "benchmark": "mvbench", "task": "fine_grained_action", "gt": "A", "pred": "D", "correct": false, "raw": "D", "group": null}
+{"uid": "mvbench/fine_grained_action/115", "benchmark": "mvbench", "task": "fine_grained_action", "gt": "D", "pred": "A", "correct": false, "raw": "A", "group": null}
+{"uid": "mvbench/fine_grained_action/119", "benchmark": "mvbench", "task": "fine_grained_action", "gt": "A", "pred": "D", "correct": false, "raw": "D", "group": null}
+{"uid": "mvbench/fine_grained_action/123", "benchmark": "mvbench", "task": "fine_grained_action", "gt": "D", "pred": "A", "correct": false, "raw": "A", "group": null}
+{"uid": "mvbench/fine_grained_action/127", "benchmark": "mvbench", "task": "fine_grained_action", "gt": "A", "pred": "D", "correct": false, "raw": "(D) reading", "group": null}
+{"uid": "mvbench/fine_grained_action/131", "benchmark": "mvbench", "task": "fine_grained_action", "gt": "B", "pred": "D", "correct": false, "raw": "(D) clapping", "group": null}
+{"uid": "mvbench/fine_grained_action/135", "benchmark": "mvbench", "task": "fine_grained_action", "gt": "D", "pred": "D", "correct": true, "raw": "(D) drying", "group": null}
+{"uid": "mvbench/fine_grained_action/139", "benchmark": "mvbench", "task": "fine_grained_action", "gt": "D", "pred": "A", "correct": false, "raw": "(A) eating", "group": null}
+{"uid": "mvbench/fine_grained_action/143", "benchmark": "mvbench", "task": "fine_grained_action", "gt": "B", "pred": "B", "correct": true, "raw": "(B) tying", "group": null}
+{"uid": "mvbench/fine_grained_action/147", "benchmark": "mvbench", "task": "fine_grained_action", "gt": "D", "pred": "D", "correct": true, "raw": "(D) hitchhiking", "group": null}
+{"uid": "mvbench/fine_grained_action/151", "benchmark": "mvbench", "task": "fine_grained_action", "gt": "D", "pred": "D", "correct": true, "raw": "(D) knitting", "group": null}
+{"uid": "mvbench/fine_grained_action/155", "benchmark": "mvbench", "task": "fine_grained_action", "gt": "D", "pred": "B", "correct": false, "raw": "(B) celebrating", "group": null}
+{"uid": "mvbench/fine_grained_action/159", "benchmark": "mvbench", "task": "fine_grained_action", "gt": "D", "pred": "C", "correct": false, "raw": "(C) flipping", "group": null}
+{"uid": "mvbench/fine_grained_action/163", "benchmark": "mvbench", "task": "fine_grained_action", "gt": "C", "pred": "C", "correct": true, "raw": "C", "group": null}
+{"uid": "mvbench/fine_grained_action/167", "benchmark": "mvbench", "task": "fine_grained_action", "gt": "D", "pred": "D", "correct": true, "raw": "D", "group": null}
+{"uid": "mvbench/fine_grained_action/171", "benchmark": "mvbench", "task": "fine_grained_action", "gt": "D", "pred": "D", "correct": true, "raw": "(D) crawling", "group": null}
+{"uid": "mvbench/fine_grained_action/175", "benchmark": "mvbench", "task": "fine_grained_action", "gt": "A", "pred": "A", "correct": true, "raw": "(A) giggling", "group": null}
+{"uid": "mvbench/fine_grained_action/179", "benchmark": "mvbench", "task": "fine_grained_action", "gt": "D", "pred": "D", "correct": true, "raw": "D", "group": null}
+{"uid": "mvbench/fine_grained_action/183", "benchmark": "mvbench", "task": "fine_grained_action", "gt": "B", "pred": "D", "correct": false, "raw": "D", "group": null}
+{"uid": "mvbench/fine_grained_action/187", "benchmark": "mvbench", "task": "fine_grained_action", "gt": "D", "pred": "D", "correct": true, "raw": "(D) welding", "group": null}
+{"uid": "mvbench/fine_grained_action/191", "benchmark": "mvbench", "task": "fine_grained_action", "gt": "A", "pred": "B", "correct": false, "raw": "(B) removing", "group": null}
+{"uid": "mvbench/fine_grained_action/195", "benchmark": "mvbench", "task": "fine_grained_action", "gt": "D", "pred": "C", "correct": false, "raw": "C", "group": null}
+{"uid": "mvbench/fine_grained_action/199", "benchmark": "mvbench", "task": "fine_grained_action", "gt": "D", "pred": "D", "correct": true, "raw": "(D) assembling", "group": null}
+{"uid": "mvbench/unexpected_action/3", "benchmark": "mvbench", "task": "unexpected_action", "gt": "C", "pred": "C", "correct": true, "raw": "C", "group": null}
+{"uid": "mvbench/unexpected_action/7", "benchmark": "mvbench", "task": "unexpected_action", "gt": "A", "pred": "A", "correct": true, "raw": "(A) Child tossed a snowball and adult poured snow from shovel onto kid.", "group": null}
+{"uid": "mvbench/unexpected_action/11", "benchmark": "mvbench", "task": "unexpected_action", "gt": "C", "pred": "C", "correct": true, "raw": "C", "group": null}
+{"uid": "mvbench/unexpected_action/15", "benchmark": "mvbench", "task": "unexpected_action", "gt": "A", "pred": "A", "correct": true, "raw": "A", "group": null}
+{"uid": "mvbench/unexpected_action/19", "benchmark": "mvbench", "task": "unexpected_action", "gt": "B", "pred": "B", "correct": true, "raw": "(B) The dog raised its paw and pushed the kid.", "group": null}
+{"uid": "mvbench/unexpected_action/23", "benchmark": "mvbench", "task": "unexpected_action", "gt": "A", "pred": "A", "correct": true, "raw": "A", "group": null}
+{"uid": "mvbench/unexpected_action/27", "benchmark": "mvbench", "task": "unexpected_action", "gt": "D", "pred": "C", "correct": false, "raw": "C", "group": null}
+{"uid": "mvbench/unexpected_action/31", "benchmark": "mvbench", "task": "unexpected_action", "gt": "B", "pred": "B", "correct": true, "raw": "B", "group": null}
+{"uid": "mvbench/unexpected_action/35", "benchmark": "mvbench", "task": "unexpected_action", "gt": "B", "pred": "B", "correct": true, "raw": "B", "group": null}
+{"uid": "mvbench/unexpected_action/39", "benchmark": "mvbench", "task": "unexpected_action", "gt": "C", "pred": "A", "correct": false, "raw": "A", "group": null}
+{"uid": "mvbench/unexpected_action/43", "benchmark": "mvbench", "task": "unexpected_action", "gt": "C", "pred": "C", "correct": true, "raw": "C", "group": null}
+{"uid": "mvbench/unexpected_action/47", "benchmark": "mvbench", "task": "unexpected_action", "gt": "C", "pred": "C", "correct": true, "raw": "C", "group": null}
+{"uid": "mvbench/unexpected_action/51", "benchmark": "mvbench", "task": "unexpected_action", "gt": "D", "pred": "D", "correct": true, "raw": "D", "group": null}
+{"uid": "mvbench/unexpected_action/55", "benchmark": "mvbench", "task": "unexpected_action", "gt": "A", "pred": "A", "correct": true, "raw": "(A) The girl realizes her head has already been split by looking in a mirror.", "group": null}
+{"uid": "mvbench/unexpected_action/59", "benchmark": "mvbench", "task": "unexpected_action", "gt": "B", "pred": "B", "correct": true, "raw": "B", "group": null}
+{"uid": "mvbench/unexpected_action/63", "benchmark": "mvbench", "task": "unexpected_action", "gt": "B", "pred": "B", "correct": true, "raw": "B", "group": null}
+{"uid": "mvbench/unexpected_action/67", "benchmark": "mvbench", "task": "unexpected_action", "gt": "D", "pred": "D", "correct": true, "raw": "(D) They crawl into a container marked with a \"W\".", "group": null}
+{"uid": "mvbench/unexpected_action/71", "benchmark": "mvbench", "task": "unexpected_action", "gt": "D", "pred": "D", "correct": true, "raw": "(D) A pink pair of pants covers the person's head.", "group": null}
+{"uid": "mvbench/unexpected_action/75", "benchmark": "mvbench", "task": "unexpected_action", "gt": "D", "pred": "D", "correct": true, "raw": "(D) A square cardboard spinning with plastic threads.", "group": null}
+{"uid": "mvbench/unexpected_action/79", "benchmark": "mvbench", "task": "unexpected_action", "gt": "A", "pred": "A", "correct": true, "raw": "A", "group": null}
+{"uid": "mvbench/unexpected_action/83", "benchmark": "mvbench", "task": "unexpected_action", "gt": "A", "pred": "A", "correct": true, "raw": "A", "group": null}
+{"uid": "mvbench/unexpected_action/87", "benchmark": "mvbench", "task": "unexpected_action", "gt": "D", "pred": "D", "correct": true, "raw": "D", "group": null}
+{"uid": "mvbench/unexpected_action/91", "benchmark": "mvbench", "task": "unexpected_action", "gt": "C", "pred": "B", "correct": false, "raw": "B", "group": null}
+{"uid": "mvbench/unexpected_action/95", "benchmark": "mvbench", "task": "unexpected_action", "gt": "A", "pred": "A", "correct": true, "raw": "A", "group": null}
+{"uid": "mvbench/unexpected_action/99", "benchmark": "mvbench", "task": "unexpected_action", "gt": "A", "pred": "A", "correct": true, "raw": "(A) Executes a handstand.", "group": null}
+{"uid": "mvbench/unexpected_action/103", "benchmark": "mvbench", "task": "unexpected_action", "gt": "C", "pred": "C", "correct": true, "raw": "C", "group": null}
+{"uid": "mvbench/unexpected_action/107", "benchmark": "mvbench", "task": "unexpected_action", "gt": "D", "pred": "D", "correct": true, "raw": "(D) Loud screams and confetti thrown by children.", "group": null}
+{"uid": "mvbench/unexpected_action/111", "benchmark": "mvbench", "task": "unexpected_action", "gt": "A", "pred": "A", "correct": true, "raw": "A", "group": null}
+{"uid": "mvbench/unexpected_action/115", "benchmark": "mvbench", "task": "unexpected_action", "gt": "C", "pred": "C", "correct": true, "raw": "C", "group": null}
+{"uid": "mvbench/unexpected_action/119", "benchmark": "mvbench", "task": "unexpected_action", "gt": "D", "pred": "B", "correct": false, "raw": "B", "group": null}
+{"uid": "mvbench/unexpected_action/123", "benchmark": "mvbench", "task": "unexpected_action", "gt": "D", "pred": "D", "correct": true, "raw": "(D) Boy using model child to mimic drum sounds.", "group": null}
+{"uid": "mvbench/unexpected_action/127", "benchmark": "mvbench", "task": "unexpected_action", "gt": "A", "pred": "A", "correct": true, "raw": "A", "group": null}
+{"uid": "mvbench/unexpected_action/131", "benchmark": "mvbench", "task": "unexpected_action", "gt": "D", "pred": "D", "correct": true, "raw": "(D) Utilizing blue-painted men and a man in yellow trunks.", "group": null}
+{"uid": "mvbench/unexpected_action/135", "benchmark": "mvbench", "task": "unexpected_action", "gt": "A", "pred": "A", "correct": true, "raw": "(A) Four silver pacifiers appear replacing the microphone.", "group": null}
+{"uid": "mvbench/unexpected_action/139", "benchmark": "mvbench", "task": "unexpected_action", "gt": "C", "pred": "C", "correct": true, "raw": "(C) He moves the ball around with his finger.", "group": null}
+{"uid": "mvbench/unexpected_action/143", "benchmark": "mvbench", "task": "unexpected_action", "gt": "A", "pred": "C", "correct": false, "raw": "(C) The man offers the person a seat.", "group": null}
+{"uid": "mvbench/unexpected_action/147", "benchmark": "mvbench", "task": "unexpected_action", "gt": "B", "pred": "B", "correct": true, "raw": "B", "group": null}
+{"uid": "mvbench/unexpected_action/151", "benchmark": "mvbench", "task": "unexpected_action", "gt": "D", "pred": "D", "correct": true, "raw": "(D) Nothing is shown beneath it.", "group": null}
+{"uid": "mvbench/unexpected_action/155", "benchmark": "mvbench", "task": "unexpected_action", "gt": "B", "pred": "B", "correct": true, "raw": "B", "group": null}
+{"uid": "mvbench/unexpected_action/159", "benchmark": "mvbench", "task": "unexpected_action", "gt": "D", "pred": "B", "correct": false, "raw": "B", "group": null}
+{"uid": "mvbench/unexpected_action/163", "benchmark": "mvbench", "task": "unexpected_action", "gt": "A", "pred": "A", "correct": true, "raw": "A", "group": null}
+{"uid": "mvbench/unexpected_action/167", "benchmark": "mvbench", "task": "unexpected_action", "gt": "A", "pred": "A", "correct": true, "raw": "A", "group": null}
+{"uid": "mvbench/unexpected_action/171", "benchmark": "mvbench", "task": "unexpected_action", "gt": "C", "pred": "C", "correct": true, "raw": "C", "group": null}
+{"uid": "mvbench/unexpected_action/175", "benchmark": "mvbench", "task": "unexpected_action", "gt": "D", "pred": "C", "correct": false, "raw": "C", "group": null}
+{"uid": "mvbench/unexpected_action/179", "benchmark": "mvbench", "task": "unexpected_action", "gt": "A", "pred": "A", "correct": true, "raw": "A", "group": null}
+{"uid": "mvbench/unexpected_action/183", "benchmark": "mvbench", "task": "unexpected_action", "gt": "A", "pred": "C", "correct": false, "raw": "C", "group": null}
+{"uid": "mvbench/unexpected_action/187", "benchmark": "mvbench", "task": "unexpected_action", "gt": "A", "pred": "C", "correct": false, "raw": "(C)", "group": null}
+{"uid": "mvbench/unexpected_action/191", "benchmark": "mvbench", "task": "unexpected_action", "gt": "C", "pred": "C", "correct": true, "raw": "C", "group": null}
+{"uid": "mvbench/unexpected_action/195", "benchmark": "mvbench", "task": "unexpected_action", "gt": "C", "pred": "B", "correct": false, "raw": "B", "group": null}
+{"uid": "mvbench/unexpected_action/199", "benchmark": "mvbench", "task": "unexpected_action", "gt": "D", "pred": "D", "correct": true, "raw": "D", "group": null}
+{"uid": "mvbench/object_existence/3", "benchmark": "mvbench", "task": "object_existence", "gt": "C", "pred": "C", "correct": true, "raw": "(C) yes", "group": null}
+{"uid": "mvbench/object_existence/7", "benchmark": "mvbench", "task": "object_existence", "gt": "C", "pred": "C", "correct": true, "raw": "(C)", "group": null}
+{"uid": "mvbench/object_existence/11", "benchmark": "mvbench", "task": "object_existence", "gt": "B", "pred": "B", "correct": true, "raw": "(B) yes", "group": null}
+{"uid": "mvbench/object_existence/15", "benchmark": "mvbench", "task": "object_existence", "gt": "C", "pred": "C", "correct": true, "raw": "(C)", "group": null}
+{"uid": "mvbench/object_existence/19", "benchmark": "mvbench", "task": "object_existence", "gt": "A", "pred": "A", "correct": true, "raw": "A", "group": null}
+{"uid": "mvbench/object_existence/23", "benchmark": "mvbench", "task": "object_existence", "gt": "C", "pred": "C", "correct": true, "raw": "C", "group": null}
+{"uid": "mvbench/object_existence/27", "benchmark": "mvbench", "task": "object_existence", "gt": "C", "pred": "B", "correct": false, "raw": "(B) no", "group": null}
+{"uid": "mvbench/object_existence/31", "benchmark": "mvbench", "task": "object_existence", "gt": "B", "pred": "B", "correct": true, "raw": "(B)", "group": null}
+{"uid": "mvbench/object_existence/35", "benchmark": "mvbench", "task": "object_existence", "gt": "C", "pred": "C", "correct": true, "raw": "(C)", "group": null}
+{"uid": "mvbench/object_existence/39", "benchmark": "mvbench", "task": "object_existence", "gt": "B", "pred": "A", "correct": false, "raw": "A", "group": null}
+{"uid": "mvbench/object_existence/43", "benchmark": "mvbench", "task": "object_existence", "gt": "A", "pred": "A", "correct": true, "raw": "(A)", "group": null}
+{"uid": "mvbench/object_existence/47", "benchmark": "mvbench", "task": "object_existence", "gt": "C", "pred": "C", "correct": true, "raw": "(C)", "group": null}
+{"uid": "mvbench/object_existence/51", "benchmark": "mvbench", "task": "object_existence", "gt": "A", "pred": "A", "correct": true, "raw": "A", "group": null}
+{"uid": "mvbench/object_existence/55", "benchmark": "mvbench", "task": "object_existence", "gt": "C", "pred": "C", "correct": true, "raw": "(C)", "group": null}
+{"uid": "mvbench/object_existence/59", "benchmark": "mvbench", "task": "object_existence", "gt": "A", "pred": "A", "correct": true, "raw": "A", "group": null}
+{"uid": "mvbench/object_existence/63", "benchmark": "mvbench", "task": "object_existence", "gt": "C", "pred": "C", "correct": true, "raw": "(C) yes", "group": null}
+{"uid": "mvbench/object_existence/67", "benchmark": "mvbench", "task": "object_existence", "gt": "B", "pred": "B", "correct": true, "raw": "(B) no", "group": null}
+{"uid": "mvbench/object_existence/71", "benchmark": "mvbench", "task": "object_existence", "gt": "B", "pred": "B", "correct": true, "raw": "B", "group": null}
+{"uid": "mvbench/object_existence/75", "benchmark": "mvbench", "task": "object_existence", "gt": "A", "pred": "A", "correct": true, "raw": "A", "group": null}
+{"uid": "mvbench/object_existence/79", "benchmark": "mvbench", "task": "object_existence", "gt": "A", "pred": "C", "correct": false, "raw": "(C) no", "group": null}
+{"uid": "mvbench/object_existence/83", "benchmark": "mvbench", "task": "object_existence", "gt": "B", "pred": "B", "correct": true, "raw": "(B) no", "group": null}
+{"uid": "mvbench/object_existence/87", "benchmark": "mvbench", "task": "object_existence", "gt": "B", "pred": "B", "correct": true, "raw": "B", "group": null}
+{"uid": "mvbench/object_existence/91", "benchmark": "mvbench", "task": "object_existence", "gt": "A", "pred": "C", "correct": false, "raw": "(C) yes", "group": null}
+{"uid": "mvbench/object_existence/95", "benchmark": "mvbench", "task": "object_existence", "gt": "A", "pred": null, "correct": false, "raw": "ERR:KeyError('video_fps')", "group": null}
+{"uid": "mvbench/object_existence/99", "benchmark": "mvbench", "task": "object_existence", "gt": "B", "pred": "B", "correct": true, "raw": "(B) yes", "group": null}
+{"uid": "mvbench/object_existence/103", "benchmark": "mvbench", "task": "object_existence", "gt": "A", "pred": "B", "correct": false, "raw": "B", "group": null}
+{"uid": "mvbench/object_existence/107", "benchmark": "mvbench", "task": "object_existence", "gt": "C", "pred": "C", "correct": true, "raw": "(C) yes", "group": null}
+{"uid": "mvbench/object_existence/111", "benchmark": "mvbench", "task": "object_existence", "gt": "B", "pred": "B", "correct": true, "raw": "(B) no", "group": null}
+{"uid": "mvbench/object_existence/115", "benchmark": "mvbench", "task": "object_existence", "gt": "C", "pred": "C", "correct": true, "raw": "(C)", "group": null}
+{"uid": "mvbench/object_existence/119", "benchmark": "mvbench", "task": "object_existence", "gt": "C", "pred": "A", "correct": false, "raw": "(A)", "group": null}
+{"uid": "mvbench/object_existence/123", "benchmark": "mvbench", "task": "object_existence", "gt": "C", "pred": "C", "correct": true, "raw": "(C)", "group": null}
+{"uid": "mvbench/object_existence/127", "benchmark": "mvbench", "task": "object_existence", "gt": "B", "pred": "B", "correct": true, "raw": "(B) yes", "group": null}
+{"uid": "mvbench/object_existence/131", "benchmark": "mvbench", "task": "object_existence", "gt": "C", "pred": "B", "correct": false, "raw": "B", "group": null}
+{"uid": "mvbench/object_existence/135", "benchmark": "mvbench", "task": "object_existence", "gt": "A", "pred": "A", "correct": true, "raw": "A", "group": null}
+{"uid": "mvbench/object_existence/139", "benchmark": "mvbench", "task": "object_existence", "gt": "C", "pred": "C", "correct": true, "raw": "(C) yes", "group": null}
+{"uid": "mvbench/object_existence/143", "benchmark": "mvbench", "task": "object_existence", "gt": "A", "pred": "A", "correct": true, "raw": "A", "group": null}
+{"uid": "mvbench/object_existence/147", "benchmark": "mvbench", "task": "object_existence", "gt": "B", "pred": "B", "correct": true, "raw": "(B) no", "group": null}
+{"uid": "mvbench/object_existence/151", "benchmark": "mvbench", "task": "object_existence", "gt": "B", "pred": "B", "correct": true, "raw": "(B) yes", "group": null}
+{"uid": "mvbench/object_existence/155", "benchmark": "mvbench", "task": "object_existence", "gt": "C", "pred": "B", "correct": false, "raw": "(B) yes", "group": null}
+{"uid": "mvbench/object_existence/159", "benchmark": "mvbench", "task": "object_existence", "gt": "B", "pred": "B", "correct": true, "raw": "(B)", "group": null}
+{"uid": "mvbench/object_existence/163", "benchmark": "mvbench", "task": "object_existence", "gt": "A", "pred": "A", "correct": true, "raw": "A", "group": null}
+{"uid": "mvbench/object_existence/167", "benchmark": "mvbench", "task": "object_existence", "gt": "B", "pred": "A", "correct": false, "raw": "(A)", "group": null}
+{"uid": "mvbench/object_existence/171", "benchmark": "mvbench", "task": "object_existence", "gt": "C", "pred": "C", "correct": true, "raw": "(C) yes", "group": null}
+{"uid": "mvbench/object_existence/175", "benchmark": "mvbench", "task": "object_existence", "gt": "C", "pred": "C", "correct": true, "raw": "(C) yes", "group": null}
+{"uid": "mvbench/object_existence/179", "benchmark": "mvbench", "task": "object_existence", "gt": "A", "pred": "A", "correct": true, "raw": "A", "group": null}
+{"uid": "mvbench/object_existence/183", "benchmark": "mvbench", "task": "object_existence", "gt": "A", "pred": "A", "correct": true, "raw": "A", "group": null}
+{"uid": "mvbench/object_existence/187", "benchmark": "mvbench", "task": "object_existence", "gt": "B", "pred": "B", "correct": true, "raw": "(B) yes", "group": null}
+{"uid": "mvbench/object_existence/191", "benchmark": "mvbench", "task": "object_existence", "gt": "B", "pred": "B", "correct": true, "raw": "(B) yes", "group": null}
+{"uid": "mvbench/object_existence/195", "benchmark": "mvbench", "task": "object_existence", "gt": "B", "pred": "B", "correct": true, "raw": "(B) no", "group": null}
+{"uid": "mvbench/object_existence/199", "benchmark": "mvbench", "task": "object_existence", "gt": "A", "pred": "A", "correct": true, "raw": "A", "group": null}
+{"uid": "mvbench/object_interaction/3", "benchmark": "mvbench", "task": "object_interaction", "gt": "B", "pred": "B", "correct": true, "raw": "(B) The book.", "group": null}
+{"uid": "mvbench/object_interaction/7", "benchmark": "mvbench", "task": "object_interaction", "gt": "B", "pred": "B", "correct": true, "raw": "(B) The floor.", "group": null}
+{"uid": "mvbench/object_interaction/11", "benchmark": "mvbench", "task": "object_interaction", "gt": "B", "pred": "B", "correct": true, "raw": "(B) The book.", "group": null}
+{"uid": "mvbench/object_interaction/15", "benchmark": "mvbench", "task": "object_interaction", "gt": "C", "pred": "C", "correct": true, "raw": "(C) The bed.", "group": null}
+{"uid": "mvbench/object_interaction/19", "benchmark": "mvbench", "task": "object_interaction", "gt": "A", "pred": "D", "correct": false, "raw": "(D) The sandwich.", "group": null}
+{"uid": "mvbench/object_interaction/23", "benchmark": "mvbench", "task": "object_interaction", "gt": "B", "pred": "B", "correct": true, "raw": "(B) The bed.", "group": null}
+{"uid": "mvbench/object_interaction/27", "benchmark": "mvbench", "task": "object_interaction", "gt": "B", "pred": "B", "correct": true, "raw": "(B) The floor.", "group": null}
+{"uid": "mvbench/object_interaction/31", "benchmark": "mvbench", "task": "object_interaction", "gt": "A", "pred": "D", "correct": false, "raw": "(D) The pillow.", "group": null}
+{"uid": "mvbench/object_interaction/35", "benchmark": "mvbench", "task": "object_interaction", "gt": "D", "pred": "D", "correct": true, "raw": "(D) The bag.", "group": null}
+{"uid": "mvbench/object_interaction/39", "benchmark": "mvbench", "task": "object_interaction", "gt": "C", "pred": "C", "correct": true, "raw": "(C) The closet/cabinet.", "group": null}
+{"uid": "mvbench/object_interaction/43", "benchmark": "mvbench", "task": "object_interaction", "gt": "A", "pred": "A", "correct": true, "raw": "(A) The box.", "group": null}
+{"uid": "mvbench/object_interaction/47", "benchmark": "mvbench", "task": "object_interaction", "gt": "C", "pred": "C", "correct": true, "raw": "(C) The clothes.", "group": null}
+{"uid": "mvbench/object_interaction/51", "benchmark": "mvbench", "task": "object_interaction", "gt": "B", "pred": "A", "correct": false, "raw": "(A) The pillow.", "group": null}
+{"uid": "mvbench/object_interaction/55", "benchmark": "mvbench", "task": "object_interaction", "gt": "A", "pred": "A", "correct": true, "raw": "(A) The broom.", "group": null}
+{"uid": "mvbench/object_interaction/59", "benchmark": "mvbench", "task": "object_interaction", "gt": "B", "pred": "B", "correct": true, "raw": "(B) The sofa/couch.", "group": null}
+{"uid": "mvbench/object_interaction/63", "benchmark": "mvbench", "task": "object_interaction", "gt": "A", "pred": "A", "correct": true, "raw": "(A) The laptop.", "group": null}
+{"uid": "mvbench/object_interaction/67", "benchmark": "mvbench", "task": "object_interaction", "gt": "B", "pred": "B", "correct": true, "raw": "(B) The dish.", "group": null}
+{"uid": "mvbench/object_interaction/71", "benchmark": "mvbench", "task": "object_interaction", "gt": "A", "pred": "A", "correct": true, "raw": "(A) The table.", "group": null}
+{"uid": "mvbench/object_interaction/75", "benchmark": "mvbench", "task": "object_interaction", "gt": "B", "pred": "B", "correct": true, "raw": "(B) The sofa/couch.", "group": null}
+{"uid": "mvbench/object_interaction/79", "benchmark": "mvbench", "task": "object_interaction", "gt": "D", "pred": "D", "correct": true, "raw": "(D) The sofa/couch.", "group": null}
+{"uid": "mvbench/object_interaction/83", "benchmark": "mvbench", "task": "object_interaction", "gt": "D", "pred": "D", "correct": true, "raw": "(D) The food.", "group": null}
+{"uid": "mvbench/object_interaction/87", "benchmark": "mvbench", "task": "object_interaction", "gt": "C", "pred": "C", "correct": true, "raw": "(C) The table.", "group": null}
+{"uid": "mvbench/object_interaction/91", "benchmark": "mvbench", "task": "object_interaction", "gt": "B", "pred": "C", "correct": false, "raw": "(C) The clothes.", "group": null}
+{"uid": "mvbench/object_interaction/95", "benchmark": "mvbench", "task": "object_interaction", "gt": "B", "pred": "B", "correct": true, "raw": "(B) The bed.", "group": null}
+{"uid": "mvbench/object_interaction/99", "benchmark": "mvbench", "task": "object_interaction", "gt": "A", "pred": "A", "correct": true, "raw": "(A) The dish.", "group": null}
+{"uid": "mvbench/object_interaction/103", "benchmark": "mvbench", "task": "object_interaction", "gt": "D", "pred": "A", "correct": false, "raw": "(A) The towel.", "group": null}
+{"uid": "mvbench/object_interaction/107", "benchmark": "mvbench", "task": "object_interaction", "gt": "D", "pred": "B", "correct": false, "raw": "(B) The cup/glass/bottle.", "group": null}
+{"uid": "mvbench/object_interaction/111", "benchmark": "mvbench", "task": "object_interaction", "gt": "A", "pred": "A", "correct": true, "raw": "(A) The laptop.", "group": null}
+{"uid": "mvbench/object_interaction/115", "benchmark": "mvbench", "task": "object_interaction", "gt": "C", "pred": "B", "correct": false, "raw": "(B) The food.", "group": null}
+{"uid": "mvbench/object_interaction/119", "benchmark": "mvbench", "task": "object_interaction", "gt": "C", "pred": "C", "correct": true, "raw": "(C) The box.", "group": null}
+{"uid": "mvbench/object_interaction/123", "benchmark": "mvbench", "task": "object_interaction", "gt": "C", "pred": "A", "correct": false, "raw": "(A) The cup/glass/bottle.", "group": null}
+{"uid": "mvbench/object_interaction/127", "benchmark": "mvbench", "task": "object_interaction", "gt": "C", "pred": "A", "correct": false, "raw": "(A) The cup/glass/bottle.", "group": null}
+{"uid": "mvbench/object_interaction/131", "benchmark": "mvbench", "task": "object_interaction", "gt": "A", "pred": "A", "correct": true, "raw": "A", "group": null}
+{"uid": "mvbench/object_interaction/135", "benchmark": "mvbench", "task": "object_interaction", "gt": "D", "pred": "D", "correct": true, "raw": "(D)", "group": null}
+{"uid": "mvbench/object_interaction/139", "benchmark": "mvbench", "task": "object_interaction", "gt": "B", "pred": "B", "correct": true, "raw": "(B) The cup/glass/bottle.", "group": null}
+{"uid": "mvbench/object_interaction/143", "benchmark": "mvbench", "task": "object_interaction", "gt": "C", "pred": "C", "correct": true, "raw": "(C) The table.", "group": null}
+{"uid": "mvbench/object_interaction/147", "benchmark": "mvbench", "task": "object_interaction", "gt": "C", "pred": "C", "correct": true, "raw": "(C) The table.", "group": null}
+{"uid": "mvbench/object_interaction/151", "benchmark": "mvbench", "task": "object_interaction", "gt": "B", "pred": "D", "correct": false, "raw": "(D)", "group": null}
+{"uid": "mvbench/object_interaction/155", "benchmark": "mvbench", "task": "object_interaction", "gt": "A", "pred": "C", "correct": false, "raw": "(C) The cup/glass/bottle.", "group": null}
+{"uid": "mvbench/object_interaction/159", "benchmark": "mvbench", "task": "object_interaction", "gt": "D", "pred": "D", "correct": true, "raw": "(D) The table.", "group": null}
+{"uid": "mvbench/object_interaction/163", "benchmark": "mvbench", "task": "object_interaction", "gt": "A", "pred": "B", "correct": false, "raw": "(B) The food.", "group": null}
+{"uid": "mvbench/object_interaction/167", "benchmark": "mvbench", "task": "object_interaction", "gt": "A", "pred": "A", "correct": true, "raw": "(A) The broom.", "group": null}
+{"uid": "mvbench/object_interaction/171", "benchmark": "mvbench", "task": "object_interaction", "gt": "D", "pred": "D", "correct": true, "raw": "(D) The bag.", "group": null}
+{"uid": "mvbench/object_interaction/175", "benchmark": "mvbench", "task": "object_interaction", "gt": "D", "pred": "B", "correct": false, "raw": "B", "group": null}
+{"uid": "mvbench/object_interaction/179", "benchmark": "mvbench", "task": "object_interaction", "gt": "A", "pred": "A", "correct": true, "raw": "(A) The dish.", "group": null}
+{"uid": "mvbench/object_interaction/183", "benchmark": "mvbench", "task": "object_interaction", "gt": "B", "pred": "B", "correct": true, "raw": "B", "group": null}
+{"uid": "mvbench/object_interaction/187", "benchmark": "mvbench", "task": "object_interaction", "gt": "A", "pred": "D", "correct": false, "raw": "(D) The towel.", "group": null}
+{"uid": "mvbench/object_interaction/191", "benchmark": "mvbench", "task": "object_interaction", "gt": "A", "pred": "A", "correct": true, "raw": "(A) The towel.", "group": null}
+{"uid": "mvbench/object_interaction/195", "benchmark": "mvbench", "task": "object_interaction", "gt": "C", "pred": "C", "correct": true, "raw": "(C) The box.", "group": null}
+{"uid": "mvbench/object_interaction/199", "benchmark": "mvbench", "task": "object_interaction", "gt": "C", "pred": "C", "correct": true, "raw": "(C) The clothes.", "group": null}
+{"uid": "mvbench/object_shuffle/3", "benchmark": "mvbench", "task": "object_shuffle", "gt": "A", "pred": "B", "correct": false, "raw": "(B) Under the third object from the left.", "group": null}
+{"uid": "mvbench/object_shuffle/7", "benchmark": "mvbench", "task": "object_shuffle", "gt": "B", "pred": "C", "correct": false, "raw": "(C) Under the third object from the left.", "group": null}
+{"uid": "mvbench/object_shuffle/11", "benchmark": "mvbench", "task": "object_shuffle", "gt": "B", "pred": "B", "correct": true, "raw": "(B) Under the first object from the left.", "group": null}
+{"uid": "mvbench/object_shuffle/15", "benchmark": "mvbench", "task": "object_shuffle", "gt": "A", "pred": "B", "correct": false, "raw": "(B) Under the first object from the left.", "group": null}
+{"uid": "mvbench/object_shuffle/19", "benchmark": "mvbench", "task": "object_shuffle", "gt": "A", "pred": "C", "correct": false, "raw": "(C) Under the third object from the left.", "group": null}
+{"uid": "mvbench/object_shuffle/23", "benchmark": "mvbench", "task": "object_shuffle", "gt": "C", "pred": "B", "correct": false, "raw": "(B) Under the third object from the left.", "group": null}
+{"uid": "mvbench/object_shuffle/27", "benchmark": "mvbench", "task": "object_shuffle", "gt": "A", "pred": "B", "correct": false, "raw": "(B) Under the second object from the left.", "group": null}
+{"uid": "mvbench/object_shuffle/31", "benchmark": "mvbench", "task": "object_shuffle", "gt": "C", "pred": "B", "correct": false, "raw": "(B) Under the second object from the left.", "group": null}
+{"uid": "mvbench/object_shuffle/35", "benchmark": "mvbench", "task": "object_shuffle", "gt": "B", "pred": "B", "correct": true, "raw": "(B) Under the second object from the left.", "group": null}
+{"uid": "mvbench/object_shuffle/39", "benchmark": "mvbench", "task": "object_shuffle", "gt": "B", "pred": "C", "correct": false, "raw": "(C) Under the first object from the left.", "group": null}
+{"uid": "mvbench/object_shuffle/43", "benchmark": "mvbench", "task": "object_shuffle", "gt": "C", "pred": "C", "correct": true, "raw": "(C) Under the second object from the left.", "group": null}
+{"uid": "mvbench/object_shuffle/47", "benchmark": "mvbench", "task": "object_shuffle", "gt": "A", "pred": "C", "correct": false, "raw": "(C)", "group": null}
+{"uid": "mvbench/object_shuffle/51", "benchmark": "mvbench", "task": "object_shuffle", "gt": "A", "pred": "B", "correct": false, "raw": "(B) Under the second object from the left.", "group": null}
+{"uid": "mvbench/object_shuffle/55", "benchmark": "mvbench", "task": "object_shuffle", "gt": "A", "pred": "B", "correct": false, "raw": "(B) Under the second object from the left.", "group": null}
+{"uid": "mvbench/object_shuffle/59", "benchmark": "mvbench", "task": "object_shuffle", "gt": "B", "pred": "C", "correct": false, "raw": "(C) Under the first object from the left.", "group": null}
+{"uid": "mvbench/object_shuffle/63", "benchmark": "mvbench", "task": "object_shuffle", "gt": "C", "pred": "C", "correct": true, "raw": "(C) Under the second object from the left.", "group": null}
+{"uid": "mvbench/object_shuffle/67", "benchmark": "mvbench", "task": "object_shuffle", "gt": "B", "pred": "B", "correct": true, "raw": "(B) Under the second object from the left.", "group": null}
+{"uid": "mvbench/object_shuffle/71", "benchmark": "mvbench", "task": "object_shuffle", "gt": "A", "pred": "C", "correct": false, "raw": "(C) Under the first object from the left.", "group": null}
+{"uid": "mvbench/object_shuffle/75", "benchmark": "mvbench", "task": "object_shuffle", "gt": "A", "pred": "C", "correct": false, "raw": "(C) Under the first object from the left.", "group": null}
+{"uid": "mvbench/object_shuffle/79", "benchmark": "mvbench", "task": "object_shuffle", "gt": "A", "pred": "C", "correct": false, "raw": "(C) Under the second object from the left.", "group": null}
+{"uid": "mvbench/object_shuffle/83", "benchmark": "mvbench", "task": "object_shuffle", "gt": "B", "pred": "C", "correct": false, "raw": "(C) Under the first object from the left.", "group": null}
+{"uid": "mvbench/object_shuffle/87", "benchmark": "mvbench", "task": "object_shuffle", "gt": "B", "pred": "B", "correct": true, "raw": "(B) Under the first object from the left.", "group": null}
+{"uid": "mvbench/object_shuffle/91", "benchmark": "mvbench", "task": "object_shuffle", "gt": "A", "pred": "B", "correct": false, "raw": "(B) Under the second object from the left.", "group": null}
+{"uid": "mvbench/object_shuffle/95", "benchmark": "mvbench", "task": "object_shuffle", "gt": "A", "pred": "C", "correct": false, "raw": "(C)", "group": null}
+{"uid": "mvbench/object_shuffle/99", "benchmark": "mvbench", "task": "object_shuffle", "gt": "C", "pred": "C", "correct": true, "raw": "(C) Under the first object from the left.", "group": null}
+{"uid": "mvbench/object_shuffle/103", "benchmark": "mvbench", "task": "object_shuffle", "gt": "B", "pred": "C", "correct": false, "raw": "(C) Under the first object from the left.", "group": null}
+{"uid": "mvbench/object_shuffle/107", "benchmark": "mvbench", "task": "object_shuffle", "gt": "B", "pred": "C", "correct": false, "raw": "(C)", "group": null}
+{"uid": "mvbench/object_shuffle/111", "benchmark": "mvbench", "task": "object_shuffle", "gt": "C", "pred": "B", "correct": false, "raw": "(B) Under the third object from the left.", "group": null}
+{"uid": "mvbench/object_shuffle/115", "benchmark": "mvbench", "task": "object_shuffle", "gt": "A", "pred": "C", "correct": false, "raw": "(C) Under the second object from the left.", "group": null}
+{"uid": "mvbench/object_shuffle/119", "benchmark": "mvbench", "task": "object_shuffle", "gt": "B", "pred": "C", "correct": false, "raw": "(C) Under the second object from the left.", "group": null}
+{"uid": "mvbench/object_shuffle/123", "benchmark": "mvbench", "task": "object_shuffle", "gt": "A", "pred": "C", "correct": false, "raw": "(C) Under the second object from the left.", "group": null}
+{"uid": "mvbench/object_shuffle/127", "benchmark": "mvbench", "task": "object_shuffle", "gt": "A", "pred": "B", "correct": false, "raw": "(B) Under the second object from the left.", "group": null}
+{"uid": "mvbench/object_shuffle/131", "benchmark": "mvbench", "task": "object_shuffle", "gt": "B", "pred": "B", "correct": true, "raw": "(B) Under the second object from the left.", "group": null}
+{"uid": "mvbench/object_shuffle/135", "benchmark": "mvbench", "task": "object_shuffle", "gt": "C", "pred": "C", "correct": true, "raw": "(C) Under the third object from the left.", "group": null}
+{"uid": "mvbench/object_shuffle/139", "benchmark": "mvbench", "task": "object_shuffle", "gt": "A", "pred": "C", "correct": false, "raw": "(C)", "group": null}
+{"uid": "mvbench/object_shuffle/143", "benchmark": "mvbench", "task": "object_shuffle", "gt": "A", "pred": "C", "correct": false, "raw": "(C)", "group": null}
+{"uid": "mvbench/object_shuffle/147", "benchmark": "mvbench", "task": "object_shuffle", "gt": "A", "pred": "B", "correct": false, "raw": "(B) Under the third object from the left.", "group": null}
+{"uid": "mvbench/object_shuffle/151", "benchmark": "mvbench", "task": "object_shuffle", "gt": "C", "pred": "C", "correct": true, "raw": "(C)", "group": null}
+{"uid": "mvbench/object_shuffle/155", "benchmark": "mvbench", "task": "object_shuffle", "gt": "B", "pred": "C", "correct": false, "raw": "(C) Under the third object from the left.", "group": null}
+{"uid": "mvbench/object_shuffle/159", "benchmark": "mvbench", "task": "object_shuffle", "gt": "A", "pred": "B", "correct": false, "raw": "(B) Under the second object from the left.", "group": null}
+{"uid": "mvbench/object_shuffle/163", "benchmark": "mvbench", "task": "object_shuffle", "gt": "A", "pred": "A", "correct": true, "raw": "(A) Under the middle object.", "group": null}
+{"uid": "mvbench/object_shuffle/167", "benchmark": "mvbench", "task": "object_shuffle", "gt": "B", "pred": "C", "correct": false, "raw": "(C)", "group": null}
+{"uid": "mvbench/object_shuffle/171", "benchmark": "mvbench", "task": "object_shuffle", "gt": "A", "pred": "C", "correct": false, "raw": "(C) Under the second object from the left.", "group": null}
+{"uid": "mvbench/object_shuffle/175", "benchmark": "mvbench", "task": "object_shuffle", "gt": "C", "pred": "C", "correct": true, "raw": "(C) Under the first object from the left.", "group": null}
+{"uid": "mvbench/object_shuffle/179", "benchmark": "mvbench", "task": "object_shuffle", "gt": "A", "pred": "A", "correct": true, "raw": "(A) Under the second object from the left.", "group": null}
+{"uid": "mvbench/object_shuffle/183", "benchmark": "mvbench", "task": "object_shuffle", "gt": "C", "pred": "C", "correct": true, "raw": "(C)", "group": null}
+{"uid": "mvbench/object_shuffle/187", "benchmark": "mvbench", "task": "object_shuffle", "gt": "A", "pred": "C", "correct": false, "raw": "(C) Under the third object from the left.", "group": null}
+{"uid": "mvbench/object_shuffle/191", "benchmark": "mvbench", "task": "object_shuffle", "gt": "C", "pred": "C", "correct": true, "raw": "(C) Under the second object from the left.", "group": null}
+{"uid": "mvbench/object_shuffle/195", "benchmark": "mvbench", "task": "object_shuffle", "gt": "C", "pred": "C", "correct": true, "raw": "(C) Under the first object from the left.", "group": null}
+{"uid": "mvbench/object_shuffle/199", "benchmark": "mvbench", "task": "object_shuffle", "gt": "B", "pred": "B", "correct": true, "raw": "(B) Under the first object from the left.", "group": null}
+{"uid": "mvbench/moving_direction/3", "benchmark": "mvbench", "task": "moving_direction", "gt": "B", "pred": "B", "correct": true, "raw": "B", "group": null}
+{"uid": "mvbench/moving_direction/7", "benchmark": "mvbench", "task": "moving_direction", "gt": "B", "pred": "A", "correct": false, "raw": "(A) Down and to the right.", "group": null}
+{"uid": "mvbench/moving_direction/11", "benchmark": "mvbench", "task": "moving_direction", "gt": "B", "pred": "B", "correct": true, "raw": "(B) The object is stationary.", "group": null}
+{"uid": "mvbench/moving_direction/15", "benchmark": "mvbench", "task": "moving_direction", "gt": "B", "pred": "B", "correct": true, "raw": "B", "group": null}
+{"uid": "mvbench/moving_direction/19", "benchmark": "mvbench", "task": "moving_direction", "gt": "B", "pred": "A", "correct": false, "raw": "A", "group": null}
+{"uid": "mvbench/moving_direction/23", "benchmark": "mvbench", "task": "moving_direction", "gt": "D", "pred": "C", "correct": false, "raw": "C", "group": null}
+{"uid": "mvbench/moving_direction/27", "benchmark": "mvbench", "task": "moving_direction", "gt": "D", "pred": "D", "correct": true, "raw": "(D) The object is stationary.", "group": null}
+{"uid": "mvbench/moving_direction/31", "benchmark": "mvbench", "task": "moving_direction", "gt": "D", "pred": "C", "correct": false, "raw": "C", "group": null}
+{"uid": "mvbench/moving_direction/35", "benchmark": "mvbench", "task": "moving_direction", "gt": "D", "pred": "A", "correct": false, "raw": "A", "group": null}
+{"uid": "mvbench/moving_direction/39", "benchmark": "mvbench", "task": "moving_direction", "gt": "D", "pred": "D", "correct": true, "raw": "(D) The object is stationary.", "group": null}
+{"uid": "mvbench/moving_direction/43", "benchmark": "mvbench", "task": "moving_direction", "gt": "D", "pred": "D", "correct": true, "raw": "(D) The object is stationary.", "group": null}
+{"uid": "mvbench/moving_direction/47", "benchmark": "mvbench", "task": "moving_direction", "gt": "A", "pred": "B", "correct": false, "raw": "(B) Down and to the left.", "group": null}
+{"uid": "mvbench/moving_direction/51", "benchmark": "mvbench", "task": "moving_direction", "gt": "C", "pred": "C", "correct": true, "raw": "(C) Down and to the right.", "group": null}
+{"uid": "mvbench/moving_direction/55", "benchmark": "mvbench", "task": "moving_direction", "gt": "A", "pred": "C", "correct": false, "raw": "C", "group": null}
+{"uid": "mvbench/moving_direction/59", "benchmark": "mvbench", "task": "moving_direction", "gt": "C", "pred": "C", "correct": true, "raw": "(C) Down and to the right.", "group": null}
+{"uid": "mvbench/moving_direction/63", "benchmark": "mvbench", "task": "moving_direction", "gt": "B", "pred": "B", "correct": true, "raw": "B", "group": null}
+{"uid": "mvbench/moving_direction/67", "benchmark": "mvbench", "task": "moving_direction", "gt": "C", "pred": "C", "correct": true, "raw": "(C) Up and to the right.", "group": null}
+{"uid": "mvbench/moving_direction/71", "benchmark": "mvbench", "task": "moving_direction", "gt": "B", "pred": "D", "correct": false, "raw": "(D) The object is stationary.", "group": null}
+{"uid": "mvbench/moving_direction/75", "benchmark": "mvbench", "task": "moving_direction", "gt": "A", "pred": "C", "correct": false, "raw": "(C) Up and to the right.", "group": null}
+{"uid": "mvbench/moving_direction/79", "benchmark": "mvbench", "task": "moving_direction", "gt": "C", "pred": "C", "correct": true, "raw": "(C) Down and to the left.", "group": null}
+{"uid": "mvbench/moving_direction/83", "benchmark": "mvbench", "task": "moving_direction", "gt": "C", "pred": "C", "correct": true, "raw": "C", "group": null}
+{"uid": "mvbench/moving_direction/87", "benchmark": "mvbench", "task": "moving_direction", "gt": "B", "pred": "B", "correct": true, "raw": "(B) Down and to the left.", "group": null}
+{"uid": "mvbench/moving_direction/91", "benchmark": "mvbench", "task": "moving_direction", "gt": "A", "pred": "C", "correct": false, "raw": "C", "group": null}
+{"uid": "mvbench/moving_direction/95", "benchmark": "mvbench", "task": "moving_direction", "gt": "B", "pred": "B", "correct": true, "raw": "(B) The object is stationary.", "group": null}
+{"uid": "mvbench/moving_direction/99", "benchmark": "mvbench", "task": "moving_direction", "gt": "C", "pred": "D", "correct": false, "raw": "(D) Up and to the right.", "group": null}
+{"uid": "mvbench/moving_direction/103", "benchmark": "mvbench", "task": "moving_direction", "gt": "C", "pred": "C", "correct": true, "raw": "(C) Down and to the right.", "group": null}
+{"uid": "mvbench/moving_direction/107", "benchmark": "mvbench", "task": "moving_direction", "gt": "D", "pred": "B", "correct": false, "raw": "(B) Down and to the left.", "group": null}
+{"uid": "mvbench/moving_direction/111", "benchmark": "mvbench", "task": "moving_direction", "gt": "A", "pred": "A", "correct": true, "raw": "A", "group": null}
+{"uid": "mvbench/moving_direction/115", "benchmark": "mvbench", "task": "moving_direction", "gt": "B", "pred": "B", "correct": true, "raw": "B", "group": null}
+{"uid": "mvbench/moving_direction/119", "benchmark": "mvbench", "task": "moving_direction", "gt": "B", "pred": "B", "correct": true, "raw": "(B) Down and to the left.", "group": null}
+{"uid": "mvbench/moving_direction/123", "benchmark": "mvbench", "task": "moving_direction", "gt": "C", "pred": "C", "correct": true, "raw": "C", "group": null}
+{"uid": "mvbench/moving_direction/127", "benchmark": "mvbench", "task": "moving_direction", "gt": "C", "pred": "C", "correct": true, "raw": "(C) The object is stationary.", "group": null}
+{"uid": "mvbench/moving_direction/131", "benchmark": "mvbench", "task": "moving_direction", "gt": "D", "pred": "D", "correct": true, "raw": "(D) The object is stationary.", "group": null}
+{"uid": "mvbench/moving_direction/135", "benchmark": "mvbench", "task": "moving_direction", "gt": "A", "pred": "D", "correct": false, "raw": "(D) Up and to the left.", "group": null}
+{"uid": "mvbench/moving_direction/139", "benchmark": "mvbench", "task": "moving_direction", "gt": "A", "pred": "D", "correct": false, "raw": "(D) Down and to the left.", "group": null}
+{"uid": "mvbench/moving_direction/143", "benchmark": "mvbench", "task": "moving_direction", "gt": "D", "pred": "D", "correct": true, "raw": "(D) The object is stationary.", "group": null}
+{"uid": "mvbench/moving_direction/147", "benchmark": "mvbench", "task": "moving_direction", "gt": "B", "pred": "B", "correct": true, "raw": "B", "group": null}
+{"uid": "mvbench/moving_direction/151", "benchmark": "mvbench", "task": "moving_direction", "gt": "D", "pred": "D", "correct": true, "raw": "(D) Up and to the left.", "group": null}
+{"uid": "mvbench/moving_direction/155", "benchmark": "mvbench", "task": "moving_direction", "gt": "B", "pred": "B", "correct": true, "raw": "(B) Down and to the right.", "group": null}
+{"uid": "mvbench/moving_direction/159", "benchmark": "mvbench", "task": "moving_direction", "gt": "B", "pred": "D", "correct": false, "raw": "(D) Down and to the left.", "group": null}
+{"uid": "mvbench/moving_direction/163", "benchmark": "mvbench", "task": "moving_direction", "gt": "D", "pred": "D", "correct": true, "raw": "(D) Down and to the right.", "group": null}
+{"uid": "mvbench/moving_direction/167", "benchmark": "mvbench", "task": "moving_direction", "gt": "D", "pred": "A", "correct": false, "raw": "(A) Down and to the right.", "group": null}
+{"uid": "mvbench/moving_direction/171", "benchmark": "mvbench", "task": "moving_direction", "gt": "C", "pred": "C", "correct": true, "raw": "(C) Down and to the left.", "group": null}
+{"uid": "mvbench/moving_direction/175", "benchmark": "mvbench", "task": "moving_direction", "gt": "C", "pred": "C", "correct": true, "raw": "C", "group": null}
+{"uid": "mvbench/moving_direction/179", "benchmark": "mvbench", "task": "moving_direction", "gt": "B", "pred": "B", "correct": true, "raw": "(B) Down and to the left.", "group": null}
+{"uid": "mvbench/moving_direction/183", "benchmark": "mvbench", "task": "moving_direction", "gt": "B", "pred": "B", "correct": true, "raw": "B", "group": null}
+{"uid": "mvbench/moving_direction/187", "benchmark": "mvbench", "task": "moving_direction", "gt": "C", "pred": "D", "correct": false, "raw": "(D) The object is stationary.", "group": null}
+{"uid": "mvbench/moving_direction/191", "benchmark": "mvbench", "task": "moving_direction", "gt": "B", "pred": "B", "correct": true, "raw": "(B) Down and to the left.", "group": null}
+{"uid": "mvbench/moving_direction/195", "benchmark": "mvbench", "task": "moving_direction", "gt": "A", "pred": "A", "correct": true, "raw": "(A) Down and to the left.", "group": null}
+{"uid": "mvbench/moving_direction/199", "benchmark": "mvbench", "task": "moving_direction", "gt": "C", "pred": "C", "correct": true, "raw": "(C) Down and to the left.", "group": null}
+{"uid": "mvbench/action_localization/3", "benchmark": "mvbench", "task": "action_localization", "gt": "D", "pred": "B", "correct": false, "raw": "(B) In the middle of the video.", "group": null}
+{"uid": "mvbench/action_localization/7", "benchmark": "mvbench", "task": "action_localization", "gt": "A", "pred": "B", "correct": false, "raw": "(B) At the end of the video.", "group": null}
+{"uid": "mvbench/action_localization/11", "benchmark": "mvbench", "task": "action_localization", "gt": "C", "pred": "B", "correct": false, "raw": "(B) At the beginning of the video.", "group": null}
+{"uid": "mvbench/action_localization/15", "benchmark": "mvbench", "task": "action_localization", "gt": "C", "pred": "D", "correct": false, "raw": "(D)", "group": null}
+{"uid": "mvbench/action_localization/19", "benchmark": "mvbench", "task": "action_localization", "gt": "C", "pred": "A", "correct": false, "raw": "(A) At the beginning of the video.", "group": null}
+{"uid": "mvbench/action_localization/23", "benchmark": "mvbench", "task": "action_localization", "gt": "B", "pred": "A", "correct": false, "raw": "(A) At the beginning of the video.", "group": null}
+{"uid": "mvbench/action_localization/27", "benchmark": "mvbench", "task": "action_localization", "gt": "B", "pred": "C", "correct": false, "raw": "(C) In the middle of the video.", "group": null}
+{"uid": "mvbench/action_localization/31", "benchmark": "mvbench", "task": "action_localization", "gt": "B", "pred": "C", "correct": false, "raw": "(C)", "group": null}
+{"uid": "mvbench/action_localization/35", "benchmark": "mvbench", "task": "action_localization", "gt": "B", "pred": "C", "correct": false, "raw": "(C) In the middle of the video.", "group": null}
+{"uid": "mvbench/action_localization/39", "benchmark": "mvbench", "task": "action_localization", "gt": "A", "pred": "C", "correct": false, "raw": "(C)", "group": null}
+{"uid": "mvbench/action_localization/43", "benchmark": "mvbench", "task": "action_localization", "gt": "B", "pred": "B", "correct": true, "raw": "(B) Throughout the entire video.", "group": null}
+{"uid": "mvbench/action_localization/47", "benchmark": "mvbench", "task": "action_localization", "gt": "C", "pred": "D", "correct": false, "raw": "(D) In the middle of the video.", "group": null}
+{"uid": "mvbench/action_localization/51", "benchmark": "mvbench", "task": "action_localization", "gt": "C", "pred": "A", "correct": false, "raw": "(A) In the middle of the video.", "group": null}
+{"uid": "mvbench/action_localization/55", "benchmark": "mvbench", "task": "action_localization", "gt": "C", "pred": "A", "correct": false, "raw": "(A) In the middle of the video.", "group": null}
+{"uid": "mvbench/action_localization/59", "benchmark": "mvbench", "task": "action_localization", "gt": "C", "pred": "D", "correct": false, "raw": "(D) In the middle of the video.", "group": null}
+{"uid": "mvbench/action_localization/63", "benchmark": "mvbench", "task": "action_localization", "gt": "A", "pred": "A", "correct": true, "raw": "(A) At the end of the video.", "group": null}
+{"uid": "mvbench/action_localization/67", "benchmark": "mvbench", "task": "action_localization", "gt": "C", "pred": "D", "correct": false, "raw": "(D) At the beginning of the video.", "group": null}
+{"uid": "mvbench/action_localization/71", "benchmark": "mvbench", "task": "action_localization", "gt": "C", "pred": "D", "correct": false, "raw": "(D) In the middle of the video.", "group": null}
+{"uid": "mvbench/action_localization/75", "benchmark": "mvbench", "task": "action_localization", "gt": "D", "pred": "C", "correct": false, "raw": "(C)", "group": null}
+{"uid": "mvbench/action_localization/79", "benchmark": "mvbench", "task": "action_localization", "gt": "B", "pred": "B", "correct": true, "raw": "(B) At the end of the video.", "group": null}
+{"uid": "mvbench/action_localization/83", "benchmark": "mvbench", "task": "action_localization", "gt": "A", "pred": "C", "correct": false, "raw": "(C)", "group": null}
+{"uid": "mvbench/action_localization/87", "benchmark": "mvbench", "task": "action_localization", "gt": "D", "pred": "A", "correct": false, "raw": "(A) In the middle of the video.", "group": null}
+{"uid": "mvbench/action_localization/91", "benchmark": "mvbench", "task": "action_localization", "gt": "A", "pred": "A", "correct": true, "raw": "(A) At the end of the video.", "group": null}
+{"uid": "mvbench/action_localization/95", "benchmark": "mvbench", "task": "action_localization", "gt": "C", "pred": "A", "correct": false, "raw": "(A) In the middle of the video.", "group": null}
+{"uid": "mvbench/action_localization/99", "benchmark": "mvbench", "task": "action_localization", "gt": "C", "pred": "D", "correct": false, "raw": "(D) In the middle of the video.", "group": null}
+{"uid": "mvbench/action_localization/103", "benchmark": "mvbench", "task": "action_localization", "gt": "B", "pred": "C", "correct": false, "raw": "(C) At the end of the video.", "group": null}
+{"uid": "mvbench/action_localization/107", "benchmark": "mvbench", "task": "action_localization", "gt": "C", "pred": "D", "correct": false, "raw": "(D)", "group": null}
+{"uid": "mvbench/action_localization/111", "benchmark": "mvbench", "task": "action_localization", "gt": "C", "pred": "C", "correct": true, "raw": "(C)", "group": null}
+{"uid": "mvbench/action_localization/115", "benchmark": "mvbench", "task": "action_localization", "gt": "D", "pred": "D", "correct": true, "raw": "(D) In the middle of the video.", "group": null}
+{"uid": "mvbench/action_localization/119", "benchmark": "mvbench", "task": "action_localization", "gt": "C", "pred": "B", "correct": false, "raw": "(B) At the end of the video.", "group": null}
+{"uid": "mvbench/action_localization/123", "benchmark": "mvbench", "task": "action_localization", "gt": "B", "pred": "A", "correct": false, "raw": "(A) At the end of the video.", "group": null}
+{"uid": "mvbench/action_localization/127", "benchmark": "mvbench", "task": "action_localization", "gt": "A", "pred": "A", "correct": true, "raw": "(A) In the middle of the video.", "group": null}
+{"uid": "mvbench/action_localization/131", "benchmark": "mvbench", "task": "action_localization", "gt": "C", "pred": "C", "correct": true, "raw": "(C) In the middle of the video.", "group": null}
+{"uid": "mvbench/action_localization/135", "benchmark": "mvbench", "task": "action_localization", "gt": "A", "pred": "B", "correct": false, "raw": "B", "group": null}
+{"uid": "mvbench/action_localization/139", "benchmark": "mvbench", "task": "action_localization", "gt": "B", "pred": "B", "correct": true, "raw": "(B) In the middle of the video.", "group": null}
+{"uid": "mvbench/action_localization/143", "benchmark": "mvbench", "task": "action_localization", "gt": "C", "pred": "C", "correct": true, "raw": "(C) In the middle of the video.", "group": null}
+{"uid": "mvbench/action_localization/147", "benchmark": "mvbench", "task": "action_localization", "gt": "A", "pred": "A", "correct": true, "raw": "(A) In the middle of the video.", "group": null}
+{"uid": "mvbench/action_localization/151", "benchmark": "mvbench", "task": "action_localization", "gt": "B", "pred": "D", "correct": false, "raw": "(D) In the middle of the video.", "group": null}
+{"uid": "mvbench/action_localization/155", "benchmark": "mvbench", "task": "action_localization", "gt": "B", "pred": "C", "correct": false, "raw": "(C) At the end of the video.", "group": null}
+{"uid": "mvbench/action_localization/159", "benchmark": "mvbench", "task": "action_localization", "gt": "B", "pred": "B", "correct": true, "raw": "(B) At the beginning of the video.", "group": null}
+{"uid": "mvbench/action_localization/163", "benchmark": "mvbench", "task": "action_localization", "gt": "A", "pred": "A", "correct": true, "raw": "(A) At the beginning of the video.", "group": null}
+{"uid": "mvbench/action_localization/167", "benchmark": "mvbench", "task": "action_localization", "gt": "B", "pred": "B", "correct": true, "raw": "(B) At the beginning of the video.", "group": null}
+{"uid": "mvbench/action_localization/171", "benchmark": "mvbench", "task": "action_localization", "gt": "D", "pred": "A", "correct": false, "raw": "(A) In the middle of the video.", "group": null}
+{"uid": "mvbench/action_localization/175", "benchmark": "mvbench", "task": "action_localization", "gt": "C", "pred": "C", "correct": true, "raw": "(C)", "group": null}
+{"uid": "mvbench/action_localization/179", "benchmark": "mvbench", "task": "action_localization", "gt": "D", "pred": "D", "correct": true, "raw": "(D) At the beginning of the video.", "group": null}
+{"uid": "mvbench/action_localization/183", "benchmark": "mvbench", "task": "action_localization", "gt": "A", "pred": "A", "correct": true, "raw": "(A) At the beginning of the video.", "group": null}
+{"uid": "mvbench/action_localization/187", "benchmark": "mvbench", "task": "action_localization", "gt": "A", "pred": "A", "correct": true, "raw": "(A) At the beginning of the video.", "group": null}
+{"uid": "mvbench/action_localization/191", "benchmark": "mvbench", "task": "action_localization", "gt": "C", "pred": "C", "correct": true, "raw": "(C)", "group": null}
+{"uid": "mvbench/action_localization/195", "benchmark": "mvbench", "task": "action_localization", "gt": "C", "pred": "C", "correct": true, "raw": "(C)", "group": null}
+{"uid": "mvbench/action_localization/199", "benchmark": "mvbench", "task": "action_localization", "gt": "A", "pred": "B", "correct": false, "raw": "(B) In the middle of the video.", "group": null}
+{"uid": "mvbench/scene_transition/3", "benchmark": "mvbench", "task": "scene_transition", "gt": "D", "pred": null, "correct": false, "raw": "None of the options provided accurately describe the transition in the video. The video transitions from an outdoor scene involving students and a man in a pink shirt to an indoor", "group": null}
+{"uid": "mvbench/scene_transition/7", "benchmark": "mvbench", "task": "scene_transition", "gt": "A", "pred": "A", "correct": true, "raw": "A", "group": null}
+{"uid": "mvbench/scene_transition/11", "benchmark": "mvbench", "task": "scene_transition", "gt": "C", "pred": "B", "correct": false, "raw": "B", "group": null}
+{"uid": "mvbench/scene_transition/15", "benchmark": "mvbench", "task": "scene_transition", "gt": "A", "pred": "A", "correct": true, "raw": "A", "group": null}
+{"uid": "mvbench/scene_transition/19", "benchmark": "mvbench", "task": "scene_transition", "gt": "A", "pred": "A", "correct": true, "raw": "A", "group": null}
+{"uid": "mvbench/scene_transition/23", "benchmark": "mvbench", "task": "scene_transition", "gt": "C", "pred": "C", "correct": true, "raw": "(C) From the kitchen to the hallway.", "group": null}
+{"uid": "mvbench/scene_transition/27", "benchmark": "mvbench", "task": "scene_transition", "gt": "A", "pred": "A", "correct": true, "raw": "A", "group": null}
+{"uid": "mvbench/scene_transition/31", "benchmark": "mvbench", "task": "scene_transition", "gt": "D", "pred": "D", "correct": true, "raw": "D", "group": null}
+{"uid": "mvbench/scene_transition/35", "benchmark": "mvbench", "task": "scene_transition", "gt": "A", "pred": "A", "correct": true, "raw": "A", "group": null}
+{"uid": "mvbench/scene_transition/39", "benchmark": "mvbench", "task": "scene_transition", "gt": "A", "pred": "C", "correct": false, "raw": "(C) From Anna's dreams to the bustling streets of Manhattan.", "group": null}
+{"uid": "mvbench/scene_transition/43", "benchmark": "mvbench", "task": "scene_transition", "gt": "A", "pred": "A", "correct": true, "raw": "(A) From home to the grassland.", "group": null}
+{"uid": "mvbench/scene_transition/47", "benchmark": "mvbench", "task": "scene_transition", "gt": "C", "pred": "C", "correct": true, "raw": "(C)", "group": null}
+{"uid": "mvbench/scene_transition/51", "benchmark": "mvbench", "task": "scene_transition", "gt": "B", "pred": "B", "correct": true, "raw": "B", "group": null}
+{"uid": "mvbench/scene_transition/55", "benchmark": "mvbench", "task": "scene_transition", "gt": "D", "pred": "D", "correct": true, "raw": "(D) From a stone house to a cave.", "group": null}
+{"uid": "mvbench/scene_transition/59", "benchmark": "mvbench", "task": "scene_transition", "gt": "A", "pred": "A", "correct": true, "raw": "A", "group": null}
+{"uid": "mvbench/scene_transition/63", "benchmark": "mvbench", "task": "scene_transition", "gt": "B", "pred": "B", "correct": true, "raw": "B", "group": null}
+{"uid": "mvbench/scene_transition/67", "benchmark": "mvbench", "task": "scene_transition", "gt": "A", "pred": "A", "correct": true, "raw": "A", "group": null}
+{"uid": "mvbench/scene_transition/71", "benchmark": "mvbench", "task": "scene_transition", "gt": "C", "pred": "C", "correct": true, "raw": "C", "group": null}
+{"uid": "mvbench/scene_transition/75", "benchmark": "mvbench", "task": "scene_transition", "gt": "A", "pred": "A", "correct": true, "raw": "A", "group": null}
+{"uid": "mvbench/scene_transition/79", "benchmark": "mvbench", "task": "scene_transition", "gt": "B", "pred": "B", "correct": true, "raw": "(B) From the aisle to the ruins.", "group": null}
+{"uid": "mvbench/scene_transition/83", "benchmark": "mvbench", "task": "scene_transition", "gt": "D", "pred": "D", "correct": true, "raw": "(D) From the bedroom to the telephone booth.", "group": null}
+{"uid": "mvbench/scene_transition/87", "benchmark": "mvbench", "task": "scene_transition", "gt": "D", "pred": "D", "correct": true, "raw": "D", "group": null}
+{"uid": "mvbench/scene_transition/91", "benchmark": "mvbench", "task": "scene_transition", "gt": "B", "pred": "B", "correct": true, "raw": "B", "group": null}
+{"uid": "mvbench/scene_transition/95", "benchmark": "mvbench", "task": "scene_transition", "gt": "D", "pred": "D", "correct": true, "raw": "(D) From the rooftop to the manager's office.", "group": null}
+{"uid": "mvbench/scene_transition/99", "benchmark": "mvbench", "task": "scene_transition", "gt": "B", "pred": "B", "correct": true, "raw": "B", "group": null}
+{"uid": "mvbench/scene_transition/103", "benchmark": "mvbench", "task": "scene_transition", "gt": "B", "pred": "B", "correct": true, "raw": "B", "group": null}
+{"uid": "mvbench/scene_transition/107", "benchmark": "mvbench", "task": "scene_transition", "gt": "B", "pred": "B", "correct": true, "raw": "(B) From the cabin to the boiler room.", "group": null}
+{"uid": "mvbench/scene_transition/111", "benchmark": "mvbench", "task": "scene_transition", "gt": "C", "pred": "C", "correct": true, "raw": "C", "group": null}
+{"uid": "mvbench/scene_transition/115", "benchmark": "mvbench", "task": "scene_transition", "gt": "C", "pred": "C", "correct": true, "raw": "C", "group": null}
+{"uid": "mvbench/scene_transition/119", "benchmark": "mvbench", "task": "scene_transition", "gt": "D", "pred": "D", "correct": true, "raw": "(D) From the elevator to the robot channel.", "group": null}
+{"uid": "mvbench/scene_transition/123", "benchmark": "mvbench", "task": "scene_transition", "gt": "A", "pred": "A", "correct": true, "raw": "A", "group": null}
+{"uid": "mvbench/scene_transition/127", "benchmark": "mvbench", "task": "scene_transition", "gt": "D", "pred": "D", "correct": true, "raw": "(D) From behind the rock to the shore.", "group": null}
+{"uid": "mvbench/scene_transition/131", "benchmark": "mvbench", "task": "scene_transition", "gt": "A", "pred": "B", "correct": false, "raw": "B", "group": null}
+{"uid": "mvbench/scene_transition/135", "benchmark": "mvbench", "task": "scene_transition", "gt": "D", "pred": "D", "correct": true, "raw": "(D) From Ikea to Parker home.", "group": null}
+{"uid": "mvbench/scene_transition/139", "benchmark": "mvbench", "task": "scene_transition", "gt": "A", "pred": "A", "correct": true, "raw": "A", "group": null}
+{"uid": "mvbench/scene_transition/143", "benchmark": "mvbench", "task": "scene_transition", "gt": "D", "pred": "D", "correct": true, "raw": "D", "group": null}
+{"uid": "mvbench/scene_transition/147", "benchmark": "mvbench", "task": "scene_transition", "gt": "C", "pred": "C", "correct": true, "raw": "C", "group": null}
+{"uid": "mvbench/scene_transition/151", "benchmark": "mvbench", "task": "scene_transition", "gt": "A", "pred": "A", "correct": true, "raw": "A", "group": null}
+{"uid": "mvbench/scene_transition/155", "benchmark": "mvbench", "task": "scene_transition", "gt": "C", "pred": "C", "correct": true, "raw": "C", "group": null}
+{"uid": "mvbench/scene_transition/159", "benchmark": "mvbench", "task": "scene_transition", "gt": "B", "pred": "B", "correct": true, "raw": "B", "group": null}
+{"uid": "mvbench/scene_transition/163", "benchmark": "mvbench", "task": "scene_transition", "gt": "B", "pred": "B", "correct": true, "raw": "B", "group": null}
+{"uid": "mvbench/scene_transition/167", "benchmark": "mvbench", "task": "scene_transition", "gt": "A", "pred": "A", "correct": true, "raw": "A", "group": null}
+{"uid": "mvbench/scene_transition/171", "benchmark": "mvbench", "task": "scene_transition", "gt": "C", "pred": null, "correct": false, "raw": "None of the options are correct. The video transitions from a robot walking through a cityscape to a cluttered, dimly lit storage area filled with various objects", "group": null}
+{"uid": "mvbench/scene_transition/175", "benchmark": "mvbench", "task": "scene_transition", "gt": "B", "pred": "B", "correct": true, "raw": "B", "group": null}
+{"uid": "mvbench/scene_transition/179", "benchmark": "mvbench", "task": "scene_transition", "gt": "C", "pred": "C", "correct": true, "raw": "C", "group": null}
+{"uid": "mvbench/scene_transition/183", "benchmark": "mvbench", "task": "scene_transition", "gt": "C", "pred": "C", "correct": true, "raw": "C", "group": null}
+{"uid": "mvbench/scene_transition/187", "benchmark": "mvbench", "task": "scene_transition", "gt": "B", "pred": "B", "correct": true, "raw": "B", "group": null}
+{"uid": "mvbench/scene_transition/191", "benchmark": "mvbench", "task": "scene_transition", "gt": "B", "pred": "B", "correct": true, "raw": "B", "group": null}
+{"uid": "mvbench/scene_transition/195", "benchmark": "mvbench", "task": "scene_transition", "gt": "D", "pred": "D", "correct": true, "raw": "(D) From one cave to another.", "group": null}
+{"uid": "mvbench/scene_transition/199", "benchmark": "mvbench", "task": "scene_transition", "gt": "A", "pred": "A", "correct": true, "raw": "A", "group": null}
+{"uid": "mvbench/action_count/3", "benchmark": "mvbench", "task": "action_count", "gt": "C", "pred": "C", "correct": true, "raw": "C", "group": null}
+{"uid": "mvbench/action_count/7", "benchmark": "mvbench", "task": "action_count", "gt": "A", "pred": "C", "correct": false, "raw": "C", "group": null}
+{"uid": "mvbench/action_count/11", "benchmark": "mvbench", "task": "action_count", "gt": "B", "pred": "C", "correct": false, "raw": "C", "group": null}
+{"uid": "mvbench/action_count/15", "benchmark": "mvbench", "task": "action_count", "gt": "B", "pred": "B", "correct": true, "raw": "B", "group": null}
+{"uid": "mvbench/action_count/19", "benchmark": "mvbench", "task": "action_count", "gt": "C", "pred": "C", "correct": true, "raw": "C", "group": null}
+{"uid": "mvbench/action_count/23", "benchmark": "mvbench", "task": "action_count", "gt": "C", "pred": "C", "correct": true, "raw": "C", "group": null}
+{"uid": "mvbench/action_count/27", "benchmark": "mvbench", "task": "action_count", "gt": "A", "pred": "B", "correct": false, "raw": "B", "group": null}
+{"uid": "mvbench/action_count/31", "benchmark": "mvbench", "task": "action_count", "gt": "B", "pred": "A", "correct": false, "raw": "A", "group": null}
+{"uid": "mvbench/action_count/35", "benchmark": "mvbench", "task": "action_count", "gt": "B", "pred": "A", "correct": false, "raw": "A", "group": null}
+{"uid": "mvbench/action_count/39", "benchmark": "mvbench", "task": "action_count", "gt": "C", "pred": "B", "correct": false, "raw": "B", "group": null}
+{"uid": "mvbench/action_count/43", "benchmark": "mvbench", "task": "action_count", "gt": "C", "pred": "C", "correct": true, "raw": "C", "group": null}
+{"uid": "mvbench/action_count/47", "benchmark": "mvbench", "task": "action_count", "gt": "A", "pred": "B", "correct": false, "raw": "B", "group": null}
+{"uid": "mvbench/action_count/51", "benchmark": "mvbench", "task": "action_count", "gt": "C", "pred": "C", "correct": true, "raw": "C", "group": null}
+{"uid": "mvbench/action_count/55", "benchmark": "mvbench", "task": "action_count", "gt": "B", "pred": "B", "correct": true, "raw": "B", "group": null}
+{"uid": "mvbench/action_count/59", "benchmark": "mvbench", "task": "action_count", "gt": "C", "pred": "C", "correct": true, "raw": "C", "group": null}
+{"uid": "mvbench/action_count/63", "benchmark": "mvbench", "task": "action_count", "gt": "B", "pred": "C", "correct": false, "raw": "C", "group": null}
+{"uid": "mvbench/action_count/67", "benchmark": "mvbench", "task": "action_count", "gt": "C", "pred": "C", "correct": true, "raw": "C", "group": null}
+{"uid": "mvbench/action_count/71", "benchmark": "mvbench", "task": "action_count", "gt": "A", "pred": "C", "correct": false, "raw": "C", "group": null}
+{"uid": "mvbench/action_count/75", "benchmark": "mvbench", "task": "action_count", "gt": "B", "pred": "B", "correct": true, "raw": "B", "group": null}
+{"uid": "mvbench/action_count/79", "benchmark": "mvbench", "task": "action_count", "gt": "B", "pred": "A", "correct": false, "raw": "A", "group": null}
+{"uid": "mvbench/action_count/83", "benchmark": "mvbench", "task": "action_count", "gt": "C", "pred": "C", "correct": true, "raw": "C", "group": null}
+{"uid": "mvbench/action_count/87", "benchmark": "mvbench", "task": "action_count", "gt": "B", "pred": "C", "correct": false, "raw": "C", "group": null}
+{"uid": "mvbench/action_count/91", "benchmark": "mvbench", "task": "action_count", "gt": "B", "pred": "B", "correct": true, "raw": "B", "group": null}
+{"uid": "mvbench/action_count/95", "benchmark": "mvbench", "task": "action_count", "gt": "B", "pred": "C", "correct": false, "raw": "C", "group": null}
+{"uid": "mvbench/action_count/99", "benchmark": "mvbench", "task": "action_count", "gt": "C", "pred": "C", "correct": true, "raw": "C", "group": null}
+{"uid": "mvbench/action_count/103", "benchmark": "mvbench", "task": "action_count", "gt": "A", "pred": "C", "correct": false, "raw": "C", "group": null}
+{"uid": "mvbench/action_count/107", "benchmark": "mvbench", "task": "action_count", "gt": "B", "pred": "A", "correct": false, "raw": "A", "group": null}
+{"uid": "mvbench/action_count/111", "benchmark": "mvbench", "task": "action_count", "gt": "B", "pred": "C", "correct": false, "raw": "(C) 6", "group": null}
+{"uid": "mvbench/action_count/115", "benchmark": "mvbench", "task": "action_count", "gt": "C", "pred": "C", "correct": true, "raw": "C", "group": null}
+{"uid": "mvbench/action_count/119", "benchmark": "mvbench", "task": "action_count", "gt": "A", "pred": "A", "correct": true, "raw": "A", "group": null}
+{"uid": "mvbench/action_count/123", "benchmark": "mvbench", "task": "action_count", "gt": "A", "pred": "C", "correct": false, "raw": "(C) 5", "group": null}
+{"uid": "mvbench/action_count/127", "benchmark": "mvbench", "task": "action_count", "gt": "A", "pred": "B", "correct": false, "raw": "B", "group": null}
+{"uid": "mvbench/action_count/131", "benchmark": "mvbench", "task": "action_count", "gt": "C", "pred": "C", "correct": true, "raw": "C", "group": null}
+{"uid": "mvbench/action_count/135", "benchmark": "mvbench", "task": "action_count", "gt": "B", "pred": "A", "correct": false, "raw": "A", "group": null}
+{"uid": "mvbench/action_count/139", "benchmark": "mvbench", "task": "action_count", "gt": "B", "pred": "B", "correct": true, "raw": "B", "group": null}
+{"uid": "mvbench/action_count/143", "benchmark": "mvbench", "task": "action_count", "gt": "A", "pred": "A", "correct": true, "raw": "A", "group": null}
+{"uid": "mvbench/action_count/147", "benchmark": "mvbench", "task": "action_count", "gt": "C", "pred": "C", "correct": true, "raw": "C", "group": null}
+{"uid": "mvbench/action_count/151", "benchmark": "mvbench", "task": "action_count", "gt": "A", "pred": "B", "correct": false, "raw": "B", "group": null}
+{"uid": "mvbench/action_count/155", "benchmark": "mvbench", "task": "action_count", "gt": "B", "pred": "C", "correct": false, "raw": "C", "group": null}
+{"uid": "mvbench/action_count/159", "benchmark": "mvbench", "task": "action_count", "gt": "C", "pred": "C", "correct": true, "raw": "C", "group": null}
+{"uid": "mvbench/action_count/163", "benchmark": "mvbench", "task": "action_count", "gt": "B", "pred": "B", "correct": true, "raw": "B", "group": null}
+{"uid": "mvbench/action_count/167", "benchmark": "mvbench", "task": "action_count", "gt": "C", "pred": "B", "correct": false, "raw": "B", "group": null}
+{"uid": "mvbench/action_count/171", "benchmark": "mvbench", "task": "action_count", "gt": "B", "pred": "B", "correct": true, "raw": "B", "group": null}
+{"uid": "mvbench/action_count/175", "benchmark": "mvbench", "task": "action_count", "gt": "B", "pred": "B", "correct": true, "raw": "B", "group": null}
+{"uid": "mvbench/action_count/179", "benchmark": "mvbench", "task": "action_count", "gt": "C", "pred": "C", "correct": true, "raw": "C", "group": null}
+{"uid": "mvbench/action_count/183", "benchmark": "mvbench", "task": "action_count", "gt": "A", "pred": "A", "correct": true, "raw": "A", "group": null}
+{"uid": "mvbench/action_count/187", "benchmark": "mvbench", "task": "action_count", "gt": "A", "pred": "A", "correct": true, "raw": "A", "group": null}
+{"uid": "mvbench/action_count/191", "benchmark": "mvbench", "task": "action_count", "gt": "B", "pred": "B", "correct": true, "raw": "B", "group": null}
+{"uid": "mvbench/action_count/195", "benchmark": "mvbench", "task": "action_count", "gt": "B", "pred": "A", "correct": false, "raw": "A", "group": null}
+{"uid": "mvbench/action_count/199", "benchmark": "mvbench", "task": "action_count", "gt": "C", "pred": "A", "correct": false, "raw": "A", "group": null}
+{"uid": "mvbench/moving_count/3", "benchmark": "mvbench", "task": "moving_count", "gt": "D", "pred": "D", "correct": true, "raw": "(D) 1", "group": null}
+{"uid": "mvbench/moving_count/7", "benchmark": "mvbench", "task": "moving_count", "gt": "B", "pred": "D", "correct": false, "raw": "(D) 3", "group": null}
+{"uid": "mvbench/moving_count/11", "benchmark": "mvbench", "task": "moving_count", "gt": "B", "pred": "B", "correct": true, "raw": "B", "group": null}
+{"uid": "mvbench/moving_count/15", "benchmark": "mvbench", "task": "moving_count", "gt": "D", "pred": "D", "correct": true, "raw": "(D) 0", "group": null}
+{"uid": "mvbench/moving_count/19", "benchmark": "mvbench", "task": "moving_count", "gt": "D", "pred": "D", "correct": true, "raw": "(D) 1", "group": null}
+{"uid": "mvbench/moving_count/23", "benchmark": "mvbench", "task": "moving_count", "gt": "A", "pred": "A", "correct": true, "raw": "(A) 2", "group": null}
+{"uid": "mvbench/moving_count/27", "benchmark": "mvbench", "task": "moving_count", "gt": "C", "pred": "B", "correct": false, "raw": "(B) 2", "group": null}
+{"uid": "mvbench/moving_count/31", "benchmark": "mvbench", "task": "moving_count", "gt": "C", "pred": "C", "correct": true, "raw": "C", "group": null}
+{"uid": "mvbench/moving_count/35", "benchmark": "mvbench", "task": "moving_count", "gt": "C", "pred": "C", "correct": true, "raw": "(C) 2", "group": null}
+{"uid": "mvbench/moving_count/39", "benchmark": "mvbench", "task": "moving_count", "gt": "C", "pred": "C", "correct": true, "raw": "(C) 2", "group": null}
+{"uid": "mvbench/moving_count/43", "benchmark": "mvbench", "task": "moving_count", "gt": "A", "pred": "A", "correct": true, "raw": "A", "group": null}
+{"uid": "mvbench/moving_count/47", "benchmark": "mvbench", "task": "moving_count", "gt": "C", "pred": "C", "correct": true, "raw": "(C) 3", "group": null}
+{"uid": "mvbench/moving_count/51", "benchmark": "mvbench", "task": "moving_count", "gt": "C", "pred": "C", "correct": true, "raw": "(C)", "group": null}
+{"uid": "mvbench/moving_count/55", "benchmark": "mvbench", "task": "moving_count", "gt": "C", "pred": "A", "correct": false, "raw": "(A) 1", "group": null}
+{"uid": "mvbench/moving_count/59", "benchmark": "mvbench", "task": "moving_count", "gt": "D", "pred": "D", "correct": true, "raw": "(D) 1", "group": null}
+{"uid": "mvbench/moving_count/63", "benchmark": "mvbench", "task": "moving_count", "gt": "B", "pred": "B", "correct": true, "raw": "B", "group": null}
+{"uid": "mvbench/moving_count/67", "benchmark": "mvbench", "task": "moving_count", "gt": "A", "pred": "C", "correct": false, "raw": "(C) 2", "group": null}
+{"uid": "mvbench/moving_count/71", "benchmark": "mvbench", "task": "moving_count", "gt": "D", "pred": "D", "correct": true, "raw": "(D) 0", "group": null}
+{"uid": "mvbench/moving_count/75", "benchmark": "mvbench", "task": "moving_count", "gt": "B", "pred": "B", "correct": true, "raw": "(B) 2", "group": null}
+{"uid": "mvbench/moving_count/79", "benchmark": "mvbench", "task": "moving_count", "gt": "C", "pred": "C", "correct": true, "raw": "(C) 2", "group": null}
+{"uid": "mvbench/moving_count/83", "benchmark": "mvbench", "task": "moving_count", "gt": "B", "pred": "A", "correct": false, "raw": "A", "group": null}
+{"uid": "mvbench/moving_count/87", "benchmark": "mvbench", "task": "moving_count", "gt": "C", "pred": "B", "correct": false, "raw": "(B) 3", "group": null}
+{"uid": "mvbench/moving_count/91", "benchmark": "mvbench", "task": "moving_count", "gt": "C", "pred": "B", "correct": false, "raw": "(B) 2", "group": null}
+{"uid": "mvbench/moving_count/95", "benchmark": "mvbench", "task": "moving_count", "gt": "B", "pred": "B", "correct": true, "raw": "(B) 4", "group": null}
+{"uid": "mvbench/moving_count/99", "benchmark": "mvbench", "task": "moving_count", "gt": "B", "pred": "B", "correct": true, "raw": "(B) 2", "group": null}
+{"uid": "mvbench/moving_count/103", "benchmark": "mvbench", "task": "moving_count", "gt": "B", "pred": "B", "correct": true, "raw": "B", "group": null}
+{"uid": "mvbench/moving_count/107", "benchmark": "mvbench", "task": "moving_count", "gt": "A", "pred": "B", "correct": false, "raw": "(B) 3", "group": null}
+{"uid": "mvbench/moving_count/111", "benchmark": "mvbench", "task": "moving_count", "gt": "C", "pred": "C", "correct": true, "raw": "(C) 0", "group": null}
+{"uid": "mvbench/moving_count/115", "benchmark": "mvbench", "task": "moving_count", "gt": "D", "pred": "B", "correct": false, "raw": "(B) 3", "group": null}
+{"uid": "mvbench/moving_count/119", "benchmark": "mvbench", "task": "moving_count", "gt": "B", "pred": "A", "correct": false, "raw": "(A) 3", "group": null}
+{"uid": "mvbench/moving_count/123", "benchmark": "mvbench", "task": "moving_count", "gt": "D", "pred": "D", "correct": true, "raw": "(D) 0", "group": null}
+{"uid": "mvbench/moving_count/127", "benchmark": "mvbench", "task": "moving_count", "gt": "D", "pred": "D", "correct": true, "raw": "(D) 1", "group": null}
+{"uid": "mvbench/moving_count/131", "benchmark": "mvbench", "task": "moving_count", "gt": "A", "pred": "A", "correct": true, "raw": "(A) 2", "group": null}
+{"uid": "mvbench/moving_count/135", "benchmark": "mvbench", "task": "moving_count", "gt": "D", "pred": "D", "correct": true, "raw": "(D) 0", "group": null}
+{"uid": "mvbench/moving_count/139", "benchmark": "mvbench", "task": "moving_count", "gt": "D", "pred": "D", "correct": true, "raw": "(D) 2", "group": null}
+{"uid": "mvbench/moving_count/143", "benchmark": "mvbench", "task": "moving_count", "gt": "D", "pred": "D", "correct": true, "raw": "(D)", "group": null}
+{"uid": "mvbench/moving_count/147", "benchmark": "mvbench", "task": "moving_count", "gt": "B", "pred": "A", "correct": false, "raw": "(A) 1", "group": null}
+{"uid": "mvbench/moving_count/151", "benchmark": "mvbench", "task": "moving_count", "gt": "C", "pred": "B", "correct": false, "raw": "B", "group": null}
+{"uid": "mvbench/moving_count/155", "benchmark": "mvbench", "task": "moving_count", "gt": "C", "pred": "A", "correct": false, "raw": "(A) 5", "group": null}
+{"uid": "mvbench/moving_count/159", "benchmark": "mvbench", "task": "moving_count", "gt": "D", "pred": "A", "correct": false, "raw": "(A) 3", "group": null}
+{"uid": "mvbench/moving_count/163", "benchmark": "mvbench", "task": "moving_count", "gt": "D", "pred": "D", "correct": true, "raw": "(D) 1", "group": null}
+{"uid": "mvbench/moving_count/167", "benchmark": "mvbench", "task": "moving_count", "gt": "A", "pred": "A", "correct": true, "raw": "(A) 2", "group": null}
+{"uid": "mvbench/moving_count/171", "benchmark": "mvbench", "task": "moving_count", "gt": "D", "pred": "D", "correct": true, "raw": "(D)", "group": null}
+{"uid": "mvbench/moving_count/175", "benchmark": "mvbench", "task": "moving_count", "gt": "D", "pred": "D", "correct": true, "raw": "(D) 1", "group": null}
+{"uid": "mvbench/moving_count/179", "benchmark": "mvbench", "task": "moving_count", "gt": "D", "pred": "B", "correct": false, "raw": "B", "group": null}
+{"uid": "mvbench/moving_count/183", "benchmark": "mvbench", "task": "moving_count", "gt": "C", "pred": "A", "correct": false, "raw": "A", "group": null}
+{"uid": "mvbench/moving_count/187", "benchmark": "mvbench", "task": "moving_count", "gt": "C", "pred": "B", "correct": false, "raw": "(B) 3", "group": null}
+{"uid": "mvbench/moving_count/191", "benchmark": "mvbench", "task": "moving_count", "gt": "B", "pred": "B", "correct": true, "raw": "(B) 0", "group": null}
+{"uid": "mvbench/moving_count/195", "benchmark": "mvbench", "task": "moving_count", "gt": "A", "pred": "A", "correct": true, "raw": "(A) 2", "group": null}
+{"uid": "mvbench/moving_count/199", "benchmark": "mvbench", "task": "moving_count", "gt": "D", "pred": "C", "correct": false, "raw": "(C) 3", "group": null}
+{"uid": "mvbench/moving_attribute/3", "benchmark": "mvbench", "task": "moving_attribute", "gt": "B", "pred": "B", "correct": true, "raw": "B", "group": null}
+{"uid": "mvbench/moving_attribute/7", "benchmark": "mvbench", "task": "moving_attribute", "gt": "C", "pred": "C", "correct": true, "raw": "(C) cube", "group": null}
+{"uid": "mvbench/moving_attribute/11", "benchmark": "mvbench", "task": "moving_attribute", "gt": "A", "pred": "A", "correct": true, "raw": "A", "group": null}
+{"uid": "mvbench/moving_attribute/15", "benchmark": "mvbench", "task": "moving_attribute", "gt": "B", "pred": "B", "correct": true, "raw": "B", "group": null}
+{"uid": "mvbench/moving_attribute/19", "benchmark": "mvbench", "task": "moving_attribute", "gt": "B", "pred": "B", "correct": true, "raw": "B", "group": null}
+{"uid": "mvbench/moving_attribute/23", "benchmark": "mvbench", "task": "moving_attribute", "gt": "A", "pred": "A", "correct": true, "raw": "(A) cylinder", "group": null}
+{"uid": "mvbench/moving_attribute/27", "benchmark": "mvbench", "task": "moving_attribute", "gt": "C", "pred": "C", "correct": true, "raw": "(C) cylinder", "group": null}
+{"uid": "mvbench/moving_attribute/31", "benchmark": "mvbench", "task": "moving_attribute", "gt": "B", "pred": "B", "correct": true, "raw": "B", "group": null}
+{"uid": "mvbench/moving_attribute/35", "benchmark": "mvbench", "task": "moving_attribute", "gt": "A", "pred": "A", "correct": true, "raw": "A", "group": null}
+{"uid": "mvbench/moving_attribute/39", "benchmark": "mvbench", "task": "moving_attribute", "gt": "A", "pred": "A", "correct": true, "raw": "(A) cube", "group": null}
+{"uid": "mvbench/moving_attribute/43", "benchmark": "mvbench", "task": "moving_attribute", "gt": "D", "pred": "D", "correct": true, "raw": "(D) gray", "group": null}
+{"uid": "mvbench/moving_attribute/47", "benchmark": "mvbench", "task": "moving_attribute", "gt": "A", "pred": "A", "correct": true, "raw": "(A) purple", "group": null}
+{"uid": "mvbench/moving_attribute/51", "benchmark": "mvbench", "task": "moving_attribute", "gt": "C", "pred": "C", "correct": true, "raw": "(C) yellow", "group": null}
+{"uid": "mvbench/moving_attribute/55", "benchmark": "mvbench", "task": "moving_attribute", "gt": "B", "pred": "B", "correct": true, "raw": "B", "group": null}
+{"uid": "mvbench/moving_attribute/59", "benchmark": "mvbench", "task": "moving_attribute", "gt": "B", "pred": "B", "correct": true, "raw": "(B) metal", "group": null}
+{"uid": "mvbench/moving_attribute/63", "benchmark": "mvbench", "task": "moving_attribute", "gt": "D", "pred": "D", "correct": true, "raw": "(D) cyan", "group": null}
+{"uid": "mvbench/moving_attribute/67", "benchmark": "mvbench", "task": "moving_attribute", "gt": "A", "pred": "A", "correct": true, "raw": "A", "group": null}
+{"uid": "mvbench/moving_attribute/71", "benchmark": "mvbench", "task": "moving_attribute", "gt": "A", "pred": "A", "correct": true, "raw": "A", "group": null}
+{"uid": "mvbench/moving_attribute/75", "benchmark": "mvbench", "task": "moving_attribute", "gt": "B", "pred": "B", "correct": true, "raw": "B", "group": null}
+{"uid": "mvbench/moving_attribute/79", "benchmark": "mvbench", "task": "moving_attribute", "gt": "B", "pred": "B", "correct": true, "raw": "(B) cylinder", "group": null}
+{"uid": "mvbench/moving_attribute/83", "benchmark": "mvbench", "task": "moving_attribute", "gt": "B", "pred": "C", "correct": false, "raw": "(C) sphere", "group": null}
+{"uid": "mvbench/moving_attribute/87", "benchmark": "mvbench", "task": "moving_attribute", "gt": "C", "pred": "C", "correct": true, "raw": "(C) yellow", "group": null}
+{"uid": "mvbench/moving_attribute/91", "benchmark": "mvbench", "task": "moving_attribute", "gt": "A", "pred": "A", "correct": true, "raw": "(A) brown", "group": null}
+{"uid": "mvbench/moving_attribute/95", "benchmark": "mvbench", "task": "moving_attribute", "gt": "D", "pred": "D", "correct": true, "raw": "(D) brown", "group": null}
+{"uid": "mvbench/moving_attribute/99", "benchmark": "mvbench", "task": "moving_attribute", "gt": "B", "pred": "B", "correct": true, "raw": "(B) metal", "group": null}
+{"uid": "mvbench/moving_attribute/103", "benchmark": "mvbench", "task": "moving_attribute", "gt": "C", "pred": "C", "correct": true, "raw": "C", "group": null}
+{"uid": "mvbench/moving_attribute/107", "benchmark": "mvbench", "task": "moving_attribute", "gt": "D", "pred": "D", "correct": true, "raw": "(D) brown", "group": null}
+{"uid": "mvbench/moving_attribute/111", "benchmark": "mvbench", "task": "moving_attribute", "gt": "B", "pred": "B", "correct": true, "raw": "(B) rubber", "group": null}
+{"uid": "mvbench/moving_attribute/115", "benchmark": "mvbench", "task": "moving_attribute", "gt": "C", "pred": "C", "correct": true, "raw": "(C) sphere", "group": null}
+{"uid": "mvbench/moving_attribute/119", "benchmark": "mvbench", "task": "moving_attribute", "gt": "C", "pred": "C", "correct": true, "raw": "(C) cylinder", "group": null}
+{"uid": "mvbench/moving_attribute/123", "benchmark": "mvbench", "task": "moving_attribute", "gt": "B", "pred": "B", "correct": true, "raw": "B", "group": null}
+{"uid": "mvbench/moving_attribute/127", "benchmark": "mvbench", "task": "moving_attribute", "gt": "C", "pred": "C", "correct": true, "raw": "(C) sphere", "group": null}
+{"uid": "mvbench/moving_attribute/131", "benchmark": "mvbench", "task": "moving_attribute", "gt": "A", "pred": "A", "correct": true, "raw": "A", "group": null}
+{"uid": "mvbench/moving_attribute/135", "benchmark": "mvbench", "task": "moving_attribute", "gt": "B", "pred": "B", "correct": true, "raw": "B", "group": null}
+{"uid": "mvbench/moving_attribute/139", "benchmark": "mvbench", "task": "moving_attribute", "gt": "B", "pred": "B", "correct": true, "raw": "B", "group": null}
+{"uid": "mvbench/moving_attribute/143", "benchmark": "mvbench", "task": "moving_attribute", "gt": "D", "pred": "D", "correct": true, "raw": "(D) cyan", "group": null}
+{"uid": "mvbench/moving_attribute/147", "benchmark": "mvbench", "task": "moving_attribute", "gt": "C", "pred": "B", "correct": false, "raw": "(B) cube", "group": null}
+{"uid": "mvbench/moving_attribute/151", "benchmark": "mvbench", "task": "moving_attribute", "gt": "A", "pred": "A", "correct": true, "raw": "A", "group": null}
+{"uid": "mvbench/moving_attribute/155", "benchmark": "mvbench", "task": "moving_attribute", "gt": "B", "pred": "B", "correct": true, "raw": "(B) cylinder", "group": null}
+{"uid": "mvbench/moving_attribute/159", "benchmark": "mvbench", "task": "moving_attribute", "gt": "C", "pred": "C", "correct": true, "raw": "(C) cube", "group": null}
+{"uid": "mvbench/moving_attribute/163", "benchmark": "mvbench", "task": "moving_attribute", "gt": "C", "pred": "C", "correct": true, "raw": "C", "group": null}
+{"uid": "mvbench/moving_attribute/167", "benchmark": "mvbench", "task": "moving_attribute", "gt": "D", "pred": "D", "correct": true, "raw": "(D) yellow", "group": null}
+{"uid": "mvbench/moving_attribute/171", "benchmark": "mvbench", "task": "moving_attribute", "gt": "C", "pred": "C", "correct": true, "raw": "C", "group": null}
+{"uid": "mvbench/moving_attribute/175", "benchmark": "mvbench", "task": "moving_attribute", "gt": "D", "pred": "D", "correct": true, "raw": "(D) gray", "group": null}
+{"uid": "mvbench/moving_attribute/179", "benchmark": "mvbench", "task": "moving_attribute", "gt": "B", "pred": "B", "correct": true, "raw": "(B) rubber", "group": null}
+{"uid": "mvbench/moving_attribute/183", "benchmark": "mvbench", "task": "moving_attribute", "gt": "B", "pred": "B", "correct": true, "raw": "(B) metal", "group": null}
+{"uid": "mvbench/moving_attribute/187", "benchmark": "mvbench", "task": "moving_attribute", "gt": "A", "pred": "A", "correct": true, "raw": "A", "group": null}
+{"uid": "mvbench/moving_attribute/191", "benchmark": "mvbench", "task": "moving_attribute", "gt": "B", "pred": "B", "correct": true, "raw": "(B) rubber", "group": null}
+{"uid": "mvbench/moving_attribute/195", "benchmark": "mvbench", "task": "moving_attribute", "gt": "C", "pred": "A", "correct": false, "raw": "(A) sphere", "group": null}
+{"uid": "mvbench/moving_attribute/199", "benchmark": "mvbench", "task": "moving_attribute", "gt": "D", "pred": "D", "correct": true, "raw": "(D) brown", "group": null}
+{"uid": "mvbench/state_change/3", "benchmark": "mvbench", "task": "state_change", "gt": "A", "pred": "C", "correct": false, "raw": "C", "group": null}
+{"uid": "mvbench/state_change/7", "benchmark": "mvbench", "task": "state_change", "gt": "A", "pred": "A", "correct": true, "raw": "A", "group": null}
+{"uid": "mvbench/state_change/11", "benchmark": "mvbench", "task": "state_change", "gt": "C", "pred": "C", "correct": true, "raw": "(C) no", "group": null}
+{"uid": "mvbench/state_change/15", "benchmark": "mvbench", "task": "state_change", "gt": "A", "pred": "B", "correct": false, "raw": "B", "group": null}
+{"uid": "mvbench/state_change/19", "benchmark": "mvbench", "task": "state_change", "gt": "A", "pred": "A", "correct": true, "raw": "A", "group": null}
+{"uid": "mvbench/state_change/23", "benchmark": "mvbench", "task": "state_change", "gt": "C", "pred": "A", "correct": false, "raw": "A", "group": null}
+{"uid": "mvbench/state_change/27", "benchmark": "mvbench", "task": "state_change", "gt": "A", "pred": "A", "correct": true, "raw": "A", "group": null}
+{"uid": "mvbench/state_change/31", "benchmark": "mvbench", "task": "state_change", "gt": "C", "pred": "C", "correct": true, "raw": "C", "group": null}
+{"uid": "mvbench/state_change/35", "benchmark": "mvbench", "task": "state_change", "gt": "B", "pred": "C", "correct": false, "raw": "C", "group": null}
+{"uid": "mvbench/state_change/39", "benchmark": "mvbench", "task": "state_change", "gt": "C", "pred": "A", "correct": false, "raw": "A", "group": null}
+{"uid": "mvbench/state_change/43", "benchmark": "mvbench", "task": "state_change", "gt": "A", "pred": "A", "correct": true, "raw": "A", "group": null}
+{"uid": "mvbench/state_change/47", "benchmark": "mvbench", "task": "state_change", "gt": "C", "pred": "C", "correct": true, "raw": "C", "group": null}
+{"uid": "mvbench/state_change/51", "benchmark": "mvbench", "task": "state_change", "gt": "C", "pred": "C", "correct": true, "raw": "C", "group": null}
+{"uid": "mvbench/state_change/55", "benchmark": "mvbench", "task": "state_change", "gt": "A", "pred": "A", "correct": true, "raw": "(A) Yes", "group": null}
+{"uid": "mvbench/state_change/59", "benchmark": "mvbench", "task": "state_change", "gt": "C", "pred": "A", "correct": false, "raw": "A", "group": null}
+{"uid": "mvbench/state_change/63", "benchmark": "mvbench", "task": "state_change", "gt": "B", "pred": "B", "correct": true, "raw": "B", "group": null}
+{"uid": "mvbench/state_change/67", "benchmark": "mvbench", "task": "state_change", "gt": "C", "pred": "A", "correct": false, "raw": "A", "group": null}
+{"uid": "mvbench/state_change/71", "benchmark": "mvbench", "task": "state_change", "gt": "C", "pred": "C", "correct": true, "raw": "(C) No", "group": null}
+{"uid": "mvbench/state_change/75", "benchmark": "mvbench", "task": "state_change", "gt": "B", "pred": "B", "correct": true, "raw": "(B) yes", "group": null}
+{"uid": "mvbench/state_change/79", "benchmark": "mvbench", "task": "state_change", "gt": "A", "pred": "A", "correct": true, "raw": "(A) yes", "group": null}
+{"uid": "mvbench/state_change/83", "benchmark": "mvbench", "task": "state_change", "gt": "B", "pred": "A", "correct": false, "raw": "A", "group": null}
+{"uid": "mvbench/state_change/87", "benchmark": "mvbench", "task": "state_change", "gt": "A", "pred": "A", "correct": true, "raw": "A", "group": null}
+{"uid": "mvbench/state_change/91", "benchmark": "mvbench", "task": "state_change", "gt": "C", "pred": "C", "correct": true, "raw": "C", "group": null}
+{"uid": "mvbench/state_change/95", "benchmark": "mvbench", "task": "state_change", "gt": "C", "pred": "C", "correct": true, "raw": "(C) yes", "group": null}
+{"uid": "mvbench/state_change/99", "benchmark": "mvbench", "task": "state_change", "gt": "B", "pred": "B", "correct": true, "raw": "(B) yes", "group": null}
+{"uid": "mvbench/state_change/103", "benchmark": "mvbench", "task": "state_change", "gt": "C", "pred": "C", "correct": true, "raw": "(C) yes", "group": null}
+{"uid": "mvbench/state_change/107", "benchmark": "mvbench", "task": "state_change", "gt": "B", "pred": "B", "correct": true, "raw": "B", "group": null}
+{"uid": "mvbench/state_change/111", "benchmark": "mvbench", "task": "state_change", "gt": "C", "pred": "C", "correct": true, "raw": "(C) no", "group": null}
+{"uid": "mvbench/state_change/115", "benchmark": "mvbench", "task": "state_change", "gt": "C", "pred": "C", "correct": true, "raw": "(C)", "group": null}
+{"uid": "mvbench/state_change/119", "benchmark": "mvbench", "task": "state_change", "gt": "B", "pred": "A", "correct": false, "raw": "A", "group": null}
+{"uid": "mvbench/state_change/123", "benchmark": "mvbench", "task": "state_change", "gt": "C", "pred": "C", "correct": true, "raw": "C", "group": null}
+{"uid": "mvbench/state_change/127", "benchmark": "mvbench", "task": "state_change", "gt": "B", "pred": "C", "correct": false, "raw": "C", "group": null}
+{"uid": "mvbench/state_change/131", "benchmark": "mvbench", "task": "state_change", "gt": "A", "pred": "A", "correct": true, "raw": "(A) yes", "group": null}
+{"uid": "mvbench/state_change/135", "benchmark": "mvbench", "task": "state_change", "gt": "C", "pred": "C", "correct": true, "raw": "C", "group": null}
+{"uid": "mvbench/state_change/139", "benchmark": "mvbench", "task": "state_change", "gt": "B", "pred": "A", "correct": false, "raw": "A", "group": null}
+{"uid": "mvbench/state_change/143", "benchmark": "mvbench", "task": "state_change", "gt": "A", "pred": "A", "correct": true, "raw": "(A) yes", "group": null}
+{"uid": "mvbench/state_change/147", "benchmark": "mvbench", "task": "state_change", "gt": "A", "pred": "A", "correct": true, "raw": "A", "group": null}
+{"uid": "mvbench/state_change/151", "benchmark": "mvbench", "task": "state_change", "gt": "B", "pred": "B", "correct": true, "raw": "B", "group": null}
+{"uid": "mvbench/state_change/155", "benchmark": "mvbench", "task": "state_change", "gt": "C", "pred": "C", "correct": true, "raw": "C", "group": null}
+{"uid": "mvbench/state_change/159", "benchmark": "mvbench", "task": "state_change", "gt": "A", "pred": "B", "correct": false, "raw": "(B)", "group": null}
+{"uid": "mvbench/state_change/163", "benchmark": "mvbench", "task": "state_change", "gt": "B", "pred": "B", "correct": true, "raw": "(B) yes", "group": null}
+{"uid": "mvbench/state_change/167", "benchmark": "mvbench", "task": "state_change", "gt": "C", "pred": "C", "correct": true, "raw": "C", "group": null}
+{"uid": "mvbench/state_change/171", "benchmark": "mvbench", "task": "state_change", "gt": "B", "pred": "B", "correct": true, "raw": "B", "group": null}
+{"uid": "mvbench/state_change/175", "benchmark": "mvbench", "task": "state_change", "gt": "A", "pred": "A", "correct": true, "raw": "A", "group": null}
+{"uid": "mvbench/state_change/179", "benchmark": "mvbench", "task": "state_change", "gt": "A", "pred": "B", "correct": false, "raw": "B", "group": null}
+{"uid": "mvbench/state_change/183", "benchmark": "mvbench", "task": "state_change", "gt": "C", "pred": "C", "correct": true, "raw": "C", "group": null}
+{"uid": "mvbench/state_change/187", "benchmark": "mvbench", "task": "state_change", "gt": "C", "pred": "C", "correct": true, "raw": "C", "group": null}
+{"uid": "mvbench/state_change/191", "benchmark": "mvbench", "task": "state_change", "gt": "C", "pred": "A", "correct": false, "raw": "A", "group": null}
+{"uid": "mvbench/state_change/195", "benchmark": "mvbench", "task": "state_change", "gt": "B", "pred": "B", "correct": true, "raw": "B", "group": null}
+{"uid": "mvbench/state_change/199", "benchmark": "mvbench", "task": "state_change", "gt": "B", "pred": "B", "correct": true, "raw": "(B) No", "group": null}
+{"uid": "mvbench/character_order/3", "benchmark": "mvbench", "task": "character_order", "gt": "B", "pred": "B", "correct": true, "raw": "(B) tsur", "group": null}
+{"uid": "mvbench/character_order/7", "benchmark": "mvbench", "task": "character_order", "gt": "B", "pred": "B", "correct": true, "raw": "B", "group": null}
+{"uid": "mvbench/character_order/11", "benchmark": "mvbench", "task": "character_order", "gt": "B", "pred": "C", "correct": false, "raw": "C", "group": null}
+{"uid": "mvbench/character_order/15", "benchmark": "mvbench", "task": "character_order", "gt": "C", "pred": "C", "correct": true, "raw": "C", "group": null}
+{"uid": "mvbench/character_order/19", "benchmark": "mvbench", "task": "character_order", "gt": "A", "pred": "B", "correct": false, "raw": "B", "group": null}
+{"uid": "mvbench/character_order/23", "benchmark": "mvbench", "task": "character_order", "gt": "C", "pred": "C", "correct": true, "raw": "C", "group": null}
+{"uid": "mvbench/character_order/27", "benchmark": "mvbench", "task": "character_order", "gt": "B", "pred": "C", "correct": false, "raw": "(C) cdf", "group": null}
+{"uid": "mvbench/character_order/31", "benchmark": "mvbench", "task": "character_order", "gt": "A", "pred": "A", "correct": true, "raw": "A", "group": null}
+{"uid": "mvbench/character_order/35", "benchmark": "mvbench", "task": "character_order", "gt": "A", "pred": "B", "correct": false, "raw": "B", "group": null}
+{"uid": "mvbench/character_order/39", "benchmark": "mvbench", "task": "character_order", "gt": "B", "pred": "B", "correct": true, "raw": "(B) e", "group": null}
+{"uid": "mvbench/character_order/43", "benchmark": "mvbench", "task": "character_order", "gt": "A", "pred": "C", "correct": false, "raw": "(C) fed", "group": null}
+{"uid": "mvbench/character_order/47", "benchmark": "mvbench", "task": "character_order", "gt": "A", "pred": "A", "correct": true, "raw": "(A) men", "group": null}
+{"uid": "mvbench/character_order/51", "benchmark": "mvbench", "task": "character_order", "gt": "B", "pred": "B", "correct": true, "raw": "B", "group": null}
+{"uid": "mvbench/character_order/55", "benchmark": "mvbench", "task": "character_order", "gt": "B", "pred": "B", "correct": true, "raw": "B", "group": null}
+{"uid": "mvbench/character_order/59", "benchmark": "mvbench", "task": "character_order", "gt": "A", "pred": "B", "correct": false, "raw": "B", "group": null}
+{"uid": "mvbench/character_order/63", "benchmark": "mvbench", "task": "character_order", "gt": "B", "pred": "B", "correct": true, "raw": "(B) lua", "group": null}
+{"uid": "mvbench/character_order/67", "benchmark": "mvbench", "task": "character_order", "gt": "A", "pred": "B", "correct": false, "raw": "B", "group": null}
+{"uid": "mvbench/character_order/71", "benchmark": "mvbench", "task": "character_order", "gt": "C", "pred": "C", "correct": true, "raw": "C", "group": null}
+{"uid": "mvbench/character_order/75", "benchmark": "mvbench", "task": "character_order", "gt": "C", "pred": "C", "correct": true, "raw": "C", "group": null}
+{"uid": "mvbench/character_order/79", "benchmark": "mvbench", "task": "character_order", "gt": "B", "pred": "C", "correct": false, "raw": "(C) tae", "group": null}
+{"uid": "mvbench/character_order/83", "benchmark": "mvbench", "task": "character_order", "gt": "C", "pred": "C", "correct": true, "raw": "C", "group": null}
+{"uid": "mvbench/character_order/87", "benchmark": "mvbench", "task": "character_order", "gt": "A", "pred": "C", "correct": false, "raw": "C", "group": null}
+{"uid": "mvbench/character_order/91", "benchmark": "mvbench", "task": "character_order", "gt": "A", "pred": "C", "correct": false, "raw": "C", "group": null}
+{"uid": "mvbench/character_order/95", "benchmark": "mvbench", "task": "character_order", "gt": "B", "pred": "B", "correct": true, "raw": "B", "group": null}
+{"uid": "mvbench/character_order/99", "benchmark": "mvbench", "task": "character_order", "gt": "B", "pred": "B", "correct": true, "raw": "(B) hec", "group": null}
+{"uid": "mvbench/character_order/103", "benchmark": "mvbench", "task": "character_order", "gt": "B", "pred": "B", "correct": true, "raw": "B", "group": null}
+{"uid": "mvbench/character_order/107", "benchmark": "mvbench", "task": "character_order", "gt": "C", "pred": "C", "correct": true, "raw": "C", "group": null}
+{"uid": "mvbench/character_order/111", "benchmark": "mvbench", "task": "character_order", "gt": "A", "pred": "B", "correct": false, "raw": "(B) v", "group": null}
+{"uid": "mvbench/character_order/115", "benchmark": "mvbench", "task": "character_order", "gt": "C", "pred": "C", "correct": true, "raw": "C", "group": null}
+{"uid": "mvbench/character_order/119", "benchmark": "mvbench", "task": "character_order", "gt": "A", "pred": "A", "correct": true, "raw": "A", "group": null}
+{"uid": "mvbench/character_order/123", "benchmark": "mvbench", "task": "character_order", "gt": "B", "pred": "C", "correct": false, "raw": "C", "group": null}
+{"uid": "mvbench/character_order/127", "benchmark": "mvbench", "task": "character_order", "gt": "A", "pred": "B", "correct": false, "raw": "(B) les", "group": null}
+{"uid": "mvbench/character_order/131", "benchmark": "mvbench", "task": "character_order", "gt": "B", "pred": "B", "correct": true, "raw": "B", "group": null}
+{"uid": "mvbench/character_order/135", "benchmark": "mvbench", "task": "character_order", "gt": "C", "pred": "C", "correct": true, "raw": "C", "group": null}
+{"uid": "mvbench/character_order/139", "benchmark": "mvbench", "task": "character_order", "gt": "A", "pred": "A", "correct": true, "raw": "A", "group": null}
+{"uid": "mvbench/character_order/143", "benchmark": "mvbench", "task": "character_order", "gt": "A", "pred": "A", "correct": true, "raw": "A", "group": null}
+{"uid": "mvbench/character_order/147", "benchmark": "mvbench", "task": "character_order", "gt": "A", "pred": "C", "correct": false, "raw": "C", "group": null}
+{"uid": "mvbench/character_order/151", "benchmark": "mvbench", "task": "character_order", "gt": "A", "pred": "A", "correct": true, "raw": "A", "group": null}
+{"uid": "mvbench/character_order/155", "benchmark": "mvbench", "task": "character_order", "gt": "C", "pred": "C", "correct": true, "raw": "C", "group": null}
+{"uid": "mvbench/character_order/159", "benchmark": "mvbench", "task": "character_order", "gt": "C", "pred": "C", "correct": true, "raw": "(C) o", "group": null}
+{"uid": "mvbench/character_order/163", "benchmark": "mvbench", "task": "character_order", "gt": "A", "pred": "A", "correct": true, "raw": "A", "group": null}
+{"uid": "mvbench/character_order/167", "benchmark": "mvbench", "task": "character_order", "gt": "B", "pred": "B", "correct": true, "raw": "B", "group": null}
+{"uid": "mvbench/character_order/171", "benchmark": "mvbench", "task": "character_order", "gt": "C", "pred": "A", "correct": false, "raw": "A", "group": null}
+{"uid": "mvbench/character_order/175", "benchmark": "mvbench", "task": "character_order", "gt": "C", "pred": "A", "correct": false, "raw": "A", "group": null}
+{"uid": "mvbench/character_order/179", "benchmark": "mvbench", "task": "character_order", "gt": "A", "pred": "B", "correct": false, "raw": "B", "group": null}
+{"uid": "mvbench/character_order/183", "benchmark": "mvbench", "task": "character_order", "gt": "C", "pred": "C", "correct": true, "raw": "(C) g", "group": null}
+{"uid": "mvbench/character_order/187", "benchmark": "mvbench", "task": "character_order", "gt": "C", "pred": "C", "correct": true, "raw": "C", "group": null}
+{"uid": "mvbench/character_order/191", "benchmark": "mvbench", "task": "character_order", "gt": "B", "pred": "B", "correct": true, "raw": "B", "group": null}
+{"uid": "mvbench/character_order/195", "benchmark": "mvbench", "task": "character_order", "gt": "C", "pred": "C", "correct": true, "raw": "(C) dooc", "group": null}
+{"uid": "mvbench/character_order/199", "benchmark": "mvbench", "task": "character_order", "gt": "C", "pred": "C", "correct": true, "raw": "C", "group": null}
+{"uid": "mvbench/egocentric_navigation/3", "benchmark": "mvbench", "task": "egocentric_navigation", "gt": "B", "pred": "B", "correct": true, "raw": "B", "group": null}
+{"uid": "mvbench/egocentric_navigation/7", "benchmark": "mvbench", "task": "egocentric_navigation", "gt": "B", "pred": "A", "correct": false, "raw": "(A) Move forward", "group": null}
+{"uid": "mvbench/egocentric_navigation/11", "benchmark": "mvbench", "task": "egocentric_navigation", "gt": "D", "pred": "D", "correct": true, "raw": "(D) Turn left and move forward", "group": null}
+{"uid": "mvbench/egocentric_navigation/15", "benchmark": "mvbench", "task": "egocentric_navigation", "gt": "D", "pred": "B", "correct": false, "raw": "B", "group": null}
+{"uid": "mvbench/egocentric_navigation/19", "benchmark": "mvbench", "task": "egocentric_navigation", "gt": "B", "pred": "B", "correct": true, "raw": "B", "group": null}
+{"uid": "mvbench/egocentric_navigation/23", "benchmark": "mvbench", "task": "egocentric_navigation", "gt": "C", "pred": "D", "correct": false, "raw": "D", "group": null}
+{"uid": "mvbench/egocentric_navigation/27", "benchmark": "mvbench", "task": "egocentric_navigation", "gt": "B", "pred": "B", "correct": true, "raw": "B", "group": null}
+{"uid": "mvbench/egocentric_navigation/31", "benchmark": "mvbench", "task": "egocentric_navigation", "gt": "D", "pred": "B", "correct": false, "raw": "B", "group": null}
+{"uid": "mvbench/egocentric_navigation/35", "benchmark": "mvbench", "task": "egocentric_navigation", "gt": "C", "pred": "C", "correct": true, "raw": "(C) Turn left and move forward", "group": null}
+{"uid": "mvbench/egocentric_navigation/39", "benchmark": "mvbench", "task": "egocentric_navigation", "gt": "A", "pred": "C", "correct": false, "raw": "C", "group": null}
+{"uid": "mvbench/egocentric_navigation/43", "benchmark": "mvbench", "task": "egocentric_navigation", "gt": "C", "pred": "C", "correct": true, "raw": "(C) Turn left and move forward", "group": null}
+{"uid": "mvbench/egocentric_navigation/47", "benchmark": "mvbench", "task": "egocentric_navigation", "gt": "D", "pred": "B", "correct": false, "raw": "B", "group": null}
+{"uid": "mvbench/egocentric_navigation/51", "benchmark": "mvbench", "task": "egocentric_navigation", "gt": "C", "pred": "C", "correct": true, "raw": "(C) Turn right and move forward", "group": null}
+{"uid": "mvbench/egocentric_navigation/55", "benchmark": "mvbench", "task": "egocentric_navigation", "gt": "A", "pred": "A", "correct": true, "raw": "A", "group": null}
+{"uid": "mvbench/egocentric_navigation/59", "benchmark": "mvbench", "task": "egocentric_navigation", "gt": "D", "pred": "C", "correct": false, "raw": "C", "group": null}
+{"uid": "mvbench/egocentric_navigation/63", "benchmark": "mvbench", "task": "egocentric_navigation", "gt": "D", "pred": "D", "correct": true, "raw": "(D) Turn right and move forward", "group": null}
+{"uid": "mvbench/egocentric_navigation/67", "benchmark": "mvbench", "task": "egocentric_navigation", "gt": "B", "pred": "B", "correct": true, "raw": "B", "group": null}
+{"uid": "mvbench/egocentric_navigation/71", "benchmark": "mvbench", "task": "egocentric_navigation", "gt": "D", "pred": "D", "correct": true, "raw": "(D) Turn right and move forward", "group": null}
+{"uid": "mvbench/egocentric_navigation/75", "benchmark": "mvbench", "task": "egocentric_navigation", "gt": "C", "pred": "C", "correct": true, "raw": "(C) Turn right and move forward", "group": null}
+{"uid": "mvbench/egocentric_navigation/79", "benchmark": "mvbench", "task": "egocentric_navigation", "gt": "C", "pred": "C", "correct": true, "raw": "(C) Turn right and move forward", "group": null}
+{"uid": "mvbench/egocentric_navigation/83", "benchmark": "mvbench", "task": "egocentric_navigation", "gt": "D", "pred": "B", "correct": false, "raw": "(B) Move forward", "group": null}
+{"uid": "mvbench/egocentric_navigation/87", "benchmark": "mvbench", "task": "egocentric_navigation", "gt": "A", "pred": "D", "correct": false, "raw": "(D) Turn left and move forward", "group": null}
+{"uid": "mvbench/egocentric_navigation/91", "benchmark": "mvbench", "task": "egocentric_navigation", "gt": "D", "pred": "B", "correct": false, "raw": "B", "group": null}
+{"uid": "mvbench/egocentric_navigation/95", "benchmark": "mvbench", "task": "egocentric_navigation", "gt": "D", "pred": "D", "correct": true, "raw": "(D) Turn right and move forward", "group": null}
+{"uid": "mvbench/egocentric_navigation/99", "benchmark": "mvbench", "task": "egocentric_navigation", "gt": "B", "pred": "D", "correct": false, "raw": "(D) Move forward", "group": null}
+{"uid": "mvbench/egocentric_navigation/103", "benchmark": "mvbench", "task": "egocentric_navigation", "gt": "D", "pred": "B", "correct": false, "raw": "B", "group": null}
+{"uid": "mvbench/egocentric_navigation/107", "benchmark": "mvbench", "task": "egocentric_navigation", "gt": "B", "pred": "B", "correct": true, "raw": "B", "group": null}
+{"uid": "mvbench/egocentric_navigation/111", "benchmark": "mvbench", "task": "egocentric_navigation", "gt": "D", "pred": "B", "correct": false, "raw": "B", "group": null}
+{"uid": "mvbench/egocentric_navigation/115", "benchmark": "mvbench", "task": "egocentric_navigation", "gt": "A", "pred": "D", "correct": false, "raw": "(D) Turn right and move forward", "group": null}
+{"uid": "mvbench/egocentric_navigation/119", "benchmark": "mvbench", "task": "egocentric_navigation", "gt": "B", "pred": "B", "correct": true, "raw": "(B) Move forward", "group": null}
+{"uid": "mvbench/egocentric_navigation/123", "benchmark": "mvbench", "task": "egocentric_navigation", "gt": "C", "pred": "B", "correct": false, "raw": "B", "group": null}
+{"uid": "mvbench/egocentric_navigation/127", "benchmark": "mvbench", "task": "egocentric_navigation", "gt": "B", "pred": "C", "correct": false, "raw": "(C) Turn right and move forward", "group": null}
+{"uid": "mvbench/egocentric_navigation/131", "benchmark": "mvbench", "task": "egocentric_navigation", "gt": "D", "pred": "B", "correct": false, "raw": "B", "group": null}
+{"uid": "mvbench/egocentric_navigation/135", "benchmark": "mvbench", "task": "egocentric_navigation", "gt": "C", "pred": "A", "correct": false, "raw": "A", "group": null}
+{"uid": "mvbench/egocentric_navigation/139", "benchmark": "mvbench", "task": "egocentric_navigation", "gt": "A", "pred": "C", "correct": false, "raw": "C", "group": null}
+{"uid": "mvbench/egocentric_navigation/143", "benchmark": "mvbench", "task": "egocentric_navigation", "gt": "A", "pred": "A", "correct": true, "raw": "(A) Move forward", "group": null}
+{"uid": "mvbench/egocentric_navigation/147", "benchmark": "mvbench", "task": "egocentric_navigation", "gt": "C", "pred": "C", "correct": true, "raw": "(C) Move forward", "group": null}
+{"uid": "mvbench/egocentric_navigation/151", "benchmark": "mvbench", "task": "egocentric_navigation", "gt": "B", "pred": "D", "correct": false, "raw": "D", "group": null}
+{"uid": "mvbench/egocentric_navigation/155", "benchmark": "mvbench", "task": "egocentric_navigation", "gt": "A", "pred": "D", "correct": false, "raw": "(D) Move forward", "group": null}
+{"uid": "mvbench/egocentric_navigation/159", "benchmark": "mvbench", "task": "egocentric_navigation", "gt": "A", "pred": "D", "correct": false, "raw": "(D) Turn right and move forward", "group": null}
+{"uid": "mvbench/egocentric_navigation/163", "benchmark": "mvbench", "task": "egocentric_navigation", "gt": "A", "pred": "B", "correct": false, "raw": "(B) Move forward", "group": null}
+{"uid": "mvbench/egocentric_navigation/167", "benchmark": "mvbench", "task": "egocentric_navigation", "gt": "B", "pred": "B", "correct": true, "raw": "(B) Stop", "group": null}
+{"uid": "mvbench/egocentric_navigation/171", "benchmark": "mvbench", "task": "egocentric_navigation", "gt": "D", "pred": "C", "correct": false, "raw": "C", "group": null}
+{"uid": "mvbench/egocentric_navigation/175", "benchmark": "mvbench", "task": "egocentric_navigation", "gt": "C", "pred": "D", "correct": false, "raw": "(D) Move forward", "group": null}
+{"uid": "mvbench/egocentric_navigation/179", "benchmark": "mvbench", "task": "egocentric_navigation", "gt": "A", "pred": "A", "correct": true, "raw": "A", "group": null}
+{"uid": "mvbench/egocentric_navigation/183", "benchmark": "mvbench", "task": "egocentric_navigation", "gt": "B", "pred": "B", "correct": true, "raw": "B", "group": null}
+{"uid": "mvbench/egocentric_navigation/187", "benchmark": "mvbench", "task": "egocentric_navigation", "gt": "D", "pred": "D", "correct": true, "raw": "(D) Stop", "group": null}
+{"uid": "mvbench/egocentric_navigation/191", "benchmark": "mvbench", "task": "egocentric_navigation", "gt": "C", "pred": "C", "correct": true, "raw": "C", "group": null}
+{"uid": "mvbench/egocentric_navigation/195", "benchmark": "mvbench", "task": "egocentric_navigation", "gt": "C", "pred": "A", "correct": false, "raw": "A", "group": null}
+{"uid": "mvbench/egocentric_navigation/199", "benchmark": "mvbench", "task": "egocentric_navigation", "gt": "D", "pred": "D", "correct": true, "raw": "(D) Stop", "group": null}
+{"uid": "mvbench/episodic_reasoning/3", "benchmark": "mvbench", "task": "episodic_reasoning", "gt": "A", "pred": "A", "correct": true, "raw": "(A) Sheldon.", "group": null}
+{"uid": "mvbench/episodic_reasoning/7", "benchmark": "mvbench", "task": "episodic_reasoning", "gt": "E", "pred": "D", "correct": false, "raw": "(D) Catherine", "group": null}
+{"uid": "mvbench/episodic_reasoning/11", "benchmark": "mvbench", "task": "episodic_reasoning", "gt": "B", "pred": "B", "correct": true, "raw": "(B) Searching through garbage for evidence.", "group": null}
+{"uid": "mvbench/episodic_reasoning/15", "benchmark": "mvbench", "task": "episodic_reasoning", "gt": "E", "pred": "E", "correct": true, "raw": "(E) excited", "group": null}
+{"uid": "mvbench/episodic_reasoning/19", "benchmark": "mvbench", "task": "episodic_reasoning", "gt": "C", "pred": "C", "correct": true, "raw": "(C) Amy notices the baby and enjoys the sight of the baby, before she bends down.", "group": null}
+{"uid": "mvbench/episodic_reasoning/23", "benchmark": "mvbench", "task": "episodic_reasoning", "gt": "D", "pred": "C", "correct": false, "raw": "(C) He watched the movie first", "group": null}
+{"uid": "mvbench/episodic_reasoning/27", "benchmark": "mvbench", "task": "episodic_reasoning", "gt": "C", "pred": "C", "correct": true, "raw": "(C) Three people", "group": null}
+{"uid": "mvbench/episodic_reasoning/31", "benchmark": "mvbench", "task": "episodic_reasoning", "gt": "B", "pred": "B", "correct": true, "raw": "(B) Ted", "group": null}
+{"uid": "mvbench/episodic_reasoning/35", "benchmark": "mvbench", "task": "episodic_reasoning", "gt": "D", "pred": "D", "correct": true, "raw": "(D) George says he may cut out early to check up on the boat.", "group": null}
+{"uid": "mvbench/episodic_reasoning/39", "benchmark": "mvbench", "task": "episodic_reasoning", "gt": "C", "pred": "C", "correct": true, "raw": "(C) Joey and Chandler were fussing about Joey using Chandler's toothbrush.", "group": null}
+{"uid": "mvbench/episodic_reasoning/43", "benchmark": "mvbench", "task": "episodic_reasoning", "gt": "D", "pred": "C", "correct": false, "raw": "(C) House got them to quit before he had to fire them", "group": null}
+{"uid": "mvbench/episodic_reasoning/47", "benchmark": "mvbench", "task": "episodic_reasoning", "gt": "C", "pred": "B", "correct": false, "raw": "(B) Sheldon eat his food.", "group": null}
+{"uid": "mvbench/episodic_reasoning/51", "benchmark": "mvbench", "task": "episodic_reasoning", "gt": "B", "pred": "E", "correct": false, "raw": "(E)", "group": null}
+{"uid": "mvbench/episodic_reasoning/55", "benchmark": "mvbench", "task": "episodic_reasoning", "gt": "D", "pred": "D", "correct": true, "raw": "(D) They seemed surprised to see him but ultimately included him in their discussion.", "group": null}
+{"uid": "mvbench/episodic_reasoning/59", "benchmark": "mvbench", "task": "episodic_reasoning", "gt": "E", "pred": "E", "correct": true, "raw": "(E) Because Rachel thinks Chandler gave Patrick the wrong idea about her", "group": null}
+{"uid": "mvbench/episodic_reasoning/63", "benchmark": "mvbench", "task": "episodic_reasoning", "gt": "C", "pred": "A", "correct": false, "raw": "(A) To have his third nipple removed", "group": null}
+{"uid": "mvbench/episodic_reasoning/67", "benchmark": "mvbench", "task": "episodic_reasoning", "gt": "E", "pred": "C", "correct": false, "raw": "(C) Walk away.", "group": null}
+{"uid": "mvbench/episodic_reasoning/71", "benchmark": "mvbench", "task": "episodic_reasoning", "gt": "D", "pred": "D", "correct": true, "raw": "(D) He says his girlfriend doesnt pick out his clothes his mother does", "group": null}
+{"uid": "mvbench/episodic_reasoning/75", "benchmark": "mvbench", "task": "episodic_reasoning", "gt": "A", "pred": "D", "correct": false, "raw": "(D) Ross' parents started making good-natured yet crude jokes.", "group": null}
+{"uid": "mvbench/episodic_reasoning/79", "benchmark": "mvbench", "task": "episodic_reasoning", "gt": "E", "pred": "E", "correct": true, "raw": "(E) Because it wasn't designed for Russian cosmonauts", "group": null}
+{"uid": "mvbench/episodic_reasoning/83", "benchmark": "mvbench", "task": "episodic_reasoning", "gt": "E", "pred": "E", "correct": true, "raw": "(E) Inside the stomach.", "group": null}
+{"uid": "mvbench/episodic_reasoning/87", "benchmark": "mvbench", "task": "episodic_reasoning", "gt": "C", "pred": "D", "correct": false, "raw": "(D) Leonard.", "group": null}
+{"uid": "mvbench/episodic_reasoning/91", "benchmark": "mvbench", "task": "episodic_reasoning", "gt": "D", "pred": "D", "correct": true, "raw": "(D) Because he wanted to help Monica get a new bed.", "group": null}
+{"uid": "mvbench/episodic_reasoning/95", "benchmark": "mvbench", "task": "episodic_reasoning", "gt": "C", "pred": "C", "correct": true, "raw": "(C) Denny had died at some point after the transplant.", "group": null}
+{"uid": "mvbench/episodic_reasoning/99", "benchmark": "mvbench", "task": "episodic_reasoning", "gt": "E", "pred": "B", "correct": false, "raw": "(B) Lily slaps Barney because he's not really sick.", "group": null}
+{"uid": "mvbench/episodic_reasoning/103", "benchmark": "mvbench", "task": "episodic_reasoning", "gt": "A", "pred": "C", "correct": false, "raw": "(C) Joey playfully blamed Monica.", "group": null}
+{"uid": "mvbench/episodic_reasoning/107", "benchmark": "mvbench", "task": "episodic_reasoning", "gt": "E", "pred": "E", "correct": true, "raw": "(E) She is her birth mother", "group": null}
+{"uid": "mvbench/episodic_reasoning/111", "benchmark": "mvbench", "task": "episodic_reasoning", "gt": "C", "pred": "C", "correct": true, "raw": "(C) Through his pee", "group": null}
+{"uid": "mvbench/episodic_reasoning/115", "benchmark": "mvbench", "task": "episodic_reasoning", "gt": "E", "pred": "D", "correct": false, "raw": "(D) Chandler is afraid Eddie will find out about him and Tilly.", "group": null}
+{"uid": "mvbench/episodic_reasoning/119", "benchmark": "mvbench", "task": "episodic_reasoning", "gt": "C", "pred": "D", "correct": false, "raw": "(D) 1 million dollers", "group": null}
+{"uid": "mvbench/episodic_reasoning/123", "benchmark": "mvbench", "task": "episodic_reasoning", "gt": "C", "pred": "D", "correct": false, "raw": "(D) jasmine", "group": null}
+{"uid": "mvbench/episodic_reasoning/127", "benchmark": "mvbench", "task": "episodic_reasoning", "gt": "B", "pred": "A", "correct": false, "raw": "A", "group": null}
+{"uid": "mvbench/episodic_reasoning/131", "benchmark": "mvbench", "task": "episodic_reasoning", "gt": "B", "pred": "C", "correct": false, "raw": "(C) A dove.", "group": null}
+{"uid": "mvbench/episodic_reasoning/135", "benchmark": "mvbench", "task": "episodic_reasoning", "gt": "E", "pred": "A", "correct": false, "raw": "(A) If he was lying", "group": null}
+{"uid": "mvbench/episodic_reasoning/139", "benchmark": "mvbench", "task": "episodic_reasoning", "gt": "D", "pred": "D", "correct": true, "raw": "(D) He thought it was gross because Joey would be 52.", "group": null}
+{"uid": "mvbench/episodic_reasoning/143", "benchmark": "mvbench", "task": "episodic_reasoning", "gt": "E", "pred": "E", "correct": true, "raw": "(E) Standing in the living room near the window.", "group": null}
+{"uid": "mvbench/episodic_reasoning/147", "benchmark": "mvbench", "task": "episodic_reasoning", "gt": "E", "pred": "C", "correct": false, "raw": "(C) Justin was in the wrong place at the wrong time", "group": null}
+{"uid": "mvbench/episodic_reasoning/151", "benchmark": "mvbench", "task": "episodic_reasoning", "gt": "A", "pred": "A", "correct": true, "raw": "(A) Sheldon suggested for Raj to look into artificial women.", "group": null}
+{"uid": "mvbench/episodic_reasoning/155", "benchmark": "mvbench", "task": "episodic_reasoning", "gt": "C", "pred": "C", "correct": true, "raw": "(C) Because the talent manager feels all her former clients betray her and then come crawling back", "group": null}
+{"uid": "mvbench/episodic_reasoning/159", "benchmark": "mvbench", "task": "episodic_reasoning", "gt": "D", "pred": "A", "correct": false, "raw": "A", "group": null}
+{"uid": "mvbench/episodic_reasoning/163", "benchmark": "mvbench", "task": "episodic_reasoning", "gt": "D", "pred": "D", "correct": true, "raw": "(D) Penny was standing in front of Leonard and Sheldon, about to go out the apartment building's front door.", "group": null}
+{"uid": "mvbench/episodic_reasoning/167", "benchmark": "mvbench", "task": "episodic_reasoning", "gt": "B", "pred": "A", "correct": false, "raw": "A", "group": null}
+{"uid": "mvbench/episodic_reasoning/171", "benchmark": "mvbench", "task": "episodic_reasoning", "gt": "E", "pred": "B", "correct": false, "raw": "(B) Chandler was eating a cheeseburger.", "group": null}
+{"uid": "mvbench/episodic_reasoning/175", "benchmark": "mvbench", "task": "episodic_reasoning", "gt": "A", "pred": "A", "correct": true, "raw": "(A) Adams, Chase, Park, and Taub felt at a loss as to what was wrong with the patient.", "group": null}
+{"uid": "mvbench/episodic_reasoning/179", "benchmark": "mvbench", "task": "episodic_reasoning", "gt": "A", "pred": "E", "correct": false, "raw": "(E) Because someone said was going to kill her", "group": null}
+{"uid": "mvbench/episodic_reasoning/183", "benchmark": "mvbench", "task": "episodic_reasoning", "gt": "A", "pred": "A", "correct": true, "raw": "(A) Clancy believes aliens have been abducting and experimenting on him.", "group": null}
+{"uid": "mvbench/episodic_reasoning/187", "benchmark": "mvbench", "task": "episodic_reasoning", "gt": "E", "pred": "A", "correct": false, "raw": "A", "group": null}
+{"uid": "mvbench/episodic_reasoning/191", "benchmark": "mvbench", "task": "episodic_reasoning", "gt": "C", "pred": "C", "correct": true, "raw": "C", "group": null}
+{"uid": "mvbench/episodic_reasoning/195", "benchmark": "mvbench", "task": "episodic_reasoning", "gt": "C", "pred": "E", "correct": false, "raw": "(E) In the patients arm.", "group": null}
+{"uid": "mvbench/episodic_reasoning/199", "benchmark": "mvbench", "task": "episodic_reasoning", "gt": "B", "pred": "B", "correct": true, "raw": "B", "group": null}
+{"uid": "mvbench/counterfactual_inference/3", "benchmark": "mvbench", "task": "counterfactual_inference", "gt": "D", "pred": "D", "correct": true, "raw": "(D)", "group": null}
+{"uid": "mvbench/counterfactual_inference/7", "benchmark": "mvbench", "task": "counterfactual_inference", "gt": "B", "pred": "A", "correct": false, "raw": "(A)", "group": null}
+{"uid": "mvbench/counterfactual_inference/11", "benchmark": "mvbench", "task": "counterfactual_inference", "gt": "B", "pred": "B", "correct": true, "raw": "B", "group": null}
+{"uid": "mvbench/counterfactual_inference/15", "benchmark": "mvbench", "task": "counterfactual_inference", "gt": "D", "pred": "A", "correct": false, "raw": "A", "group": null}
+{"uid": "mvbench/counterfactual_inference/19", "benchmark": "mvbench", "task": "counterfactual_inference", "gt": "B", "pred": "B", "correct": true, "raw": "B", "group": null}
+{"uid": "mvbench/counterfactual_inference/23", "benchmark": "mvbench", "task": "counterfactual_inference", "gt": "B", "pred": "B", "correct": true, "raw": "(B)", "group": null}
+{"uid": "mvbench/counterfactual_inference/27", "benchmark": "mvbench", "task": "counterfactual_inference", "gt": "A", "pred": "C", "correct": false, "raw": "(C)", "group": null}
+{"uid": "mvbench/counterfactual_inference/31", "benchmark": "mvbench", "task": "counterfactual_inference", "gt": "A", "pred": "D", "correct": false, "raw": "(D) The metal sphere collides with the rubber cylinder", "group": null}
+{"uid": "mvbench/counterfactual_inference/35", "benchmark": "mvbench", "task": "counterfactual_inference", "gt": "B", "pred": "B", "correct": true, "raw": "B", "group": null}
+{"uid": "mvbench/counterfactual_inference/39", "benchmark": "mvbench", "task": "counterfactual_inference", "gt": "A", "pred": "A", "correct": true, "raw": "(A) The blue metal sphere and the gray sphere collide", "group": null}
+{"uid": "mvbench/counterfactual_inference/43", "benchmark": "mvbench", "task": "counterfactual_inference", "gt": "A", "pred": "C", "correct": false, "raw": "(C)", "group": null}
+{"uid": "mvbench/counterfactual_inference/47", "benchmark": "mvbench", "task": "counterfactual_inference", "gt": "D", "pred": "D", "correct": true, "raw": "(D) The blue cylinder and the blue sphere collide", "group": null}
+{"uid": "mvbench/counterfactual_inference/51", "benchmark": "mvbench", "task": "counterfactual_inference", "gt": "D", "pred": "D", "correct": true, "raw": "(D) The red object collides with the gray cube", "group": null}
+{"uid": "mvbench/counterfactual_inference/55", "benchmark": "mvbench", "task": "counterfactual_inference", "gt": "A", "pred": "A", "correct": true, "raw": "(A)", "group": null}
+{"uid": "mvbench/counterfactual_inference/59", "benchmark": "mvbench", "task": "counterfactual_inference", "gt": "C", "pred": "C", "correct": true, "raw": "(C)", "group": null}
+{"uid": "mvbench/counterfactual_inference/63", "benchmark": "mvbench", "task": "counterfactual_inference", "gt": "B", "pred": "A", "correct": false, "raw": "(A) The cylinder and the brown sphere collide", "group": null}
+{"uid": "mvbench/counterfactual_inference/67", "benchmark": "mvbench", "task": "counterfactual_inference", "gt": "A", "pred": "A", "correct": true, "raw": "A", "group": null}
+{"uid": "mvbench/counterfactual_inference/71", "benchmark": "mvbench", "task": "counterfactual_inference", "gt": "C", "pred": "C", "correct": true, "raw": "(C) The cube and the yellow sphere collide", "group": null}
+{"uid": "mvbench/counterfactual_inference/75", "benchmark": "mvbench", "task": "counterfactual_inference", "gt": "C", "pred": "B", "correct": false, "raw": "(B) The red object collides with the sphere", "group": null}
+{"uid": "mvbench/counterfactual_inference/79", "benchmark": "mvbench", "task": "counterfactual_inference", "gt": "B", "pred": "B", "correct": true, "raw": "(B) The cyan sphere and the purple object collide", "group": null}
+{"uid": "mvbench/counterfactual_inference/83", "benchmark": "mvbench", "task": "counterfactual_inference", "gt": "B", "pred": "B", "correct": true, "raw": "B", "group": null}
+{"uid": "mvbench/counterfactual_inference/87", "benchmark": "mvbench", "task": "counterfactual_inference", "gt": "C", "pred": "C", "correct": true, "raw": "(C)", "group": null}
+{"uid": "mvbench/counterfactual_inference/91", "benchmark": "mvbench", "task": "counterfactual_inference", "gt": "B", "pred": "B", "correct": true, "raw": "(B) The rubber cylinder collides with the red cube", "group": null}
+{"uid": "mvbench/counterfactual_inference/95", "benchmark": "mvbench", "task": "counterfactual_inference", "gt": "D", "pred": "D", "correct": true, "raw": "(D) The purple object and the cube collide", "group": null}
+{"uid": "mvbench/counterfactual_inference/99", "benchmark": "mvbench", "task": "counterfactual_inference", "gt": "A", "pred": "D", "correct": false, "raw": "(D) The sphere and the brown cylinder collide", "group": null}
+{"uid": "mvbench/counterfactual_inference/103", "benchmark": "mvbench", "task": "counterfactual_inference", "gt": "A", "pred": "B", "correct": false, "raw": "(B)", "group": null}
+{"uid": "mvbench/counterfactual_inference/107", "benchmark": "mvbench", "task": "counterfactual_inference", "gt": "C", "pred": "B", "correct": false, "raw": "(B) The brown cylinder and the purple sphere collide", "group": null}
+{"uid": "mvbench/counterfactual_inference/111", "benchmark": "mvbench", "task": "counterfactual_inference", "gt": "A", "pred": "A", "correct": true, "raw": "(A)", "group": null}
+{"uid": "mvbench/counterfactual_inference/115", "benchmark": "mvbench", "task": "counterfactual_inference", "gt": "B", "pred": "B", "correct": true, "raw": "B", "group": null}
+{"uid": "mvbench/counterfactual_inference/119", "benchmark": "mvbench", "task": "counterfactual_inference", "gt": "D", "pred": "B", "correct": false, "raw": "(B) The cyan cube and the blue metal sphere collide", "group": null}
+{"uid": "mvbench/counterfactual_inference/123", "benchmark": "mvbench", "task": "counterfactual_inference", "gt": "C", "pred": "C", "correct": true, "raw": "(C) The cyan cylinder collides with the cube", "group": null}
+{"uid": "mvbench/counterfactual_inference/127", "benchmark": "mvbench", "task": "counterfactual_inference", "gt": "B", "pred": "A", "correct": false, "raw": "(A)", "group": null}
+{"uid": "mvbench/counterfactual_inference/131", "benchmark": "mvbench", "task": "counterfactual_inference", "gt": "B", "pred": "B", "correct": true, "raw": "(B)", "group": null}
+{"uid": "mvbench/counterfactual_inference/135", "benchmark": "mvbench", "task": "counterfactual_inference", "gt": "A", "pred": "B", "correct": false, "raw": "(B) The red sphere collides with the cyan sphere", "group": null}
+{"uid": "mvbench/counterfactual_inference/139", "benchmark": "mvbench", "task": "counterfactual_inference", "gt": "C", "pred": "C", "correct": true, "raw": "(C) The brown object and the yellow sphere collide", "group": null}
+{"uid": "mvbench/counterfactual_inference/143", "benchmark": "mvbench", "task": "counterfactual_inference", "gt": "B", "pred": "B", "correct": true, "raw": "(B)", "group": null}
+{"uid": "mvbench/counterfactual_inference/147", "benchmark": "mvbench", "task": "counterfactual_inference", "gt": "A", "pred": "A", "correct": true, "raw": "(A) The rubber sphere collides with the purple sphere", "group": null}
+{"uid": "mvbench/counterfactual_inference/151", "benchmark": "mvbench", "task": "counterfactual_inference", "gt": "A", "pred": "A", "correct": true, "raw": "(A)", "group": null}
+{"uid": "mvbench/counterfactual_inference/155", "benchmark": "mvbench", "task": "counterfactual_inference", "gt": "B", "pred": "A", "correct": false, "raw": "(A)", "group": null}
+{"uid": "mvbench/counterfactual_inference/159", "benchmark": "mvbench", "task": "counterfactual_inference", "gt": "B", "pred": "B", "correct": true, "raw": "(B) The cylinder and the gray sphere collide", "group": null}
+{"uid": "mvbench/counterfactual_inference/163", "benchmark": "mvbench", "task": "counterfactual_inference", "gt": "B", "pred": "B", "correct": true, "raw": "(B) The cylinder collides with the gray object", "group": null}
+{"uid": "mvbench/counterfactual_inference/167", "benchmark": "mvbench", "task": "counterfactual_inference", "gt": "C", "pred": "A", "correct": false, "raw": "(A)", "group": null}
+{"uid": "mvbench/counterfactual_inference/171", "benchmark": "mvbench", "task": "counterfactual_inference", "gt": "A", "pred": "A", "correct": true, "raw": "(A) The blue cylinder collides with the rubber cube", "group": null}
+{"uid": "mvbench/counterfactual_inference/175", "benchmark": "mvbench", "task": "counterfactual_inference", "gt": "A", "pred": "B", "correct": false, "raw": "(B)", "group": null}
+{"uid": "mvbench/counterfactual_inference/179", "benchmark": "mvbench", "task": "counterfactual_inference", "gt": "B", "pred": "B", "correct": true, "raw": "(B)", "group": null}
+{"uid": "mvbench/counterfactual_inference/183", "benchmark": "mvbench", "task": "counterfactual_inference", "gt": "C", "pred": "D", "correct": false, "raw": "(D)", "group": null}
+{"uid": "mvbench/counterfactual_inference/187", "benchmark": "mvbench", "task": "counterfactual_inference", "gt": "A", "pred": "A", "correct": true, "raw": "(A) The gray cube and the sphere collide", "group": null}
+{"uid": "mvbench/counterfactual_inference/191", "benchmark": "mvbench", "task": "counterfactual_inference", "gt": "A", "pred": "A", "correct": true, "raw": "(A) The yellow sphere collides with the gray cylinder", "group": null}
+{"uid": "mvbench/counterfactual_inference/195", "benchmark": "mvbench", "task": "counterfactual_inference", "gt": "D", "pred": "D", "correct": true, "raw": "(D) The green sphere collides with the red sphere", "group": null}
+{"uid": "mvbench/counterfactual_inference/199", "benchmark": "mvbench", "task": "counterfactual_inference", "gt": "C", "pred": "C", "correct": true, "raw": "(C)", "group": null}

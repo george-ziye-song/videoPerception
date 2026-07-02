@@ -1,0 +1,49 @@
+# lmms-eval + vLLM 标准评测环境 —— 安装命令(2026-07-02)
+# 用途:替代自写 run_eval.py,用行业标准 harness 出 baseline(MVBench 必测 + TOMATO + Video-MME)。
+# 注意:conda env 装在 /root/miniconda3/envs(容器重建即丢),重建后照本文件重装即可。
+# 网络规则(CLAUDE.md):下载一律 env -u 去代理直连;pip 已配清华镜像;HF 一律 HF_ENDPOINT=hf-mirror.com。
+
+## 1) 新建环境(python 3.12,名字 lmmseval)
+source /root/miniconda3/etc/profile.d/conda.sh
+conda create -n lmmseval python=3.12 -y
+conda activate lmmseval
+
+## 2) vLLM —— 必须钉在 0.11.0,原因是 CUDA 版本红线(2026-07-02 实测踩坑):
+##    - 最新 vllm 0.24 / torch 2.11 默认拉 CUDA 13 系依赖(nvidia-*-cu13),
+##      而宿主驱动 550.90.07 只到 CUDA 12.4(cu12.x 靠小版本兼容可跑,cu13 需要 580+ 驱动,起不来)。
+##    - vllm==0.11.0 默认带 torch 2.8 + nvidia-*-cu12,550 驱动可用,且完整支持 qwen3_vl 架构。
+##    - 镜像速度实测:USTC ~14-70MB/s ≫ 清华 ~0.4MB/s(大文件疑似限速),pip 一律 -i USTC。
+env -u http_proxy -u https_proxy -u all_proxy pip install -i https://mirrors.ustc.edu.cn/pypi/simple "vllm==0.11.0"
+
+## 3) lmms-eval —— 直接装 PyPI 的 0.7.2(GitHub 直连时好时坏,140s 超时踩过;PyPI 版本够新,
+##    含 qwen3_vl 模型类 + mvbench/tomato/videomme/temporalbench 任务)
+env -u http_proxy -u https_proxy -u all_proxy pip install -i https://mirrors.ustc.edu.cn/pypi/simple lmms-eval
+
+## 4) 视频依赖
+env -u http_proxy -u https_proxy -u all_proxy pip install qwen-vl-utils decord av
+
+## 5) 自检
+python -c "import torch, transformers, vllm, lmms_eval; print(torch.__version__, transformers.__version__, vllm.__version__)"
+
+## 6) 跑评测(示例;确切的 model_args 参数名跑之前用 --help 和
+##    lmms_eval/models/simple/qwen3_vl.py 里的 __init__ 签名核一遍,帧数/分辨率按协议写进报告)
+env -u http_proxy -u https_proxy -u all_proxy HF_ENDPOINT=https://hf-mirror.com HF_HOME=/root/hf_home \
+  python -m lmms_eval --model qwen3_vl \
+    --model_args pretrained=/remote-home/ziyesong/models/Qwen3-VL-8B-Instruct \
+    --tasks mvbench --batch_size 1 --log_samples \
+    --output_path /remote-home/ziyesong/videoPerception/eval/results_lmmseval/
+# Video-MME 无字幕/带字幕是两个任务:videomme(= w/o sub)和 videomme_w_subtitle
+
+## 7) (可选)TOMATO yale-nlp 原版视频(Google Drive 被墙,只能走代理;
+##    lmms-lab 重打包版已在 /root/benchmarks/TOMATO_lmms(1417 个 mp4,与原版数量一致),
+##    lmms-eval 的 tomato 任务用的就是 lmms-lab 版,所以原版仅作交叉核验,通常不必下)
+pip install gdown
+gdown --fuzzy 'https://drive.google.com/file/d/1-dNt9bZcp6C3RXuGoAO3EBgWkAHg8NWR/view' \
+  -O /root/benchmarks/TOMATO_yale_videos.zip
+# gdown 会自动读 http_proxy/https_proxy 环境变量(本机默认 127.0.0.1:7890 = 回家的隧道),
+# 直接跑即可;注意:大文件会占用家里代理带宽,可能让 Claude 会话变卡,建议挑空闲时段。
+
+## 8) Video-MME 数据(~100G,hf-mirror 直连;2026-07-02 会话已在后台下载,勿重复)
+env -u http_proxy -u https_proxy -u all_proxy HF_ENDPOINT=https://hf-mirror.com \
+  /root/miniconda3/envs/qwen3vl/bin/hf download lmms-lab/Video-MME --repo-type dataset \
+  --local-dir /root/benchmarks/VideoMME

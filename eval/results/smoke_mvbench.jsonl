@@ -1,0 +1,6 @@
+{"uid": "mvbench/action_sequence/0", "benchmark": "mvbench", "task": "action_sequence", "gt": "A", "pred": "D", "correct": false, "raw": "(D) Took the box.", "group": null}
+{"uid": "mvbench/action_sequence/1", "benchmark": "mvbench", "task": "action_sequence", "gt": "C", "pred": "C", "correct": true, "raw": "(C) Opened the closet/cabinet.", "group": null}
+{"uid": "mvbench/action_sequence/2", "benchmark": "mvbench", "task": "action_sequence", "gt": "C", "pred": "C", "correct": true, "raw": "(C) Opened the closet/cabinet.", "group": null}
+{"uid": "mvbench/action_sequence/3", "benchmark": "mvbench", "task": "action_sequence", "gt": "D", "pred": "D", "correct": true, "raw": "(D) Threw the towel.", "group": null}
+{"uid": "mvbench/action_sequence/4", "benchmark": "mvbench", "task": "action_sequence", "gt": "C", "pred": "C", "correct": true, "raw": "(C) Sat on the sofa/couch.", "group": null}
+{"uid": "mvbench/action_sequence/5", "benchmark": "mvbench", "task": "action_sequence", "gt": "B", "pred": "B", "correct": true, "raw": "(B) Put down the towel.", "group": null}
