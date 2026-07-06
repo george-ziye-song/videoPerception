@@ -1,0 +1,29 @@
+【新实例(8卡)开场 prompt —— 粘贴给全新 claude 会话】
+
+这里是 videoPerception 项目的新实例:8×RTX4090,和旧实例(4卡)挂同一块 GPFS。旧实例的
+P1 直答评测已按计划停止,你在这台机器上接手剩余全部评测工作。
+
+第一步(先做这个,证明你上下文齐了):读取你的项目记忆,向我复述:①P1 当前记分板;
+②TOMATO 在 thinking-off 下的退化现象;③接下来要跑的两批任务是什么。复述无误再动手。
+
+然后按顺序执行,每一步"先把事做对、核实一切":
+1. 盘点本机现状:哪些已恢复(环境/数据/模型/软链),哪些还缺——对照手册
+   /remote-home/ziyesong/videoPerception/eval/setup_lmmseval.txt 的 §14①②③④ 逐项检查,
+   缺什么补什么。恢复环境后必须跑 §5 自检 + 确认 §13 的两个 nframes 补丁在位。
+2. 冒烟:LIMIT='--limit 8' 把锚模型三条腿过一遍,全绿才继续。
+3. P1 收尾(§17 有精确命令):终端A 补 Qwen3.6-35B 的 videomme 腿,终端B 跑 Qwen3.5-35B
+   三条腿;两组各占 4 卡并行,注意 main_process_port 错开、启动前显存守卫。
+4. P1 全表齐后,汇总四模型×三 benchmark 对比表(TOMATO 加 thinking-off 脚注),写进记忆。
+5. P2 全 CoT 批(要点在 §14⑤ 和 EVAL_FRAMEWORK.md):三个 benchmark 全开 thinking;
+   Qwen3.5/3.6 用 enable_thinking=True,锚 8B 用 reasoning_prompt;--gen_kwargs 放宽
+   max_new_tokens=1024;先冒烟并抽查逐样本输出验证 <think> 剥离和答案抽取链路
+   (mvbench 官方 mcq_acc 若对长输出失效,用社区通用的 extract_mcq_answer 对 samples jsonl
+   离线重算,并写入协议说明);8 卡可考虑 vLLM 后端提速,但先保证正确再提速。
+
+铁规矩:
+- 任何下载必须 `env -u http_proxy -u https_proxy -u all_proxy HF_ENDPOINT=https://hf-mirror.com`
+  直连(用户代理流量有限,一个字节都不能走);
+- 结果目录放 GPFS(videoPerception/eval/ 下),跑完即持久;
+- 每个里程碑(冒烟过、每条腿完成、发现异常)都更新项目记忆——旧实例和用户靠它看进展;
+- 环境有任何 pip 改动,刷新 GPFS 备份(手册顶部命令);
+- 有异常先诊断到根因再动手修,不确定的决策列出选项问用户。

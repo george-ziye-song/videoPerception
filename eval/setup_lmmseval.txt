@@ -1,6 +1,17 @@
 # lmms-eval + vLLM 标准评测环境 —— 安装命令(2026-07-02)
 # 用途:替代自写 run_eval.py,用行业标准 harness 出 baseline(MVBench 必测 + TOMATO + Video-MME)。
-# 注意:conda env 装在 /root/miniconda3/envs(容器重建即丢),重建后照本文件重装即可。
+#
+# ★★ 环境持久化约定(2026-07-02 用户拍板,"GPFS 中转站"模式)★★
+#   运行时环境永远放本地盘 /root/miniconda3/envs/lmmseval(本地快;网络盘 import 慢)。
+#   GPFS 只当备份中转站:/remote-home/ziyesong/envs/lmmseval(防容器重建丢环境)。
+#   ▶ 容器重建后的恢复(不用重装!miniconda 本体是镜像自带的):
+#       cp -a /remote-home/ziyesong/envs/lmmseval /root/miniconda3/envs/
+#   ▶ 环境有任何改动(pip 装了新东西)后,刷新备份:
+#       rm -rf /remote-home/ziyesong/envs/lmmseval && \
+#       cp -a /root/miniconda3/envs/lmmseval /remote-home/ziyesong/envs/lmmseval
+#   ▶ 只有恢复失败/备份损坏时,才按下面 §1-§10 从零重装。
+#   ⚠ NVIDIA pip 包坑:cu12/cu13 两代共用 site-packages/nvidia/ 目录,卸载一代会连带删掉
+#     另一代的 so 文件(报 libcudnn.so.9 缺失之类)→ 修复 = --force-reinstall --no-deps 重装全套 cu12 包。
 # 网络规则(CLAUDE.md):下载一律 env -u 去代理直连;pip 已配清华镜像;HF 一律 HF_ENDPOINT=hf-mirror.com。
 
 ## 1) 新建环境(python 3.12,名字 lmmseval)
@@ -14,6 +25,14 @@ conda activate lmmseval
 ##    - vllm==0.11.0 默认带 torch 2.8 + nvidia-*-cu12,550 驱动可用,且完整支持 qwen3_vl 架构。
 ##    - 镜像速度实测:USTC ~14-70MB/s ≫ 清华 ~0.4MB/s(大文件疑似限速),pip 一律 -i USTC。
 env -u http_proxy -u https_proxy -u all_proxy pip install -i https://mirrors.ustc.edu.cn/pypi/simple "vllm==0.11.0"
+## 更新(2026-07-02 下午,实测版本矩阵后钉死):当前环境 = **vllm==0.19.1**。
+## 版本矩阵(PyPI requires_dist 逐版查证,别再猜):
+##   vllm 0.12-0.13→torch2.9.0 / 0.14-0.16→2.9.1 / 0.17-0.19→2.10.0 / 0.20+→2.11.0
+##   torch 2.8/2.9.x/2.10.0 = nvidia-*-cu12(550 驱动可用);torch 2.11+ = cu13(需 580+ 驱动)
+##   Qwen3_5(Moe)ForConditionalGeneration 自 vLLM v0.17.0 进注册表(Qwen3.5/3.6 通用)
+## → 0.19.1 = 支持 Qwen3-VL + Qwen3.5/3.6 + cu12 的唯一甜点位;0.20+ 全是 cu13,驱动不升就别装。
+## (⚠ 曾误装 0.22.1:它钉 torch 2.11-cu13,torch import 直接挂 ncclDevCommDestroy;已回滚重升。)
+env -u http_proxy -u https_proxy -u all_proxy pip install -i https://mirrors.ustc.edu.cn/pypi/simple "vllm==0.19.1"
 
 ## 3) lmms-eval —— 直接装 PyPI 的 0.7.2(GitHub 直连时好时坏,140s 超时踩过;PyPI 版本够新,
 ##    含 qwen3_vl 模型类 + mvbench/tomato/videomme/temporalbench 任务)
@@ -47,3 +66,132 @@ gdown --fuzzy 'https://drive.google.com/file/d/1-dNt9bZcp6C3RXuGoAO3EBgWkAHg8NWR
 env -u http_proxy -u https_proxy -u all_proxy HF_ENDPOINT=https://hf-mirror.com \
   /root/miniconda3/envs/qwen3vl/bin/hf download lmms-lab/Video-MME --repo-type dataset \
   --local-dir /root/benchmarks/VideoMME
+
+## 9) ⚠ 装完必修:补 pip 包缺失文件(2026-07-02 实测)
+# lmms-eval 0.7.2 的 wheel 和 sdist 都漏打了全部无后缀模板文件(_default_template_yaml 等,共 247 个),
+# 不补的话 TaskManager 启动直接 FileNotFoundError。源码包已存 GPFS,重建不依赖 GitHub:
+mkdir -p /tmp/lmmsfix && tar xzf /remote-home/ziyesong/videoPerception/refs/lmms-eval-0.7.2-src.tgz -C /tmp/lmmsfix
+cp -rn /tmp/lmmsfix/lmms-eval-0.7.2/lmms_eval/tasks/. \
+  /root/miniconda3/envs/lmmseval/lib/python3.12/site-packages/lmms_eval/tasks/
+
+## 10) HF token(mvbench/tomato/videomme 的 yaml 都是 token:True,没有就报 LocalTokenNotFoundError)
+cp /root/.cache/huggingface/token /root/hf_home/token   # 或 export HF_TOKEN=<token>
+
+## 11) 数据布局(HF_HOME=/root/hf_home)
+# videomme  -> $HF_HOME/videomme/data/*.mp4 + subtitle/         (软链接可)
+# TOMATO    -> $HF_HOME/TOMATO/videos/{human,object,simulated}  (软链接可)
+# mvbench   -> $HF_HOME/mvbench_video/<各子目录>
+#   ⚠ mvbench_video 必须是真目录!它的模板有 create_link:True,task.py:1043 发现 cache 是
+#   软链接就整库重新 snapshot_download。当前已是真目录,旧路径 /root/benchmarks/MVBench_video 反向软链。
+mkdir -p /root/hf_home
+ln -sfn /root/benchmarks/VideoMME /root/hf_home/videomme
+ln -sfn /root/benchmarks/TOMATO   /root/hf_home/TOMATO
+# ↑ 2026-07-03 起 TOMATO = 用户提供的 yale-nlp 原版视频目录(1417 mp4,lmms 标注全部命中,
+#   已验证 TOMATO_VALID);此前的 TOMATO_lmms 重打包版已删除。评测标注始终走 HF(lmms-lab/TOMATO),
+#   本地目录只出视频文件。
+# 容器重建后 MVBench 最简单重建:video 分支本身就是解压好的目录(含官方裁剪 segment 版):
+#   env -u http_proxy -u https_proxy -u all_proxy HF_ENDPOINT=https://hf-mirror.com \
+#     hf download OpenGVLab/MVBench --repo-type dataset --revision video --local-dir /root/hf_home/mvbench_video
+# 要点:lmms-eval 的 MVBench 用 star/Charades_segment、sta/sta_video_segment(预裁剪=官方"时间裁剪"实现)、
+#   ssv2_video_mp4(mp4 版)、tvqa/video_fps3_hq_segment、nturgbd_convert(NTU 有!20/20 任务可测)。
+
+## 12) 跑评测
+# 冒烟: LIMIT='--limit 8' bash run_lmmseval.sh
+# 正式: bash run_lmmseval.sh        (mvbench 32帧 / tomato 16帧官方协议 / videomme 32帧 w/o sub)
+
+## 13) ⚠ 本地补丁(2026-07-03,恢复环境后若从零重装需重打;GPFS 备份的 env 里已含)
+# lmms-eval 0.7.2(main 同样存在)的 qwen3_vl 模型类 bug:视频总帧数 < max_num_frames 时
+# qwen-vl-utils 抛 "nframes should in interval [2,N]",整个 rank 崩掉、其余 rank 卡 barrier。
+# 补丁位置(两处都要打!):
+#   ① models/chat/qwen3_vl.py —— ⚠这才是 --model qwen3_vl 实际跑的类(0.7.2 默认解析到 chat 变体),
+#      在 batched_messages 组装后遍历所有 video 元素,逐个探测实际帧数并钳制 nframes;
+#   ② models/simple/qwen3_vl.py —— 备用变体,同样已打(视频元素 append 处)。
+# 逻辑:仅当走 nframes 模式且视频过短时,把 nframes 钳到实际总帧数(向下取偶)。其余行为与社区默认完全一致。
+# 协议表述:"uniform max_num_frames sampling; clips shorter than N frames use all frames (floor-to-even)"。
+
+## 14) 新实例(8 卡,跑 P2 全 CoT 批)快速引导 —— 2026-07-04
+# 前提:新实例挂同一块 GPFS(/remote-home/ziyesong)。总耗时预计 ~1 小时,顺序:
+# ① 环境(15 min):cp -a /remote-home/ziyesong/envs/lmmseval /root/miniconda3/envs/
+#    (备份已含 nframes 双补丁 + 247 个任务文件;恢复后跑一遍 §5 自检)
+# ② HF 布局:mkdir -p /root/hf_home && cp /root/.cache/huggingface/token /root/hf_home/token 2>/dev/null || export HF_TOKEN=<token>
+# ③ 数据(hf-mirror 直连,实测 ~80MB/s)。
+#    ⚠⚠ 流量红线:每条下载命令必须【原样带】`env -u http_proxy -u https_proxy -u all_proxy HF_ENDPOINT=...`
+#    前缀 —— env -u 把代理变量从这条命令的子进程里剥掉 = 纯直连、零家用代理流量;
+#    proxy_on 开着也不影响(它只作用于当前 shell 的后续命令,env -u 单条豁免)。
+#    hf CLI 在 lmmseval 环境里,先激活:
+#      source /root/miniconda3/etc/profile.d/conda.sh && conda activate lmmseval
+#    MVBench(~20G,⚠真目录不能软链;两个 clevrer 补丁文件 video 分支自带,无需另补):
+env -u http_proxy -u https_proxy -u all_proxy HF_ENDPOINT=https://hf-mirror.com \
+  hf download OpenGVLab/MVBench --repo-type dataset --revision video --local-dir /root/hf_home/mvbench_video
+#    Video-MME(95G;下载后按 §8 用 python zipfile 解压 20 个分卷 + subtitle.zip,解压完 zip 可删):
+env -u http_proxy -u https_proxy -u all_proxy HF_ENDPOINT=https://hf-mirror.com \
+  hf download lmms-lab/Video-MME --repo-type dataset --local-dir /root/benchmarks/VideoMME
+ln -sfn /root/benchmarks/VideoMME /root/hf_home/videomme
+#    TOMATO(GPFS 中转纯盘拷,不走网;⚠勿重下 lmms 版,保证与 P1 字节一致;取完可删 transfer/TOMATO 释放 23G):
+cp -a /remote-home/ziyesong/transfer/TOMATO /root/benchmarks/TOMATO
+ln -sfn /root/benchmarks/TOMATO /root/hf_home/TOMATO
+# ④ 模型:8B 用 GPFS(软链);9B/两个 35B 重下(共 ~160G,同样直连):
+for m in Qwen3.5-9B Qwen3.5-35B-A3B Qwen3.6-35B-A3B; do \
+  env -u http_proxy -u https_proxy -u all_proxy HF_ENDPOINT=https://hf-mirror.com \
+    hf download "Qwen/$m" --local-dir "/root/models/$m"; done
+ln -sfn /remote-home/ziyesong/models/Qwen3-VL-8B-Instruct /root/models/Qwen3-VL-8B-Instruct
+# ⑤ P2 协议要点:全部 benchmark 开 thinking;Qwen3.5/3.6 用 enable_thinking=True(原生),
+#    锚 8B-Instruct 无思考模式,用 reasoning_prompt(SynRL "CoT" 行同款做法);
+#    --gen_kwargs 放宽 max_new_tokens(建议 1024);后端用 vLLM(transformers 5.5tok/s 扛不住 CoT 长度);
+#    mvbench 若官方 mcq_acc 对剥离后输出命中异常 → 用 extract_mcq_answer 对 samples jsonl 离线重算。
+
+## 15) 新实例的 bashrc / SSH 免密恢复(2026-07-04;备份源=旧实例,存 GPFS /remote-home/ziyesong/dotfiles/)
+# 备份内容:bashrc(含 conda init + 定制)、condarc、pip.conf(USTC/清华镜像)、ssh/authorized_keys(免密公钥)
+# 在【新实例】上执行:
+cp /remote-home/ziyesong/dotfiles/bashrc  /root/.bashrc
+cp /remote-home/ziyesong/dotfiles/condarc /root/.condarc
+mkdir -p /root/.pip && cp /remote-home/ziyesong/dotfiles/pip.conf /root/.pip/pip.conf
+mkdir -p /root/.ssh && cp /remote-home/ziyesong/dotfiles/ssh/authorized_keys /root/.ssh/authorized_keys
+chmod 700 /root/.ssh && chmod 600 /root/.ssh/authorized_keys
+source /root/.bashrc     # 重新激活;之后 conda activate lmmseval 应可用(环境先按 §14① 恢复)
+# 注:HF token 不放 GPFS(敏感);新实例若同镜像则自带默认 token(/root/.cache/huggingface/token),
+#     没有就 export HF_TOKEN=<token> 再 cp 到 /root/hf_home/token。
+# 以后 bashrc 有改动,记得刷新备份:cp /root/.bashrc /remote-home/ziyesong/dotfiles/bashrc
+
+## 16) 新实例恢复 Claude Code(claude: command not found 的解法,2026-07-04)
+# 原因:claude 是 npm 装在 /root/.nvm 的 node 下(易失);凭证在 /root/.claude/.credentials.json(易失)。
+# 备份已存 GPFS:dotfiles/nvm(node v24 + claude 包整体)、dotfiles/claude/(凭证+设置)。
+# 在【新实例】上执行(先做 §15 恢复 bashrc):
+cp -a /remote-home/ziyesong/dotfiles/nvm /root/.nvm
+mkdir -p /root/.claude
+cp /remote-home/ziyesong/dotfiles/claude/.credentials.json /root/.claude/
+cp /remote-home/ziyesong/dotfiles/claude/settings.json     /root/.claude/
+chmod 600 /root/.claude/.credentials.json
+source /root/.bashrc          # bashrc 147-149 行会自动加载 nvm,claude 即可用
+# ⚠ 两个联网前提(缺一 claude 连不上 Anthropic):
+#  ① 你笔记本的 ~/.ssh/config 里,给【新实例】的 Host 也加上和旧实例相同的一行:
+#       RemoteForward 7890 127.0.0.1:7897
+#     (电话线要重新插到新机器上;两台实例可同时各插一条,互不影响)
+#  ② 登录新实例的 shell 里先 proxy_on(bashrc 自带的函数)再启动 claude。
+# 记忆/CLAUDE.md 无需迁移:都在 GPFS(两实例共享同一份,永远最新,不存在"同步"问题)。
+# ⚠ 新实例看不到记忆 = 本地软链缺失。三步修复(每次容器重建后都可能需要):
+#   ① 手动建软链(或由 SessionStart hook 自动建,但需要你允许 hooks 运行):
+#      mkdir -p /root/.claude/projects/-remote-home-ziyesong && ln -sfn /remote-home/ziyesong/.claude/memory /root/.claude/projects/-remote-home-ziyesong/memory
+#   ② 必须 cd /remote-home/ziyesong 之后再启动 claude(记忆/CLAUDE.md/hook 都挂在这个工作目录);
+#   ③ 软链修好后【重启 claude 会话】——记忆只在会话启动时加载,老会话不会中途补读。
+
+
+cp -a /remote-home/ziyesong/transfer/claude-projects/. /root/.claude/projects/
+
+mkdir -p /root/.claude/projects/-remote-home-ziyesong && \
+ln -sfn /remote-home/ziyesong/.claude/memory /root/.claude/projects/-remote-home-ziyesong/memory
+## 17) 8 卡实例的 P1 收尾命令(2026-07-04;两组可并行,各占 4 卡,注意端口错开)
+# 终端A:补 Qwen3.6-35B 的 videomme 腿(结果目录沿用 results_q36_35b,GPFS 同步回来后合并)
+CUDA_VISIBLE_DEVICES=0,1,2,3 env -u http_proxy -u https_proxy -u all_proxy \
+  HF_HOME=/root/hf_home HF_ENDPOINT=https://hf-mirror.com \
+  accelerate launch --num_processes 1 --main_process_port 29517 -m lmms_eval \
+  --model qwen3_5 --model_args pretrained=/root/models/Qwen3.6-35B-A3B,enable_thinking=False,device_map=auto,max_num_frames=32 \
+  --tasks videomme --batch_size 1 --log_samples --output_path results_q36_35b/
+# 终端B:Qwen3.5-35B 三条腿(注意端口 29518;三条顺序跑,帧数各自钉死)
+for T in "mvbench 32" "tomato 16" "videomme 32"; do set -- $T; \
+CUDA_VISIBLE_DEVICES=4,5,6,7 env -u http_proxy -u https_proxy -u all_proxy \
+  HF_HOME=/root/hf_home HF_ENDPOINT=https://hf-mirror.com \
+  accelerate launch --num_processes 1 --main_process_port 29518 -m lmms_eval \
+  --model qwen3_5 --model_args pretrained=/root/models/Qwen3.5-35B-A3B,enable_thinking=False,device_map=auto,max_num_frames=$2 \
+  --tasks $1 --batch_size 1 --log_samples --output_path results_q35_35b/ ; done
+# 完成后 P2(全 CoT)按 §14⑤ 要点排;P1/P2 结果目录都建议放 GPFS 的 videoPerception/eval/ 下直接持久。

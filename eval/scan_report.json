@@ -1,0 +1,98 @@
+{
+ "videomme": {
+  "n_mp4": 900,
+  "expect": 900,
+  "n_sub": 744,
+  "tiny": [],
+  "decode_fail": []
+ },
+ "tomato_lmms": {
+  "n_mp4": 0,
+  "expect": 1417,
+  "tiny": [],
+  "decode_fail": []
+ },
+ "tomato_cross": {
+  "n_user": 1417,
+  "common": 0,
+  "only_lmms": [],
+  "only_user": [
+   "human/0207-00.mp4",
+   "human/0207-01.mp4",
+   "human/0207-02.mp4",
+   "human/0207-03.mp4",
+   "human/0207-04.mp4",
+   "human/0208-00.mp4",
+   "human/0208-01.mp4",
+   "human/0208-02.mp4",
+   "human/0209-00.mp4",
+   "human/0209-01.mp4"
+  ],
+  "md5_mismatch": []
+ },
+ "mvbench": {
+  "folders": {
+   "star/Charades_segment": {
+    "n": 585,
+    "expect_min": 585,
+    "ok": true
+   },
+   "sta/sta_video_segment": {
+    "n": 200,
+    "expect_min": 200,
+    "ok": true
+   },
+   "clevrer/video_validation": {
+    "n": 913,
+    "expect_min": 900,
+    "ok": true
+   },
+   "perception/videos": {
+    "n": 792,
+    "expect_min": 500,
+    "ok": true
+   },
+   "nturgbd_convert": {
+    "n": 200,
+    "expect_min": 200,
+    "ok": true
+   },
+   "ssv2_video_mp4": {
+    "n": 200,
+    "expect_min": 200,
+    "ok": true
+   },
+   "tvqa/video_fps3_hq_segment": {
+    "n": 200,
+    "expect_min": 200,
+    "ok": true
+   },
+   "Moments_in_Time_Raw/videos": {
+    "n": 200,
+    "expect_min": 200,
+    "ok": true
+   },
+   "FunQA_test/test": {
+    "n": 179,
+    "expect_min": 200,
+    "ok": false
+   },
+   "scene_qa/video": {
+    "n": 200,
+    "expect_min": 200,
+    "ok": true
+   },
+   "vlnqa": {
+    "n": 200,
+    "expect_min": 200,
+    "ok": true
+   }
+  },
+  "tiny": {
+   "ssv2_video_mp4": [
+    "157974.mp4"
+   ]
+  },
+  "decode_fail": []
+ }
+}

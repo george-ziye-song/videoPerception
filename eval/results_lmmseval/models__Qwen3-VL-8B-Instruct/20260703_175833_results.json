@@ -1,0 +1,191 @@
+{
+  "results": {
+    "tomato": {
+      "alias": "tomato",
+      "tomato_score,none": 0.125,
+      "tomato_score_stderr,none": "N/A",
+      "tomato_score_stderr_clt,none": 0.125,
+      "tomato_score_stderr_clustered,none": "N/A"
+    }
+  },
+  "group_subtasks": {
+    "tomato": []
+  },
+  "configs": {
+    "tomato": {
+      "task": "tomato",
+      "dataset_path": "lmms-lab/TOMATO",
+      "dataset_kwargs": {
+        "token": true
+      },
+      "test_split": "test",
+      "full_docs": false,
+      "process_results_use_image": false,
+      "doc_to_visual": "<function tomato_doc_to_visual at 0x7f87a8143100>",
+      "doc_to_text": "<function tomato_doc_to_text at 0x7f836e3339c0>",
+      "doc_to_target": "utils.tomato_doc_to_target",
+      "process_results": "<function tomato_process_results at 0x7f836e358540>",
+      "description": "",
+      "target_delimiter": " ",
+      "fewshot_delimiter": "\n\n",
+      "num_fewshot": 0,
+      "metric_list": [
+        {
+          "metric": "tomato_score",
+          "aggregation": "<function tomato_aggregate_results at 0x7f836e358ea0>",
+          "higher_is_better": true
+        }
+      ],
+      "output_type": "generate_until",
+      "generation_kwargs": {
+        "max_new_tokens": 1024,
+        "temperature": 0.0,
+        "top_p": 1.0,
+        "num_beams": 1,
+        "do_sample": false,
+        "until": [
+          "\n\n"
+        ]
+      },
+      "repeats": 1,
+      "should_decontaminate": false,
+      "score_key": "score"
+    }
+  },
+  "versions": {
+    "tomato": "Yaml"
+  },
+  "n-shot": {
+    "tomato": 0
+  },
+  "higher_is_better": {
+    "tomato": {
+      "tomato_score": true
+    }
+  },
+  "n-samples": {
+    "tomato": {
+      "original": 1484,
+      "effective": 8
+    }
+  },
+  "config": {
+    "model": "qwen3_vl",
+    "model_args": "pretrained=/remote-home/ziyesong/models/Qwen3-VL-8B-Instruct,max_num_frames=16",
+    "batch_size": "1",
+    "batch_sizes": [],
+    "device": null,
+    "use_cache": null,
+    "limit": 8.0,
+    "offset": 0,
+    "bootstrap_iters": 100000,
+    "gen_kwargs": "",
+    "random_seed": 0,
+    "numpy_seed": 1234,
+    "torch_seed": 1234,
+    "fewshot_seed": 1234,
+    "resolved_cli_args": {
+      "config": "",
+      "model": "qwen3_vl",
+      "tasks": "tomato",
+      "model_args": "pretrained=/remote-home/ziyesong/models/Qwen3-VL-8B-Instruct,max_num_frames=16",
+      "launcher_args": null,
+      "num_fewshot": null,
+      "batch_size": "1",
+      "max_batch_size": null,
+      "device": null,
+      "output_path": "results_lmmseval/",
+      "limit": 8.0,
+      "offset": 0,
+      "use_cache": null,
+      "cache_requests": null,
+      "check_integrity": false,
+      "write_out": false,
+      "log_samples": true,
+      "wandb_log_samples": false,
+      "log_samples_suffix": "model_outputs",
+      "system_instruction": null,
+      "apply_chat_template": false,
+      "fewshot_as_multiturn": false,
+      "show_config": false,
+      "include_path": null,
+      "gen_kwargs": "",
+      "reasoning_tags": "[[\"<think>\", \"</think>\"], [\"<analysis>\", \"</analysis>\"]]",
+      "verbosity": "INFO",
+      "wandb_args": "",
+      "timezone": "Asia/Singapore",
+      "hf_hub_log_args": ",output_path=results_lmmseval/",
+      "predict_only": false,
+      "seed": [
+        0,
+        1234,
+        1234,
+        1234
+      ],
+      "trust_remote_code": false,
+      "process_with_media": false,
+      "agentic_trace_mode": "basic",
+      "force_simple": false,
+      "tui": false,
+      "repeats": 1,
+      "baseline": null,
+      "max_tokens": null,
+      "power_analysis": false,
+      "effect_size": 0.03,
+      "alpha": 0.05,
+      "power": 0.8,
+      "correlation": 0.5,
+      "std_a": null,
+      "std_b": null
+    }
+  },
+  "git_hash": "f90a019",
+  "git_branch": "main",
+  "lmms_eval_version": "main@f90a019",
+  "date": "20260703_175833",
+  "throughput": {
+    "total_gen_tokens": 4,
+    "total_elapsed_time": 2.764650821685791,
+    "avg_speed": 1.446837325214522,
+    "avg_rank": 0.0
+  },
+  "usage": {},
+  "efficiency": {
+    "by_task": {
+      "tomato": {
+        "docs": 8.0,
+        "docs_with_token_counts": 8.0,
+        "total_input_tokens": 0.0,
+        "total_output_tokens": 16.0,
+        "total_tokens": 16.0,
+        "total_correct_score": 1.0,
+        "avg_output_tokens_per_sample": 2.0,
+        "tokens_per_correct_answer": 16.0
+      }
+    },
+    "overall": {
+      "docs": 8.0,
+      "docs_with_token_counts": 8.0,
+      "total_input_tokens": 0.0,
+      "total_output_tokens": 16.0,
+      "total_tokens": 16.0,
+      "total_correct_score": 1.0,
+      "avg_output_tokens_per_sample": 2.0,
+      "tokens_per_correct_answer": 16.0
+    }
+  },
+  "task_hashes": {
+    "tomato": "817e2aee42f14e1f923568fbf34eaba48bd4c5d7e812691f9242f99b648ecf7d"
+  },
+  "model_source": "qwen3_vl",
+  "model_name": "/remote-home/ziyesong/models/Qwen3-VL-8B-Instruct",
+  "model_name_sanitized": "models__Qwen3-VL-8B-Instruct",
+  "system_instruction": null,
+  "system_instruction_sha": null,
+  "fewshot_as_multiturn": false,
+  "chat_template": null,
+  "chat_template_sha": null,
+  "start_time": 612467.717872972,
+  "end_time": 612701.471800917,
+  "total_evaluation_time_seconds": "233.75392794492655"
+}

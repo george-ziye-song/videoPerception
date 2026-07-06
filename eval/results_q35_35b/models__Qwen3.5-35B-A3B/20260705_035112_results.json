@@ -1,0 +1,191 @@
+{
+  "results": {
+    "tomato": {
+      "alias": "tomato",
+      "tomato_score,none": 0.29514824797843664,
+      "tomato_score_stderr,none": "N/A",
+      "tomato_score_stderr_clt,none": 0.011844000609340152,
+      "tomato_score_stderr_clustered,none": "N/A"
+    }
+  },
+  "group_subtasks": {
+    "tomato": []
+  },
+  "configs": {
+    "tomato": {
+      "task": "tomato",
+      "dataset_path": "lmms-lab/TOMATO",
+      "dataset_kwargs": {
+        "token": true
+      },
+      "test_split": "test",
+      "full_docs": false,
+      "process_results_use_image": false,
+      "doc_to_visual": "<function tomato_doc_to_visual at 0x73c168226160>",
+      "doc_to_text": "<function tomato_doc_to_text at 0x73b04cb7a2a0>",
+      "doc_to_target": "utils.tomato_doc_to_target",
+      "process_results": "<function tomato_process_results at 0x73b04cb7ade0>",
+      "description": "",
+      "target_delimiter": " ",
+      "fewshot_delimiter": "\n\n",
+      "num_fewshot": 0,
+      "metric_list": [
+        {
+          "metric": "tomato_score",
+          "aggregation": "<function tomato_aggregate_results at 0x73b04cb7b740>",
+          "higher_is_better": true
+        }
+      ],
+      "output_type": "generate_until",
+      "generation_kwargs": {
+        "max_new_tokens": 1024,
+        "temperature": 0.0,
+        "top_p": 1.0,
+        "num_beams": 1,
+        "do_sample": false,
+        "until": [
+          "\n\n"
+        ]
+      },
+      "repeats": 1,
+      "should_decontaminate": false,
+      "score_key": "score"
+    }
+  },
+  "versions": {
+    "tomato": "Yaml"
+  },
+  "n-shot": {
+    "tomato": 0
+  },
+  "higher_is_better": {
+    "tomato": {
+      "tomato_score": true
+    }
+  },
+  "n-samples": {
+    "tomato": {
+      "original": 1484,
+      "effective": 1484
+    }
+  },
+  "config": {
+    "model": "qwen3_5",
+    "model_args": "pretrained=/root/models/Qwen3.5-35B-A3B,enable_thinking=False,device_map=auto,max_num_frames=16",
+    "batch_size": "1",
+    "batch_sizes": [],
+    "device": null,
+    "use_cache": null,
+    "limit": null,
+    "offset": 0,
+    "bootstrap_iters": 100000,
+    "gen_kwargs": "",
+    "random_seed": 0,
+    "numpy_seed": 1234,
+    "torch_seed": 1234,
+    "fewshot_seed": 1234,
+    "resolved_cli_args": {
+      "config": "",
+      "model": "qwen3_5",
+      "tasks": "tomato",
+      "model_args": "pretrained=/root/models/Qwen3.5-35B-A3B,enable_thinking=False,device_map=auto,max_num_frames=16",
+      "launcher_args": null,
+      "num_fewshot": null,
+      "batch_size": "1",
+      "max_batch_size": null,
+      "device": null,
+      "output_path": "results_q35_35b/",
+      "limit": null,
+      "offset": 0,
+      "use_cache": null,
+      "cache_requests": null,
+      "check_integrity": false,
+      "write_out": false,
+      "log_samples": true,
+      "wandb_log_samples": false,
+      "log_samples_suffix": "model_outputs",
+      "system_instruction": null,
+      "apply_chat_template": false,
+      "fewshot_as_multiturn": false,
+      "show_config": false,
+      "include_path": null,
+      "gen_kwargs": "",
+      "reasoning_tags": "[[\"<think>\", \"</think>\"], [\"<analysis>\", \"</analysis>\"]]",
+      "verbosity": "INFO",
+      "wandb_args": "",
+      "timezone": "Asia/Singapore",
+      "hf_hub_log_args": ",output_path=results_q35_35b/",
+      "predict_only": false,
+      "seed": [
+        0,
+        1234,
+        1234,
+        1234
+      ],
+      "trust_remote_code": false,
+      "process_with_media": false,
+      "agentic_trace_mode": "basic",
+      "force_simple": false,
+      "tui": false,
+      "repeats": 1,
+      "baseline": null,
+      "max_tokens": null,
+      "power_analysis": false,
+      "effect_size": 0.03,
+      "alpha": 0.05,
+      "power": 0.8,
+      "correlation": 0.5,
+      "std_a": null,
+      "std_b": null
+    }
+  },
+  "git_hash": "f90a019",
+  "git_branch": "main",
+  "lmms_eval_version": "main@f90a019",
+  "date": "20260705_035112",
+  "throughput": {
+    "total_gen_tokens": 248760,
+    "total_elapsed_time": 22700.99178957939,
+    "avg_speed": 10.958111535646218,
+    "avg_rank": 0.0
+  },
+  "usage": {},
+  "efficiency": {
+    "by_task": {
+      "tomato": {
+        "docs": 1484.0,
+        "docs_with_token_counts": 1484.0,
+        "total_input_tokens": 0.0,
+        "total_output_tokens": 248760.0,
+        "total_tokens": 248760.0,
+        "total_correct_score": 438.0,
+        "avg_output_tokens_per_sample": 167.62803234501348,
+        "tokens_per_correct_answer": 567.945205479452
+      }
+    },
+    "overall": {
+      "docs": 1484.0,
+      "docs_with_token_counts": 1484.0,
+      "total_input_tokens": 0.0,
+      "total_output_tokens": 248760.0,
+      "total_tokens": 248760.0,
+      "total_correct_score": 438.0,
+      "avg_output_tokens_per_sample": 167.62803234501348,
+      "tokens_per_correct_answer": 567.945205479452
+    }
+  },
+  "task_hashes": {
+    "tomato": "13d80e61cdb5ef1a6348cd69aa43b3158ceeff0bf5039fd100f32f4a2eb91789"
+  },
+  "model_source": "qwen3_5",
+  "model_name": "/root/models/Qwen3.5-35B-A3B",
+  "model_name_sanitized": "models__Qwen3.5-35B-A3B",
+  "system_instruction": null,
+  "system_instruction_sha": null,
+  "fewshot_as_multiturn": false,
+  "chat_template": null,
+  "chat_template_sha": null,
+  "start_time": 734426.806052798,
+  "end_time": 759574.087945206,
+  "total_evaluation_time_seconds": "25147.28189240792"
+}
