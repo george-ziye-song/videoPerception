@@ -34,22 +34,30 @@ Stage 2 训练要用、但不适合放 git 的东西：
 3. 创建后去 Settings → Access Tokens 页面(或 https://huggingface.co/settings/tokens )确认有一个 **write** 权限的 token，下面命令行登录要用
 
 ### 2.2 命令行上传(在这台服务器上做)
+
+**这一节和 guide 其它地方不一样，不能去代理直连。** 实测过三种连法：走本地代理(`127.0.0.1:7890`)连真正的 huggingface.co 是 `HTTP 401`(能通，只是没带 token，这是预期的)；去代理直连 huggingface.co 是 `HTTP 000`(墙，不通)；去代理直连 hf-mirror.com 虽然 `HTTP 200`，但 hf-mirror 是只读镜像，**不支持 upload**(社区已知问题，`HF_ENDPOINT` 指向它会导致上传直接报错)。所以上传这一步没有"直连镜像"这个选项，唯一能走通的路就是这条本地代理——CLAUDE.md 里说这条隧道要留给和我对话、不要跑大流量，下面这几条 upload 命令(尤其 12GB 图片那个循环)确实是大流量，会让隧道变慢、可能影响我们对话的响应速度。**建议后台跑**(`nohup ... &`)，跑的时候可以先切别的事、别指望我这边同时还很流畅。如果你有别的方式能连到真正的 huggingface.co(比如另一条代理/VPN)，换那条更好，跟我说一声我就把这几行命令去掉代理限制改过来。
+
 ```bash
-env -u http_proxy -u https_proxy -u all_proxy pip install -U huggingface_hub   # 如果还没装
-env -u http_proxy -u https_proxy -u all_proxy huggingface-cli login            # 粘贴上一步的 write token
+env -u http_proxy -u https_proxy -u all_proxy pip install -U huggingface_hub   # pip 走 PyPI，不受这个限制，正常去代理直连
+hf login            # 不要去代理，粘贴上一步的 write token
 
 cd /remote-home/ziyesong/videoPerception
 REPO=你的用户名/video-mcq-oprd-bridge   # 换成实际起的名字
 
-env -u http_proxy -u https_proxy -u all_proxy huggingface-cli upload $REPO OPRD/datasets/video_qa_mc_train.parquet video_qa_mc_train.parquet --repo-type dataset
-env -u http_proxy -u https_proxy -u all_proxy huggingface-cli upload $REPO OPRD/datasets/video_qa_mc_val.parquet video_qa_mc_val.parquet --repo-type dataset
-env -u http_proxy -u https_proxy -u all_proxy huggingface-cli upload $REPO OPRD/outputs/stage1_rank8_full/rank_8/ps_bank.pt stage1_bridge/ps_bank.pt --repo-type dataset
-env -u http_proxy -u https_proxy -u all_proxy huggingface-cli upload $REPO OPRD/outputs/stage1_rank8_full/rank_8/results.json stage1_bridge/results.json --repo-type dataset
+hf upload $REPO OPRD/datasets/video_qa_mc_train.parquet video_qa_mc_train.parquet --repo-type dataset
+hf upload $REPO OPRD/datasets/video_qa_mc_val.parquet video_qa_mc_val.parquet --repo-type dataset
+hf upload $REPO OPRD/outputs/stage1_rank8_full/rank_8/ps_bank.pt stage1_bridge/ps_bank.pt --repo-type dataset
+hf upload $REPO OPRD/outputs/stage1_rank8_full/rank_8/results.json stage1_bridge/results.json --repo-type dataset
 
-# 12GB 帧图片，9 个文件夹逐个传(每个可能要几分钟到十几分钟)
+# 12GB 帧图片，慢，建议丢后台跑，可以关终端也不会中断
+LOG=/remote-home/ziyesong/videoPerception/hf_upload_images.log   # 绝对路径，不管之后 cd 到哪都能查
+nohup bash -c '
 for d in activitynet_rotation activitynet_videor1 clevrer funqa llavavideo_accel ntu_rgbd ovr perceptiontest star_videor1; do
-  env -u http_proxy -u https_proxy -u all_proxy huggingface-cli upload $REPO data/$d data/$d --repo-type dataset
+  hf upload '"$REPO"' data/$d data/$d --repo-type dataset
 done
+' > "$LOG" 2>&1 &
+echo "后台任务 PID: $!，进度看: tail -f $LOG"
+# 确认真的在跑(不是刚起来就挂了)：ps aux | grep "hf upload"
 ```
 
 ## 3. A100 服务器：环境搭建
@@ -92,15 +100,16 @@ print('qwen3_5' in CONFIG_MAPPING)
 ### 3.3 下载模型
 ```bash
 env -u http_proxy -u https_proxy -u all_proxy HF_ENDPOINT=https://hf-mirror.com \
-  huggingface-cli download Qwen/Qwen3.5-4B --local-dir /root/models/Qwen3.5-4B
+  hf download Qwen/Qwen3.5-4B --local-dir /root/models/Qwen3.5-4B
 env -u http_proxy -u https_proxy -u all_proxy HF_ENDPOINT=https://hf-mirror.com \
-  huggingface-cli download Qwen/Qwen3.5-9B --local-dir /root/models/Qwen3.5-9B
+  hf download Qwen/Qwen3.5-9B --local-dir /root/models/Qwen3.5-9B
 ```
 4B 约 9.3GB、9B 约 19.3GB。如果 A100 服务器不在国内墙内、能直连 huggingface.co，把 `HF_ENDPOINT=...` 去掉即可。`on_policy_distillation.sh` 里模型路径写死指向 `/root/models/...`；如果要放别处，启动训练时额外传 `ACTOR_MODEL_PATH=`/`REWARD_MODEL_PATH=` 覆盖。
 
 ### 3.4 下载数据集
 ```bash
-env -u http_proxy -u https_proxy -u all_proxy huggingface-cli download 你的用户名/video-mcq-oprd-bridge \
+env -u http_proxy -u https_proxy -u all_proxy HF_ENDPOINT=https://hf-mirror.com \
+  hf download 你的用户名/video-mcq-oprd-bridge \
   --repo-type dataset --local-dir /tmp/video_mcq_download
 
 cp /tmp/video_mcq_download/video_qa_mc_*.parquet OPRD/datasets/
@@ -108,7 +117,10 @@ mkdir -p OPRD/outputs/stage1_rank8_full/rank_8
 cp /tmp/video_mcq_download/stage1_bridge/* OPRD/outputs/stage1_rank8_full/rank_8/
 mkdir -p data
 cp -r /tmp/video_mcq_download/data/* data/
+```
+下载走 hf-mirror 没问题(镜像只是不支持上传，下载完全正常)；如果 A100 服务器不在国内墙内，同 3.3，把 `HF_ENDPOINT=...` 去掉即可。
 
+```bash
 # 如果 clone/存放路径不是 /remote-home/ziyesong/videoPerception，改一下 parquet 里的图片路径前缀：
 python OPRD/scripts/data_preprocess/rewrite_dataset_image_paths.py \
   OPRD/datasets/video_qa_mc_train.parquet OPRD/datasets/video_qa_mc_train.parquet --new-root "$(pwd)/data"
