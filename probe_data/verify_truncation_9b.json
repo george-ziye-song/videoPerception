@@ -1,0 +1,52 @@
+{
+  "token_count_distribution": {
+    "4": 1400
+  },
+  "hit_cap_count": 0,
+  "hit_cap_records": [],
+  "mismatch_vs_original": 0,
+  "per_task_stats": {
+    "Complex_Direction_Identification": {
+      "n": 200,
+      "min": 4,
+      "max": 4,
+      "mean": 4.0
+    },
+    "Rotation_Direction": {
+      "n": 200,
+      "min": 4,
+      "max": 4,
+      "mean": 4.0
+    },
+    "Rotation_Count": {
+      "n": 200,
+      "min": 4,
+      "max": 4,
+      "mean": 4.0
+    },
+    "Bouncing_Counting": {
+      "n": 200,
+      "min": 4,
+      "max": 4,
+      "mean": 4.0
+    },
+    "Directional_Event_Counting": {
+      "n": 200,
+      "min": 4,
+      "max": 4,
+      "mean": 4.0
+    },
+    "Acceleration_Identification": {
+      "n": 200,
+      "min": 4,
+      "max": 4,
+      "mean": 4.0
+    },
+    "Event_Sequence": {
+      "n": 200,
+      "min": 4,
+      "max": 4,
+      "mean": 4.0
+    }
+  }
+}

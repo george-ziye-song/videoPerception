@@ -1,0 +1,33 @@
+{
+  "r2": {
+    "Rotation_Direction|shallow": 0.5853089058692338,
+    "Rotation_Direction|mid": 0.5517116737121355,
+    "Rotation_Direction|deep": 0.26210735614982916,
+    "Rotation_Count|shallow": 0.9916811031267445,
+    "Rotation_Count|mid": 0.9826051393336348,
+    "Rotation_Count|deep": 0.9636726384921732,
+    "Acceleration_Identification|shallow": 0.36091809768180505,
+    "Acceleration_Identification|mid": 0.6922488739853186,
+    "Acceleration_Identification|deep": 0.5993425182680583,
+    "Complex_Direction_Identification|shallow": 0.7360173343843942,
+    "Complex_Direction_Identification|mid": 0.7004834077289356,
+    "Complex_Direction_Identification|deep": 0.38129374447886266,
+    "Directional_Event_Counting|shallow": -0.2625893378930934,
+    "Directional_Event_Counting|mid": 0.05838543722080554,
+    "Directional_Event_Counting|deep": -0.26180839133241623,
+    "Bouncing_Counting|shallow": 0.8124080541448712,
+    "Bouncing_Counting|mid": 0.8624640078624816,
+    "Bouncing_Counting|deep": 0.6860291226221495
+  },
+  "skipped": {
+    "Event_Sequence": "物体是离散出现/消失,不是连续运动,没有自然物理量可回归"
+  },
+  "target_desc": {
+    "Rotation_Direction": "累积旋转角度theta(rad)",
+    "Rotation_Count": "累积旋转角度theta(rad)",
+    "Acceleration_Identification": "速度标量|v|",
+    "Complex_Direction_Identification": "瞬时速度向量(vx,vy)",
+    "Directional_Event_Counting": "瞬时速度向量(vx,vy)",
+    "Bouncing_Counting": "瞬时速度向量(vx,vy)(生成器已改,直接dump真值,非解析重建)"
+  }
+}

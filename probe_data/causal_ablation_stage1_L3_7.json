@@ -1,0 +1,588 @@
+{
+  "baseline": {
+    "Rotation_Direction": 60.0,
+    "Rotation_Count": 66.66666666666667,
+    "Bouncing_Counting": 40.0,
+    "Acceleration_Identification": 66.66666666666667
+  },
+  "ablations": [
+    {
+      "layer": 3,
+      "head": null,
+      "mode": "mean",
+      "acc": {
+        "Rotation_Direction": 60.0,
+        "Rotation_Count": 66.66666666666667,
+        "Bouncing_Counting": 13.333333333333334,
+        "Acceleration_Identification": 66.66666666666667
+      },
+      "delta": {
+        "Rotation_Direction": 0.0,
+        "Rotation_Count": 0.0,
+        "Bouncing_Counting": 26.666666666666664,
+        "Acceleration_Identification": 0.0
+      }
+    },
+    {
+      "layer": 7,
+      "head": null,
+      "mode": "mean",
+      "acc": {
+        "Rotation_Direction": 66.66666666666667,
+        "Rotation_Count": 66.66666666666667,
+        "Bouncing_Counting": 26.666666666666668,
+        "Acceleration_Identification": 33.333333333333336
+      },
+      "delta": {
+        "Rotation_Direction": -6.666666666666671,
+        "Rotation_Count": 0.0,
+        "Bouncing_Counting": 13.333333333333332,
+        "Acceleration_Identification": 33.333333333333336
+      }
+    },
+    {
+      "layer": 3,
+      "head": 0,
+      "mode": "mean",
+      "acc": {
+        "Rotation_Direction": 60.0,
+        "Rotation_Count": 73.33333333333333,
+        "Bouncing_Counting": 40.0,
+        "Acceleration_Identification": 66.66666666666667
+      },
+      "delta": {
+        "Rotation_Direction": 0.0,
+        "Rotation_Count": -6.666666666666657,
+        "Bouncing_Counting": 0.0,
+        "Acceleration_Identification": 0.0
+      }
+    },
+    {
+      "layer": 3,
+      "head": 1,
+      "mode": "mean",
+      "acc": {
+        "Rotation_Direction": 60.0,
+        "Rotation_Count": 66.66666666666667,
+        "Bouncing_Counting": 33.333333333333336,
+        "Acceleration_Identification": 66.66666666666667
+      },
+      "delta": {
+        "Rotation_Direction": 0.0,
+        "Rotation_Count": 0.0,
+        "Bouncing_Counting": 6.666666666666664,
+        "Acceleration_Identification": 0.0
+      }
+    },
+    {
+      "layer": 3,
+      "head": 2,
+      "mode": "mean",
+      "acc": {
+        "Rotation_Direction": 60.0,
+        "Rotation_Count": 66.66666666666667,
+        "Bouncing_Counting": 40.0,
+        "Acceleration_Identification": 66.66666666666667
+      },
+      "delta": {
+        "Rotation_Direction": 0.0,
+        "Rotation_Count": 0.0,
+        "Bouncing_Counting": 0.0,
+        "Acceleration_Identification": 0.0
+      }
+    },
+    {
+      "layer": 3,
+      "head": 3,
+      "mode": "mean",
+      "acc": {
+        "Rotation_Direction": 60.0,
+        "Rotation_Count": 60.0,
+        "Bouncing_Counting": 40.0,
+        "Acceleration_Identification": 66.66666666666667
+      },
+      "delta": {
+        "Rotation_Direction": 0.0,
+        "Rotation_Count": 6.666666666666671,
+        "Bouncing_Counting": 0.0,
+        "Acceleration_Identification": 0.0
+      }
+    },
+    {
+      "layer": 3,
+      "head": 4,
+      "mode": "mean",
+      "acc": {
+        "Rotation_Direction": 60.0,
+        "Rotation_Count": 60.0,
+        "Bouncing_Counting": 53.333333333333336,
+        "Acceleration_Identification": 66.66666666666667
+      },
+      "delta": {
+        "Rotation_Direction": 0.0,
+        "Rotation_Count": 6.666666666666671,
+        "Bouncing_Counting": -13.333333333333336,
+        "Acceleration_Identification": 0.0
+      }
+    },
+    {
+      "layer": 3,
+      "head": 5,
+      "mode": "mean",
+      "acc": {
+        "Rotation_Direction": 60.0,
+        "Rotation_Count": 66.66666666666667,
+        "Bouncing_Counting": 40.0,
+        "Acceleration_Identification": 66.66666666666667
+      },
+      "delta": {
+        "Rotation_Direction": 0.0,
+        "Rotation_Count": 0.0,
+        "Bouncing_Counting": 0.0,
+        "Acceleration_Identification": 0.0
+      }
+    },
+    {
+      "layer": 3,
+      "head": 6,
+      "mode": "mean",
+      "acc": {
+        "Rotation_Direction": 60.0,
+        "Rotation_Count": 66.66666666666667,
+        "Bouncing_Counting": 26.666666666666668,
+        "Acceleration_Identification": 66.66666666666667
+      },
+      "delta": {
+        "Rotation_Direction": 0.0,
+        "Rotation_Count": 0.0,
+        "Bouncing_Counting": 13.333333333333332,
+        "Acceleration_Identification": 0.0
+      }
+    },
+    {
+      "layer": 3,
+      "head": 7,
+      "mode": "mean",
+      "acc": {
+        "Rotation_Direction": 60.0,
+        "Rotation_Count": 66.66666666666667,
+        "Bouncing_Counting": 33.333333333333336,
+        "Acceleration_Identification": 66.66666666666667
+      },
+      "delta": {
+        "Rotation_Direction": 0.0,
+        "Rotation_Count": 0.0,
+        "Bouncing_Counting": 6.666666666666664,
+        "Acceleration_Identification": 0.0
+      }
+    },
+    {
+      "layer": 3,
+      "head": 8,
+      "mode": "mean",
+      "acc": {
+        "Rotation_Direction": 60.0,
+        "Rotation_Count": 60.0,
+        "Bouncing_Counting": 20.0,
+        "Acceleration_Identification": 66.66666666666667
+      },
+      "delta": {
+        "Rotation_Direction": 0.0,
+        "Rotation_Count": 6.666666666666671,
+        "Bouncing_Counting": 20.0,
+        "Acceleration_Identification": 0.0
+      }
+    },
+    {
+      "layer": 3,
+      "head": 9,
+      "mode": "mean",
+      "acc": {
+        "Rotation_Direction": 60.0,
+        "Rotation_Count": 66.66666666666667,
+        "Bouncing_Counting": 40.0,
+        "Acceleration_Identification": 66.66666666666667
+      },
+      "delta": {
+        "Rotation_Direction": 0.0,
+        "Rotation_Count": 0.0,
+        "Bouncing_Counting": 0.0,
+        "Acceleration_Identification": 0.0
+      }
+    },
+    {
+      "layer": 3,
+      "head": 10,
+      "mode": "mean",
+      "acc": {
+        "Rotation_Direction": 60.0,
+        "Rotation_Count": 60.0,
+        "Bouncing_Counting": 33.333333333333336,
+        "Acceleration_Identification": 66.66666666666667
+      },
+      "delta": {
+        "Rotation_Direction": 0.0,
+        "Rotation_Count": 6.666666666666671,
+        "Bouncing_Counting": 6.666666666666664,
+        "Acceleration_Identification": 0.0
+      }
+    },
+    {
+      "layer": 3,
+      "head": 11,
+      "mode": "mean",
+      "acc": {
+        "Rotation_Direction": 60.0,
+        "Rotation_Count": 66.66666666666667,
+        "Bouncing_Counting": 33.333333333333336,
+        "Acceleration_Identification": 66.66666666666667
+      },
+      "delta": {
+        "Rotation_Direction": 0.0,
+        "Rotation_Count": 0.0,
+        "Bouncing_Counting": 6.666666666666664,
+        "Acceleration_Identification": 0.0
+      }
+    },
+    {
+      "layer": 3,
+      "head": 12,
+      "mode": "mean",
+      "acc": {
+        "Rotation_Direction": 66.66666666666667,
+        "Rotation_Count": 60.0,
+        "Bouncing_Counting": 20.0,
+        "Acceleration_Identification": 66.66666666666667
+      },
+      "delta": {
+        "Rotation_Direction": -6.666666666666671,
+        "Rotation_Count": 6.666666666666671,
+        "Bouncing_Counting": 20.0,
+        "Acceleration_Identification": 0.0
+      }
+    },
+    {
+      "layer": 3,
+      "head": 13,
+      "mode": "mean",
+      "acc": {
+        "Rotation_Direction": 60.0,
+        "Rotation_Count": 66.66666666666667,
+        "Bouncing_Counting": 40.0,
+        "Acceleration_Identification": 66.66666666666667
+      },
+      "delta": {
+        "Rotation_Direction": 0.0,
+        "Rotation_Count": 0.0,
+        "Bouncing_Counting": 0.0,
+        "Acceleration_Identification": 0.0
+      }
+    },
+    {
+      "layer": 3,
+      "head": 14,
+      "mode": "mean",
+      "acc": {
+        "Rotation_Direction": 53.333333333333336,
+        "Rotation_Count": 60.0,
+        "Bouncing_Counting": 33.333333333333336,
+        "Acceleration_Identification": 66.66666666666667
+      },
+      "delta": {
+        "Rotation_Direction": 6.666666666666664,
+        "Rotation_Count": 6.666666666666671,
+        "Bouncing_Counting": 6.666666666666664,
+        "Acceleration_Identification": 0.0
+      }
+    },
+    {
+      "layer": 3,
+      "head": 15,
+      "mode": "mean",
+      "acc": {
+        "Rotation_Direction": 60.0,
+        "Rotation_Count": 66.66666666666667,
+        "Bouncing_Counting": 40.0,
+        "Acceleration_Identification": 66.66666666666667
+      },
+      "delta": {
+        "Rotation_Direction": 0.0,
+        "Rotation_Count": 0.0,
+        "Bouncing_Counting": 0.0,
+        "Acceleration_Identification": 0.0
+      }
+    },
+    {
+      "layer": 7,
+      "head": 0,
+      "mode": "mean",
+      "acc": {
+        "Rotation_Direction": 60.0,
+        "Rotation_Count": 66.66666666666667,
+        "Bouncing_Counting": 33.333333333333336,
+        "Acceleration_Identification": 66.66666666666667
+      },
+      "delta": {
+        "Rotation_Direction": 0.0,
+        "Rotation_Count": 0.0,
+        "Bouncing_Counting": 6.666666666666664,
+        "Acceleration_Identification": 0.0
+      }
+    },
+    {
+      "layer": 7,
+      "head": 1,
+      "mode": "mean",
+      "acc": {
+        "Rotation_Direction": 60.0,
+        "Rotation_Count": 60.0,
+        "Bouncing_Counting": 13.333333333333334,
+        "Acceleration_Identification": 66.66666666666667
+      },
+      "delta": {
+        "Rotation_Direction": 0.0,
+        "Rotation_Count": 6.666666666666671,
+        "Bouncing_Counting": 26.666666666666664,
+        "Acceleration_Identification": 0.0
+      }
+    },
+    {
+      "layer": 7,
+      "head": 2,
+      "mode": "mean",
+      "acc": {
+        "Rotation_Direction": 60.0,
+        "Rotation_Count": 66.66666666666667,
+        "Bouncing_Counting": 40.0,
+        "Acceleration_Identification": 66.66666666666667
+      },
+      "delta": {
+        "Rotation_Direction": 0.0,
+        "Rotation_Count": 0.0,
+        "Bouncing_Counting": 0.0,
+        "Acceleration_Identification": 0.0
+      }
+    },
+    {
+      "layer": 7,
+      "head": 3,
+      "mode": "mean",
+      "acc": {
+        "Rotation_Direction": 60.0,
+        "Rotation_Count": 60.0,
+        "Bouncing_Counting": 53.333333333333336,
+        "Acceleration_Identification": 66.66666666666667
+      },
+      "delta": {
+        "Rotation_Direction": 0.0,
+        "Rotation_Count": 6.666666666666671,
+        "Bouncing_Counting": -13.333333333333336,
+        "Acceleration_Identification": 0.0
+      }
+    },
+    {
+      "layer": 7,
+      "head": 4,
+      "mode": "mean",
+      "acc": {
+        "Rotation_Direction": 60.0,
+        "Rotation_Count": 60.0,
+        "Bouncing_Counting": 46.666666666666664,
+        "Acceleration_Identification": 60.0
+      },
+      "delta": {
+        "Rotation_Direction": 0.0,
+        "Rotation_Count": 6.666666666666671,
+        "Bouncing_Counting": -6.666666666666664,
+        "Acceleration_Identification": 6.666666666666671
+      }
+    },
+    {
+      "layer": 7,
+      "head": 5,
+      "mode": "mean",
+      "acc": {
+        "Rotation_Direction": 60.0,
+        "Rotation_Count": 60.0,
+        "Bouncing_Counting": 33.333333333333336,
+        "Acceleration_Identification": 60.0
+      },
+      "delta": {
+        "Rotation_Direction": 0.0,
+        "Rotation_Count": 6.666666666666671,
+        "Bouncing_Counting": 6.666666666666664,
+        "Acceleration_Identification": 6.666666666666671
+      }
+    },
+    {
+      "layer": 7,
+      "head": 6,
+      "mode": "mean",
+      "acc": {
+        "Rotation_Direction": 53.333333333333336,
+        "Rotation_Count": 66.66666666666667,
+        "Bouncing_Counting": 40.0,
+        "Acceleration_Identification": 66.66666666666667
+      },
+      "delta": {
+        "Rotation_Direction": 6.666666666666664,
+        "Rotation_Count": 0.0,
+        "Bouncing_Counting": 0.0,
+        "Acceleration_Identification": 0.0
+      }
+    },
+    {
+      "layer": 7,
+      "head": 7,
+      "mode": "mean",
+      "acc": {
+        "Rotation_Direction": 60.0,
+        "Rotation_Count": 73.33333333333333,
+        "Bouncing_Counting": 53.333333333333336,
+        "Acceleration_Identification": 46.666666666666664
+      },
+      "delta": {
+        "Rotation_Direction": 0.0,
+        "Rotation_Count": -6.666666666666657,
+        "Bouncing_Counting": -13.333333333333336,
+        "Acceleration_Identification": 20.000000000000007
+      }
+    },
+    {
+      "layer": 7,
+      "head": 8,
+      "mode": "mean",
+      "acc": {
+        "Rotation_Direction": 60.0,
+        "Rotation_Count": 66.66666666666667,
+        "Bouncing_Counting": 26.666666666666668,
+        "Acceleration_Identification": 60.0
+      },
+      "delta": {
+        "Rotation_Direction": 0.0,
+        "Rotation_Count": 0.0,
+        "Bouncing_Counting": 13.333333333333332,
+        "Acceleration_Identification": 6.666666666666671
+      }
+    },
+    {
+      "layer": 7,
+      "head": 9,
+      "mode": "mean",
+      "acc": {
+        "Rotation_Direction": 60.0,
+        "Rotation_Count": 60.0,
+        "Bouncing_Counting": 53.333333333333336,
+        "Acceleration_Identification": 66.66666666666667
+      },
+      "delta": {
+        "Rotation_Direction": 0.0,
+        "Rotation_Count": 6.666666666666671,
+        "Bouncing_Counting": -13.333333333333336,
+        "Acceleration_Identification": 0.0
+      }
+    },
+    {
+      "layer": 7,
+      "head": 10,
+      "mode": "mean",
+      "acc": {
+        "Rotation_Direction": 60.0,
+        "Rotation_Count": 60.0,
+        "Bouncing_Counting": 33.333333333333336,
+        "Acceleration_Identification": 66.66666666666667
+      },
+      "delta": {
+        "Rotation_Direction": 0.0,
+        "Rotation_Count": 6.666666666666671,
+        "Bouncing_Counting": 6.666666666666664,
+        "Acceleration_Identification": 0.0
+      }
+    },
+    {
+      "layer": 7,
+      "head": 11,
+      "mode": "mean",
+      "acc": {
+        "Rotation_Direction": 60.0,
+        "Rotation_Count": 60.0,
+        "Bouncing_Counting": 46.666666666666664,
+        "Acceleration_Identification": 66.66666666666667
+      },
+      "delta": {
+        "Rotation_Direction": 0.0,
+        "Rotation_Count": 6.666666666666671,
+        "Bouncing_Counting": -6.666666666666664,
+        "Acceleration_Identification": 0.0
+      }
+    },
+    {
+      "layer": 7,
+      "head": 12,
+      "mode": "mean",
+      "acc": {
+        "Rotation_Direction": 60.0,
+        "Rotation_Count": 53.333333333333336,
+        "Bouncing_Counting": 60.0,
+        "Acceleration_Identification": 66.66666666666667
+      },
+      "delta": {
+        "Rotation_Direction": 0.0,
+        "Rotation_Count": 13.333333333333336,
+        "Bouncing_Counting": -20.0,
+        "Acceleration_Identification": 0.0
+      }
+    },
+    {
+      "layer": 7,
+      "head": 13,
+      "mode": "mean",
+      "acc": {
+        "Rotation_Direction": 60.0,
+        "Rotation_Count": 73.33333333333333,
+        "Bouncing_Counting": 33.333333333333336,
+        "Acceleration_Identification": 66.66666666666667
+      },
+      "delta": {
+        "Rotation_Direction": 0.0,
+        "Rotation_Count": -6.666666666666657,
+        "Bouncing_Counting": 6.666666666666664,
+        "Acceleration_Identification": 0.0
+      }
+    },
+    {
+      "layer": 7,
+      "head": 14,
+      "mode": "mean",
+      "acc": {
+        "Rotation_Direction": 60.0,
+        "Rotation_Count": 66.66666666666667,
+        "Bouncing_Counting": 26.666666666666668,
+        "Acceleration_Identification": 66.66666666666667
+      },
+      "delta": {
+        "Rotation_Direction": 0.0,
+        "Rotation_Count": 0.0,
+        "Bouncing_Counting": 13.333333333333332,
+        "Acceleration_Identification": 0.0
+      }
+    },
+    {
+      "layer": 7,
+      "head": 15,
+      "mode": "mean",
+      "acc": {
+        "Rotation_Direction": 60.0,
+        "Rotation_Count": 60.0,
+        "Bouncing_Counting": 46.666666666666664,
+        "Acceleration_Identification": 66.66666666666667
+      },
+      "delta": {
+        "Rotation_Direction": 0.0,
+        "Rotation_Count": 6.666666666666671,
+        "Bouncing_Counting": -6.666666666666664,
+        "Acceleration_Identification": 0.0
+      }
+    }
+  ]
+}

@@ -1,0 +1,1190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="content-type"/>
+<title>VideoChat-R1: Enhancing Spatio-Temporal Perception via Reinforcement Fine-Tuning</title>
+<!--Generated on Tue Nov 11 08:25:18 2025 by LaTeXML (version 0.8.8) http://dlmf.nist.gov/LaTeXML/.-->
+<meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"/>
+<link href="/static/browse/0.3.4/css/arxiv-html-papers-20250916.css" rel="stylesheet" type="text/css"/>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.3.3/html2canvas.min.js"></script>
+<script src="/static/browse/0.3.4/js/addons_new.js"></script>
+<script src="/static/browse/0.3.4/js/feedbackOverlay.js"></script>
+<base href="/html/2504.06958v5/"/></head>
+<body>
+<nav class="ltx_page_navbar">
+<nav class="ltx_TOC">
+<ol class="ltx_toclist">
+<li class="ltx_tocentry ltx_tocentry_section"><a class="ltx_ref" href="https://arxiv.org/html/2504.06958v5#S1" title="In VideoChat-R1: Enhancing Spatio-Temporal Perception via Reinforcement Fine-Tuning"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">1 </span>Introduction</span></a></li>
+<li class="ltx_tocentry ltx_tocentry_section">
+<a class="ltx_ref" href="https://arxiv.org/html/2504.06958v5#S2" title="In VideoChat-R1: Enhancing Spatio-Temporal Perception via Reinforcement Fine-Tuning"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">2 </span>Related work</span></a>
+<ol class="ltx_toclist ltx_toclist_section">
+<li class="ltx_tocentry ltx_tocentry_paragraph"><a class="ltx_ref" href="https://arxiv.org/html/2504.06958v5#S2.SS0.SSS0.Px1" title="In 2 Related work ‣ VideoChat-R1: Enhancing Spatio-Temporal Perception via Reinforcement Fine-Tuning"><span class="ltx_text ltx_ref_title">Reasoning in MLLMs.</span></a></li>
+<li class="ltx_tocentry ltx_tocentry_paragraph"><a class="ltx_ref" href="https://arxiv.org/html/2504.06958v5#S2.SS0.SSS0.Px2" title="In 2 Related work ‣ VideoChat-R1: Enhancing Spatio-Temporal Perception via Reinforcement Fine-Tuning"><span class="ltx_text ltx_ref_title">Spatio-Temporal Understanding with MLLMs.</span></a></li>
+</ol>
+</li>
+<li class="ltx_tocentry ltx_tocentry_section">
+<a class="ltx_ref" href="https://arxiv.org/html/2504.06958v5#S3" title="In VideoChat-R1: Enhancing Spatio-Temporal Perception via Reinforcement Fine-Tuning"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">3 </span>Methodology</span></a>
+<ol class="ltx_toclist ltx_toclist_section">
+<li class="ltx_tocentry ltx_tocentry_subsection"><a class="ltx_ref" href="https://arxiv.org/html/2504.06958v5#S3.SS1" title="In 3 Methodology ‣ VideoChat-R1: Enhancing Spatio-Temporal Perception via Reinforcement Fine-Tuning"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">3.1 </span>Preliminary</span></a></li>
+<li class="ltx_tocentry ltx_tocentry_subsection">
+<a class="ltx_ref" href="https://arxiv.org/html/2504.06958v5#S3.SS2" title="In 3 Methodology ‣ VideoChat-R1: Enhancing Spatio-Temporal Perception via Reinforcement Fine-Tuning"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">3.2 </span>Spatio-Temporal Rewards of Video MLLM in GRPO</span></a>
+<ol class="ltx_toclist ltx_toclist_subsection">
+<li class="ltx_tocentry ltx_tocentry_paragraph"><a class="ltx_ref" href="https://arxiv.org/html/2504.06958v5#S3.SS2.SSS0.Px1" title="In 3.2 Spatio-Temporal Rewards of Video MLLM in GRPO ‣ 3 Methodology ‣ VideoChat-R1: Enhancing Spatio-Temporal Perception via Reinforcement Fine-Tuning"><span class="ltx_text ltx_ref_title">Format reward.</span></a></li>
+<li class="ltx_tocentry ltx_tocentry_paragraph"><a class="ltx_ref" href="https://arxiv.org/html/2504.06958v5#S3.SS2.SSS0.Px2" title="In 3.2 Spatio-Temporal Rewards of Video MLLM in GRPO ‣ 3 Methodology ‣ VideoChat-R1: Enhancing Spatio-Temporal Perception via Reinforcement Fine-Tuning"><span class="ltx_text ltx_ref_title">IoU reward in spatio-temporal
+perception.</span></a></li>
+<li class="ltx_tocentry ltx_tocentry_paragraph"><a class="ltx_ref" href="https://arxiv.org/html/2504.06958v5#S3.SS2.SSS0.Px3" title="In 3.2 Spatio-Temporal Rewards of Video MLLM in GRPO ‣ 3 Methodology ‣ VideoChat-R1: Enhancing Spatio-Temporal Perception via Reinforcement Fine-Tuning"><span class="ltx_text ltx_ref_title">Accuracy reward in classification.</span></a></li>
+<li class="ltx_tocentry ltx_tocentry_paragraph"><a class="ltx_ref" href="https://arxiv.org/html/2504.06958v5#S3.SS2.SSS0.Px4" title="In 3.2 Spatio-Temporal Rewards of Video MLLM in GRPO ‣ 3 Methodology ‣ VideoChat-R1: Enhancing Spatio-Temporal Perception via Reinforcement Fine-Tuning"><span class="ltx_text ltx_ref_title">Recall reward in video captioning.</span></a></li>
+</ol>
+</li>
+<li class="ltx_tocentry ltx_tocentry_subsection">
+<a class="ltx_ref" href="https://arxiv.org/html/2504.06958v5#S3.SS3" title="In 3 Methodology ‣ VideoChat-R1: Enhancing Spatio-Temporal Perception via Reinforcement Fine-Tuning"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">3.3 </span>Enhance Spatio-Temporal Perception of Video MLLM through GRPO</span></a>
+<ol class="ltx_toclist ltx_toclist_subsection">
+<li class="ltx_tocentry ltx_tocentry_paragraph"><a class="ltx_ref" href="https://arxiv.org/html/2504.06958v5#S3.SS3.SSS0.Px1" title="In 3.3 Enhance Spatio-Temporal Perception of Video MLLM through GRPO ‣ 3 Methodology ‣ VideoChat-R1: Enhancing Spatio-Temporal Perception via Reinforcement Fine-Tuning"><span class="ltx_text ltx_ref_title">The combination of reward functions.</span></a></li>
+<li class="ltx_tocentry ltx_tocentry_paragraph"><a class="ltx_ref" href="https://arxiv.org/html/2504.06958v5#S3.SS3.SSS0.Px2" title="In 3.3 Enhance Spatio-Temporal Perception of Video MLLM through GRPO ‣ 3 Methodology ‣ VideoChat-R1: Enhancing Spatio-Temporal Perception via Reinforcement Fine-Tuning"><span class="ltx_text ltx_ref_title">VideoChat-R1-18k.</span></a></li>
+<li class="ltx_tocentry ltx_tocentry_paragraph"><a class="ltx_ref" href="https://arxiv.org/html/2504.06958v5#S3.SS3.SSS0.Px3" title="In 3.3 Enhance Spatio-Temporal Perception of Video MLLM through GRPO ‣ 3 Methodology ‣ VideoChat-R1: Enhancing Spatio-Temporal Perception via Reinforcement Fine-Tuning"><span class="ltx_text ltx_ref_title">Chat with Enhanced Spatio-Temporal Perception.</span></a></li>
+</ol>
+</li>
+</ol>
+</li>
+<li class="ltx_tocentry ltx_tocentry_section">
+<a class="ltx_ref" href="https://arxiv.org/html/2504.06958v5#S4" title="In VideoChat-R1: Enhancing Spatio-Temporal Perception via Reinforcement Fine-Tuning"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">4 </span>Experiments</span></a>
+<ol class="ltx_toclist ltx_toclist_section">
+<li class="ltx_tocentry ltx_tocentry_paragraph"><a class="ltx_ref" href="https://arxiv.org/html/2504.06958v5#S4.SS0.SSS0.Px1" title="In 4 Experiments ‣ VideoChat-R1: Enhancing Spatio-Temporal Perception via Reinforcement Fine-Tuning"><span class="ltx_text ltx_ref_title">Implementation details.</span></a></li>
+<li class="ltx_tocentry ltx_tocentry_paragraph"><a class="ltx_ref" href="https://arxiv.org/html/2504.06958v5#S4.SS0.SSS0.Px2" title="In 4 Experiments ‣ VideoChat-R1: Enhancing Spatio-Temporal Perception via Reinforcement Fine-Tuning"><span class="ltx_text ltx_ref_title">Benchmarks.</span></a></li>
+<li class="ltx_tocentry ltx_tocentry_subsection"><a class="ltx_ref" href="https://arxiv.org/html/2504.06958v5#S4.SS1" title="In 4 Experiments ‣ VideoChat-R1: Enhancing Spatio-Temporal Perception via Reinforcement Fine-Tuning"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">4.1 </span>Evaluation of VideoChat-R1</span></a></li>
+<li class="ltx_tocentry ltx_tocentry_subsection">
+<a class="ltx_ref" href="https://arxiv.org/html/2504.06958v5#S4.SS2" title="In 4 Experiments ‣ VideoChat-R1: Enhancing Spatio-Temporal Perception via Reinforcement Fine-Tuning"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">4.2 </span>Ablation Studies and Discussions</span></a>
+<ol class="ltx_toclist ltx_toclist_subsection">
+<li class="ltx_tocentry ltx_tocentry_paragraph"><a class="ltx_ref" href="https://arxiv.org/html/2504.06958v5#S4.SS2.SSS0.Px1" title="In 4.2 Ablation Studies and Discussions ‣ 4 Experiments ‣ VideoChat-R1: Enhancing Spatio-Temporal Perception via Reinforcement Fine-Tuning"><span class="ltx_text ltx_ref_title">Muti-task Co-training.</span></a></li>
+<li class="ltx_tocentry ltx_tocentry_paragraph"><a class="ltx_ref" href="https://arxiv.org/html/2504.06958v5#S4.SS2.SSS0.Px2" title="In 4.2 Ablation Studies and Discussions ‣ 4 Experiments ‣ VideoChat-R1: Enhancing Spatio-Temporal Perception via Reinforcement Fine-Tuning"><span class="ltx_text ltx_ref_title">Temporal Grounding and Object tracking.</span></a></li>
+<li class="ltx_tocentry ltx_tocentry_paragraph"><a class="ltx_ref" href="https://arxiv.org/html/2504.06958v5#S4.SS2.SSS0.Px3" title="In 4.2 Ablation Studies and Discussions ‣ 4 Experiments ‣ VideoChat-R1: Enhancing Spatio-Temporal Perception via Reinforcement Fine-Tuning"><span class="ltx_text ltx_ref_title">Video Question Answer.</span></a></li>
+<li class="ltx_tocentry ltx_tocentry_paragraph"><a class="ltx_ref" href="https://arxiv.org/html/2504.06958v5#S4.SS2.SSS0.Px4" title="In 4.2 Ablation Studies and Discussions ‣ 4 Experiments ‣ VideoChat-R1: Enhancing Spatio-Temporal Perception via Reinforcement Fine-Tuning"><span class="ltx_text ltx_ref_title">Video Caption and Video Quality Assessment.</span></a></li>
+<li class="ltx_tocentry ltx_tocentry_paragraph"><a class="ltx_ref" href="https://arxiv.org/html/2504.06958v5#S4.SS2.SSS0.Px5" title="In 4.2 Ablation Studies and Discussions ‣ 4 Experiments ‣ VideoChat-R1: Enhancing Spatio-Temporal Perception via Reinforcement Fine-Tuning"><span class="ltx_text ltx_ref_title">Ablation of Reward Evaluators</span></a></li>
+<li class="ltx_tocentry ltx_tocentry_paragraph"><a class="ltx_ref" href="https://arxiv.org/html/2504.06958v5#S4.SS2.SSS0.Px6" title="In 4.2 Ablation Studies and Discussions ‣ 4 Experiments ‣ VideoChat-R1: Enhancing Spatio-Temporal Perception via Reinforcement Fine-Tuning"><span class="ltx_text ltx_ref_title">Ablation of “Clue-Perception"</span></a></li>
+<li class="ltx_tocentry ltx_tocentry_paragraph"><a class="ltx_ref" href="https://arxiv.org/html/2504.06958v5#S4.SS2.SSS0.Px7" title="In 4.2 Ablation Studies and Discussions ‣ 4 Experiments ‣ VideoChat-R1: Enhancing Spatio-Temporal Perception via Reinforcement Fine-Tuning"><span class="ltx_text ltx_ref_title">GRPO vs. SFT.</span></a></li>
+<li class="ltx_tocentry ltx_tocentry_paragraph"><a class="ltx_ref" href="https://arxiv.org/html/2504.06958v5#S4.SS2.SSS0.Px8" title="In 4.2 Ablation Studies and Discussions ‣ 4 Experiments ‣ VideoChat-R1: Enhancing Spatio-Temporal Perception via Reinforcement Fine-Tuning"><span class="ltx_text ltx_ref_title">Chain-of-thought vs. Direct Output.</span></a></li>
+</ol>
+</li>
+<li class="ltx_tocentry ltx_tocentry_subsection"><a class="ltx_ref" href="https://arxiv.org/html/2504.06958v5#S4.SS3" title="In 4 Experiments ‣ VideoChat-R1: Enhancing Spatio-Temporal Perception via Reinforcement Fine-Tuning"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">4.3 </span>Qualitative Results</span></a></li>
+</ol>
+</li>
+<li class="ltx_tocentry ltx_tocentry_section"><a class="ltx_ref" href="https://arxiv.org/html/2504.06958v5#S5" title="In VideoChat-R1: Enhancing Spatio-Temporal Perception via Reinforcement Fine-Tuning"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">5 </span>Conclusions</span></a></li>
+</ol></nav>
+</nav>
+<div class="ltx_page_main">
+<div class="ltx_page_content">
+<article class="ltx_document ltx_authors_1line">
+<h1 class="ltx_title ltx_title_document">VideoChat-R1: Enhancing Spatio-Temporal Perception via Reinforcement Fine-Tuning</h1>
+<div class="ltx_authors">
+<span class="ltx_creator ltx_role_author">
+<span class="ltx_personname">Xinhao Li<sup class="ltx_sup"><span class="ltx_text ltx_font_italic">2,1∗</span></sup>, Ziang Yan<sup class="ltx_sup"><span class="ltx_text ltx_font_italic">3,1∗</span></sup>, Desen Meng<sup class="ltx_sup"><span class="ltx_text ltx_font_italic">2∗</span></sup>, Lu Dong<sup class="ltx_sup"><span class="ltx_text ltx_font_italic">4,1</span></sup>, Xiangyu Zeng<sup class="ltx_sup"><span class="ltx_text ltx_font_italic">2,1</span></sup>, Yinan He<sup class="ltx_sup"><span class="ltx_text ltx_font_italic">1</span></sup>
+<br class="ltx_break"/><span class="ltx_text ltx_font_bold">Yali Wang<sup class="ltx_sup"><span class="ltx_text ltx_font_medium ltx_font_italic">6,1</span></sup></span>, <span class="ltx_text ltx_font_bold">Yu Qiao<sup class="ltx_sup"><span class="ltx_text ltx_font_medium ltx_font_italic">1,6</span></sup></span>, <span class="ltx_text ltx_font_bold">Yi Wang<sup class="ltx_sup"><span class="ltx_text ltx_font_medium ltx_font_italic">†1,5</span></sup></span>, <span class="ltx_text ltx_font_bold">Limin Wang<sup class="ltx_sup"><span class="ltx_text ltx_font_medium ltx_font_italic">†2,1</span></sup></span>
+<br class="ltx_break"/><sup class="ltx_sup"><span class="ltx_text" style="font-size:90%;">1</span></sup><span class="ltx_text" style="font-size:90%;">Shanghai AI Laboratory   
+<sup class="ltx_sup">2</sup>Nanjing University   
+<sup class="ltx_sup">3</sup>Zhejiang University 
+<br class="ltx_break"/><sup class="ltx_sup">4</sup>University of Science and Technology of China    <sup class="ltx_sup">5</sup>Shanghai Innovation Institute
+<br class="ltx_break"/><sup class="ltx_sup">6</sup>Shenzhen Institutes of Advanced Technology, Chinese Academy of Sciences 
+<br class="ltx_break"/><a class="ltx_ref ltx_url ltx_font_typewriter" href="https://github.com/OpenGVLab/VideoChat-R1" title="">https://github.com/OpenGVLab/VideoChat-R1</a>
+</span>
+</span></span>
+</div>
+<div class="ltx_abstract">
+<h6 class="ltx_title ltx_title_abstract">Abstract</h6>
+<p class="ltx_p">Reinforcement Learning (RL) benefits Large Language Models (LLMs) for complex reasoning. Inspired by this, we explore integrating spatio-temporal specific rewards into Multimodal Large Language Models (MLLMs) to address the unique challenges of video understanding, such as long-range temporal associations. This paper investigates how rule-based rewards, particularly temporal ones, can improve video reasoning and their generalizability.
+Our study proposes Reinforcement Fine-Tuning (RFT) as a data-efficient method to enhance video reasoning on specific tasks without sacrificing original capabilities. Through joint RFT on multiple spatio-temporal perception tasks, we developed <span class="ltx_text ltx_font_bold">VideoChat-R1</span>, a powerful Video MLLM. VideoChat-R1 achieves state-of-the-art spatio-temporal perception, demonstrating significant improvements in tasks like temporal grounding (<span class="ltx_text ltx_font_bold">+31.8</span>) and object tracking (<span class="ltx_text ltx_font_bold">+31.2</span>), while also improving general QA benchmarks. The enhanced perception and preserved chat abilities contribute to a more reliable video dialogue system, leading to our “Temporal Clue-driven Reasoning" inference schema. This work provides a foundation for developing robust, real-world video comprehension agents.</p>
+</div>
+<span class="ltx_note ltx_role_footnotetext" id="footnotex1"><sup class="ltx_note_mark">0</sup><span class="ltx_note_outer"><span class="ltx_note_content"><sup class="ltx_note_mark">0</sup><span class="ltx_note_type">footnotetext: </span>* Equal contribution. <math alttext="\dagger" class="ltx_Math" display="inline" id="footnotex1.m1" intent=":literal"><semantics><mo>†</mo><annotation encoding="application/x-tex">\dagger</annotation></semantics></math> Corresponding authors.</span></span></span>
+<section class="ltx_section" id="S1">
+<h2 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section">1 </span>Introduction</h2>
+<div class="ltx_para" id="S1.p1">
+<p class="ltx_p">The integration of reinforcement learning (RL) has notably propelled the capabilities of large language models (LLMs) forward, particularly in complex reasoning. Studies, such as o-series from OpenAI <cite class="ltx_cite ltx_citemacro_cite">[<span class="ltx_ref ltx_missing_citation ltx_ref_self">jaech2024openai</span>]</cite> and R1 of DeepSeek <cite class="ltx_cite ltx_citemacro_cite">[<span class="ltx_ref ltx_missing_citation ltx_ref_self">guo2025deepseek</span>]</cite>, demonstrated that test-time scaling improves model reasoning and such reasoning is elicit-able via only rule-based rewarding.
+Inspired by these advances, community is interested in tuning multimodal large language models (MLLMs) with vision-related verifications in Group Relative Policy Optimization (GRPO) <cite class="ltx_cite ltx_citemacro_cite">[<span class="ltx_ref ltx_missing_citation ltx_ref_self">guo2025deepseek</span>]</cite> manner  <cite class="ltx_cite ltx_citemacro_cite">[<span class="ltx_ref ltx_missing_citation ltx_ref_self">zhou2025r1</span>, <span class="ltx_ref ltx_missing_citation ltx_ref_self">segzero</span>, <span class="ltx_ref ltx_missing_citation ltx_ref_self">visonr1</span>, <span class="ltx_ref ltx_missing_citation ltx_ref_self">deng2025boosting</span>, <span class="ltx_ref ltx_missing_citation ltx_ref_self">peng2025lmm</span>, <span class="ltx_ref ltx_missing_citation ltx_ref_self">visualrft</span>, <span class="ltx_ref ltx_missing_citation ltx_ref_self">r1ov</span>, <span class="ltx_ref ltx_missing_citation ltx_ref_self">r1vl</span>, <span class="ltx_ref ltx_missing_citation ltx_ref_self">zhan2025visionr1</span>, <span class="ltx_ref ltx_missing_citation ltx_ref_self">deng2025openvlthinker</span>]</cite>. They primarily consider visual mathematical reasoning and spatial localization.</p>
+</div>
+<div class="ltx_para" id="S1.p2">
+<p class="ltx_p">Regarding video understanding, reasoning is also crucial as some of its core abilties (e.g. its long-range temporal association, fine-grained spatiotemporal understanding based on user queries) are barely addressed via perception or simple analysis.
+Initial works <cite class="ltx_cite ltx_citemacro_cite">[<span class="ltx_ref ltx_missing_citation ltx_ref_self">r1omni</span>, <span class="ltx_ref ltx_missing_citation ltx_ref_self">wang2025timezero</span>, <span class="ltx_ref ltx_missing_citation ltx_ref_self">videor1</span>]</cite> have validated the superiority of the GRPO algorithm over supervised fine-tuning in some specific video tasks, such as temporal grounding and video question answer.
+Considering advancing the agent development with real-world video comprehension, we need to investigate and integrate spatio-temporal specific rewards or verification mechanisms directly into the learning of current MLLMs in a scalable manner. This could foster a more tightly coupled, near-closed-loop learning environment, enabling MLLMs to master intricate spatio-temporal skills. While our current work may not fully achieve this ambitious goal, it endeavors to lay foundational groundwork for the community by exploring how to embed such mechanisms effectively.
+Specifically, we in this paper chart the landscape of how rule-based rewards (especially temporal related ones) work in video understanding, along with systematic evaluations of the its generalizability across diverse video-based reasoning scenarios.</p>
+</div>
+<figure class="ltx_figure" id="S1.F1"><img alt="Refer to caption" class="ltx_graphics ltx_centering ltx_img_landscape" height="272" id="S1.F1.g1" src="x1.png" width="660"/>
+<figcaption class="ltx_caption ltx_centering"><span class="ltx_tag ltx_tag_figure"><span class="ltx_text" style="font-size:90%;">Figure 1</span>: </span><span class="ltx_text" style="font-size:90%;">
+<span class="ltx_text ltx_font_bold">Overview of VideoChat-R1.</span> Through reinforcement learning fine-tuning using GRPO, VideoChat-R1 has powerful spatio-temporal perception capabilities and can apply these capabilities in chatting scenarios.
+</span></figcaption>
+</figure>
+<div class="ltx_para" id="S1.p3">
+<p class="ltx_p">Our study begins with spatio-temporal perception, extending to other popular video tasks (e.g. video caption), forming a practical recipe to enhance video reasoning via proper Reinforcement Fine-Tuning (RFT). We evaluate the robustness of various video verifications through different training and testing setting, also benchmarking their respective data requirements. Moreover, how these rewards interact with each other are also systematically explored. Based on these experiences, we give an intuitive and effective inference schema named “Temporal Clue-driven Reasoning”. Generally, our main findings are as follows.</p>
+</div>
+<div class="ltx_para" id="S1.p4">
+<ul class="ltx_itemize" id="S1.I1">
+<li class="ltx_item" id="S1.I1.i1" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span>
+<div class="ltx_para" id="S1.I1.i1.p1">
+<p class="ltx_p"><span class="ltx_text ltx_font_bold ltx_font_italic">Reinforcement fine-tuning is data-efficient for enhancing models on specific tasks without sacrificing original capabilities</span>. With a small amount of data, training via RFT can yield a remarkable improvement in spatio-temporal perception ability, and there is negligible impact on the performance of out-domain tasks and the original general capabilities of the model, which outperforms traditional supervised fine-tuning significantly.</p>
+</div>
+</li>
+<li class="ltx_item" id="S1.I1.i2" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span>
+<div class="ltx_para" id="S1.I1.i2.p1">
+<p class="ltx_p"><span class="ltx_text ltx_font_bold ltx_font_italic">Through joint reinforcement fine-tuning on multiple spatio-temporal perception tasks</span>, we construct <span class="ltx_text ltx_font_bold">VideoChat-R1</span>, a powerful Video MLLM that boasts state-of-the-art spatiotemporal perception capabilities while also taking into account chat abilities. We have also discovered that training on spatio-temporal perception tasks has slightly strengthened the model’s spatio-temporal reasoning abilities. Compared with Qwen2.5-VL-7B, VideoChat-R1 achieves several times the performance improvement in spatiotemporal perception tasks such as temporal grounding (<span class="ltx_text ltx_font_bold">+31.8</span>) and object track (<span class="ltx_text ltx_font_bold">+31.2</span>). At the same time, it also achieves non-trivial improvements on general QA benchmarks, such as VideoMME (<span class="ltx_text ltx_font_bold">+0.9</span>), MVBench (<span class="ltx_text ltx_font_bold">+1.0</span>), and Perception Test (<span class="ltx_text ltx_font_bold">+0.9</span>)</p>
+</div>
+</li>
+<li class="ltx_item" id="S1.I1.i3" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span>
+<div class="ltx_para" id="S1.I1.i3.p1">
+<p class="ltx_p"><span class="ltx_text ltx_font_bold ltx_font_italic">The improvement of spatio-temporal perception ability and the preservation of the original chat capability can contribute to a more reliable and efficient video dialogue system</span>. Our VideoChat-R1 can provide reference video segments when answering users’ questions. Meanwhile, we propose to utilize these video segments for <span class="ltx_text ltx_font_bold">“Temporal Clue-driven Reasoning"</span> to further obtain more accurate answers. Our experimental results reveal the potential of the approach that enhances the model’s spatiotemporal perception ability through reinforcement learning for future research in the directions of reliable video dialogue systems and long video understanding.</p>
+</div>
+</li>
+</ul>
+</div>
+</section>
+<section class="ltx_section" id="S2">
+<h2 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section">2 </span>Related work</h2>
+<section class="ltx_paragraph" id="S2.SS0.SSS0.Px1">
+<h4 class="ltx_title ltx_title_paragraph">Reasoning in MLLMs.</h4>
+<div class="ltx_para" id="S2.SS0.SSS0.Px1.p1">
+<p class="ltx_p">The field LLMs has witnessed significant breakthroughs in reasoning, exemplified by recent works <cite class="ltx_cite ltx_citemacro_cite">[<span class="ltx_ref ltx_missing_citation ltx_ref_self">jaech2024openai</span>, <span class="ltx_ref ltx_missing_citation ltx_ref_self">guo2025deepseek</span>]</cite>. These developments <cite class="ltx_cite ltx_citemacro_cite">[<span class="ltx_ref ltx_missing_citation ltx_ref_self">shao2024deepseekmath</span>, <span class="ltx_ref ltx_missing_citation ltx_ref_self">guo2025deepseek</span>, <span class="ltx_ref ltx_missing_citation ltx_ref_self">team2025kimi15</span>]</cite> have markedly improved LLMs’ proficiency in tackling complex, multi-step tasks, such as challenging mathematical problems and coding exercises. Extending these RL techniques to multimodal large language models (MLLMs) has seen numerous efforts <cite class="ltx_cite ltx_citemacro_cite">[<span class="ltx_ref ltx_missing_citation ltx_ref_self">zhou2025r1</span>, <span class="ltx_ref ltx_missing_citation ltx_ref_self">segzero</span>, <span class="ltx_ref ltx_missing_citation ltx_ref_self">visonr1</span>, <span class="ltx_ref ltx_missing_citation ltx_ref_self">deng2025boosting</span>, <span class="ltx_ref ltx_missing_citation ltx_ref_self">peng2025lmm</span>, <span class="ltx_ref ltx_missing_citation ltx_ref_self">visualrft</span>, <span class="ltx_ref ltx_missing_citation ltx_ref_self">r1ov</span>, <span class="ltx_ref ltx_missing_citation ltx_ref_self">r1vl</span>, <span class="ltx_ref ltx_missing_citation ltx_ref_self">zhan2025visionr1</span>, <span class="ltx_ref ltx_missing_citation ltx_ref_self">deng2025openvlthinker</span>]</cite> focused on leveraging verifiable reward mechanisms to boost visual reasoning performance. However, the application of RL-based strategies to spatio-temporal reasoning within the video domain remains comparatively less explored, with a few studies <cite class="ltx_cite ltx_citemacro_cite">[<span class="ltx_ref ltx_missing_citation ltx_ref_self">wang2025timezero</span>, <span class="ltx_ref ltx_missing_citation ltx_ref_self">r1omni</span>, <span class="ltx_ref ltx_missing_citation ltx_ref_self">videor1</span>]</cite> investigating this area. <cite class="ltx_cite ltx_citemacro_cite">[<span class="ltx_ref ltx_missing_citation ltx_ref_self">wang2025timezero</span>]</cite> and  <cite class="ltx_cite ltx_citemacro_cite">[<span class="ltx_ref ltx_missing_citation ltx_ref_self">r1omni</span>]</cite> show GRPO’s potential in temporal grounding and sentiment analysis, while,  <cite class="ltx_cite ltx_citemacro_cite">[<span class="ltx_ref ltx_missing_citation ltx_ref_self">videor1</span>]</cite> demonstrates how GRPO can facilitate temporal reasoning.</p>
+</div>
+</section>
+<section class="ltx_paragraph" id="S2.SS0.SSS0.Px2">
+<h4 class="ltx_title ltx_title_paragraph">Spatio-Temporal Understanding with MLLMs.</h4>
+<div class="ltx_para" id="S2.SS0.SSS0.Px2.p1">
+<p class="ltx_p">Video understanding heavily relies on spatio-temporal perception. Progress in Video Multimodal Large Language Models (video MLLMs) <cite class="ltx_cite ltx_citemacro_cite">[<span class="ltx_ref ltx_missing_citation ltx_ref_self">li2023videochat</span>, <span class="ltx_ref ltx_missing_citation ltx_ref_self">maaz2023video</span>, <span class="ltx_ref ltx_missing_citation ltx_ref_self">li2024mvbench</span>, <span class="ltx_ref ltx_missing_citation ltx_ref_self">wang2024internvideo2</span>, <span class="ltx_ref ltx_missing_citation ltx_ref_self">zhang2024video</span>, <span class="ltx_ref ltx_missing_citation ltx_ref_self">wang2025internvideo25</span>, <span class="ltx_ref ltx_missing_citation ltx_ref_self">li2024videochatf</span>, <span class="ltx_ref ltx_missing_citation ltx_ref_self">videochatonline</span>, <span class="ltx_ref ltx_missing_citation ltx_ref_self">qwen25vl</span>]</cite> addresses video question answering and captioning in the unfied dialogue format, leveraging LLMs to organize predictions over visual perceptions.  <cite class="ltx_cite ltx_citemacro_cite">[<span class="ltx_ref ltx_missing_citation ltx_ref_self">yu2024merlin</span>]</cite> and  <cite class="ltx_cite ltx_citemacro_cite">[<span class="ltx_ref ltx_missing_citation ltx_ref_self">zeng2024timesuite</span>]</cite> leverage data augmentation for temporal modeling, yet compromising their general performance.  <cite class="ltx_cite ltx_citemacro_cite">[<span class="ltx_ref ltx_missing_citation ltx_ref_self">yan2024task</span>]</cite> improves fine-grained spatio-temporal perception by task preference optimization with solid supervised fine-tuning using a lot of data.</p>
+</div>
+</section>
+</section>
+<section class="ltx_section" id="S3">
+<h2 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section">3 </span>Methodology</h2>
+<div class="ltx_para" id="S3.p1">
+<p class="ltx_p">We present how to exploit the spatio-temporal rewards to improve MLLMs in video domains using GRPO. Before that, we revisit the Group Relative Policy Optimization (GRPO) <cite class="ltx_cite ltx_citemacro_cite">[<span class="ltx_ref ltx_missing_citation ltx_ref_self">shao2024deepseekmath</span>]</cite> first.</p>
+</div>
+<section class="ltx_subsection" id="S3.SS1">
+<h3 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection">3.1 </span>Preliminary</h3>
+<div class="ltx_para" id="S3.SS1.p1">
+<p class="ltx_p">Group Relative Policy Optimization (GRPO) <cite class="ltx_cite ltx_citemacro_cite">[<span class="ltx_ref ltx_missing_citation ltx_ref_self">shao2024deepseekmath</span>]</cite> compares groups of candidates responses directly, independent on critic models. Regarding this, it significantly lowers training resources. Formally,
+with an input query <math alttext="q" class="ltx_Math" display="inline" id="S3.SS1.p1.m1" intent=":literal"><semantics><mi>q</mi><annotation encoding="application/x-tex">q</annotation></semantics></math>, GRPO initiates by generating a set of
+<math alttext="G" class="ltx_Math" display="inline" id="S3.SS1.p1.m2" intent=":literal"><semantics><mi>G</mi><annotation encoding="application/x-tex">G</annotation></semantics></math> distinct candidate responses, denoted as <math alttext="o=\{o_{1},\dots,o_{G}\}" class="ltx_Math" display="inline" id="S3.SS1.p1.m3" intent=":literal"><semantics><mrow><mi>o</mi><mo>=</mo><mrow><mo stretchy="false">{</mo><msub><mi>o</mi><mn>1</mn></msub><mo>,</mo><mi mathvariant="normal">…</mi><mo>,</mo><msub><mi>o</mi><mi>G</mi></msub><mo stretchy="false">}</mo></mrow></mrow><annotation encoding="application/x-tex">o=\{o_{1},\dots,o_{G}\}</annotation></semantics></math>, via policy sampling. Each of these candidates is then assigned a score from a predefined reward function, yielding <math alttext="{R_{1},\dots,R_{G}}" class="ltx_Math" display="inline" id="S3.SS1.p1.m4" intent=":literal"><semantics><mrow><msub><mi>R</mi><mn>1</mn></msub><mo>,</mo><mi mathvariant="normal">…</mi><mo>,</mo><msub><mi>R</mi><mi>G</mi></msub></mrow><annotation encoding="application/x-tex">{R_{1},\dots,R_{G}}</annotation></semantics></math>. To normalize these scores and ascertain the relative quality of each response, GRPO computes their mean and standard deviation:</p>
+<table class="ltx_equation ltx_eqn_table" id="S3.E1">
+<tbody><tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math alttext="A_{i}=\frac{R_{i}-\mathrm{mean}(\{R_{i}\}_{i=1}^{G})}{\mathrm{std}(\{R_{i}\}_{i=1}^{G})}\text{.}" class="ltx_Math" display="block" id="S3.E1.m1" intent=":literal"><semantics><mrow><msub><mi>A</mi><mi>i</mi></msub><mo>=</mo><mrow><mfrac><mrow><msub><mi>R</mi><mi>i</mi></msub><mo>−</mo><mrow><mi>mean</mi><mo lspace="0em" rspace="0em">​</mo><mrow><mo stretchy="false">(</mo><msubsup><mrow><mo stretchy="false">{</mo><msub><mi>R</mi><mi>i</mi></msub><mo stretchy="false">}</mo></mrow><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>G</mi></msubsup><mo stretchy="false">)</mo></mrow></mrow></mrow><mrow><mi>std</mi><mo lspace="0em" rspace="0em">​</mo><mrow><mo stretchy="false">(</mo><msubsup><mrow><mo stretchy="false">{</mo><msub><mi>R</mi><mi>i</mi></msub><mo stretchy="false">}</mo></mrow><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>G</mi></msubsup><mo stretchy="false">)</mo></mrow></mrow></mfrac><mo lspace="0em" rspace="0em">​</mo><mtext>.</mtext></mrow></mrow><annotation encoding="application/x-tex">A_{i}=\frac{R_{i}-\mathrm{mean}(\{R_{i}\}_{i=1}^{G})}{\mathrm{std}(\{R_{i}\}_{i=1}^{G})}\text{.}</annotation></semantics></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+<td class="ltx_eqn_cell ltx_eqn_eqno ltx_align_middle ltx_align_right" rowspan="1"><span class="ltx_tag ltx_tag_equation ltx_align_right">(1)</span></td>
+</tr></tbody>
+</table>
+<p class="ltx_p">Here <math alttext="A_{i}" class="ltx_Math" display="inline" id="S3.SS1.p1.m5" intent=":literal"><semantics><msub><mi>A</mi><mi>i</mi></msub><annotation encoding="application/x-tex">A_{i}</annotation></semantics></math> quantifies the relative quality of the <math alttext="i" class="ltx_Math" display="inline" id="S3.SS1.p1.m6" intent=":literal"><semantics><mi>i</mi><annotation encoding="application/x-tex">i</annotation></semantics></math>-th candidate response within its group. The objective of GRPO is to encourage the model to prioritize and generate responses that achieve higher relative scores within such groups. Furthermore, the overall training objective incorporates a KL-divergence term <math alttext="\mathrm{D}_{\mathrm{KL}}(\cdot|\cdot)" class="ltx_math_unparsed" display="inline" id="S3.SS1.p1.m7" intent=":literal"><semantics><mrow><msub><mi mathvariant="normal">D</mi><mi>KL</mi></msub><mrow><mo stretchy="false">(</mo><mo lspace="0em" rspace="0em">⋅</mo><mo fence="false" stretchy="false">|</mo><mo lspace="0em" rspace="0em">⋅</mo><mo stretchy="false">)</mo></mrow></mrow><annotation encoding="application/x-tex">\mathrm{D}_{\mathrm{KL}}(\cdot|\cdot)</annotation></semantics></math>, which serves to constrain the optimized policy <math alttext="\pi_{\theta}" class="ltx_Math" display="inline" id="S3.SS1.p1.m8" intent=":literal"><semantics><msub><mi>π</mi><mi>θ</mi></msub><annotation encoding="application/x-tex">\pi_{\theta}</annotation></semantics></math> from diverging excessively from the original MLLM parameters <math alttext="\pi_{\mathrm{ref}}" class="ltx_Math" display="inline" id="S3.SS1.p1.m9" intent=":literal"><semantics><msub><mi>π</mi><mi>ref</mi></msub><annotation encoding="application/x-tex">\pi_{\mathrm{ref}}</annotation></semantics></math>.</p>
+</div>
+</section>
+<section class="ltx_subsection" id="S3.SS2">
+<h3 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection">3.2 </span>Spatio-Temporal Rewards of Video MLLM in GRPO</h3>
+<div class="ltx_para" id="S3.SS2.p1">
+<p class="ltx_p">We explore how to use GRPO to enhance the performance of Video MLLM in video-language understanding. We consider the five most common types of video related tasks: temporal grounding, object tracking, video question answering, captioning, and quality assessment in our experiments.</p>
+</div>
+<section class="ltx_paragraph" id="S3.SS2.SSS0.Px1">
+<h4 class="ltx_title ltx_title_paragraph">Format reward.</h4>
+<div class="ltx_para" id="S3.SS2.SSS0.Px1.p1">
+<p class="ltx_p">To enable the model to output responses in the format we desire. For example, we expect the model to enclose its thought process with <span class="ltx_text ltx_font_typewriter">&lt;think&gt;...&lt;/think&gt;</span> and the answer with <span class="ltx_text ltx_font_typewriter">&lt;answer&gt;...&lt;/answer&gt;</span>, we designed a format reward <math alttext="R_{\mathrm{format}}" class="ltx_Math" display="inline" id="S3.SS2.SSS0.Px1.p1.m1" intent=":literal"><semantics><msub><mi>R</mi><mi>format</mi></msub><annotation encoding="application/x-tex">R_{\mathrm{format}}</annotation></semantics></math> for each task. We use regular expression matching to determine whether the model adheres to our specified format:</p>
+<table class="ltx_equation ltx_eqn_table" id="S3.E2">
+<tbody><tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math alttext="R_{\mathrm{format}}=\begin{cases}1,&amp;\text{if output matches format},\\
+0,&amp;\text{if output doesn't match format}.\end{cases}" class="ltx_Math" display="block" id="S3.E2.m1" intent=":literal"><semantics><mrow><msub><mi>R</mi><mi>format</mi></msub><mo>=</mo><mrow><mo>{</mo><mtable columnspacing="5pt" displaystyle="true" rowspacing="0pt"><mtr><mtd class="ltx_align_left" columnalign="left"><mrow><mn>1</mn><mo>,</mo></mrow></mtd><mtd class="ltx_align_left" columnalign="left"><mrow><mtext>if output matches format</mtext><mo>,</mo></mrow></mtd></mtr><mtr><mtd class="ltx_align_left" columnalign="left"><mrow><mn>0</mn><mo>,</mo></mrow></mtd><mtd class="ltx_align_left" columnalign="left"><mrow><mtext>if output doesn’t match format</mtext><mo lspace="0em">.</mo></mrow></mtd></mtr></mtable></mrow></mrow><annotation encoding="application/x-tex">R_{\mathrm{format}}=\begin{cases}1,&amp;\text{if output matches format},\\
+0,&amp;\text{if output doesn't match format}.\end{cases}</annotation></semantics></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+<td class="ltx_eqn_cell ltx_eqn_eqno ltx_align_middle ltx_align_right" rowspan="1"><span class="ltx_tag ltx_tag_equation ltx_align_right">(2)</span></td>
+</tr></tbody>
+</table>
+</div>
+</section>
+<section class="ltx_paragraph" id="S3.SS2.SSS0.Px2">
+<h4 class="ltx_title ltx_title_paragraph">IoU reward in spatio-temporal
+perception.</h4>
+<div class="ltx_para" id="S3.SS2.SSS0.Px2.p1">
+<p class="ltx_p">For the spatio-temporal
+perception such as temporal grounding and object tracking, it requires the Video MLLM to output the time interval in the video that is associated with the content of a given textual query. Evidently, we can use the Intersection over Union (IoU) between the predicted interval by the model and the ground-truth interval as the reward function. This reward function effectively characterizes the accuracy of the interval predicted by the model.</p>
+<table class="ltx_equation ltx_eqn_table" id="S3.E3">
+<tbody><tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math alttext="R_{\mathrm{IoU}}=\frac{|\mathcal{I}_{\mathrm{pred}}\cap\mathcal{I}_{\mathrm{gt}}|}{|\mathcal{I}_{\mathrm{pred}}\cup\mathcal{I}_{\mathrm{gt}}|}," class="ltx_Math" display="block" id="S3.E3.m1" intent=":literal"><semantics><mrow><mrow><msub><mi>R</mi><mi>IoU</mi></msub><mo>=</mo><mfrac><mrow><mo stretchy="false">|</mo><mrow><msub><mi class="ltx_font_mathcaligraphic">ℐ</mi><mi>pred</mi></msub><mo>∩</mo><msub><mi class="ltx_font_mathcaligraphic">ℐ</mi><mi>gt</mi></msub></mrow><mo stretchy="false">|</mo></mrow><mrow><mo stretchy="false">|</mo><mrow><msub><mi class="ltx_font_mathcaligraphic">ℐ</mi><mi>pred</mi></msub><mo>∪</mo><msub><mi class="ltx_font_mathcaligraphic">ℐ</mi><mi>gt</mi></msub></mrow><mo stretchy="false">|</mo></mrow></mfrac></mrow><mo>,</mo></mrow><annotation encoding="application/x-tex">R_{\mathrm{IoU}}=\frac{|\mathcal{I}_{\mathrm{pred}}\cap\mathcal{I}_{\mathrm{gt}}|}{|\mathcal{I}_{\mathrm{pred}}\cup\mathcal{I}_{\mathrm{gt}}|},</annotation></semantics></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+<td class="ltx_eqn_cell ltx_eqn_eqno ltx_align_middle ltx_align_right" rowspan="1"><span class="ltx_tag ltx_tag_equation ltx_align_right">(3)</span></td>
+</tr></tbody>
+</table>
+<p class="ltx_p">where <math alttext="\mathcal{I}_{\mathrm{pred}}" class="ltx_Math" display="inline" id="S3.SS2.SSS0.Px2.p1.m1" intent=":literal"><semantics><msub><mi class="ltx_font_mathcaligraphic">ℐ</mi><mi>pred</mi></msub><annotation encoding="application/x-tex">\mathcal{I}_{\mathrm{pred}}</annotation></semantics></math> and <math alttext="\mathcal{I}_{\mathrm{gt}}" class="ltx_Math" display="inline" id="S3.SS2.SSS0.Px2.p1.m2" intent=":literal"><semantics><msub><mi class="ltx_font_mathcaligraphic">ℐ</mi><mi>gt</mi></msub><annotation encoding="application/x-tex">\mathcal{I}_{\mathrm{gt}}</annotation></semantics></math> are the predicted and the ground truth of time intervals or detection boxes, respectively.</p>
+</div>
+</section>
+<section class="ltx_paragraph" id="S3.SS2.SSS0.Px3">
+<h4 class="ltx_title ltx_title_paragraph">Accuracy reward in classification.</h4>
+<div class="ltx_para" id="S3.SS2.SSS0.Px3.p1">
+<p class="ltx_p">Discriminative tasks, such as multiple-choice video question answering and classification, aim to determine whether the model’s prediction is consistent with the answer to the question. Therefore, we define:</p>
+<table class="ltx_equation ltx_eqn_table" id="S3.E4">
+<tbody><tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math alttext="R_{\mathrm{accuacy}}=\begin{cases}0,&amp;\text{if }A_{\mathrm{pred}}\neq A_{\mathrm{gt}}\\
+1,&amp;\text{if }A_{\mathrm{pred}}=A_{\mathrm{gt}},\end{cases}" class="ltx_Math" display="block" id="S3.E4.m1" intent=":literal"><semantics><mrow><msub><mi>R</mi><mi>accuacy</mi></msub><mo>=</mo><mrow><mo>{</mo><mtable columnspacing="5pt" displaystyle="true" rowspacing="0pt"><mtr><mtd class="ltx_align_left" columnalign="left"><mrow><mn>0</mn><mo>,</mo></mrow></mtd><mtd class="ltx_align_left" columnalign="left"><mrow><mrow><mtext>if </mtext><mo lspace="0em" rspace="0em">​</mo><msub><mi>A</mi><mi>pred</mi></msub></mrow><mo>≠</mo><msub><mi>A</mi><mi>gt</mi></msub></mrow></mtd></mtr><mtr><mtd class="ltx_align_left" columnalign="left"><mrow><mn>1</mn><mo>,</mo></mrow></mtd><mtd class="ltx_align_left" columnalign="left"><mrow><mrow><mrow><mtext>if </mtext><mo lspace="0em" rspace="0em">​</mo><msub><mi>A</mi><mi>pred</mi></msub></mrow><mo>=</mo><msub><mi>A</mi><mi>gt</mi></msub></mrow><mo>,</mo></mrow></mtd></mtr></mtable></mrow></mrow><annotation encoding="application/x-tex">R_{\mathrm{accuacy}}=\begin{cases}0,&amp;\text{if }A_{\mathrm{pred}}\neq A_{\mathrm{gt}}\\
+1,&amp;\text{if }A_{\mathrm{pred}}=A_{\mathrm{gt}},\end{cases}</annotation></semantics></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+<td class="ltx_eqn_cell ltx_eqn_eqno ltx_align_middle ltx_align_right" rowspan="1"><span class="ltx_tag ltx_tag_equation ltx_align_right">(4)</span></td>
+</tr></tbody>
+</table>
+<p class="ltx_p">where <math alttext="A_{\mathrm{pred}}" class="ltx_Math" display="inline" id="S3.SS2.SSS0.Px3.p1.m1" intent=":literal"><semantics><msub><mi>A</mi><mi>pred</mi></msub><annotation encoding="application/x-tex">A_{\mathrm{pred}}</annotation></semantics></math> and <math alttext="A_{\mathrm{gt}}" class="ltx_Math" display="inline" id="S3.SS2.SSS0.Px3.p1.m2" intent=":literal"><semantics><msub><mi>A</mi><mi>gt</mi></msub><annotation encoding="application/x-tex">A_{\mathrm{gt}}</annotation></semantics></math> denote the predicted and the ground truth answers, respectively.</p>
+</div>
+</section>
+<section class="ltx_paragraph" id="S3.SS2.SSS0.Px4">
+<h4 class="ltx_title ltx_title_paragraph">Recall reward in video captioning.</h4>
+<div class="ltx_para" id="S3.SS2.SSS0.Px4.p1">
+<p class="ltx_p">For tasks like video captioning with open-ended outputs, it is impossible to simply compare and determine the gap between the generated caption and the ground truth caption. Therefore, we use a LLM as a “judge" to provide a reward score. In order to reduce the uncertainty of the evaluation criteria for the LLM, we first make the LLM decompose the ground truth and predicted captions into events list. Specifically, we utilize Qwen2.5-72B <cite class="ltx_cite ltx_citemacro_cite">[<span class="ltx_ref ltx_missing_citation ltx_ref_self">qwen25</span>]</cite> to extract the events in the description and judge whether the events in a ground truth description can be entailed by the description predicted by the model. We calculate the event recall score as the ratio of events in a ground truth description that are entailed by the predicted description, and set different rewards according to the event recall score:</p>
+<table class="ltx_equation ltx_eqn_table" id="S3.E5">
+<tbody><tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math alttext="R_{\mathrm{recall}}=\mathrm{Recall_{event}}(C_{\mathrm{pred}},C_{\mathrm{gt}})," class="ltx_Math" display="block" id="S3.E5.m1" intent=":literal"><semantics><mrow><mrow><msub><mi>R</mi><mi>recall</mi></msub><mo>=</mo><mrow><msub><mi>Recall</mi><mi>event</mi></msub><mo lspace="0em" rspace="0em">​</mo><mrow><mo stretchy="false">(</mo><msub><mi>C</mi><mi>pred</mi></msub><mo>,</mo><msub><mi>C</mi><mi>gt</mi></msub><mo stretchy="false">)</mo></mrow></mrow></mrow><mo>,</mo></mrow><annotation encoding="application/x-tex">R_{\mathrm{recall}}=\mathrm{Recall_{event}}(C_{\mathrm{pred}},C_{\mathrm{gt}}),</annotation></semantics></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+<td class="ltx_eqn_cell ltx_eqn_eqno ltx_align_middle ltx_align_right" rowspan="1"><span class="ltx_tag ltx_tag_equation ltx_align_right">(5)</span></td>
+</tr></tbody>
+</table>
+<p class="ltx_p">where <math alttext="C_{\mathrm{pred}}" class="ltx_Math" display="inline" id="S3.SS2.SSS0.Px4.p1.m1" intent=":literal"><semantics><msub><mi>C</mi><mi>pred</mi></msub><annotation encoding="application/x-tex">C_{\mathrm{pred}}</annotation></semantics></math> and <math alttext="C_{\mathrm{gt}}" class="ltx_Math" display="inline" id="S3.SS2.SSS0.Px4.p1.m2" intent=":literal"><semantics><msub><mi>C</mi><mi>gt</mi></msub><annotation encoding="application/x-tex">C_{\mathrm{gt}}</annotation></semantics></math> represent the predicted and the ground truth captions, respectively.</p>
+</div>
+<div class="ltx_para" id="S3.SS2.SSS0.Px4.p2">
+<p class="ltx_p">By combining the above reward functions, we explored how to utilize GRPO to enhance the performance of Video MLLM in various tasks. The specific details can be found in the Section <a class="ltx_ref" href="https://arxiv.org/html/2504.06958v5#S4" title="4 Experiments ‣ VideoChat-R1: Enhancing Spatio-Temporal Perception via Reinforcement Fine-Tuning"><span class="ltx_text ltx_ref_tag">4</span></a>.</p>
+</div>
+</section>
+</section>
+<section class="ltx_subsection" id="S3.SS3">
+<h3 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection">3.3 </span>Enhance Spatio-Temporal Perception of Video MLLM through GRPO</h3>
+<section class="ltx_paragraph" id="S3.SS3.SSS0.Px1">
+<h4 class="ltx_title ltx_title_paragraph">The combination of reward functions.</h4>
+<div class="ltx_para" id="S3.SS3.SSS0.Px1.p1">
+<p class="ltx_p">We adopt different combinations of reward functions for training in different tasks. Specifically, for the temporal grounding and object tracking task, <math alttext="R_{\mathrm{st}}=R_{\mathrm{format}}+R_{\mathrm{IoU}}" class="ltx_Math" display="inline" id="S3.SS3.SSS0.Px1.p1.m1" intent=":literal"><semantics><mrow><msub><mi>R</mi><mi>st</mi></msub><mo>=</mo><mrow><msub><mi>R</mi><mi>format</mi></msub><mo>+</mo><msub><mi>R</mi><mi>IoU</mi></msub></mrow></mrow><annotation encoding="application/x-tex">R_{\mathrm{st}}=R_{\mathrm{format}}+R_{\mathrm{IoU}}</annotation></semantics></math>. For the multi-choice QA and video quality assessment, <math alttext="R_{\mathrm{qa}}=R_{\mathrm{format}}+R_{\mathrm{accuacy}}" class="ltx_Math" display="inline" id="S3.SS3.SSS0.Px1.p1.m2" intent=":literal"><semantics><mrow><msub><mi>R</mi><mi>qa</mi></msub><mo>=</mo><mrow><msub><mi>R</mi><mi>format</mi></msub><mo>+</mo><msub><mi>R</mi><mi>accuacy</mi></msub></mrow></mrow><annotation encoding="application/x-tex">R_{\mathrm{qa}}=R_{\mathrm{format}}+R_{\mathrm{accuacy}}</annotation></semantics></math>. For the multi-choice QA with glue (e.g. Grounding QA), <math alttext="R_{\mathrm{gqa}}=R_{\mathrm{format}}+R_{\mathrm{IoU}}+R_{Acc}" class="ltx_Math" display="inline" id="S3.SS3.SSS0.Px1.p1.m3" intent=":literal"><semantics><mrow><msub><mi>R</mi><mi>gqa</mi></msub><mo>=</mo><mrow><msub><mi>R</mi><mi>format</mi></msub><mo>+</mo><msub><mi>R</mi><mi>IoU</mi></msub><mo>+</mo><msub><mi>R</mi><mrow><mi>A</mi><mo lspace="0em" rspace="0em">​</mo><mi>c</mi><mo lspace="0em" rspace="0em">​</mo><mi>c</mi></mrow></msub></mrow></mrow><annotation encoding="application/x-tex">R_{\mathrm{gqa}}=R_{\mathrm{format}}+R_{\mathrm{IoU}}+R_{Acc}</annotation></semantics></math>. For the video caption, <math alttext="R_{\mathrm{cap}}=R_{\mathrm{format}}+R_{\mathrm{Caption}}" class="ltx_Math" display="inline" id="S3.SS3.SSS0.Px1.p1.m4" intent=":literal"><semantics><mrow><msub><mi>R</mi><mi>cap</mi></msub><mo>=</mo><mrow><msub><mi>R</mi><mi>format</mi></msub><mo>+</mo><msub><mi>R</mi><mi>Caption</mi></msub></mrow></mrow><annotation encoding="application/x-tex">R_{\mathrm{cap}}=R_{\mathrm{format}}+R_{\mathrm{Caption}}</annotation></semantics></math>.</p>
+</div>
+</section>
+<section class="ltx_paragraph" id="S3.SS3.SSS0.Px2">
+<h4 class="ltx_title ltx_title_paragraph">VideoChat-R1-18k.</h4>
+<div class="ltx_para" id="S3.SS3.SSS0.Px2.p1">
+<p class="ltx_p">We collect diverse video corpus from existing public video datasets for reinforcement learning training to enhance the model’s spatiotemporal perception ability. For the temporal grounding task, we use the training set of Charade - STA <cite class="ltx_cite ltx_citemacro_cite">[<span class="ltx_ref ltx_missing_citation ltx_ref_self">charadesta</span>]</cite> (5,338 samples) for training. For the object tracking task, training is conducted on the GoT - 10k <cite class="ltx_cite ltx_citemacro_cite">[<span class="ltx_ref ltx_missing_citation ltx_ref_self">got</span>]</cite> dataset, which has 9,335 samples. For the QA and grounding QA tasks, the validation set of NExTGQA  <cite class="ltx_cite ltx_citemacro_cite">[<span class="ltx_ref ltx_missing_citation ltx_ref_self">nextgqa</span>]</cite> (3,358 samples) is used for training. For video captioning, FIBER-1k <cite class="ltx_cite ltx_citemacro_cite">[<span class="ltx_ref ltx_missing_citation ltx_ref_self">fiber1k</span>]</cite> (1,000 samples) is adopted for training. For video quality assessment, we use the quality assessment task from VidTAB <cite class="ltx_cite ltx_citemacro_cite">[<span class="ltx_ref ltx_missing_citation ltx_ref_self">videoeval</span>]</cite> under the 100-shot setting, with 200 samples for training. Finally, for the training of VideoChat-R1, we perform joint training on three spatio-temporal perception-related tasks: temporal grounding, object tracking, and grounding QA. In total, 18,031 samples are used for training.</p>
+</div>
+<figure class="ltx_float ltx_algorithm" id="alg1">
+<div class="ltx_listing ltx_lst_numbers_left ltx_listing">
+<div class="ltx_listingline">
+<span class="ltx_text ltx_font_bold">Input:</span>
+<math alttext="V_{\text{low}}" class="ltx_Math" display="inline" id="alg1.m3" intent=":literal"><semantics><msub><mi>V</mi><mtext>low</mtext></msub><annotation encoding="application/x-tex">V_{\text{low}}</annotation></semantics></math>: Low-resolution/low-fps video 
+</div>
+<div class="ltx_listingline">
+<math alttext="Q" class="ltx_Math" display="inline" id="alg1.m4" intent=":literal"><semantics><mi>Q</mi><annotation encoding="application/x-tex">Q</annotation></semantics></math>: User question 
+</div>
+<div class="ltx_listingline">
+<math alttext="\Delta_{\text{res}}" class="ltx_Math" display="inline" id="alg1.m5" intent=":literal"><semantics><msub><mi mathvariant="normal">Δ</mi><mtext>res</mtext></msub><annotation encoding="application/x-tex">\Delta_{\text{res}}</annotation></semantics></math>: Resolution boost factor 
+</div>
+<div class="ltx_listingline">
+<math alttext="\Delta_{\text{fps}}" class="ltx_Math" display="inline" id="alg1.m6" intent=":literal"><semantics><msub><mi mathvariant="normal">Δ</mi><mtext>fps</mtext></msub><annotation encoding="application/x-tex">\Delta_{\text{fps}}</annotation></semantics></math>: Frame rate boost factor
+
+</div>
+<div class="ltx_listingline">
+<span class="ltx_text ltx_font_bold">Output:</span> <math alttext="A^{(2)}" class="ltx_Math" display="inline" id="alg1.m7" intent=":literal"><semantics><msup><mi>A</mi><mrow><mo stretchy="false">(</mo><mn>2</mn><mo stretchy="false">)</mo></mrow></msup><annotation encoding="application/x-tex">A^{(2)}</annotation></semantics></math>: Final refined answer
+</div>
+<div class="ltx_listingline">
+</div>
+<div class="ltx_listingline">
+<span class="ltx_text ltx_font_bold">Initial Answer Generation:</span>
+</div>
+<div class="ltx_listingline">
+<math alttext="(A^{(1)},\mathcal{C})\leftarrow\mathcal{M}(V_{\text{low}},Q)" class="ltx_Math" display="inline" id="alg1.m8" intent=":literal"><semantics><mrow><mrow><mo stretchy="false">(</mo><msup><mi>A</mi><mrow><mo stretchy="false">(</mo><mn>1</mn><mo stretchy="false">)</mo></mrow></msup><mo>,</mo><mi class="ltx_font_mathcaligraphic">𝒞</mi><mo stretchy="false">)</mo></mrow><mo stretchy="false">←</mo><mrow><mi class="ltx_font_mathcaligraphic">ℳ</mi><mo lspace="0em" rspace="0em">​</mo><mrow><mo stretchy="false">(</mo><msub><mi>V</mi><mtext>low</mtext></msub><mo>,</mo><mi>Q</mi><mo stretchy="false">)</mo></mrow></mrow></mrow><annotation encoding="application/x-tex">(A^{(1)},\mathcal{C})\leftarrow\mathcal{M}(V_{\text{low}},Q)</annotation></semantics></math>
+</div>
+<div class="ltx_listingline">
+<span class="ltx_text ltx_font_bold">Clue Processing &amp; Upsampling:</span>
+</div>
+<div class="ltx_listingline">
+<math alttext="\mathcal{T}_{c}\leftarrow\text{ExtractTemporalClues}(\mathcal{C})" class="ltx_Math" display="inline" id="alg1.m9" intent=":literal"><semantics><mrow><msub><mi class="ltx_font_mathcaligraphic">𝒯</mi><mi>c</mi></msub><mo stretchy="false">←</mo><mrow><mtext>ExtractTemporalClues</mtext><mo lspace="0em" rspace="0em">​</mo><mrow><mo stretchy="false">(</mo><mi class="ltx_font_mathcaligraphic">𝒞</mi><mo stretchy="false">)</mo></mrow></mrow></mrow><annotation encoding="application/x-tex">\mathcal{T}_{c}\leftarrow\text{ExtractTemporalClues}(\mathcal{C})</annotation></semantics></math>
+</div>
+<div class="ltx_listingline">
+<math alttext="V_{\text{seg}}\leftarrow\text{SelectSegments}(V_{\text{low}},\mathcal{T}_{c})" class="ltx_Math" display="inline" id="alg1.m10" intent=":literal"><semantics><mrow><msub><mi>V</mi><mtext>seg</mtext></msub><mo stretchy="false">←</mo><mrow><mtext>SelectSegments</mtext><mo lspace="0em" rspace="0em">​</mo><mrow><mo stretchy="false">(</mo><msub><mi>V</mi><mtext>low</mtext></msub><mo>,</mo><msub><mi class="ltx_font_mathcaligraphic">𝒯</mi><mi>c</mi></msub><mo stretchy="false">)</mo></mrow></mrow></mrow><annotation encoding="application/x-tex">V_{\text{seg}}\leftarrow\text{SelectSegments}(V_{\text{low}},\mathcal{T}_{c})</annotation></semantics></math>
+</div>
+<div class="ltx_listingline">
+<math alttext="V_{\text{high}}\leftarrow\text{Upsample}(V_{\text{seg}},\Delta_{\text{res}},\Delta_{\text{fps}})" class="ltx_Math" display="inline" id="alg1.m11" intent=":literal"><semantics><mrow><msub><mi>V</mi><mtext>high</mtext></msub><mo stretchy="false">←</mo><mrow><mtext>Upsample</mtext><mo lspace="0em" rspace="0em">​</mo><mrow><mo stretchy="false">(</mo><msub><mi>V</mi><mtext>seg</mtext></msub><mo>,</mo><msub><mi mathvariant="normal">Δ</mi><mtext>res</mtext></msub><mo>,</mo><msub><mi mathvariant="normal">Δ</mi><mtext>fps</mtext></msub><mo stretchy="false">)</mo></mrow></mrow></mrow><annotation encoding="application/x-tex">V_{\text{high}}\leftarrow\text{Upsample}(V_{\text{seg}},\Delta_{\text{res}},\Delta_{\text{fps}})</annotation></semantics></math>
+</div>
+<div class="ltx_listingline">
+<span class="ltx_text ltx_font_bold">Final Answer Generation:</span>
+</div>
+<div class="ltx_listingline">
+<math alttext="A^{(2)}\leftarrow\mathcal{M}(V_{\text{high}},Q)" class="ltx_Math" display="inline" id="alg1.m12" intent=":literal"><semantics><mrow><msup><mi>A</mi><mrow><mo stretchy="false">(</mo><mn>2</mn><mo stretchy="false">)</mo></mrow></msup><mo stretchy="false">←</mo><mrow><mi class="ltx_font_mathcaligraphic">ℳ</mi><mo lspace="0em" rspace="0em">​</mo><mrow><mo stretchy="false">(</mo><msub><mi>V</mi><mtext>high</mtext></msub><mo>,</mo><mi>Q</mi><mo stretchy="false">)</mo></mrow></mrow></mrow><annotation encoding="application/x-tex">A^{(2)}\leftarrow\mathcal{M}(V_{\text{high}},Q)</annotation></semantics></math>
+</div>
+<div class="ltx_listingline">
+<span class="ltx_text ltx_font_bold">return</span> <math alttext="A^{(2)}" class="ltx_Math" display="inline" id="alg1.m13" intent=":literal"><semantics><msup><mi>A</mi><mrow><mo stretchy="false">(</mo><mn>2</mn><mo stretchy="false">)</mo></mrow></msup><annotation encoding="application/x-tex">A^{(2)}</annotation></semantics></math>
+</div>
+</div>
+<figcaption class="ltx_caption"><span class="ltx_tag ltx_tag_float"><span class="ltx_text ltx_font_bold">Algorithm 1</span> </span>VideoChat <math alttext="\mathcal{M}" class="ltx_Math" display="inline" id="alg1.m2" intent=":literal"><semantics><mi class="ltx_font_mathcaligraphic">ℳ</mi><annotation encoding="application/x-tex">\mathcal{M}</annotation></semantics></math> with “Clue-Perception"</figcaption>
+</figure>
+</section>
+<section class="ltx_paragraph" id="S3.SS3.SSS0.Px3">
+<h4 class="ltx_title ltx_title_paragraph">Chat with Enhanced Spatio-Temporal Perception.</h4>
+<div class="ltx_para" id="S3.SS3.SSS0.Px3.p1">
+<p class="ltx_p">After enhancing the spatiotemporal perception capability of MLLMs, we can construct a more reliable video chat system. Specifically, after the model answers a user’s question, it can provide relatively accurate clues that support the answer to that question. We can further leverage these clues to improve the accuracy of the responses. Herein, we propose a simple <span class="ltx_text ltx_font_bold">“Temporal Clue-driven Reasoning"</span> schema: after the model gives the first answer, we re-input the video segments corresponding to the obtained clues into the model at a higher resolution and frame rate, prompting it to answer again. By perceiving more details, the model can generate more accurate responses. Additionally, this operation is also well-suited for long video understanding under conditions of limited computing resources.</p>
+</div>
+</section>
+</section>
+</section>
+<section class="ltx_section" id="S4">
+<h2 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section">4 </span>Experiments</h2>
+<section class="ltx_paragraph" id="S4.SS0.SSS0.Px1">
+<h4 class="ltx_title ltx_title_paragraph">Implementation details.</h4>
+<div class="ltx_para" id="S4.SS0.SSS0.Px1.p1">
+<p class="ltx_p">The main experiments are all conducted based on Qwen2.5-VL-7B <cite class="ltx_cite ltx_citemacro_cite">[<span class="ltx_ref ltx_missing_citation ltx_ref_self">qwen25vl</span>]</cite> (except for the video captioning, for which Qwen2-VL-7B <cite class="ltx_cite ltx_citemacro_cite">[<span class="ltx_ref ltx_missing_citation ltx_ref_self">qwen2vl</span>]</cite> is used).</p>
+</div>
+</section>
+<section class="ltx_paragraph" id="S4.SS0.SSS0.Px2">
+<h4 class="ltx_title ltx_title_paragraph">Benchmarks.</h4>
+<div class="ltx_para" id="S4.SS0.SSS0.Px2.p1">
+<p class="ltx_p">We employ MVBench <cite class="ltx_cite ltx_citemacro_cite">[<span class="ltx_ref ltx_missing_citation ltx_ref_self">li2024mvbench</span>]</cite>, Perception Test <cite class="ltx_cite ltx_citemacro_cite">[<span class="ltx_ref ltx_missing_citation ltx_ref_self">patraucean2023perception</span>]</cite>, VideoMME <cite class="ltx_cite ltx_citemacro_cite">[<span class="ltx_ref ltx_missing_citation ltx_ref_self">videomme</span>]</cite> for evaluation of general video understanding. Given that the majority of videos in our training set are short-length, we only use the short subset of VideoMME in testing. For the temporal grounding task, we use the test set of Charade-STA <cite class="ltx_cite ltx_citemacro_cite">[<span class="ltx_ref ltx_missing_citation ltx_ref_self">charadesta</span>]</cite> for in-domain testing and the test set of ActivityNet-Grounding <cite class="ltx_cite ltx_citemacro_cite">[<span class="ltx_ref ltx_missing_citation ltx_ref_self">anetgrounding</span>]</cite> as out-domain test data. For the object tracking task, testing is done using the GoT-10k <cite class="ltx_cite ltx_citemacro_cite">[<span class="ltx_ref ltx_missing_citation ltx_ref_self">got</span>]</cite> dataset. For the QA and grounding QA tasks, the test set of NExTGQA  <cite class="ltx_cite ltx_citemacro_cite">[<span class="ltx_ref ltx_missing_citation ltx_ref_self">nextgqa</span>]</cite> is used for testing. And we use Dream-1k <cite class="ltx_cite ltx_citemacro_cite">[<span class="ltx_ref ltx_missing_citation ltx_ref_self">dream1k</span>]</cite> and VidTAB-QA <cite class="ltx_cite ltx_citemacro_cite">[<span class="ltx_ref ltx_missing_citation ltx_ref_self">videoeval</span>]</cite> for the video captioning and video quality access.</p>
+</div>
+</section>
+<section class="ltx_subsection" id="S4.SS1">
+<h3 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection">4.1 </span>Evaluation of VideoChat-R1</h3>
+<figure class="ltx_table" id="S4.T1">
+<p class="ltx_p ltx_align_center"><span class="ltx_text ltx_inline-block" style="width:433.6pt;">
+<span class="ltx_inline-block ltx_transformed_outer" style="width:703.2pt;height:134pt;vertical-align:-64.5pt;"><span class="ltx_transformed_inner" style="transform:translate(0.0pt,0.0pt) scale(1,1) ;">
+<span class="ltx_p">
+<span class="ltx_tabular ltx_align_middle">
+<span class="ltx_tr">
+<span class="ltx_td ltx_align_left ltx_border_r ltx_border_tt ltx_rowspan ltx_rowspan_2" style="padding:0.5pt 4.3pt;"><span class="ltx_text ltx_font_bold">Method</span></span>
+<span class="ltx_td ltx_align_center ltx_border_tt ltx_colspan ltx_colspan_3" style="padding:0.5pt 4.3pt;"><span class="ltx_text ltx_font_bold">Charades-STA</span></span>
+<span class="ltx_td ltx_align_center ltx_border_tt ltx_colspan ltx_colspan_3" style="padding:0.5pt 4.3pt;"><span class="ltx_text ltx_font_bold">ActivityNet</span></span>
+<span class="ltx_td ltx_align_center ltx_border_tt ltx_colspan ltx_colspan_2" style="padding:0.5pt 4.3pt;"><span class="ltx_text ltx_font_bold">NExTGQA</span></span>
+<span class="ltx_td ltx_align_center ltx_border_tt ltx_colspan ltx_colspan_2" style="padding:0.5pt 4.3pt;"><span class="ltx_text ltx_font_bold">GoT</span></span>
+<span class="ltx_td ltx_align_center ltx_border_tt" style="padding:0.5pt 4.3pt;"><span class="ltx_text ltx_font_bold">VideoMME</span></span>
+<span class="ltx_td ltx_align_center ltx_border_tt" style="padding:0.5pt 4.3pt;"><span class="ltx_text ltx_font_bold">MVBench</span></span>
+<span class="ltx_td ltx_align_center ltx_border_tt" style="padding:0.5pt 4.3pt;"><span class="ltx_text ltx_font_bold">Peception Test</span></span></span>
+<span class="ltx_tr">
+<span class="ltx_td ltx_align_center" style="padding:0.5pt 4.3pt;">mIoU</span>
+<span class="ltx_td ltx_align_center" style="padding:0.5pt 4.3pt;">R@0.5</span>
+<span class="ltx_td ltx_align_center ltx_border_r" style="padding:0.5pt 4.3pt;">R@0.7</span>
+<span class="ltx_td ltx_align_center" style="padding:0.5pt 4.3pt;">mIoU</span>
+<span class="ltx_td ltx_align_center" style="padding:0.5pt 4.3pt;">R@0.5</span>
+<span class="ltx_td ltx_align_center ltx_border_r" style="padding:0.5pt 4.3pt;">R@0.7</span>
+<span class="ltx_td ltx_align_center" style="padding:0.5pt 4.3pt;">mIoU</span>
+<span class="ltx_td ltx_align_center ltx_border_r" style="padding:0.5pt 4.3pt;">acc</span>
+<span class="ltx_td ltx_align_center" style="padding:0.5pt 4.3pt;">Overlap</span>
+<span class="ltx_td ltx_align_center ltx_border_r" style="padding:0.5pt 4.3pt;">R@0.5</span>
+<span class="ltx_td ltx_align_center" style="padding:0.5pt 4.3pt;">Short-Avg</span>
+<span class="ltx_td ltx_align_center" style="padding:0.5pt 4.3pt;">Avg</span>
+<span class="ltx_td ltx_align_center" style="padding:0.5pt 4.3pt;">Val</span></span>
+<span class="ltx_tr">
+<span class="ltx_td ltx_align_left ltx_border_t ltx_colspan ltx_colspan_12" style="padding:0.5pt 4.3pt;"><span class="ltx_text ltx_font_italic" style="--ltx-fg-color:#5C946E;">Baseline</span></span>
+<span class="ltx_td ltx_border_t" style="padding:0.5pt 4.3pt;"></span>
+<span class="ltx_td ltx_border_t" style="padding:0.5pt 4.3pt;"></span></span>
+<span class="ltx_tr">
+<span class="ltx_td ltx_align_left ltx_border_r" style="padding:0.5pt 4.3pt;">Qwen2.5-VL-7B</span>
+<span class="ltx_td ltx_align_center" style="padding:0.5pt 4.3pt;">29.0</span>
+<span class="ltx_td ltx_align_center" style="padding:0.5pt 4.3pt;">24.2</span>
+<span class="ltx_td ltx_align_center ltx_border_r" style="padding:0.5pt 4.3pt;">11.1</span>
+<span class="ltx_td ltx_align_center" style="padding:0.5pt 4.3pt;">21.1</span>
+<span class="ltx_td ltx_align_center" style="padding:0.5pt 4.3pt;">15.8</span>
+<span class="ltx_td ltx_align_center ltx_border_r" style="padding:0.5pt 4.3pt;">7.5</span>
+<span class="ltx_td ltx_align_center" style="padding:0.5pt 4.3pt;">15.4</span>
+<span class="ltx_td ltx_align_center ltx_border_r" style="padding:0.5pt 4.3pt;">59.5</span>
+<span class="ltx_td ltx_align_center" style="padding:0.5pt 4.3pt;">12.6</span>
+<span class="ltx_td ltx_align_center ltx_border_r" style="padding:0.5pt 4.3pt;">1.1</span>
+<span class="ltx_td ltx_align_center" style="padding:0.5pt 4.3pt;">71.3</span>
+<span class="ltx_td ltx_align_center" style="padding:0.5pt 4.3pt;">66.9</span>
+<span class="ltx_td ltx_align_center" style="padding:0.5pt 4.3pt;">69.1</span></span>
+<span class="ltx_tr">
+<span class="ltx_td ltx_align_left ltx_border_t ltx_colspan ltx_colspan_12" style="padding:0.5pt 4.3pt;"><span class="ltx_text ltx_font_italic" style="--ltx-fg-color:#5C946E;">SFT on specific tasks</span></span>
+<span class="ltx_td ltx_border_t" style="padding:0.5pt 4.3pt;"></span>
+<span class="ltx_td ltx_border_t" style="padding:0.5pt 4.3pt;"></span></span>
+<span class="ltx_tr">
+<span class="ltx_td ltx_align_left ltx_border_r" style="padding:0.5pt 4.3pt;">+SFT w/ Charades-STA</span>
+<span class="ltx_td ltx_align_center" style="padding:0.5pt 4.3pt;">46.3</span>
+<span class="ltx_td ltx_align_center" style="padding:0.5pt 4.3pt;">45.0</span>
+<span class="ltx_td ltx_align_center ltx_border_r" style="padding:0.5pt 4.3pt;">25.3</span>
+<span class="ltx_td ltx_align_center" style="padding:0.5pt 4.3pt;">20.6</span>
+<span class="ltx_td ltx_align_center" style="padding:0.5pt 4.3pt;">16.7</span>
+<span class="ltx_td ltx_align_center ltx_border_r" style="padding:0.5pt 4.3pt;">7.9</span>
+<span class="ltx_td ltx_align_center" style="padding:0.5pt 4.3pt;">-</span>
+<span class="ltx_td ltx_align_center ltx_border_r" style="padding:0.5pt 4.3pt;">-</span>
+<span class="ltx_td ltx_align_center" style="padding:0.5pt 4.3pt;">-</span>
+<span class="ltx_td ltx_align_center ltx_border_r" style="padding:0.5pt 4.3pt;">-</span>
+<span class="ltx_td ltx_align_center" style="padding:0.5pt 4.3pt;">N/A*</span>
+<span class="ltx_td ltx_align_center" style="padding:0.5pt 4.3pt;">N/A*</span>
+<span class="ltx_td ltx_align_center" style="padding:0.5pt 4.3pt;">N/A*</span></span>
+<span class="ltx_tr">
+<span class="ltx_td ltx_align_left ltx_border_r" style="padding:0.5pt 4.3pt;">+SFT w/ GoT</span>
+<span class="ltx_td ltx_align_center" style="padding:0.5pt 4.3pt;">-</span>
+<span class="ltx_td ltx_align_center" style="padding:0.5pt 4.3pt;">-</span>
+<span class="ltx_td ltx_align_center ltx_border_r" style="padding:0.5pt 4.3pt;">-</span>
+<span class="ltx_td ltx_align_center" style="padding:0.5pt 4.3pt;">-</span>
+<span class="ltx_td ltx_align_center" style="padding:0.5pt 4.3pt;">-</span>
+<span class="ltx_td ltx_align_center ltx_border_r" style="padding:0.5pt 4.3pt;">-</span>
+<span class="ltx_td ltx_align_center" style="padding:0.5pt 4.3pt;">-</span>
+<span class="ltx_td ltx_align_center ltx_border_r" style="padding:0.5pt 4.3pt;">-</span>
+<span class="ltx_td ltx_align_center" style="padding:0.5pt 4.3pt;">41.8</span>
+<span class="ltx_td ltx_align_center ltx_border_r" style="padding:0.5pt 4.3pt;">29.5</span>
+<span class="ltx_td ltx_align_center" style="padding:0.5pt 4.3pt;">59.2</span>
+<span class="ltx_td ltx_align_center" style="padding:0.5pt 4.3pt;">58.6</span>
+<span class="ltx_td ltx_align_center" style="padding:0.5pt 4.3pt;">58.5</span></span>
+<span class="ltx_tr">
+<span class="ltx_td ltx_align_left ltx_border_r" style="padding:0.5pt 4.3pt;">+SFT w/ NExTGQA</span>
+<span class="ltx_td ltx_align_center" style="padding:0.5pt 4.3pt;">-</span>
+<span class="ltx_td ltx_align_center" style="padding:0.5pt 4.3pt;">-</span>
+<span class="ltx_td ltx_align_center ltx_border_r" style="padding:0.5pt 4.3pt;">-</span>
+<span class="ltx_td ltx_align_center" style="padding:0.5pt 4.3pt;">-</span>
+<span class="ltx_td ltx_align_center" style="padding:0.5pt 4.3pt;">-</span>
+<span class="ltx_td ltx_align_center ltx_border_r" style="padding:0.5pt 4.3pt;">-</span>
+<span class="ltx_td ltx_align_center" style="padding:0.5pt 4.3pt;">28.2</span>
+<span class="ltx_td ltx_align_center ltx_border_r" style="padding:0.5pt 4.3pt;">64.8</span>
+<span class="ltx_td ltx_align_center" style="padding:0.5pt 4.3pt;">-</span>
+<span class="ltx_td ltx_align_center ltx_border_r" style="padding:0.5pt 4.3pt;">-</span>
+<span class="ltx_td ltx_align_center" style="padding:0.5pt 4.3pt;">60.1</span>
+<span class="ltx_td ltx_align_center" style="padding:0.5pt 4.3pt;">59.2</span>
+<span class="ltx_td ltx_align_center" style="padding:0.5pt 4.3pt;">60.7</span></span>
+<span class="ltx_tr">
+<span class="ltx_td ltx_align_left ltx_border_t ltx_colspan ltx_colspan_12" style="padding:0.5pt 4.3pt;"><span class="ltx_text ltx_font_italic" style="--ltx-fg-color:#5C946E;">GRPO on various tasks</span></span>
+<span class="ltx_td ltx_border_t" style="padding:0.5pt 4.3pt;"></span>
+<span class="ltx_td ltx_border_t" style="padding:0.5pt 4.3pt;"></span></span>
+<span class="ltx_tr">
+<span class="ltx_td ltx_align_left ltx_border_r" style="padding:0.5pt 4.3pt;"><span class="ltx_text ltx_font_bold">VideoChat-R1</span></span>
+<span class="ltx_td ltx_align_center" style="padding:0.5pt 4.3pt;"><span class="ltx_text ltx_font_bold">60.8</span></span>
+<span class="ltx_td ltx_align_center" style="padding:0.5pt 4.3pt;"><span class="ltx_text ltx_font_bold">71.7</span></span>
+<span class="ltx_td ltx_align_center ltx_border_r" style="padding:0.5pt 4.3pt;"><span class="ltx_text ltx_font_bold">50.2</span></span>
+<span class="ltx_td ltx_align_center" style="padding:0.5pt 4.3pt;"><span class="ltx_text ltx_font_bold">36.6</span></span>
+<span class="ltx_td ltx_align_center" style="padding:0.5pt 4.3pt;"><span class="ltx_text ltx_font_bold">33.4</span></span>
+<span class="ltx_td ltx_align_center ltx_border_r" style="padding:0.5pt 4.3pt;"><span class="ltx_text ltx_font_bold">17.7</span></span>
+<span class="ltx_td ltx_align_center" style="padding:0.5pt 4.3pt;"><span class="ltx_text ltx_framed ltx_framed_underline">32.4</span></span>
+<span class="ltx_td ltx_align_center ltx_border_r" style="padding:0.5pt 4.3pt;"><span class="ltx_text ltx_font_bold">70.6</span></span>
+<span class="ltx_td ltx_align_center" style="padding:0.5pt 4.3pt;"><span class="ltx_text ltx_font_bold">43.8</span></span>
+<span class="ltx_td ltx_align_center ltx_border_r" style="padding:0.5pt 4.3pt;"><span class="ltx_text ltx_font_bold">38.2</span></span>
+<span class="ltx_td ltx_align_center" style="padding:0.5pt 4.3pt;"><span class="ltx_text ltx_framed ltx_framed_underline">72.2</span></span>
+<span class="ltx_td ltx_align_center" style="padding:0.5pt 4.3pt;"><span class="ltx_text ltx_font_bold">67.9</span></span>
+<span class="ltx_td ltx_align_center" style="padding:0.5pt 4.3pt;"><span class="ltx_text ltx_font_bold">70.0</span></span></span>
+<span class="ltx_tr">
+<span class="ltx_td ltx_align_left ltx_border_bb ltx_border_r" style="padding:0.5pt 4.3pt;"><span class="ltx_text ltx_font_bold">VideoChat-R1-thinking</span></span>
+<span class="ltx_td ltx_align_center ltx_border_bb" style="padding:0.5pt 4.3pt;"><span class="ltx_text ltx_framed ltx_framed_underline">59.9</span></span>
+<span class="ltx_td ltx_align_center ltx_border_bb" style="padding:0.5pt 4.3pt;"><span class="ltx_text ltx_framed ltx_framed_underline">70.6</span></span>
+<span class="ltx_td ltx_align_center ltx_border_bb ltx_border_r" style="padding:0.5pt 4.3pt;"><span class="ltx_text ltx_framed ltx_framed_underline">47.2</span></span>
+<span class="ltx_td ltx_align_center ltx_border_bb" style="padding:0.5pt 4.3pt;"><span class="ltx_text ltx_framed ltx_framed_underline">35.5</span></span>
+<span class="ltx_td ltx_align_center ltx_border_bb" style="padding:0.5pt 4.3pt;"><span class="ltx_text ltx_framed ltx_framed_underline">33.3</span></span>
+<span class="ltx_td ltx_align_center ltx_border_bb ltx_border_r" style="padding:0.5pt 4.3pt;"><span class="ltx_text ltx_framed ltx_framed_underline">16.7</span></span>
+<span class="ltx_td ltx_align_center ltx_border_bb" style="padding:0.5pt 4.3pt;"><span class="ltx_text ltx_font_bold">36.1</span></span>
+<span class="ltx_td ltx_align_center ltx_border_bb ltx_border_r" style="padding:0.5pt 4.3pt;"><span class="ltx_text ltx_framed ltx_framed_underline">69.2</span></span>
+<span class="ltx_td ltx_align_center ltx_border_bb" style="padding:0.5pt 4.3pt;"><span class="ltx_text ltx_framed ltx_framed_underline">43.3</span></span>
+<span class="ltx_td ltx_align_center ltx_border_bb ltx_border_r" style="padding:0.5pt 4.3pt;"><span class="ltx_text ltx_framed ltx_framed_underline">33.9</span></span>
+<span class="ltx_td ltx_align_center ltx_border_bb" style="padding:0.5pt 4.3pt;"><span class="ltx_text ltx_font_bold">74.2</span></span>
+<span class="ltx_td ltx_align_center ltx_border_bb" style="padding:0.5pt 4.3pt;"><span class="ltx_text ltx_framed ltx_framed_underline">66.2</span></span>
+<span class="ltx_td ltx_align_center ltx_border_bb" style="padding:0.5pt 4.3pt;"><span class="ltx_text ltx_framed ltx_framed_underline">69.6</span></span></span>
+</span></span>
+</span></span></span></p>
+<figcaption class="ltx_caption ltx_centering"><span class="ltx_tag ltx_tag_table"><span class="ltx_text" style="font-size:90%;">Table 1</span>: </span><span class="ltx_text ltx_font_bold" style="font-size:90%;">Results of VideoChat-R1 on various Video Benchmarks.<span class="ltx_text ltx_font_medium"> * indicates that the model has suffered from overfitting and is unable to answer the question properly. Since the number of input pixels is fixed during our evaluation, the baseline results are slightly lower than those reported in their origin paper <cite class="ltx_cite ltx_citemacro_cite">[<span class="ltx_ref ltx_missing_citation ltx_ref_self">qwen25vl</span>]</cite>.</span></span></figcaption>
+</figure>
+<div class="ltx_para" id="S4.SS1.p1">
+<p class="ltx_p">As shown in Table <a class="ltx_ref" href="https://arxiv.org/html/2504.06958v5#S4.T1" title="Table 1 ‣ 4.1 Evaluation of VideoChat-R1 ‣ 4 Experiments ‣ VideoChat-R1: Enhancing Spatio-Temporal Perception via Reinforcement Fine-Tuning"><span class="ltx_text ltx_ref_tag">1</span></a>, after training with GRPO on spatio-temporal perception datasets, both VideoChat-R1 and VideoChat-R1-thinking significantly outperform the performance of Qwen2.5-VL and that of models fine-tuned through SFT for a single specific task across various spatiotemporal perception benchmarks and the general understanding benchmark VideoMME. This validates the effectiveness of our approach, which leverages multiple spatiotemporal perception datasets and RFT for enhancing spatiotemporal perception.</p>
+</div>
+<div class="ltx_para" id="S4.SS1.p2">
+<p class="ltx_p">Meanwhile, we observe that for spatio-temporal perception tasks, engaging in thinking processes does not necessarily lead to performance gains. However, for tasks such as QA and VideoMME, which may require complex reasoning, conducting inferences during testing can result in notable performance improvements.</p>
+</div>
+</section>
+<section class="ltx_subsection" id="S4.SS2">
+<h3 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection">4.2 </span>Ablation Studies and Discussions</h3>
+<section class="ltx_paragraph" id="S4.SS2.SSS0.Px1">
+<h4 class="ltx_title ltx_title_paragraph">Muti-task Co-training.</h4>
+<div class="ltx_para" id="S4.SS2.SSS0.Px1.p1">
+<p class="ltx_p">As shown in Table <a class="ltx_ref" href="https://arxiv.org/html/2504.06958v5#S4.T2" title="Table 2 ‣ Muti-task Co-training. ‣ 4.2 Ablation Studies and Discussions ‣ 4 Experiments ‣ VideoChat-R1: Enhancing Spatio-Temporal Perception via Reinforcement Fine-Tuning"><span class="ltx_text ltx_ref_tag">2</span></a>, we found that mixed training of different spatiotemporal perception tasks using GRPO can yield a synergistic improvement effect. Training with the multiple tasks achieves nearly the best results across all benchmarks. This reveals the potential of GRPO for larger-scale and multi-task collaborative training in the future.</p>
+</div>
+<figure class="ltx_table" id="S4.T2">
+<p class="ltx_p ltx_align_center"><span class="ltx_text ltx_inline-block" style="width:433.6pt;">
+<span class="ltx_inline-block ltx_transformed_outer" style="width:566.8pt;height:97.2pt;vertical-align:-46.1pt;"><span class="ltx_transformed_inner" style="transform:translate(0.0pt,0.0pt) scale(1,1) ;">
+<span class="ltx_p">
+<span class="ltx_tabular ltx_align_middle">
+<span class="ltx_tr">
+<span class="ltx_td ltx_align_left ltx_border_r ltx_border_tt ltx_rowspan ltx_rowspan_2" style="padding:0.5pt 4.3pt;"><span class="ltx_text ltx_font_bold">Method</span></span>
+<span class="ltx_td ltx_align_center ltx_border_tt ltx_colspan ltx_colspan_3" style="padding:0.5pt 4.3pt;"><span class="ltx_text ltx_font_bold">Charades-STA</span></span>
+<span class="ltx_td ltx_align_center ltx_border_tt ltx_colspan ltx_colspan_3" style="padding:0.5pt 4.3pt;"><span class="ltx_text ltx_font_bold">ANet</span></span>
+<span class="ltx_td ltx_align_center ltx_border_tt ltx_colspan ltx_colspan_2" style="padding:0.5pt 4.3pt;"><span class="ltx_text ltx_font_bold">NExTGQA</span></span>
+<span class="ltx_td ltx_align_center ltx_border_tt ltx_colspan ltx_colspan_2" style="padding:0.5pt 4.3pt;"><span class="ltx_text ltx_font_bold">GoT</span></span>
+<span class="ltx_td ltx_align_center ltx_border_tt" style="padding:0.5pt 4.3pt;"><span class="ltx_text ltx_font_bold">VideoMME</span></span></span>
+<span class="ltx_tr">
+<span class="ltx_td ltx_align_center" style="padding:0.5pt 4.3pt;">mIoU</span>
+<span class="ltx_td ltx_align_center" style="padding:0.5pt 4.3pt;">R@0.5</span>
+<span class="ltx_td ltx_align_center ltx_border_r" style="padding:0.5pt 4.3pt;">R@0.7</span>
+<span class="ltx_td ltx_align_center" style="padding:0.5pt 4.3pt;">mIoU</span>
+<span class="ltx_td ltx_align_center" style="padding:0.5pt 4.3pt;">R@0.5</span>
+<span class="ltx_td ltx_align_center ltx_border_r" style="padding:0.5pt 4.3pt;">R@0.7</span>
+<span class="ltx_td ltx_align_center" style="padding:0.5pt 4.3pt;">mIoU</span>
+<span class="ltx_td ltx_align_center ltx_border_r" style="padding:0.5pt 4.3pt;">acc</span>
+<span class="ltx_td ltx_align_center" style="padding:0.5pt 4.3pt;">Overlap</span>
+<span class="ltx_td ltx_align_center ltx_border_r" style="padding:0.5pt 4.3pt;">R@0.5</span>
+<span class="ltx_td ltx_align_center" style="padding:0.5pt 4.3pt;">Short-Avg</span></span>
+<span class="ltx_tr">
+<span class="ltx_td ltx_align_left ltx_border_r ltx_border_t" style="padding:0.5pt 4.3pt;">Qwen2.5-VL-7B</span>
+<span class="ltx_td ltx_align_center ltx_border_t" style="padding:0.5pt 4.3pt;">29.0</span>
+<span class="ltx_td ltx_align_center ltx_border_t" style="padding:0.5pt 4.3pt;">24.2</span>
+<span class="ltx_td ltx_align_center ltx_border_r ltx_border_t" style="padding:0.5pt 4.3pt;">11.1</span>
+<span class="ltx_td ltx_align_center ltx_border_t" style="padding:0.5pt 4.3pt;">21.1</span>
+<span class="ltx_td ltx_align_center ltx_border_t" style="padding:0.5pt 4.3pt;">15.8</span>
+<span class="ltx_td ltx_align_center ltx_border_r ltx_border_t" style="padding:0.5pt 4.3pt;">7.5</span>
+<span class="ltx_td ltx_align_center ltx_border_t" style="padding:0.5pt 4.3pt;">15.4</span>
+<span class="ltx_td ltx_align_center ltx_border_r ltx_border_t" style="padding:0.5pt 4.3pt;">59.5</span>
+<span class="ltx_td ltx_align_center ltx_border_t" style="padding:0.5pt 4.3pt;">12.6</span>
+<span class="ltx_td ltx_align_center ltx_border_r ltx_border_t" style="padding:0.5pt 4.3pt;">1.1</span>
+<span class="ltx_td ltx_align_center ltx_border_t" style="padding:0.5pt 4.3pt;">71.3</span></span>
+<span class="ltx_tr">
+<span class="ltx_td ltx_align_left ltx_border_r" style="padding:0.5pt 4.3pt;">+GRPO w/ STA</span>
+<span class="ltx_td ltx_align_center" style="padding:0.5pt 4.3pt;">59.3</span>
+<span class="ltx_td ltx_align_center" style="padding:0.5pt 4.3pt;"><span class="ltx_text ltx_framed ltx_framed_underline">70.4</span></span>
+<span class="ltx_td ltx_align_center ltx_border_r" style="padding:0.5pt 4.3pt;">46.0</span>
+<span class="ltx_td ltx_align_center" style="padding:0.5pt 4.3pt;">30.7</span>
+<span class="ltx_td ltx_align_center" style="padding:0.5pt 4.3pt;">27.5</span>
+<span class="ltx_td ltx_align_center ltx_border_r" style="padding:0.5pt 4.3pt;">12.9</span>
+<span class="ltx_td ltx_align_center" style="padding:0.5pt 4.3pt;">31.4</span>
+<span class="ltx_td ltx_align_center ltx_border_r" style="padding:0.5pt 4.3pt;">61.2</span>
+<span class="ltx_td ltx_align_center" style="padding:0.5pt 4.3pt;">27.8</span>
+<span class="ltx_td ltx_align_center ltx_border_r" style="padding:0.5pt 4.3pt;">12.9</span>
+<span class="ltx_td ltx_align_center" style="padding:0.5pt 4.3pt;"><span class="ltx_text ltx_font_bold">72.6</span></span></span>
+<span class="ltx_tr">
+<span class="ltx_td ltx_align_left ltx_border_r" style="padding:0.5pt 4.3pt;">+GRPO w/GQA</span>
+<span class="ltx_td ltx_align_center" style="padding:0.5pt 4.3pt;">36.0</span>
+<span class="ltx_td ltx_align_center" style="padding:0.5pt 4.3pt;">33.5</span>
+<span class="ltx_td ltx_align_center ltx_border_r" style="padding:0.5pt 4.3pt;">15.5</span>
+<span class="ltx_td ltx_align_center" style="padding:0.5pt 4.3pt;">24.9</span>
+<span class="ltx_td ltx_align_center" style="padding:0.5pt 4.3pt;">20.6</span>
+<span class="ltx_td ltx_align_center ltx_border_r" style="padding:0.5pt 4.3pt;">10.7</span>
+<span class="ltx_td ltx_align_center" style="padding:0.5pt 4.3pt;">35.1</span>
+<span class="ltx_td ltx_align_center ltx_border_r" style="padding:0.5pt 4.3pt;"><span class="ltx_text ltx_framed ltx_framed_underline">68.7</span></span>
+<span class="ltx_td ltx_align_center" style="padding:0.5pt 4.3pt;">36.1</span>
+<span class="ltx_td ltx_align_center ltx_border_r" style="padding:0.5pt 4.3pt;">26.7</span>
+<span class="ltx_td ltx_align_center" style="padding:0.5pt 4.3pt;">72.0</span></span>
+<span class="ltx_tr">
+<span class="ltx_td ltx_align_left ltx_border_r" style="padding:0.5pt 4.3pt;">+GRPO w/ GoT</span>
+<span class="ltx_td ltx_align_center" style="padding:0.5pt 4.3pt;">28.7</span>
+<span class="ltx_td ltx_align_center" style="padding:0.5pt 4.3pt;">25.1</span>
+<span class="ltx_td ltx_align_center ltx_border_r" style="padding:0.5pt 4.3pt;">9.6</span>
+<span class="ltx_td ltx_align_center" style="padding:0.5pt 4.3pt;">20.1</span>
+<span class="ltx_td ltx_align_center" style="padding:0.5pt 4.3pt;">16.2</span>
+<span class="ltx_td ltx_align_center ltx_border_r" style="padding:0.5pt 4.3pt;">6.8</span>
+<span class="ltx_td ltx_align_center" style="padding:0.5pt 4.3pt;">15.6</span>
+<span class="ltx_td ltx_align_center ltx_border_r" style="padding:0.5pt 4.3pt;">60.5</span>
+<span class="ltx_td ltx_align_center" style="padding:0.5pt 4.3pt;"><span class="ltx_text ltx_framed ltx_framed_underline">42.5</span></span>
+<span class="ltx_td ltx_align_center ltx_border_r" style="padding:0.5pt 4.3pt;"><span class="ltx_text ltx_framed ltx_framed_underline">30.6</span></span>
+<span class="ltx_td ltx_align_center" style="padding:0.5pt 4.3pt;">71.4</span></span>
+<span class="ltx_tr">
+<span class="ltx_td ltx_align_left ltx_border_r" style="padding:0.5pt 4.3pt;">+GRPO w/ STA-GQA</span>
+<span class="ltx_td ltx_align_center" style="padding:0.5pt 4.3pt;"><span class="ltx_text ltx_framed ltx_framed_underline">59.8</span></span>
+<span class="ltx_td ltx_align_center" style="padding:0.5pt 4.3pt;">69.7</span>
+<span class="ltx_td ltx_align_center ltx_border_r" style="padding:0.5pt 4.3pt;"><span class="ltx_text ltx_framed ltx_framed_underline">47.0</span></span>
+<span class="ltx_td ltx_align_center" style="padding:0.5pt 4.3pt;"><span class="ltx_text ltx_framed ltx_framed_underline">33.7</span></span>
+<span class="ltx_td ltx_align_center" style="padding:0.5pt 4.3pt;"><span class="ltx_text ltx_framed ltx_framed_underline">31.0</span></span>
+<span class="ltx_td ltx_align_center ltx_border_r" style="padding:0.5pt 4.3pt;"><span class="ltx_text ltx_framed ltx_framed_underline">16.0</span></span>
+<span class="ltx_td ltx_align_center" style="padding:0.5pt 4.3pt;"><span class="ltx_text ltx_font_bold">35.7</span></span>
+<span class="ltx_td ltx_align_center ltx_border_r" style="padding:0.5pt 4.3pt;">67.7</span>
+<span class="ltx_td ltx_align_center" style="padding:0.5pt 4.3pt;">36.5</span>
+<span class="ltx_td ltx_align_center ltx_border_r" style="padding:0.5pt 4.3pt;">28.9</span>
+<span class="ltx_td ltx_align_center" style="padding:0.5pt 4.3pt;"><span class="ltx_text ltx_framed ltx_framed_underline">72.2</span></span></span>
+<span class="ltx_tr">
+<span class="ltx_td ltx_align_left ltx_border_bb ltx_border_r" style="padding:0.5pt 4.3pt;">+GRPO w/ STA-GQA-GoT</span>
+<span class="ltx_td ltx_align_center ltx_border_bb" style="padding:0.5pt 4.3pt;"><span class="ltx_text ltx_font_bold">60.8</span></span>
+<span class="ltx_td ltx_align_center ltx_border_bb" style="padding:0.5pt 4.3pt;"><span class="ltx_text ltx_font_bold">71.7</span></span>
+<span class="ltx_td ltx_align_center ltx_border_bb ltx_border_r" style="padding:0.5pt 4.3pt;"><span class="ltx_text ltx_font_bold">50.2</span></span>
+<span class="ltx_td ltx_align_center ltx_border_bb" style="padding:0.5pt 4.3pt;"><span class="ltx_text ltx_font_bold">36.6</span></span>
+<span class="ltx_td ltx_align_center ltx_border_bb" style="padding:0.5pt 4.3pt;"><span class="ltx_text ltx_font_bold">33.4</span></span>
+<span class="ltx_td ltx_align_center ltx_border_bb ltx_border_r" style="padding:0.5pt 4.3pt;"><span class="ltx_text ltx_font_bold">17.7</span></span>
+<span class="ltx_td ltx_align_center ltx_border_bb" style="padding:0.5pt 4.3pt;">32.4</span>
+<span class="ltx_td ltx_align_center ltx_border_bb ltx_border_r" style="padding:0.5pt 4.3pt;"><span class="ltx_text ltx_font_bold">70.6</span></span>
+<span class="ltx_td ltx_align_center ltx_border_bb" style="padding:0.5pt 4.3pt;"><span class="ltx_text ltx_font_bold">43.8</span></span>
+<span class="ltx_td ltx_align_center ltx_border_bb ltx_border_r" style="padding:0.5pt 4.3pt;"><span class="ltx_text ltx_font_bold">38.2</span></span>
+<span class="ltx_td ltx_align_center ltx_border_bb" style="padding:0.5pt 4.3pt;"><span class="ltx_text ltx_framed ltx_framed_underline">72.2</span></span></span>
+</span></span>
+</span></span></span></p>
+<figcaption class="ltx_caption ltx_centering"><span class="ltx_tag ltx_tag_table"><span class="ltx_text" style="font-size:90%;">Table 2</span>: </span><span class="ltx_text ltx_font_bold" style="font-size:90%;">Ablation results of Cotraining on Spatio-Temporal Tasks.</span></figcaption>
+</figure>
+<figure class="ltx_table" id="S4.T3">
+<p class="ltx_p ltx_align_center"><span class="ltx_text ltx_inline-block" style="width:433.6pt;">
+<span class="ltx_inline-block ltx_transformed_outer" style="width:863.8pt;height:170.4pt;vertical-align:-82.7pt;"><span class="ltx_transformed_inner" style="transform:translate(0.0pt,0.0pt) scale(1,1) ;">
+<span class="ltx_p">
+<span class="ltx_tabular ltx_align_middle">
+<span class="ltx_tr">
+<span class="ltx_td ltx_align_left ltx_border_r ltx_border_tt ltx_rowspan ltx_rowspan_2" style="padding:0.5pt 4.3pt;"><span class="ltx_text ltx_font_bold">Method</span></span>
+<span class="ltx_td ltx_align_center ltx_border_r ltx_border_tt ltx_rowspan ltx_rowspan_2" style="padding:0.5pt 4.3pt;"><span class="ltx_text ltx_font_bold">Epochs</span></span>
+<span class="ltx_td ltx_align_center ltx_border_tt ltx_colspan ltx_colspan_2" style="padding:0.5pt 4.3pt;"><span class="ltx_text ltx_font_bold">Training Prompt</span></span>
+<span class="ltx_td ltx_align_center ltx_border_tt ltx_colspan ltx_colspan_2" style="padding:0.5pt 4.3pt;"><span class="ltx_text ltx_font_bold">Test Prompt</span></span>
+<span class="ltx_td ltx_align_center ltx_border_tt ltx_colspan ltx_colspan_4" style="padding:0.5pt 4.3pt;"><span class="ltx_text ltx_font_bold">Charades-STA (in domain)</span></span>
+<span class="ltx_td ltx_align_center ltx_border_tt ltx_colspan ltx_colspan_4" style="padding:0.5pt 4.3pt;"><span class="ltx_text ltx_font_bold">ActivityNet (out domain)</span></span>
+<span class="ltx_td ltx_align_left ltx_border_tt" style="padding:0.5pt 4.3pt;"><span class="ltx_text ltx_font_bold">VideoMME</span></span></span>
+<span class="ltx_tr">
+<span class="ltx_td ltx_align_center" style="padding:0.5pt 4.3pt;">Think</span>
+<span class="ltx_td ltx_align_center ltx_border_r" style="padding:0.5pt 4.3pt;">Answer</span>
+<span class="ltx_td ltx_align_center" style="padding:0.5pt 4.3pt;">Think</span>
+<span class="ltx_td ltx_align_center ltx_border_r" style="padding:0.5pt 4.3pt;">Answer</span>
+<span class="ltx_td ltx_align_left" style="padding:0.5pt 4.3pt;">mIoU</span>
+<span class="ltx_td ltx_align_left" style="padding:0.5pt 4.3pt;">R@0.3</span>
+<span class="ltx_td ltx_align_left" style="padding:0.5pt 4.3pt;">R@0.5</span>
+<span class="ltx_td ltx_align_left ltx_border_r" style="padding:0.5pt 4.3pt;">R@0.7</span>
+<span class="ltx_td ltx_align_left" style="padding:0.5pt 4.3pt;">mIoU</span>
+<span class="ltx_td ltx_align_left" style="padding:0.5pt 4.3pt;">R@0.3</span>
+<span class="ltx_td ltx_align_left" style="padding:0.5pt 4.3pt;">R@0.5</span>
+<span class="ltx_td ltx_align_left ltx_border_r" style="padding:0.5pt 4.3pt;">R@0.7</span>
+<span class="ltx_td ltx_align_left" style="padding:0.5pt 4.3pt;">Short-Avg</span></span>
+<span class="ltx_tr">
+<span class="ltx_td ltx_align_left ltx_border_t ltx_colspan ltx_colspan_8" style="padding:0.5pt 4.3pt;"><span class="ltx_text ltx_font_italic" style="--ltx-fg-color:#5C946E;">Vision Experts</span></span>
+<span class="ltx_td ltx_border_t" style="padding:0.5pt 4.3pt;"></span>
+<span class="ltx_td ltx_border_t" style="padding:0.5pt 4.3pt;"></span>
+<span class="ltx_td ltx_border_t" style="padding:0.5pt 4.3pt;"></span>
+<span class="ltx_td ltx_border_t" style="padding:0.5pt 4.3pt;"></span>
+<span class="ltx_td ltx_border_t" style="padding:0.5pt 4.3pt;"></span>
+<span class="ltx_td ltx_border_t" style="padding:0.5pt 4.3pt;"></span>
+<span class="ltx_td ltx_border_t" style="padding:0.5pt 4.3pt;"></span></span>
+<span class="ltx_tr">
+<span class="ltx_td ltx_align_left ltx_border_r" style="padding:0.5pt 4.3pt;">FlashVTG <cite class="ltx_cite ltx_citemacro_cite">[<span class="ltx_ref ltx_missing_citation ltx_ref_self">cao2024flashvtg</span>]</cite></span>
+<span class="ltx_td ltx_align_center ltx_border_r" style="padding:0.5pt 4.3pt;">-</span>
+<span class="ltx_td ltx_align_center" style="padding:0.5pt 4.3pt;">-</span>
+<span class="ltx_td ltx_align_center ltx_border_r" style="padding:0.5pt 4.3pt;">-</span>
+<span class="ltx_td ltx_align_center" style="padding:0.5pt 4.3pt;">-</span>
+<span class="ltx_td ltx_align_center ltx_border_r" style="padding:0.5pt 4.3pt;">-</span>
+<span class="ltx_td ltx_align_left" style="padding:0.5pt 4.3pt;">-</span>
+<span class="ltx_td ltx_align_left" style="padding:0.5pt 4.3pt;">-</span>
+<span class="ltx_td ltx_align_left" style="padding:0.5pt 4.3pt;">70.3</span>
+<span class="ltx_td ltx_align_left ltx_border_r" style="padding:0.5pt 4.3pt;">49.9</span>
+<span class="ltx_td ltx_align_left" style="padding:0.5pt 4.3pt;">-</span>
+<span class="ltx_td ltx_align_left" style="padding:0.5pt 4.3pt;">-</span>
+<span class="ltx_td ltx_align_left" style="padding:0.5pt 4.3pt;">-</span>
+<span class="ltx_td ltx_align_left ltx_border_r" style="padding:0.5pt 4.3pt;">-</span>
+<span class="ltx_td ltx_align_left" style="padding:0.5pt 4.3pt;">-</span></span>
+<span class="ltx_tr">
+<span class="ltx_td ltx_align_left ltx_border_r" style="padding:0.5pt 4.3pt;">InternVideo2-6B <cite class="ltx_cite ltx_citemacro_cite">[<span class="ltx_ref ltx_missing_citation ltx_ref_self">wang2024internvideo2</span>]</cite></span>
+<span class="ltx_td ltx_align_center ltx_border_r" style="padding:0.5pt 4.3pt;">-</span>
+<span class="ltx_td ltx_align_center" style="padding:0.5pt 4.3pt;">-</span>
+<span class="ltx_td ltx_align_center ltx_border_r" style="padding:0.5pt 4.3pt;">-</span>
+<span class="ltx_td ltx_align_center" style="padding:0.5pt 4.3pt;">-</span>
+<span class="ltx_td ltx_align_center ltx_border_r" style="padding:0.5pt 4.3pt;">-</span>
+<span class="ltx_td ltx_align_left" style="padding:0.5pt 4.3pt;">-</span>
+<span class="ltx_td ltx_align_left" style="padding:0.5pt 4.3pt;">-</span>
+<span class="ltx_td ltx_align_left" style="padding:0.5pt 4.3pt;">70.0</span>
+<span class="ltx_td ltx_align_left ltx_border_r" style="padding:0.5pt 4.3pt;">49.0</span>
+<span class="ltx_td ltx_align_left" style="padding:0.5pt 4.3pt;">-</span>
+<span class="ltx_td ltx_align_left" style="padding:0.5pt 4.3pt;">-</span>
+<span class="ltx_td ltx_align_left" style="padding:0.5pt 4.3pt;">-</span>
+<span class="ltx_td ltx_align_left ltx_border_r" style="padding:0.5pt 4.3pt;">-</span>
+<span class="ltx_td ltx_align_left" style="padding:0.5pt 4.3pt;">-</span></span>
+<span class="ltx_tr">
+<span class="ltx_td ltx_align_left ltx_border_r" style="padding:0.5pt 4.3pt;">SG-DETR <cite class="ltx_cite ltx_citemacro_cite">[<span class="ltx_ref ltx_missing_citation ltx_ref_self">gordeev2024saliency</span>]</cite></span>
+<span class="ltx_td ltx_border_r" style="padding:0.5pt 4.3pt;"></span>
+<span class="ltx_td" style="padding:0.5pt 4.3pt;"></span>
+<span class="ltx_td ltx_border_r" style="padding:0.5pt 4.3pt;"></span>
+<span class="ltx_td" style="padding:0.5pt 4.3pt;"></span>
+<span class="ltx_td ltx_border_r" style="padding:0.5pt 4.3pt;"></span>
+<span class="ltx_td ltx_align_left" style="padding:0.5pt 4.3pt;">-</span>
+<span class="ltx_td ltx_align_left" style="padding:0.5pt 4.3pt;">-</span>
+<span class="ltx_td ltx_align_left" style="padding:0.5pt 4.3pt;">71.1</span>
+<span class="ltx_td ltx_align_left ltx_border_r" style="padding:0.5pt 4.3pt;">52.8</span>
+<span class="ltx_td ltx_align_left" style="padding:0.5pt 4.3pt;">-</span>
+<span class="ltx_td ltx_align_left" style="padding:0.5pt 4.3pt;">-</span>
+<span class="ltx_td ltx_align_left" style="padding:0.5pt 4.3pt;">-</span>
+<span class="ltx_td ltx_align_left ltx_border_r" style="padding:0.5pt 4.3pt;">-</span>
+<span class="ltx_td ltx_align_left" style="padding:0.5pt 4.3pt;">-</span></span>
+<span class="ltx_tr">
+<span class="ltx_td ltx_align_left ltx_border_t ltx_colspan ltx_colspan_8" style="padding:0.5pt 4.3pt;"><span class="ltx_text ltx_font_italic" style="--ltx-fg-color:#5C946E;">MLLMs</span></span>
+<span class="ltx_td ltx_border_t" style="padding:0.5pt 4.3pt;"></span>
+<span class="ltx_td ltx_border_t" style="padding:0.5pt 4.3pt;"></span>
+<span class="ltx_td ltx_border_t" style="padding:0.5pt 4.3pt;"></span>
+<span class="ltx_td ltx_border_t" style="padding:0.5pt 4.3pt;"></span>
+<span class="ltx_td ltx_border_t" style="padding:0.5pt 4.3pt;"></span>
+<span class="ltx_td ltx_border_t" style="padding:0.5pt 4.3pt;"></span>
+<span class="ltx_td ltx_border_t" style="padding:0.5pt 4.3pt;"></span></span>
+<span class="ltx_tr">
+<span class="ltx_td ltx_align_left ltx_border_r" style="padding:0.5pt 4.3pt;">Qwen2.5-VL-7B</span>
+<span class="ltx_td ltx_align_center ltx_border_r" style="padding:0.5pt 4.3pt;">-</span>
+<span class="ltx_td ltx_align_center" style="padding:0.5pt 4.3pt;">-</span>
+<span class="ltx_td ltx_align_center ltx_border_r" style="padding:0.5pt 4.3pt;">-</span>
+<span class="ltx_td" style="padding:0.5pt 4.3pt;"></span>
+<span class="ltx_td ltx_align_center ltx_border_r" style="padding:0.5pt 4.3pt;">✓</span>
+<span class="ltx_td ltx_align_left" style="padding:0.5pt 4.3pt;">29.0</span>
+<span class="ltx_td ltx_align_left" style="padding:0.5pt 4.3pt;">44.7</span>
+<span class="ltx_td ltx_align_left" style="padding:0.5pt 4.3pt;">24.2</span>
+<span class="ltx_td ltx_align_left ltx_border_r" style="padding:0.5pt 4.3pt;">11.1</span>
+<span class="ltx_td ltx_align_left" style="padding:0.5pt 4.3pt;">21.1</span>
+<span class="ltx_td ltx_align_left" style="padding:0.5pt 4.3pt;">28.3</span>
+<span class="ltx_td ltx_align_left" style="padding:0.5pt 4.3pt;">15.8</span>
+<span class="ltx_td ltx_align_left ltx_border_r" style="padding:0.5pt 4.3pt;">7.4</span>
+<span class="ltx_td ltx_align_left" style="padding:0.5pt 4.3pt;">71.3</span></span>
+<span class="ltx_tr">
+<span class="ltx_td ltx_align_left ltx_border_r" style="padding:0.5pt 4.3pt;">(baseline)</span>
+<span class="ltx_td ltx_align_center ltx_border_r" style="padding:0.5pt 4.3pt;">-</span>
+<span class="ltx_td ltx_align_center" style="padding:0.5pt 4.3pt;">-</span>
+<span class="ltx_td ltx_align_center ltx_border_r" style="padding:0.5pt 4.3pt;">-</span>
+<span class="ltx_td ltx_align_center" style="padding:0.5pt 4.3pt;">✓</span>
+<span class="ltx_td ltx_align_center ltx_border_r" style="padding:0.5pt 4.3pt;">✓</span>
+<span class="ltx_td ltx_align_left" style="padding:0.5pt 4.3pt;">28.1</span>
+<span class="ltx_td ltx_align_left" style="padding:0.5pt 4.3pt;">41.8</span>
+<span class="ltx_td ltx_align_left" style="padding:0.5pt 4.3pt;">23.4</span>
+<span class="ltx_td ltx_align_left ltx_border_r" style="padding:0.5pt 4.3pt;">11.1</span>
+<span class="ltx_td ltx_align_left" style="padding:0.5pt 4.3pt;">17.7</span>
+<span class="ltx_td ltx_align_left" style="padding:0.5pt 4.3pt;">22.7</span>
+<span class="ltx_td ltx_align_left" style="padding:0.5pt 4.3pt;">13.4</span>
+<span class="ltx_td ltx_align_left ltx_border_r" style="padding:0.5pt 4.3pt;">7.7</span>
+<span class="ltx_td ltx_align_left" style="padding:0.5pt 4.3pt;">71.3</span></span>
+<span class="ltx_tr">
+<span class="ltx_td ltx_align_left ltx_border_r ltx_border_t" style="padding:0.5pt 4.3pt;">+ SFT</span>
+<span class="ltx_td ltx_align_center ltx_border_r ltx_border_t" style="padding:0.5pt 4.3pt;">1</span>
+<span class="ltx_td ltx_border_t" style="padding:0.5pt 4.3pt;"></span>
+<span class="ltx_td ltx_align_center ltx_border_r ltx_border_t" style="padding:0.5pt 4.3pt;">✓</span>
+<span class="ltx_td ltx_border_t" style="padding:0.5pt 4.3pt;"></span>
+<span class="ltx_td ltx_align_center ltx_border_r ltx_border_t" style="padding:0.5pt 4.3pt;">✓</span>
+<span class="ltx_td ltx_align_left ltx_border_t" style="padding:0.5pt 4.3pt;">46.3</span>
+<span class="ltx_td ltx_align_left ltx_border_t" style="padding:0.5pt 4.3pt;">63.9</span>
+<span class="ltx_td ltx_align_left ltx_border_t" style="padding:0.5pt 4.3pt;">45.0</span>
+<span class="ltx_td ltx_align_left ltx_border_r ltx_border_t" style="padding:0.5pt 4.3pt;">25.3</span>
+<span class="ltx_td ltx_align_left ltx_border_t" style="padding:0.5pt 4.3pt;">20.6</span>
+<span class="ltx_td ltx_align_left ltx_border_t" style="padding:0.5pt 4.3pt;">30.2</span>
+<span class="ltx_td ltx_align_left ltx_border_t" style="padding:0.5pt 4.3pt;">16.7</span>
+<span class="ltx_td ltx_align_left ltx_border_r ltx_border_t" style="padding:0.5pt 4.3pt;">7.9</span>
+<span class="ltx_td ltx_align_left ltx_border_t" style="padding:0.5pt 4.3pt;">N/A*<span class="ltx_text" style="--ltx-fg-color:#008080;">(-71.3)</span></span></span>
+<span class="ltx_tr">
+<span class="ltx_td ltx_border_r" style="padding:0.5pt 4.3pt;"></span>
+<span class="ltx_td ltx_align_center ltx_border_r" style="padding:0.5pt 4.3pt;">3</span>
+<span class="ltx_td" style="padding:0.5pt 4.3pt;"></span>
+<span class="ltx_td ltx_align_center ltx_border_r" style="padding:0.5pt 4.3pt;">✓</span>
+<span class="ltx_td" style="padding:0.5pt 4.3pt;"></span>
+<span class="ltx_td ltx_align_center ltx_border_r" style="padding:0.5pt 4.3pt;">✓</span>
+<span class="ltx_td ltx_align_left" style="padding:0.5pt 4.3pt;">34.6<span class="ltx_text" style="--ltx-fg-color:#FF0000;">(+6.5)</span></span>
+<span class="ltx_td ltx_align_left" style="padding:0.5pt 4.3pt;">51.7</span>
+<span class="ltx_td ltx_align_left" style="padding:0.5pt 4.3pt;">36.3</span>
+<span class="ltx_td ltx_align_left ltx_border_r" style="padding:0.5pt 4.3pt;">20.6</span>
+<span class="ltx_td ltx_align_left" style="padding:0.5pt 4.3pt;">17.3<span class="ltx_text" style="--ltx-fg-color:#008080;">(-3.8)</span></span>
+<span class="ltx_td ltx_align_left" style="padding:0.5pt 4.3pt;">26.1</span>
+<span class="ltx_td ltx_align_left" style="padding:0.5pt 4.3pt;">10.0</span>
+<span class="ltx_td ltx_align_left ltx_border_r" style="padding:0.5pt 4.3pt;">3.9</span>
+<span class="ltx_td ltx_align_left" style="padding:0.5pt 4.3pt;">N/A*<span class="ltx_text" style="--ltx-fg-color:#008080;">(-71.3)</span></span></span>
+<span class="ltx_tr">
+<span class="ltx_td ltx_align_left ltx_border_r ltx_border_t" style="padding:0.5pt 4.3pt;">+ GRPO</span>
+<span class="ltx_td ltx_align_center ltx_border_r ltx_border_t" style="padding:0.5pt 4.3pt;">1</span>
+<span class="ltx_td ltx_border_t" style="padding:0.5pt 4.3pt;"></span>
+<span class="ltx_td ltx_align_center ltx_border_r ltx_border_t" style="padding:0.5pt 4.3pt;">✓</span>
+<span class="ltx_td ltx_border_t" style="padding:0.5pt 4.3pt;"></span>
+<span class="ltx_td ltx_align_center ltx_border_r ltx_border_t" style="padding:0.5pt 4.3pt;">✓</span>
+<span class="ltx_td ltx_align_left ltx_border_t" style="padding:0.5pt 4.3pt;">58.7</span>
+<span class="ltx_td ltx_align_left ltx_border_t" style="padding:0.5pt 4.3pt;">80.9</span>
+<span class="ltx_td ltx_align_left ltx_border_t" style="padding:0.5pt 4.3pt;">67.7</span>
+<span class="ltx_td ltx_align_left ltx_border_r ltx_border_t" style="padding:0.5pt 4.3pt;">45.4</span>
+<span class="ltx_td ltx_align_left ltx_border_t" style="padding:0.5pt 4.3pt;">31.9</span>
+<span class="ltx_td ltx_align_left ltx_border_t" style="padding:0.5pt 4.3pt;">46.3</span>
+<span class="ltx_td ltx_align_left ltx_border_t" style="padding:0.5pt 4.3pt;">28.8</span>
+<span class="ltx_td ltx_align_left ltx_border_r ltx_border_t" style="padding:0.5pt 4.3pt;">14.1</span>
+<span class="ltx_td ltx_align_left ltx_border_t" style="padding:0.5pt 4.3pt;">72.6</span></span>
+<span class="ltx_tr">
+<span class="ltx_td ltx_border_r" style="padding:0.5pt 4.3pt;"></span>
+<span class="ltx_td ltx_align_center ltx_border_r" style="padding:0.5pt 4.3pt;">1</span>
+<span class="ltx_td ltx_align_center" style="padding:0.5pt 4.3pt;">✓</span>
+<span class="ltx_td ltx_align_center ltx_border_r" style="padding:0.5pt 4.3pt;">✓</span>
+<span class="ltx_td ltx_align_center" style="padding:0.5pt 4.3pt;">✓</span>
+<span class="ltx_td ltx_align_center ltx_border_r" style="padding:0.5pt 4.3pt;">✓</span>
+<span class="ltx_td ltx_align_left" style="padding:0.5pt 4.3pt;">59.3<span class="ltx_text" style="--ltx-fg-color:#FF0000;">(+31.2)</span></span>
+<span class="ltx_td ltx_align_left" style="padding:0.5pt 4.3pt;">81.7</span>
+<span class="ltx_td ltx_align_left" style="padding:0.5pt 4.3pt;">70.4</span>
+<span class="ltx_td ltx_align_left ltx_border_r" style="padding:0.5pt 4.3pt;">46.0</span>
+<span class="ltx_td ltx_align_left" style="padding:0.5pt 4.3pt;">30.7<span class="ltx_text" style="--ltx-fg-color:#FF0000;">(+13.0)</span></span>
+<span class="ltx_td ltx_align_left" style="padding:0.5pt 4.3pt;">45.0</span>
+<span class="ltx_td ltx_align_left" style="padding:0.5pt 4.3pt;">27.5</span>
+<span class="ltx_td ltx_align_left ltx_border_r" style="padding:0.5pt 4.3pt;">12.9</span>
+<span class="ltx_td ltx_align_left" style="padding:0.5pt 4.3pt;">73.6<span class="ltx_text" style="--ltx-fg-color:#FF0000;">(+2.3)</span></span></span>
+<span class="ltx_tr">
+<span class="ltx_td ltx_border_bb ltx_border_r" style="padding:0.5pt 4.3pt;"></span>
+<span class="ltx_td ltx_align_center ltx_border_bb ltx_border_r" style="padding:0.5pt 4.3pt;">3</span>
+<span class="ltx_td ltx_align_center ltx_border_bb" style="padding:0.5pt 4.3pt;">✓</span>
+<span class="ltx_td ltx_align_center ltx_border_bb ltx_border_r" style="padding:0.5pt 4.3pt;">✓</span>
+<span class="ltx_td ltx_align_center ltx_border_bb" style="padding:0.5pt 4.3pt;">✓</span>
+<span class="ltx_td ltx_align_center ltx_border_bb ltx_border_r" style="padding:0.5pt 4.3pt;">✓</span>
+<span class="ltx_td ltx_align_left ltx_border_bb" style="padding:0.5pt 4.3pt;">61.3<span class="ltx_text" style="--ltx-fg-color:#FF0000;">(+33.2)</span></span>
+<span class="ltx_td ltx_align_left ltx_border_bb" style="padding:0.5pt 4.3pt;">83.1</span>
+<span class="ltx_td ltx_align_left ltx_border_bb" style="padding:0.5pt 4.3pt;">72.8</span>
+<span class="ltx_td ltx_align_left ltx_border_bb ltx_border_r" style="padding:0.5pt 4.3pt;">51.5</span>
+<span class="ltx_td ltx_align_left ltx_border_bb" style="padding:0.5pt 4.3pt;">34.3<span class="ltx_text" style="--ltx-fg-color:#FF0000;">(+16.6)</span></span>
+<span class="ltx_td ltx_align_left ltx_border_bb" style="padding:0.5pt 4.3pt;">50.4</span>
+<span class="ltx_td ltx_align_left ltx_border_bb" style="padding:0.5pt 4.3pt;">32.2</span>
+<span class="ltx_td ltx_align_left ltx_border_bb ltx_border_r" style="padding:0.5pt 4.3pt;">16.2</span>
+<span class="ltx_td ltx_align_left ltx_border_bb" style="padding:0.5pt 4.3pt;">70.9<span class="ltx_text" style="--ltx-fg-color:#008080;">(-0.4)</span></span></span>
+</span></span>
+</span></span></span></p>
+<figcaption class="ltx_caption"><span class="ltx_tag ltx_tag_table"><span class="ltx_text" style="font-size:90%;">Table 3</span>: </span><span class="ltx_text ltx_font_bold" style="font-size:90%;">Ablation results of Temporal Grounding Task.<span class="ltx_text ltx_font_medium"> * indicates that the model has suffered from overfitting and is unable to answer the question properly.</span></span></figcaption>
+</figure>
+<figure class="ltx_table" id="S4.T4">
+<p class="ltx_p ltx_align_center"><span class="ltx_text ltx_inline-block" style="width:433.6pt;">
+<span class="ltx_inline-block ltx_transformed_outer" style="width:337.0pt;height:61.2pt;vertical-align:-28.1pt;"><span class="ltx_transformed_inner" style="transform:translate(0.0pt,0.0pt) scale(1,1) ;">
+<span class="ltx_p">
+<span class="ltx_tabular ltx_align_middle">
+<span class="ltx_tr">
+<span class="ltx_td ltx_align_left ltx_border_r ltx_border_tt ltx_rowspan ltx_rowspan_2" style="padding:0.5pt 4.3pt;"><span class="ltx_text ltx_font_bold">Method</span></span>
+<span class="ltx_td ltx_align_center ltx_border_tt ltx_colspan ltx_colspan_3" style="padding:0.5pt 4.3pt;"><span class="ltx_text ltx_font_bold">GoT</span></span>
+<span class="ltx_td ltx_align_left ltx_border_tt" style="padding:0.5pt 4.3pt;"><span class="ltx_text ltx_font_bold">VideoMME</span></span></span>
+<span class="ltx_tr">
+<span class="ltx_td ltx_align_left" style="padding:0.5pt 4.3pt;">Average overlap</span>
+<span class="ltx_td ltx_align_left" style="padding:0.5pt 4.3pt;">R@0.5</span>
+<span class="ltx_td ltx_align_left ltx_border_r" style="padding:0.5pt 4.3pt;">R@0.7</span>
+<span class="ltx_td ltx_align_left" style="padding:0.5pt 4.3pt;">Short-Avg</span></span>
+<span class="ltx_tr">
+<span class="ltx_td ltx_align_left ltx_border_r ltx_border_t" style="padding:0.5pt 4.3pt;">Qwen2.5-VL-7B</span>
+<span class="ltx_td ltx_align_left ltx_border_t" style="padding:0.5pt 4.3pt;">12.6</span>
+<span class="ltx_td ltx_align_left ltx_border_t" style="padding:0.5pt 4.3pt;">1.1</span>
+<span class="ltx_td ltx_align_left ltx_border_r ltx_border_t" style="padding:0.5pt 4.3pt;">0</span>
+<span class="ltx_td ltx_align_left ltx_border_t" style="padding:0.5pt 4.3pt;">71.3</span></span>
+<span class="ltx_tr">
+<span class="ltx_td ltx_align_left ltx_border_r" style="padding:0.5pt 4.3pt;">+SFT</span>
+<span class="ltx_td ltx_align_left" style="padding:0.5pt 4.3pt;">41.8</span>
+<span class="ltx_td ltx_align_left" style="padding:0.5pt 4.3pt;">29.5</span>
+<span class="ltx_td ltx_align_left ltx_border_r" style="padding:0.5pt 4.3pt;">3.9</span>
+<span class="ltx_td ltx_align_left" style="padding:0.5pt 4.3pt;">59.2</span></span>
+<span class="ltx_tr">
+<span class="ltx_td ltx_align_left ltx_border_bb ltx_border_r" style="padding:0.5pt 4.3pt;">+GRPO</span>
+<span class="ltx_td ltx_align_left ltx_border_bb" style="padding:0.5pt 4.3pt;">42.5<span class="ltx_text" style="--ltx-fg-color:#FF0000;">(+29.9)</span></span>
+<span class="ltx_td ltx_align_left ltx_border_bb" style="padding:0.5pt 4.3pt;">30.6<span class="ltx_text" style="--ltx-fg-color:#FF0000;">(+29.5)</span></span>
+<span class="ltx_td ltx_align_left ltx_border_bb ltx_border_r" style="padding:0.5pt 4.3pt;">3.9<span class="ltx_text" style="--ltx-fg-color:#FF0000;">(+3.9)</span></span>
+<span class="ltx_td ltx_align_left ltx_border_bb" style="padding:0.5pt 4.3pt;">71.4<span class="ltx_text" style="--ltx-fg-color:#FF0000;">(+0.1)</span></span></span>
+</span></span>
+</span></span></span></p>
+<figcaption class="ltx_caption ltx_centering"><span class="ltx_tag ltx_tag_table"><span class="ltx_text" style="font-size:90%;">Table 4</span>: </span><span class="ltx_text ltx_font_bold" style="font-size:90%;">Ablation results of Object Tracking.<span class="ltx_text ltx_font_medium"> We use 8 frames as input for training and evaluation.</span></span></figcaption>
+</figure>
+</section>
+<section class="ltx_paragraph" id="S4.SS2.SSS0.Px2">
+<h4 class="ltx_title ltx_title_paragraph">Temporal Grounding and Object tracking.</h4>
+<div class="ltx_para" id="S4.SS2.SSS0.Px2.p1">
+<p class="ltx_p">As shown in Table <a class="ltx_ref" href="https://arxiv.org/html/2504.06958v5#S4.T3" title="Table 3 ‣ Muti-task Co-training. ‣ 4.2 Ablation Studies and Discussions ‣ 4 Experiments ‣ VideoChat-R1: Enhancing Spatio-Temporal Perception via Reinforcement Fine-Tuning"><span class="ltx_text ltx_ref_tag">3</span></a> and Table <a class="ltx_ref" href="https://arxiv.org/html/2504.06958v5#S4.T4" title="Table 4 ‣ Muti-task Co-training. ‣ 4.2 Ablation Studies and Discussions ‣ 4 Experiments ‣ VideoChat-R1: Enhancing Spatio-Temporal Perception via Reinforcement Fine-Tuning"><span class="ltx_text ltx_ref_tag">4</span></a>, fine-tuning Qwen2.5-VL using GRPO significantly improves the performance of temporal grounding and object tracking tasks. Additionally, it slightly enhances the performance on the general understanding benchmark VideoMME. Even when training for more epochs, GRPO is less prone to overfitting compared to SFT. Instead, it can continuously improve the performance of temporal grounding, eventually surpassing the performance of previous expert models. Moreover, stimulating the model’s thinking ability provides some benefits for both temporal grounding and VideoMME tasks.</p>
+</div>
+<figure class="ltx_table" id="S4.T5">
+<p class="ltx_p ltx_align_center"><span class="ltx_text ltx_inline-block" style="width:433.6pt;">
+<span class="ltx_inline-block ltx_transformed_outer" style="width:484.9pt;height:182.8pt;vertical-align:-88.9pt;"><span class="ltx_transformed_inner" style="transform:translate(0.0pt,0.0pt) scale(1,1) ;">
+<span class="ltx_p">
+<span class="ltx_tabular ltx_align_middle">
+<span class="ltx_tr">
+<span class="ltx_td ltx_align_left ltx_border_r ltx_border_tt ltx_rowspan ltx_rowspan_2" style="padding:0.5pt 4.3pt;"><span class="ltx_text ltx_font_bold">Method</span></span>
+<span class="ltx_td ltx_align_center ltx_border_tt ltx_colspan ltx_colspan_3" style="padding:0.5pt 4.3pt;"><span class="ltx_text ltx_font_bold ltx_align_center">Training Prompt</span></span>
+<span class="ltx_td ltx_align_center ltx_border_tt ltx_colspan ltx_colspan_3" style="padding:0.5pt 4.3pt;"><span class="ltx_text ltx_font_bold ltx_align_center">Test Prompt</span></span>
+<span class="ltx_td ltx_align_center ltx_border_tt ltx_colspan ltx_colspan_2" style="padding:0.5pt 4.3pt;"><span class="ltx_text ltx_font_bold">NExTGQA</span></span>
+<span class="ltx_td ltx_align_left ltx_border_tt" style="padding:0.5pt 4.3pt;"><span class="ltx_text ltx_font_bold">VideoMME</span></span></span>
+<span class="ltx_tr">
+<span class="ltx_td ltx_align_center" style="padding:0.5pt 4.3pt;">Think</span>
+<span class="ltx_td ltx_align_center" style="padding:0.5pt 4.3pt;">Answer</span>
+<span class="ltx_td ltx_align_center ltx_border_r" style="padding:0.5pt 4.3pt;">Glue</span>
+<span class="ltx_td ltx_align_center" style="padding:0.5pt 4.3pt;">Think</span>
+<span class="ltx_td ltx_align_center" style="padding:0.5pt 4.3pt;">Answer</span>
+<span class="ltx_td ltx_align_center ltx_border_r" style="padding:0.5pt 4.3pt;">Glue</span>
+<span class="ltx_td ltx_align_left" style="padding:0.5pt 4.3pt;">mIoU</span>
+<span class="ltx_td ltx_align_left ltx_border_r" style="padding:0.5pt 4.3pt;">acc</span>
+<span class="ltx_td ltx_align_left" style="padding:0.5pt 4.3pt;">Short-Avg</span></span>
+<span class="ltx_tr">
+<span class="ltx_td ltx_align_left ltx_border_t ltx_colspan ltx_colspan_10" style="padding:0.5pt 4.3pt;"><span class="ltx_text ltx_font_italic" style="--ltx-fg-color:#5C946E;">Direct Output</span></span></span>
+<span class="ltx_tr">
+<span class="ltx_td ltx_align_left ltx_border_r" style="padding:0.5pt 4.3pt;">Qwen2.5-VL-7B</span>
+<span class="ltx_td" style="padding:0.5pt 4.3pt;"></span>
+<span class="ltx_td" style="padding:0.5pt 4.3pt;"></span>
+<span class="ltx_td ltx_border_r" style="padding:0.5pt 4.3pt;"></span>
+<span class="ltx_td" style="padding:0.5pt 4.3pt;"></span>
+<span class="ltx_td ltx_align_center" style="padding:0.5pt 4.3pt;">✓</span>
+<span class="ltx_td ltx_border_r" style="padding:0.5pt 4.3pt;"></span>
+<span class="ltx_td ltx_align_left" style="padding:0.5pt 4.3pt;">-</span>
+<span class="ltx_td ltx_align_left ltx_border_r" style="padding:0.5pt 4.3pt;">41.7</span>
+<span class="ltx_td ltx_align_left" style="padding:0.5pt 4.3pt;">71.3</span></span>
+<span class="ltx_tr">
+<span class="ltx_td ltx_align_left ltx_border_r" style="padding:0.5pt 4.3pt;">(baseline)</span>
+<span class="ltx_td" style="padding:0.5pt 4.3pt;"></span>
+<span class="ltx_td" style="padding:0.5pt 4.3pt;"></span>
+<span class="ltx_td ltx_border_r" style="padding:0.5pt 4.3pt;"></span>
+<span class="ltx_td" style="padding:0.5pt 4.3pt;"></span>
+<span class="ltx_td ltx_align_center" style="padding:0.5pt 4.3pt;">✓</span>
+<span class="ltx_td ltx_align_center ltx_border_r" style="padding:0.5pt 4.3pt;">✓</span>
+<span class="ltx_td ltx_align_left" style="padding:0.5pt 4.3pt;">15.4</span>
+<span class="ltx_td ltx_align_left ltx_border_r" style="padding:0.5pt 4.3pt;">59.5</span>
+<span class="ltx_td ltx_align_left" style="padding:0.5pt 4.3pt;">-</span></span>
+<span class="ltx_tr">
+<span class="ltx_td ltx_align_left ltx_border_r ltx_border_t" style="padding:0.5pt 4.3pt;">+ SFT</span>
+<span class="ltx_td ltx_border_t" style="padding:0.5pt 4.3pt;"></span>
+<span class="ltx_td ltx_align_center ltx_border_t" style="padding:0.5pt 4.3pt;">✓</span>
+<span class="ltx_td ltx_border_r ltx_border_t" style="padding:0.5pt 4.3pt;"></span>
+<span class="ltx_td ltx_border_t" style="padding:0.5pt 4.3pt;"></span>
+<span class="ltx_td ltx_align_center ltx_border_t" style="padding:0.5pt 4.3pt;">✓</span>
+<span class="ltx_td ltx_border_r ltx_border_t" style="padding:0.5pt 4.3pt;"></span>
+<span class="ltx_td ltx_align_left ltx_border_t" style="padding:0.5pt 4.3pt;">-</span>
+<span class="ltx_td ltx_align_left ltx_border_r ltx_border_t" style="padding:0.5pt 4.3pt;">65.1</span>
+<span class="ltx_td ltx_align_left ltx_border_t" style="padding:0.5pt 4.3pt;">60.2</span></span>
+<span class="ltx_tr">
+<span class="ltx_td ltx_border_r" style="padding:0.5pt 4.3pt;"></span>
+<span class="ltx_td" style="padding:0.5pt 4.3pt;"></span>
+<span class="ltx_td ltx_align_center" style="padding:0.5pt 4.3pt;">✓</span>
+<span class="ltx_td ltx_align_center ltx_border_r" style="padding:0.5pt 4.3pt;">✓</span>
+<span class="ltx_td" style="padding:0.5pt 4.3pt;"></span>
+<span class="ltx_td ltx_align_center" style="padding:0.5pt 4.3pt;">✓</span>
+<span class="ltx_td ltx_align_center ltx_border_r" style="padding:0.5pt 4.3pt;">✓</span>
+<span class="ltx_td ltx_align_left" style="padding:0.5pt 4.3pt;">28.2<span class="ltx_text" style="--ltx-fg-color:#FF0000;">(+12.8)</span></span>
+<span class="ltx_td ltx_align_left ltx_border_r" style="padding:0.5pt 4.3pt;">64.8<span class="ltx_text" style="--ltx-fg-color:#FF0000;">(+5.3)</span></span>
+<span class="ltx_td ltx_align_left" style="padding:0.5pt 4.3pt;">60.1<span class="ltx_text" style="--ltx-fg-color:#008080;">(-11.2)</span></span></span>
+<span class="ltx_tr">
+<span class="ltx_td ltx_align_left ltx_border_r ltx_border_t" style="padding:0.5pt 4.3pt;">+ GRPO</span>
+<span class="ltx_td ltx_border_t" style="padding:0.5pt 4.3pt;"></span>
+<span class="ltx_td ltx_align_center ltx_border_t" style="padding:0.5pt 4.3pt;">✓</span>
+<span class="ltx_td ltx_border_r ltx_border_t" style="padding:0.5pt 4.3pt;"></span>
+<span class="ltx_td ltx_border_t" style="padding:0.5pt 4.3pt;"></span>
+<span class="ltx_td ltx_align_center ltx_border_t" style="padding:0.5pt 4.3pt;">✓</span>
+<span class="ltx_td ltx_border_r ltx_border_t" style="padding:0.5pt 4.3pt;"></span>
+<span class="ltx_td ltx_align_left ltx_border_t" style="padding:0.5pt 4.3pt;">-</span>
+<span class="ltx_td ltx_align_left ltx_border_r ltx_border_t" style="padding:0.5pt 4.3pt;">70.1</span>
+<span class="ltx_td ltx_align_left ltx_border_t" style="padding:0.5pt 4.3pt;">71.7</span></span>
+<span class="ltx_tr">
+<span class="ltx_td ltx_border_r" style="padding:0.5pt 4.3pt;"></span>
+<span class="ltx_td" style="padding:0.5pt 4.3pt;"></span>
+<span class="ltx_td ltx_align_center" style="padding:0.5pt 4.3pt;">✓</span>
+<span class="ltx_td ltx_border_r" style="padding:0.5pt 4.3pt;"></span>
+<span class="ltx_td" style="padding:0.5pt 4.3pt;"></span>
+<span class="ltx_td ltx_align_center" style="padding:0.5pt 4.3pt;">✓</span>
+<span class="ltx_td ltx_align_center ltx_border_r" style="padding:0.5pt 4.3pt;">✓</span>
+<span class="ltx_td ltx_align_left" style="padding:0.5pt 4.3pt;">16.2</span>
+<span class="ltx_td ltx_align_left ltx_border_r" style="padding:0.5pt 4.3pt;">70.2</span>
+<span class="ltx_td ltx_align_left" style="padding:0.5pt 4.3pt;">71.7</span></span>
+<span class="ltx_tr">
+<span class="ltx_td ltx_border_r" style="padding:0.5pt 4.3pt;"></span>
+<span class="ltx_td" style="padding:0.5pt 4.3pt;"></span>
+<span class="ltx_td ltx_align_center" style="padding:0.5pt 4.3pt;">✓</span>
+<span class="ltx_td ltx_align_center ltx_border_r" style="padding:0.5pt 4.3pt;">✓</span>
+<span class="ltx_td" style="padding:0.5pt 4.3pt;"></span>
+<span class="ltx_td ltx_align_center" style="padding:0.5pt 4.3pt;">✓</span>
+<span class="ltx_td ltx_align_center ltx_border_r" style="padding:0.5pt 4.3pt;">✓</span>
+<span class="ltx_td ltx_align_left" style="padding:0.5pt 4.3pt;">35.1<span class="ltx_text" style="--ltx-fg-color:#FF0000;">(+19.7)</span></span>
+<span class="ltx_td ltx_align_left ltx_border_r" style="padding:0.5pt 4.3pt;">68.7<span class="ltx_text" style="--ltx-fg-color:#FF0000;">(+9.2)</span></span>
+<span class="ltx_td ltx_align_left" style="padding:0.5pt 4.3pt;">72.0<span class="ltx_text" style="--ltx-fg-color:#FF0000;">(+0.7)</span></span></span>
+<span class="ltx_tr">
+<span class="ltx_td ltx_align_left ltx_border_t ltx_colspan ltx_colspan_10" style="padding:0.5pt 4.3pt;"><span class="ltx_text ltx_font_italic" style="--ltx-fg-color:#5C946E;">Chain-of-thought Output</span></span></span>
+<span class="ltx_tr">
+<span class="ltx_td ltx_align_left ltx_border_r" style="padding:0.5pt 4.3pt;">Qwen2.5-VL-7B</span>
+<span class="ltx_td" style="padding:0.5pt 4.3pt;"></span>
+<span class="ltx_td" style="padding:0.5pt 4.3pt;"></span>
+<span class="ltx_td ltx_border_r" style="padding:0.5pt 4.3pt;"></span>
+<span class="ltx_td ltx_align_center" style="padding:0.5pt 4.3pt;">✓</span>
+<span class="ltx_td ltx_align_center" style="padding:0.5pt 4.3pt;">✓</span>
+<span class="ltx_td ltx_border_r" style="padding:0.5pt 4.3pt;"></span>
+<span class="ltx_td ltx_align_left" style="padding:0.5pt 4.3pt;">-</span>
+<span class="ltx_td ltx_align_left ltx_border_r" style="padding:0.5pt 4.3pt;">47.7</span>
+<span class="ltx_td ltx_align_left" style="padding:0.5pt 4.3pt;">73.0</span></span>
+<span class="ltx_tr">
+<span class="ltx_td ltx_border_r" style="padding:0.5pt 4.3pt;"></span>
+<span class="ltx_td" style="padding:0.5pt 4.3pt;"></span>
+<span class="ltx_td" style="padding:0.5pt 4.3pt;"></span>
+<span class="ltx_td ltx_border_r" style="padding:0.5pt 4.3pt;"></span>
+<span class="ltx_td ltx_align_center" style="padding:0.5pt 4.3pt;">✓</span>
+<span class="ltx_td ltx_align_center" style="padding:0.5pt 4.3pt;">✓</span>
+<span class="ltx_td ltx_align_center ltx_border_r" style="padding:0.5pt 4.3pt;">✓</span>
+<span class="ltx_td ltx_align_left" style="padding:0.5pt 4.3pt;">20.2</span>
+<span class="ltx_td ltx_align_left ltx_border_r" style="padding:0.5pt 4.3pt;">53.3</span>
+<span class="ltx_td ltx_align_left" style="padding:0.5pt 4.3pt;">72.2</span></span>
+<span class="ltx_tr">
+<span class="ltx_td ltx_align_left ltx_border_r ltx_border_t" style="padding:0.5pt 4.3pt;">+ GRPO</span>
+<span class="ltx_td ltx_align_center ltx_border_t" style="padding:0.5pt 4.3pt;">✓</span>
+<span class="ltx_td ltx_align_center ltx_border_t" style="padding:0.5pt 4.3pt;">✓</span>
+<span class="ltx_td ltx_border_r ltx_border_t" style="padding:0.5pt 4.3pt;"></span>
+<span class="ltx_td ltx_align_center ltx_border_t" style="padding:0.5pt 4.3pt;">✓</span>
+<span class="ltx_td ltx_align_center ltx_border_t" style="padding:0.5pt 4.3pt;">✓</span>
+<span class="ltx_td ltx_border_r ltx_border_t" style="padding:0.5pt 4.3pt;"></span>
+<span class="ltx_td ltx_align_left ltx_border_t" style="padding:0.5pt 4.3pt;">-</span>
+<span class="ltx_td ltx_align_left ltx_border_r ltx_border_t" style="padding:0.5pt 4.3pt;">68.8</span>
+<span class="ltx_td ltx_align_left ltx_border_t" style="padding:0.5pt 4.3pt;">74.7</span></span>
+<span class="ltx_tr">
+<span class="ltx_td ltx_border_bb ltx_border_r" style="padding:0.5pt 4.3pt;"></span>
+<span class="ltx_td ltx_align_center ltx_border_bb" style="padding:0.5pt 4.3pt;">✓</span>
+<span class="ltx_td ltx_align_center ltx_border_bb" style="padding:0.5pt 4.3pt;">✓</span>
+<span class="ltx_td ltx_align_center ltx_border_bb ltx_border_r" style="padding:0.5pt 4.3pt;">✓</span>
+<span class="ltx_td ltx_align_center ltx_border_bb" style="padding:0.5pt 4.3pt;">✓</span>
+<span class="ltx_td ltx_align_center ltx_border_bb" style="padding:0.5pt 4.3pt;">✓</span>
+<span class="ltx_td ltx_align_center ltx_border_bb ltx_border_r" style="padding:0.5pt 4.3pt;">✓</span>
+<span class="ltx_td ltx_align_left ltx_border_bb" style="padding:0.5pt 4.3pt;">32.9<span class="ltx_text" style="--ltx-fg-color:#FF0000;">(+12.7)</span></span>
+<span class="ltx_td ltx_align_left ltx_border_bb ltx_border_r" style="padding:0.5pt 4.3pt;">66.9<span class="ltx_text" style="--ltx-fg-color:#FF0000;">(+13.6)</span></span>
+<span class="ltx_td ltx_align_left ltx_border_bb" style="padding:0.5pt 4.3pt;">75.3<span class="ltx_text" style="--ltx-fg-color:#FF0000;">(+3.1)</span></span></span>
+</span></span>
+</span></span></span></p>
+<figcaption class="ltx_caption"><span class="ltx_tag ltx_tag_table"><span class="ltx_text" style="font-size:90%;">Table 5</span>: </span><span class="ltx_text ltx_font_bold" style="font-size:90%;">Ablation results of Multi-Choice Video QA.</span></figcaption>
+</figure>
+</section>
+<section class="ltx_paragraph" id="S4.SS2.SSS0.Px3">
+<h4 class="ltx_title ltx_title_paragraph">Video Question Answer.</h4>
+<div class="ltx_para" id="S4.SS2.SSS0.Px3.p1">
+<p class="ltx_p">As shown in Table <a class="ltx_ref" href="https://arxiv.org/html/2504.06958v5#S4.T5" title="Table 5 ‣ Temporal Grounding and Object tracking. ‣ 4.2 Ablation Studies and Discussions ‣ 4 Experiments ‣ VideoChat-R1: Enhancing Spatio-Temporal Perception via Reinforcement Fine-Tuning"><span class="ltx_text ltx_ref_tag">5</span></a>, for the video question answering task, we selected the multi-choice QA task, which is easy to evaluate, for our experiments. Additionally, we explored the grounding QA task. In this task, when answering questions, the model is required to simultaneously provide the temporal cues on which its answers are based. Using merely a little over three thousand training data samples, we found that GRPO demonstrated remarkable fine-tuning capabilities. Not only did it lead to a substantial improvement in the performance of the NExTGQA task, but it also brought about a noticeable enhancement in the VideoMME task. We noticed that, unlike the previous strongly spatiotemporal perception tasks such as temporal grounding, thinking played a significant role in the QA task. Meanwhile, the glue signals also provided some assistance for relatively complex video understanding tasks like VideoMME.</p>
+</div>
+<figure class="ltx_table" id="S4.T6">
+<p class="ltx_p ltx_align_center"><span class="ltx_text ltx_inline-block" style="width:433.6pt;">
+<span class="ltx_inline-block ltx_transformed_outer" style="width:303.6pt;height:62pt;vertical-align:-28.5pt;"><span class="ltx_transformed_inner" style="transform:translate(0.0pt,0.0pt) scale(1,1) ;">
+<span class="ltx_p">
+<span class="ltx_tabular ltx_align_middle">
+<span class="ltx_tr">
+<span class="ltx_td ltx_align_left ltx_border_r ltx_border_tt ltx_rowspan ltx_rowspan_2" style="padding:0.5pt 4.3pt;"><span class="ltx_text ltx_font_bold">Method</span></span>
+<span class="ltx_td ltx_align_center ltx_border_tt ltx_colspan ltx_colspan_3" style="padding:0.5pt 4.3pt;"><span class="ltx_text ltx_font_bold">Dream-1k</span></span>
+<span class="ltx_td ltx_align_center ltx_border_tt" style="padding:0.5pt 4.3pt;"><span class="ltx_text ltx_font_bold">VidTAB-QA</span></span></span>
+<span class="ltx_tr">
+<span class="ltx_td ltx_align_center" style="padding:0.5pt 4.3pt;">F1</span>
+<span class="ltx_td ltx_align_center" style="padding:0.5pt 4.3pt;">Precision</span>
+<span class="ltx_td ltx_align_center ltx_border_r" style="padding:0.5pt 4.3pt;">Recall</span>
+<span class="ltx_td ltx_align_center" style="padding:0.5pt 4.3pt;">Accuracy</span></span>
+<span class="ltx_tr">
+<span class="ltx_td ltx_align_left ltx_border_r ltx_border_t" style="padding:0.5pt 4.3pt;">Baseline</span>
+<span class="ltx_td ltx_align_center ltx_border_t" style="padding:0.5pt 4.3pt;">30.6</span>
+<span class="ltx_td ltx_align_center ltx_border_t" style="padding:0.5pt 4.3pt;">33.8</span>
+<span class="ltx_td ltx_align_center ltx_border_r ltx_border_t" style="padding:0.5pt 4.3pt;">27.9</span>
+<span class="ltx_td ltx_align_center ltx_border_t" style="padding:0.5pt 4.3pt;">70.7</span></span>
+<span class="ltx_tr">
+<span class="ltx_td ltx_align_left ltx_border_r ltx_border_t" style="padding:0.5pt 4.3pt;">+ SFT</span>
+<span class="ltx_td ltx_align_center ltx_border_t" style="padding:0.5pt 4.3pt;">31.4</span>
+<span class="ltx_td ltx_align_center ltx_border_t" style="padding:0.5pt 4.3pt;">32.6</span>
+<span class="ltx_td ltx_align_center ltx_border_r ltx_border_t" style="padding:0.5pt 4.3pt;">30.2</span>
+<span class="ltx_td ltx_align_center ltx_border_t" style="padding:0.5pt 4.3pt;">71.7</span></span>
+<span class="ltx_tr">
+<span class="ltx_td ltx_align_left ltx_border_bb ltx_border_r ltx_border_t" style="padding:0.5pt 4.3pt;">+ GRPO</span>
+<span class="ltx_td ltx_align_center ltx_border_bb ltx_border_t" style="padding:0.5pt 4.3pt;">38.2<span class="ltx_text" style="--ltx-fg-color:#FF0000;">(+7.6)</span></span>
+<span class="ltx_td ltx_align_center ltx_border_bb ltx_border_t" style="padding:0.5pt 4.3pt;">45.4<span class="ltx_text" style="--ltx-fg-color:#FF0000;">(+11.6)</span></span>
+<span class="ltx_td ltx_align_center ltx_border_bb ltx_border_r ltx_border_t" style="padding:0.5pt 4.3pt;">33.1<span class="ltx_text" style="--ltx-fg-color:#FF0000;">(+5.2)</span></span>
+<span class="ltx_td ltx_align_center ltx_border_bb ltx_border_t" style="padding:0.5pt 4.3pt;">72.6<span class="ltx_text" style="--ltx-fg-color:#FF0000;">(+1.9)</span></span></span>
+</span></span>
+</span></span></span></p>
+<figcaption class="ltx_caption ltx_centering"><span class="ltx_tag ltx_tag_table"><span class="ltx_text" style="font-size:90%;">Table 6</span>: </span><span class="ltx_text ltx_font_bold" style="font-size:90%;">Results of Video Caption and Video Quality Access.</span></figcaption>
+</figure>
+<figure class="ltx_table" id="S4.T7">
+<p class="ltx_p ltx_align_center"><span class="ltx_text ltx_inline-block" style="width:433.6pt;">
+<span class="ltx_inline-block ltx_transformed_outer" style="width:324.0pt;height:62.4pt;vertical-align:-28.7pt;"><span class="ltx_transformed_inner" style="transform:translate(0.0pt,0.0pt) scale(1,1) ;">
+<span class="ltx_p">
+<span class="ltx_tabular ltx_align_middle">
+<span class="ltx_tr">
+<span class="ltx_td ltx_align_center ltx_border_r ltx_border_tt ltx_rowspan ltx_rowspan_2" style="padding:0.5pt 4.3pt;"><span class="ltx_text ltx_font_bold">Method</span></span>
+<span class="ltx_td ltx_align_center ltx_border_r ltx_border_tt ltx_rowspan ltx_rowspan_2" style="padding:0.5pt 4.3pt;">
+<span class="ltx_tabular ltx_align_middle">
+<span class="ltx_tr">
+<span class="ltx_td ltx_nopad_r ltx_align_center" style="padding:0.5pt 4.3pt;">LLM</span></span>
+<span class="ltx_tr">
+<span class="ltx_td ltx_nopad_r ltx_align_center" style="padding:0.5pt 4.3pt;">Judge</span></span>
+</span></span>
+<span class="ltx_td ltx_align_center ltx_border_tt ltx_colspan ltx_colspan_3" style="padding:0.5pt 4.3pt;"><span class="ltx_text ltx_font_bold">Dream-1k</span></span></span>
+<span class="ltx_tr">
+<span class="ltx_td ltx_align_center ltx_border_t" style="padding:0.5pt 4.3pt;">F1</span>
+<span class="ltx_td ltx_align_center ltx_border_t" style="padding:0.5pt 4.3pt;">Precision</span>
+<span class="ltx_td ltx_nopad_r ltx_align_center ltx_border_t" style="padding:0.5pt 4.3pt;">Recall</span></span>
+<span class="ltx_tr">
+<span class="ltx_td ltx_align_center ltx_border_r ltx_border_t" style="padding:0.5pt 4.3pt;">Baseline</span>
+<span class="ltx_td ltx_align_center ltx_border_r ltx_border_t" style="padding:0.5pt 4.3pt;">-</span>
+<span class="ltx_td ltx_align_center ltx_border_t" style="padding:0.5pt 4.3pt;">30.6</span>
+<span class="ltx_td ltx_align_center ltx_border_t" style="padding:0.5pt 4.3pt;">33.8</span>
+<span class="ltx_td ltx_nopad_r ltx_align_center ltx_border_t" style="padding:0.5pt 4.3pt;">27.9</span></span>
+<span class="ltx_tr">
+<span class="ltx_td ltx_align_center ltx_border_bb ltx_border_r ltx_border_t ltx_rowspan ltx_rowspan_2" style="padding:0.5pt 4.3pt;">+ GRPO</span>
+<span class="ltx_td ltx_align_center ltx_border_r ltx_border_t" style="padding:0.5pt 4.3pt;">GPT-3.5-turbo-0125</span>
+<span class="ltx_td ltx_align_center ltx_border_t" style="padding:0.5pt 4.3pt;">37.9<span class="ltx_text" style="--ltx-fg-color:#FF0000;">(+7.3)</span></span>
+<span class="ltx_td ltx_align_center ltx_border_t" style="padding:0.5pt 4.3pt;">44.4<span class="ltx_text" style="--ltx-fg-color:#FF0000;">(+10.6)</span></span>
+<span class="ltx_td ltx_nopad_r ltx_align_center ltx_border_t" style="padding:0.5pt 4.3pt;">33<span class="ltx_text" style="--ltx-fg-color:#FF0000;">(+5.1)</span></span></span>
+<span class="ltx_tr">
+<span class="ltx_td ltx_align_center ltx_border_bb ltx_border_r" style="padding:0.5pt 4.3pt;">Qwen2.5-72B</span>
+<span class="ltx_td ltx_align_center ltx_border_bb" style="padding:0.5pt 4.3pt;">38.2<span class="ltx_text" style="--ltx-fg-color:#FF0000;">(+7.6)</span></span>
+<span class="ltx_td ltx_align_center ltx_border_bb" style="padding:0.5pt 4.3pt;">45.4<span class="ltx_text" style="--ltx-fg-color:#FF0000;">(+11.6)</span></span>
+<span class="ltx_td ltx_nopad_r ltx_align_center ltx_border_bb" style="padding:0.5pt 4.3pt;">33.1<span class="ltx_text" style="--ltx-fg-color:#FF0000;">(+5.2)</span></span></span>
+</span></span>
+</span></span></span></p>
+<figcaption class="ltx_caption ltx_centering"><span class="ltx_tag ltx_tag_table"><span class="ltx_text" style="font-size:90%;">Table 7</span>: </span><span class="ltx_text ltx_font_bold" style="font-size:90%;">Ablation of Video Caption Task.</span></figcaption>
+</figure>
+</section>
+<section class="ltx_paragraph" id="S4.SS2.SSS0.Px4">
+<h4 class="ltx_title ltx_title_paragraph">Video Caption and Video Quality Assessment.</h4>
+<div class="ltx_para" id="S4.SS2.SSS0.Px4.p1">
+<p class="ltx_p">For the Video Caption and Video Quality Assessment tasks, we found that GRPO still demonstrated its advantages over SFT, As shown in Table <a class="ltx_ref" href="https://arxiv.org/html/2504.06958v5#S4.T6" title="Table 6 ‣ Video Question Answer. ‣ 4.2 Ablation Studies and Discussions ‣ 4 Experiments ‣ VideoChat-R1: Enhancing Spatio-Temporal Perception via Reinforcement Fine-Tuning"><span class="ltx_text ltx_ref_tag">6</span></a>. The significant metric improvements on these two benchmarks demonstrate the effectiveness of our approach.</p>
+</div>
+</section>
+<section class="ltx_paragraph" id="S4.SS2.SSS0.Px5">
+<h4 class="ltx_title ltx_title_paragraph">Ablation of Reward Evaluators</h4>
+<div class="ltx_para" id="S4.SS2.SSS0.Px5.p1">
+<p class="ltx_p">To assess the impact of different large language models (LLMs) as reward evaluators, we conducted parallel experiments using GPT-3.5-turbo-0125 and Qwen2.5-72B as distinct judges (Table <a class="ltx_ref" href="https://arxiv.org/html/2504.06958v5#S4.T7" title="Table 7 ‣ Video Question Answer. ‣ 4.2 Ablation Studies and Discussions ‣ 4 Experiments ‣ VideoChat-R1: Enhancing Spatio-Temporal Perception via Reinforcement Fine-Tuning"><span class="ltx_text ltx_ref_tag">7</span></a>). Models trained under both evaluators achieved nearly identical performance, demonstrating consistent caption reward generation across LLMs. We attribute this consistency to GRPO’s fundamental mechanism: it relies on relative differential scoring within response groups rather than absolute reward values. This confirms that <math alttext="R_{recall}" class="ltx_Math" display="inline" id="S4.SS2.SSS0.Px5.p1.m1" intent=":literal"><semantics><msub><mi>R</mi><mrow><mi>r</mi><mo lspace="0em" rspace="0em">​</mo><mi>e</mi><mo lspace="0em" rspace="0em">​</mo><mi>c</mi><mo lspace="0em" rspace="0em">​</mo><mi>a</mi><mo lspace="0em" rspace="0em">​</mo><mi>l</mi><mo lspace="0em" rspace="0em">​</mo><mi>l</mi></mrow></msub><annotation encoding="application/x-tex">R_{recall}</annotation></semantics></math> produces discriminative reward signals for predicted captions independent of the choice of LLM judge, validating both the efficacy of our reward design and the stability of its signaling mechanism. Crucially, when guided by these reliable reward signals, our approach delivers substantial performance gains in description tasks using only limited high-quality data, demonstrating remarkable data-efficiency and significant optimization potential.</p>
+</div>
+<figure class="ltx_table" id="S4.T8">
+<p class="ltx_p ltx_align_center"><span class="ltx_text ltx_inline-block" style="width:433.6pt;">
+<span class="ltx_inline-block ltx_transformed_outer" style="width:353.4pt;height:73.6pt;vertical-align:-34.3pt;"><span class="ltx_transformed_inner" style="transform:translate(0.0pt,0.0pt) scale(1,1) ;">
+<span class="ltx_p">
+<span class="ltx_tabular ltx_align_middle">
+<span class="ltx_tr">
+<span class="ltx_td ltx_align_left ltx_border_r ltx_border_tt" style="padding:0.5pt 4.3pt;"><span class="ltx_text ltx_font_bold">Model</span></span>
+<span class="ltx_td ltx_align_left ltx_border_r ltx_border_tt" style="padding:0.5pt 4.3pt;"><span class="ltx_text ltx_font_bold">Clue</span></span>
+<span class="ltx_td ltx_align_left ltx_border_tt" style="padding:0.5pt 4.3pt;"><span class="ltx_text ltx_font_bold">VideoMME</span></span>
+<span class="ltx_td ltx_align_left ltx_border_tt" style="padding:0.5pt 4.3pt;"><span class="ltx_text ltx_font_bold">LongVideoBench</span></span></span>
+<span class="ltx_tr">
+<span class="ltx_td ltx_align_left ltx_border_r" style="padding:0.5pt 4.3pt;">Avg. Duration</span>
+<span class="ltx_td ltx_align_left ltx_border_r" style="padding:0.5pt 4.3pt;"><span class="ltx_text ltx_font_bold">Perception</span></span>
+<span class="ltx_td ltx_align_left" style="padding:0.5pt 4.3pt;">1010s</span>
+<span class="ltx_td ltx_align_left" style="padding:0.5pt 4.3pt;">473s</span></span>
+<span class="ltx_tr">
+<span class="ltx_td ltx_align_left ltx_border_r ltx_border_t" style="padding:0.5pt 4.3pt;">Qwen2.5-VL-7B</span>
+<span class="ltx_td ltx_border_r ltx_border_t" style="padding:0.5pt 4.3pt;"></span>
+<span class="ltx_td ltx_align_left ltx_border_t" style="padding:0.5pt 4.3pt;">64.4</span>
+<span class="ltx_td ltx_align_left ltx_border_t" style="padding:0.5pt 4.3pt;">56.0</span></span>
+<span class="ltx_tr">
+<span class="ltx_td ltx_border_r" style="padding:0.5pt 4.3pt;"></span>
+<span class="ltx_td ltx_align_left ltx_border_r" style="padding:0.5pt 4.3pt;">✓</span>
+<span class="ltx_td ltx_align_left" style="padding:0.5pt 4.3pt;">63.3<span class="ltx_text" style="--ltx-fg-color:#008080;">(-1.1)</span></span>
+<span class="ltx_td ltx_align_left" style="padding:0.5pt 4.3pt;">55.2<span class="ltx_text" style="--ltx-fg-color:#008080;">(-0.8)</span></span></span>
+<span class="ltx_tr">
+<span class="ltx_td ltx_align_left ltx_border_r ltx_border_t" style="padding:0.5pt 4.3pt;"><span class="ltx_text ltx_font_bold">VideoChat-R1-thinking</span></span>
+<span class="ltx_td ltx_border_r ltx_border_t" style="padding:0.5pt 4.3pt;"></span>
+<span class="ltx_td ltx_align_left ltx_border_t" style="padding:0.5pt 4.3pt;">62.1</span>
+<span class="ltx_td ltx_align_left ltx_border_t" style="padding:0.5pt 4.3pt;">51.9</span></span>
+<span class="ltx_tr">
+<span class="ltx_td ltx_border_bb ltx_border_r" style="padding:0.5pt 4.3pt;"></span>
+<span class="ltx_td ltx_align_left ltx_border_bb ltx_border_r" style="padding:0.5pt 4.3pt;">✓</span>
+<span class="ltx_td ltx_align_left ltx_border_bb" style="padding:0.5pt 4.3pt;">63.6<span class="ltx_text" style="--ltx-fg-color:#FF0000;">(+1.5)</span></span>
+<span class="ltx_td ltx_align_left ltx_border_bb" style="padding:0.5pt 4.3pt;">58.2<span class="ltx_text" style="--ltx-fg-color:#FF0000;">(+6.3)</span></span></span>
+</span></span>
+</span></span></span></p>
+<figcaption class="ltx_caption ltx_centering"><span class="ltx_tag ltx_tag_table"><span class="ltx_text" style="font-size:90%;">Table 8</span>: </span><span class="ltx_text ltx_font_bold" style="font-size:90%;">Ablation results of “Clue-Perception".<span class="ltx_text ltx_font_medium"> It should be noted that due to our adoption of a lower number of input pixels, the absolute performance is not entirely consistent with that reported for Qwen2.5-VL.</span></span></figcaption>
+</figure>
+</section>
+<section class="ltx_paragraph" id="S4.SS2.SSS0.Px6">
+<h4 class="ltx_title ltx_title_paragraph">Ablation of “Clue-Perception"</h4>
+<div class="ltx_para" id="S4.SS2.SSS0.Px6.p1">
+<p class="ltx_p">As shown in Table. <a class="ltx_ref" href="https://arxiv.org/html/2504.06958v5#S4.T8" title="Table 8 ‣ Ablation of Reward Evaluators ‣ 4.2 Ablation Studies and Discussions ‣ 4 Experiments ‣ VideoChat-R1: Enhancing Spatio-Temporal Perception via Reinforcement Fine-Tuning"><span class="ltx_text ltx_ref_tag">8</span></a>, we compared the performance changes of the model with and without perception enhancement when applying the "Clue-Perception" strategy on two representative long video benchmarks <cite class="ltx_cite ltx_citemacro_cite">[<span class="ltx_ref ltx_missing_citation ltx_ref_self">videomme</span>, <span class="ltx_ref ltx_missing_citation ltx_ref_self">longvideobench</span>]</cite>. It is noteworthy that without the use of "Clue-Perception", VideoChat-R1 showed no significant performance improvement over Qwen2.5-VL-7B in long video tasks, which can be attributed to the fact that our training dataset consists entirely of short videos under 1 minute. However, after the application of the "Clue-Perception" operation, VideoChat-R1 demonstrated a significant performance enhancement, indicating that the clues it provides are more accurate and thus revealing the potential of clue-perception in long video understanding. In contrast, due to its insufficient spatiotemporal perception capability, Qwen2.5-VL-7B even exhibited a performance decline after the implementation of the "Clue-Perception" operation.</p>
+</div>
+</section>
+<section class="ltx_paragraph" id="S4.SS2.SSS0.Px7">
+<h4 class="ltx_title ltx_title_paragraph">GRPO vs. SFT.</h4>
+<div class="ltx_para" id="S4.SS2.SSS0.Px7.p1">
+<p class="ltx_p">It can be observed that across various types of tasks, GRPO outperforms SFT. Whether it is in terms of the performance on in-domain tasks, out-domain tasks, or the preservation of the original general performance, our experimental results demonstrate that GRPO is a promising fine-tuning approach. We will leave the large-scale comparison for future research.</p>
+</div>
+</section>
+<section class="ltx_paragraph" id="S4.SS2.SSS0.Px8">
+<h4 class="ltx_title ltx_title_paragraph">Chain-of-thought vs. Direct Output.</h4>
+<div class="ltx_para" id="S4.SS2.SSS0.Px8.p1">
+<p class="ltx_p">Based on the video tasks and experiments we have explored, which focus on spatiotemporal perception, the output of the chain of thought has not demonstrated obvious advantages. In some cases, it is even inferior to the direct output. We believe that how to define appropriate video reasoning tasks and evaluation methods remains to be explored. The existing training data is insufficient to activate the model to output truly effective video reasoning chains.</p>
+</div>
+<figure class="ltx_figure" id="S4.F2"><img alt="Refer to caption" class="ltx_graphics ltx_centering ltx_img_landscape" height="297" id="S4.F2.g1" src="x2.png" width="581"/>
+<figcaption class="ltx_caption ltx_centering"><span class="ltx_tag ltx_tag_figure"><span class="ltx_text" style="font-size:90%;">Figure 2</span>: </span><span class="ltx_text" style="font-size:90%;">
+<span class="ltx_text ltx_font_bold">Examples on temporal grounding task.</span> VideoChat-R1 gives a more accurate time interval after thinking.
+</span></figcaption>
+</figure>
+<figure class="ltx_figure" id="S4.F3"><img alt="Refer to caption" class="ltx_graphics ltx_centering ltx_img_landscape" height="249" id="S4.F3.g1" src="x3.png" width="581"/>
+<figcaption class="ltx_caption ltx_centering"><span class="ltx_tag ltx_tag_figure"><span class="ltx_text" style="font-size:90%;">Figure 3</span>: </span><span class="ltx_text" style="font-size:90%;">
+<span class="ltx_text ltx_font_bold">Examples on Video QA task.</span> It can be seen that VideoChat-R1 can not only answer questions correctly but also provide relatively accurate reference time periods (clue).</span></figcaption>
+</figure>
+</section>
+</section>
+<section class="ltx_subsection" id="S4.SS3">
+<h3 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection">4.3 </span>Qualitative Results</h3>
+<div class="ltx_para" id="S4.SS3.p1">
+<p class="ltx_p">As shown in Figure <a class="ltx_ref" href="https://arxiv.org/html/2504.06958v5#S4.F2" title="Figure 2 ‣ Chain-of-thought vs. Direct Output. ‣ 4.2 Ablation Studies and Discussions ‣ 4 Experiments ‣ VideoChat-R1: Enhancing Spatio-Temporal Perception via Reinforcement Fine-Tuning"><span class="ltx_text ltx_ref_tag">2</span></a> and <a class="ltx_ref" href="https://arxiv.org/html/2504.06958v5#S4.F3" title="Figure 3 ‣ Chain-of-thought vs. Direct Output. ‣ 4.2 Ablation Studies and Discussions ‣ 4 Experiments ‣ VideoChat-R1: Enhancing Spatio-Temporal Perception via Reinforcement Fine-Tuning"><span class="ltx_text ltx_ref_tag">3</span></a>, we provide visualizations of VideoChat-R1’s outputs for the temporal grounding and video QA tasks. We observe that due to the enhanced spatiotemporal perception capability, VideoChat-R1 can more accurately locate video segments relevant to the question and conduct reasonable reasoning to answer the question. However, compared with the complex chains of thought involved in solving mathematical problems or coding tasks in text and image domains, the chains of thought generated in our current video tasks are relatively simple. We will explore more complex video reasoning tasks in future research.</p>
+</div>
+</section>
+</section>
+<section class="ltx_section" id="S5">
+<h2 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section">5 </span>Conclusions</h2>
+<div class="ltx_para" id="S5.p1">
+<p class="ltx_p">In this work, we systematically investigate the role of reinforcement fine-tuning (RFT) with Group Relative Policy Optimization (GRPO) in enhancing video-centric multimodal large language models (MLLMs). Our experiments demonstrate that RFT is a highly data-efficient paradigm for task-specific improvements, enabling VideoChat-R1—a model trained with limited samples via multi-task RFT—to achieve state-of-the-art performance on spatio-temporal perception tasks while preserving general chat capabilities and exhibiting emergent spatiotemporal reasoning. We believe our work can present relevant insights for future research efforts in reinforcement learning of video MLLMs.</p>
+</div>
+<div class="ltx_pagination ltx_role_newpage"></div>
+</section>
+</article>
+</div>
+<footer class="ltx_page_footer">
+<div class="ltx_page_logo">Generated  on Tue Nov 11 08:25:18 2025 by <a class="ltx_LaTeXML_logo" href="http://dlmf.nist.gov/LaTeXML/"><span style="letter-spacing:-0.2em; margin-right:0.1em;">L<span class="ltx_font_smallcaps" style="position:relative; bottom:2.2pt;">a</span>T<span class="ltx_font_smallcaps" style="font-size:120%;position:relative; bottom:-0.2ex;">e</span></span><span style="font-size:90%; position:relative; bottom:-0.2ex;">XML</span><img alt="Mascot Sammy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg=="/></a>
+</div></footer>
+</div>
+</body>
+</html>

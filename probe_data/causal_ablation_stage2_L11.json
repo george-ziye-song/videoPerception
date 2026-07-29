@@ -1,0 +1,44 @@
+{
+  "baseline": {
+    "Rotation_Direction": 58.0,
+    "Rotation_Count": 46.0,
+    "Bouncing_Counting": 42.0,
+    "Acceleration_Identification": 64.0
+  },
+  "ablations": [
+    {
+      "layer": 11,
+      "head": null,
+      "mode": "zero",
+      "acc": {
+        "Rotation_Direction": 54.0,
+        "Rotation_Count": 50.0,
+        "Bouncing_Counting": 30.0,
+        "Acceleration_Identification": 32.0
+      },
+      "delta": {
+        "Rotation_Direction": 4.0,
+        "Rotation_Count": -4.0,
+        "Bouncing_Counting": 12.0,
+        "Acceleration_Identification": 32.0
+      }
+    },
+    {
+      "layer": 11,
+      "head": 3,
+      "mode": "zero",
+      "acc": {
+        "Rotation_Direction": 56.0,
+        "Rotation_Count": 48.0,
+        "Bouncing_Counting": 36.0,
+        "Acceleration_Identification": 54.0
+      },
+      "delta": {
+        "Rotation_Direction": 2.0,
+        "Rotation_Count": -2.0,
+        "Bouncing_Counting": 6.0,
+        "Acceleration_Identification": 10.0
+      }
+    }
+  ]
+}

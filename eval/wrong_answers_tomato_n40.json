@@ -1,0 +1,588 @@
+[
+  {
+    "doc_id": 0,
+    "wrong_in_configs": [
+      "2048",
+      "4096",
+      "8192",
+      "32768"
+    ],
+    "wrong_count": 4,
+    "question": "In which direction(s) did the person's hand move?",
+    "options": [
+      "Not moving at all",
+      "Left.",
+      "Right.",
+      "First to the right then to the left.",
+      "First to the left then to the right."
+    ],
+    "gt_letter": "C",
+    "gt_text": "Right.",
+    "video_path": "videos/human/0231-04.mp4"
+  },
+  {
+    "doc_id": 1,
+    "wrong_in_configs": [
+      "4096",
+      "8192",
+      "32768"
+    ],
+    "wrong_count": 3,
+    "question": "In which direction(s) did the person's hand move?",
+    "options": [
+      "Not moving at all",
+      "Left.",
+      "Right.",
+      "First to the right then to the left.",
+      "First to the left then to the right."
+    ],
+    "gt_letter": "E",
+    "gt_text": "First to the left then to the right.",
+    "video_path": "videos/human/0231-05.mp4"
+  },
+  {
+    "doc_id": 2,
+    "wrong_in_configs": [
+      "2048",
+      "4096",
+      "8192",
+      "32768"
+    ],
+    "wrong_count": 4,
+    "question": "In which direction(s) did the person's hand move?",
+    "options": [
+      "First to the left then to the right.",
+      "Right.",
+      "Left.",
+      "First to the right then to the left.",
+      "Not moving at all"
+    ],
+    "gt_letter": "C",
+    "gt_text": "Left.",
+    "video_path": "videos/human/0231-06.mp4"
+  },
+  {
+    "doc_id": 3,
+    "wrong_in_configs": [
+      "4096",
+      "8192",
+      "32768"
+    ],
+    "wrong_count": 3,
+    "question": "In which direction(s) did the person's hand move?",
+    "options": [
+      "Upwards then downwards.",
+      "Not moving at all",
+      "Downwards then upwards.",
+      "Up.",
+      "Down."
+    ],
+    "gt_letter": "D",
+    "gt_text": "Up.",
+    "video_path": "videos/human/0234-02.mp4"
+  },
+  {
+    "doc_id": 5,
+    "wrong_in_configs": [
+      "2048",
+      "4096",
+      "8192",
+      "32768"
+    ],
+    "wrong_count": 4,
+    "question": "In which direction(s) did the person's hand move?",
+    "options": [
+      "Not moving at all",
+      "Left.",
+      "Right.",
+      "First to the left then to the right.",
+      "First to the right then to the left."
+    ],
+    "gt_letter": "C",
+    "gt_text": "Right.",
+    "video_path": "videos/human/0221-04.mp4"
+  },
+  {
+    "doc_id": 6,
+    "wrong_in_configs": [
+      "4096",
+      "8192",
+      "32768"
+    ],
+    "wrong_count": 3,
+    "question": "In which direction(s) did the person's hand move?",
+    "options": [
+      "First to the right then to the left.",
+      "First to the left then to the right.",
+      "Right.",
+      "Not moving at all",
+      "Left."
+    ],
+    "gt_letter": "E",
+    "gt_text": "Left.",
+    "video_path": "videos/human/0221-05.mp4"
+  },
+  {
+    "doc_id": 7,
+    "wrong_in_configs": [
+      "2048",
+      "4096",
+      "8192",
+      "32768"
+    ],
+    "wrong_count": 4,
+    "question": "In which direction(s) did the person's hand move?",
+    "options": [
+      "Right.",
+      "First to the right then to the left.",
+      "Left.",
+      "Not moving at all",
+      "First to the left then to the right."
+    ],
+    "gt_letter": "A",
+    "gt_text": "Right.",
+    "video_path": "videos/human/0223-04.mp4"
+  },
+  {
+    "doc_id": 8,
+    "wrong_in_configs": [
+      "2048",
+      "4096",
+      "8192",
+      "32768"
+    ],
+    "wrong_count": 4,
+    "question": "In which direction(s) did the person's hand move?",
+    "options": [
+      "Not moving at all",
+      "First to the left then to the right.",
+      "First to the right then to the left.",
+      "Right.",
+      "Left."
+    ],
+    "gt_letter": "E",
+    "gt_text": "Left.",
+    "video_path": "videos/human/0223-05.mp4"
+  },
+  {
+    "doc_id": 9,
+    "wrong_in_configs": [
+      "2048",
+      "4096",
+      "8192",
+      "32768"
+    ],
+    "wrong_count": 4,
+    "question": "In which direction(s) did the person's hand move?",
+    "options": [
+      "Right.",
+      "First to the left then to the right.",
+      "Left.",
+      "First to the right then to the left.",
+      "Not moving at all"
+    ],
+    "gt_letter": "A",
+    "gt_text": "Right.",
+    "video_path": "videos/human/0224-04.mp4"
+  },
+  {
+    "doc_id": 10,
+    "wrong_in_configs": [
+      "2048",
+      "4096",
+      "8192",
+      "32768"
+    ],
+    "wrong_count": 4,
+    "question": "What was the direction of the person's hand movement?",
+    "options": [
+      "Right.",
+      "Not moving at all",
+      "First to the right then to the left.",
+      "First to the left then to the right.",
+      "Left."
+    ],
+    "gt_letter": "E",
+    "gt_text": "Left.",
+    "video_path": "videos/human/0224-05.mp4"
+  },
+  {
+    "doc_id": 11,
+    "wrong_in_configs": [
+      "32768"
+    ],
+    "wrong_count": 1,
+    "question": "What was the direction of the person's hand movement?",
+    "options": [
+      "Downwards then upwards.",
+      "Up.",
+      "Down.",
+      "Upwards then downwards.",
+      "Not moving at all"
+    ],
+    "gt_letter": "C",
+    "gt_text": "Down.",
+    "video_path": "videos/human/0225-04.mp4"
+  },
+  {
+    "doc_id": 13,
+    "wrong_in_configs": [
+      "2048"
+    ],
+    "wrong_count": 1,
+    "question": "What was the direction of the person's hand movement?",
+    "options": [
+      "First to the right then to the left.",
+      "Left.",
+      "First to the left then to the right.",
+      "Right.",
+      "Not moving at all"
+    ],
+    "gt_letter": "B",
+    "gt_text": "Left.",
+    "video_path": "videos/human/0226-03.mp4"
+  },
+  {
+    "doc_id": 14,
+    "wrong_in_configs": [
+      "2048",
+      "4096",
+      "32768"
+    ],
+    "wrong_count": 3,
+    "question": "What was the direction of the person's hand movement?",
+    "options": [
+      "First to the left then to the right.",
+      "Not moving at all",
+      "Left.",
+      "Right.",
+      "First to the right then to the left."
+    ],
+    "gt_letter": "C",
+    "gt_text": "Left.",
+    "video_path": "videos/human/0227-04.mp4"
+  },
+  {
+    "doc_id": 15,
+    "wrong_in_configs": [
+      "2048",
+      "4096",
+      "8192",
+      "32768"
+    ],
+    "wrong_count": 4,
+    "question": "What was the direction of the person's hand movement?",
+    "options": [
+      "First to the right then to the left.",
+      "Left.",
+      "Right.",
+      "Not moving at all",
+      "First to the left then to the right."
+    ],
+    "gt_letter": "C",
+    "gt_text": "Right.",
+    "video_path": "videos/human/0227-05.mp4"
+  },
+  {
+    "doc_id": 16,
+    "wrong_in_configs": [
+      "2048",
+      "8192"
+    ],
+    "wrong_count": 2,
+    "question": "What was the direction of the person's hand movement?",
+    "options": [
+      "Not moving at all",
+      "Upwards then downwards.",
+      "Downwards then upwards.",
+      "Down.",
+      "Up."
+    ],
+    "gt_letter": "D",
+    "gt_text": "Down.",
+    "video_path": "videos/human/0228-04.mp4"
+  },
+  {
+    "doc_id": 19,
+    "wrong_in_configs": [
+      "2048",
+      "8192",
+      "32768"
+    ],
+    "wrong_count": 3,
+    "question": "What was the direction of the person's hand movement?",
+    "options": [
+      "Upwards then downwards.",
+      "Up.",
+      "Downwards then upwards.",
+      "Down.",
+      "Not moving at all"
+    ],
+    "gt_letter": "D",
+    "gt_text": "Down.",
+    "video_path": "videos/human/0229-05.mp4"
+  },
+  {
+    "doc_id": 22,
+    "wrong_in_configs": [
+      "2048",
+      "4096",
+      "8192",
+      "32768"
+    ],
+    "wrong_count": 4,
+    "question": "What is the direction of the person's hand movement?",
+    "options": [
+      "Leftwards then upwards.",
+      "Leftwards then rightwards.",
+      "Downwards then upwards",
+      "Rightwards then downwards.",
+      "Upwards then downwards.",
+      "Rightwards then upwards."
+    ],
+    "gt_letter": "B",
+    "gt_text": "Leftwards then rightwards.",
+    "video_path": "videos/human/0524-00.mp4"
+  },
+  {
+    "doc_id": 23,
+    "wrong_in_configs": [
+      "2048",
+      "32768"
+    ],
+    "wrong_count": 2,
+    "question": "What is the direction of the person's hand movement?",
+    "options": [
+      "Rightwards then upwards.",
+      "Leftwards then upwards.",
+      "Leftwards then rightwards.",
+      "Upwards then downwards.",
+      "Rightwards then downwards.",
+      "Downwards then upwards"
+    ],
+    "gt_letter": "C",
+    "gt_text": "Leftwards then rightwards.",
+    "video_path": "videos/human/0524-01.mp4"
+  },
+  {
+    "doc_id": 24,
+    "wrong_in_configs": [
+      "4096",
+      "8192"
+    ],
+    "wrong_count": 2,
+    "question": "What is the direction of the person's hand movement?",
+    "options": [
+      "Leftwards then downwards.",
+      "Rightwards then leftwards.",
+      "Downwards then leftwards.",
+      "Downwards then rightwards.",
+      "Upwards then rightwards.",
+      "Upwards then leftwards."
+    ],
+    "gt_letter": "A",
+    "gt_text": "Leftwards then downwards.",
+    "video_path": "videos/human/0529-00.mp4"
+  },
+  {
+    "doc_id": 25,
+    "wrong_in_configs": [
+      "4096"
+    ],
+    "wrong_count": 1,
+    "question": "What is the direction of the person's hand movement?",
+    "options": [
+      "Leftwards then downwards.",
+      "Upwards then leftwards.",
+      "Downwards then leftwards.",
+      "Upwards then rightwards.",
+      "Rightwards then leftwards.",
+      "Downwards then rightwards."
+    ],
+    "gt_letter": "A",
+    "gt_text": "Leftwards then downwards.",
+    "video_path": "videos/human/0529-01.mp4"
+  },
+  {
+    "doc_id": 26,
+    "wrong_in_configs": [
+      "2048",
+      "4096",
+      "8192",
+      "32768"
+    ],
+    "wrong_count": 4,
+    "question": "What is the direction of the person's hand movement?",
+    "options": [
+      "Rightwards then leftwards.",
+      "Downwards then leftwards.",
+      "Downwards then rightwards.",
+      "Leftwards then leftwards.",
+      "Upwards then rightwards.",
+      "Upwards then leftwards."
+    ],
+    "gt_letter": "D",
+    "gt_text": "Leftwards then leftwards.",
+    "video_path": "videos/human/0531-00.mp4"
+  },
+  {
+    "doc_id": 27,
+    "wrong_in_configs": [
+      "2048",
+      "4096",
+      "8192",
+      "32768"
+    ],
+    "wrong_count": 4,
+    "question": "What is the direction of the person's hand movement?",
+    "options": [
+      "Upwards then leftwards.",
+      "Leftwards then leftwards.",
+      "Upwards then rightwards.",
+      "Rightwards then leftwards.",
+      "Downwards then leftwards.",
+      "Downwards then rightwards."
+    ],
+    "gt_letter": "B",
+    "gt_text": "Leftwards then leftwards.",
+    "video_path": "videos/human/0531-01.mp4"
+  },
+  {
+    "doc_id": 28,
+    "wrong_in_configs": [
+      "2048"
+    ],
+    "wrong_count": 1,
+    "question": "What is the direction of the person's hand movement?",
+    "options": [
+      "Leftwards then upwards.",
+      "Rightwards then upwards.",
+      "Downwards then upwards",
+      "Rightwards then downwards.",
+      "Upwards then downwards.",
+      "Leftwards then rightwards."
+    ],
+    "gt_letter": "A",
+    "gt_text": "Leftwards then upwards.",
+    "video_path": "videos/human/0534-00.mp4"
+  },
+  {
+    "doc_id": 29,
+    "wrong_in_configs": [
+      "2048",
+      "8192",
+      "32768"
+    ],
+    "wrong_count": 3,
+    "question": "What is the direction of the person's hand movement?",
+    "options": [
+      "Downwards then upwards",
+      "Rightwards then downwards.",
+      "Rightwards then upwards.",
+      "Upwards then downwards.",
+      "Leftwards then upwards.",
+      "Leftwards then rightwards."
+    ],
+    "gt_letter": "E",
+    "gt_text": "Leftwards then upwards.",
+    "video_path": "videos/human/0534-01.mp4"
+  },
+  {
+    "doc_id": 32,
+    "wrong_in_configs": [
+      "4096",
+      "8192",
+      "32768"
+    ],
+    "wrong_count": 3,
+    "question": "In which way did the person's hand move?",
+    "options": [
+      "Leftwards then downwards.",
+      "Rightwards then leftwards.",
+      "Upwards then rightwards.",
+      "Downwards then leftwards.",
+      "Upwards then Upwards.",
+      "Downwards then rightwards."
+    ],
+    "gt_letter": "E",
+    "gt_text": "Upwards then Upwards.",
+    "video_path": "videos/human/0537-00.mp4"
+  },
+  {
+    "doc_id": 33,
+    "wrong_in_configs": [
+      "2048",
+      "8192"
+    ],
+    "wrong_count": 2,
+    "question": "In which way did the person's hand move?",
+    "options": [
+      "Rightwards then leftwards.",
+      "Downwards then leftwards.",
+      "Upwards then Upwards.",
+      "Upwards then rightwards.",
+      "Leftwards then downwards.",
+      "Downwards then rightwards."
+    ],
+    "gt_letter": "C",
+    "gt_text": "Upwards then Upwards.",
+    "video_path": "videos/human/0537-01.mp4"
+  },
+  {
+    "doc_id": 35,
+    "wrong_in_configs": [
+      "2048"
+    ],
+    "wrong_count": 1,
+    "question": "In which way did the person's hand move?",
+    "options": [
+      "Downwards then leftwards.",
+      "Leftwards then downwards.",
+      "Rightwards then leftwards.",
+      "Upwards then rightwards.",
+      "Upwards then leftwards.",
+      "Downwards then rightwards."
+    ],
+    "gt_letter": "D",
+    "gt_text": "Upwards then rightwards.",
+    "video_path": "videos/human/0539-01.mp4"
+  },
+  {
+    "doc_id": 38,
+    "wrong_in_configs": [
+      "32768"
+    ],
+    "wrong_count": 1,
+    "question": "In which way did the person's hand move?",
+    "options": [
+      "Leftwards then rightwards.",
+      "Rightwards then downwards.",
+      "Downwards then upwards",
+      "Upwards then downwards.",
+      "Leftwards then upwards.",
+      "Rightwards then upwards."
+    ],
+    "gt_letter": "F",
+    "gt_text": "Rightwards then upwards.",
+    "video_path": "videos/human/0542-00.mp4"
+  },
+  {
+    "doc_id": 39,
+    "wrong_in_configs": [
+      "32768"
+    ],
+    "wrong_count": 1,
+    "question": "In which way did the person's hand move?",
+    "options": [
+      "Rightwards then downwards.",
+      "Leftwards then rightwards.",
+      "Rightwards then upwards.",
+      "Downwards then upwards",
+      "Leftwards then upwards.",
+      "Upwards then downwards."
+    ],
+    "gt_letter": "C",
+    "gt_text": "Rightwards then upwards.",
+    "video_path": "videos/human/0542-01.mp4"
+  }
+]

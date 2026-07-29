@@ -1,0 +1,61 @@
+{
+  "baseline": {
+    "Rotation_Direction": 58.0,
+    "Rotation_Count": 46.0,
+    "Bouncing_Counting": 42.0,
+    "Acceleration_Identification": 64.0
+  },
+  "ablations": [
+    {
+      "layer": 3,
+      "head": null,
+      "mode": "zero",
+      "acc": {
+        "Rotation_Direction": 50.0,
+        "Rotation_Count": 50.0,
+        "Bouncing_Counting": 18.0,
+        "Acceleration_Identification": 48.0
+      },
+      "delta": {
+        "Rotation_Direction": 8.0,
+        "Rotation_Count": -4.0,
+        "Bouncing_Counting": 24.0,
+        "Acceleration_Identification": 16.0
+      }
+    },
+    {
+      "layer": 3,
+      "head": 12,
+      "mode": "zero",
+      "acc": {
+        "Rotation_Direction": 58.0,
+        "Rotation_Count": 50.0,
+        "Bouncing_Counting": 36.0,
+        "Acceleration_Identification": 64.0
+      },
+      "delta": {
+        "Rotation_Direction": 0.0,
+        "Rotation_Count": -4.0,
+        "Bouncing_Counting": 6.0,
+        "Acceleration_Identification": 0.0
+      }
+    },
+    {
+      "layer": 3,
+      "head": 13,
+      "mode": "zero",
+      "acc": {
+        "Rotation_Direction": 52.0,
+        "Rotation_Count": 44.0,
+        "Bouncing_Counting": 36.0,
+        "Acceleration_Identification": 50.0
+      },
+      "delta": {
+        "Rotation_Direction": 6.0,
+        "Rotation_Count": 2.0,
+        "Bouncing_Counting": 6.0,
+        "Acceleration_Identification": 14.0
+      }
+    }
+  ]
+}

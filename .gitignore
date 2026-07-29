@@ -219,3 +219,11 @@ __marimo__/
 
 repos/
 data/
+
+# research artifacts / caches -- not needed for OPRD reproduction, some exceed
+# GitHub's 100MB hard limit (e.g. probe_data/hidden_states_alllayers/9b/*.pt).
+# Regenerable from code; not required on the training server.
+probe_data/hidden_states*/
+eval/results_*
+FINAL_TRAINING_DATASET.json
+FINAL_TRAINING_DATASET_final.json

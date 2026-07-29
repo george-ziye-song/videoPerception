@@ -1,0 +1,537 @@
+  1. [1 Introduction](https://arxiv.org/html/2509.23652v1#S1 "In ReWatch-R1: Boosting Complex Video Reasoning in Large Vision-Language Models through Agentic Data Synthesis")
+  2. [2 Data Construction: The ReWatch Dataset](https://arxiv.org/html/2509.23652v1#S2 "In ReWatch-R1: Boosting Complex Video Reasoning in Large Vision-Language Models through Agentic Data Synthesis")
+     1. [2.1 Stage 1: Hierarchical Video Captioning](https://arxiv.org/html/2509.23652v1#S2.SS1 "In 2 Data Construction: The ReWatch Dataset ‣ ReWatch-R1: Boosting Complex Video Reasoning in Large Vision-Language Models through Agentic Data Synthesis")
+        1. [Semantic Segmentation.](https://arxiv.org/html/2509.23652v1#S2.SS1.SSS0.Px1 "In 2.1 Stage 1: Hierarchical Video Captioning ‣ 2 Data Construction: The ReWatch Dataset ‣ ReWatch-R1: Boosting Complex Video Reasoning in Large Vision-Language Models through Agentic Data Synthesis")
+        2. [Detailed Description Generation.](https://arxiv.org/html/2509.23652v1#S2.SS1.SSS0.Px2 "In 2.1 Stage 1: Hierarchical Video Captioning ‣ 2 Data Construction: The ReWatch Dataset ‣ ReWatch-R1: Boosting Complex Video Reasoning in Large Vision-Language Models through Agentic Data Synthesis")
+        3. [Timestamp Realignment.](https://arxiv.org/html/2509.23652v1#S2.SS1.SSS0.Px3 "In 2.1 Stage 1: Hierarchical Video Captioning ‣ 2 Data Construction: The ReWatch Dataset ‣ ReWatch-R1: Boosting Complex Video Reasoning in Large Vision-Language Models through Agentic Data Synthesis")
+     2. [2.2 Stage 2: High-Difficulty QA Pair Generation](https://arxiv.org/html/2509.23652v1#S2.SS2 "In 2 Data Construction: The ReWatch Dataset ‣ ReWatch-R1: Boosting Complex Video Reasoning in Large Vision-Language Models through Agentic Data Synthesis")
+        1. [Contrastive QA Generation.](https://arxiv.org/html/2509.23652v1#S2.SS2.SSS0.Px1 "In 2.2 Stage 2: High-Difficulty QA Pair Generation ‣ 2 Data Construction: The ReWatch Dataset ‣ ReWatch-R1: Boosting Complex Video Reasoning in Large Vision-Language Models through Agentic Data Synthesis")
+        2. [Three-Layer Filtering.](https://arxiv.org/html/2509.23652v1#S2.SS2.SSS0.Px2 "In 2.2 Stage 2: High-Difficulty QA Pair Generation ‣ 2 Data Construction: The ReWatch Dataset ‣ ReWatch-R1: Boosting Complex Video Reasoning in Large Vision-Language Models through Agentic Data Synthesis")
+     3. [2.3 Stage 3: Multi-Agent Chain-of-Thought Synthesis](https://arxiv.org/html/2509.23652v1#S2.SS3 "In 2 Data Construction: The ReWatch Dataset ‣ ReWatch-R1: Boosting Complex Video Reasoning in Large Vision-Language Models through Agentic Data Synthesis")
+  3. [3 Post-Traing on ReWatch Dataset](https://arxiv.org/html/2509.23652v1#S3 "In ReWatch-R1: Boosting Complex Video Reasoning in Large Vision-Language Models through Agentic Data Synthesis")
+     1. [3.1 Supervised Fine-Tuning Stage](https://arxiv.org/html/2509.23652v1#S3.SS1 "In 3 Post-Traing on ReWatch Dataset ‣ ReWatch-R1: Boosting Complex Video Reasoning in Large Vision-Language Models through Agentic Data Synthesis")
+        1. [Video-Text Alignment.](https://arxiv.org/html/2509.23652v1#S3.SS1.SSS0.Px1 "In 3.1 Supervised Fine-Tuning Stage ‣ 3 Post-Traing on ReWatch Dataset ‣ ReWatch-R1: Boosting Complex Video Reasoning in Large Vision-Language Models through Agentic Data Synthesis")
+        2. [Direct Question-Answering (Non-thinking).](https://arxiv.org/html/2509.23652v1#S3.SS1.SSS0.Px2 "In 3.1 Supervised Fine-Tuning Stage ‣ 3 Post-Traing on ReWatch Dataset ‣ ReWatch-R1: Boosting Complex Video Reasoning in Large Vision-Language Models through Agentic Data Synthesis")
+        3. [Chain-of-Thought Reasoning (Thinking).](https://arxiv.org/html/2509.23652v1#S3.SS1.SSS0.Px3 "In 3.1 Supervised Fine-Tuning Stage ‣ 3 Post-Traing on ReWatch Dataset ‣ ReWatch-R1: Boosting Complex Video Reasoning in Large Vision-Language Models through Agentic Data Synthesis")
+     2. [3.2 Reinforcement Learning Stage](https://arxiv.org/html/2509.23652v1#S3.SS2 "In 3 Post-Traing on ReWatch Dataset ‣ ReWatch-R1: Boosting Complex Video Reasoning in Large Vision-Language Models through Agentic Data Synthesis")
+  4. [4 Experiments](https://arxiv.org/html/2509.23652v1#S4 "In ReWatch-R1: Boosting Complex Video Reasoning in Large Vision-Language Models through Agentic Data Synthesis")
+     1. [4.1 Main Results](https://arxiv.org/html/2509.23652v1#S4.SS1 "In 4 Experiments ‣ ReWatch-R1: Boosting Complex Video Reasoning in Large Vision-Language Models through Agentic Data Synthesis")
+     2. [4.2 Analysis Results](https://arxiv.org/html/2509.23652v1#S4.SS2 "In 4 Experiments ‣ ReWatch-R1: Boosting Complex Video Reasoning in Large Vision-Language Models through Agentic Data Synthesis")
+  5. [5 Conclusion](https://arxiv.org/html/2509.23652v1#S5 "In ReWatch-R1: Boosting Complex Video Reasoning in Large Vision-Language Models through Agentic Data Synthesis")
+  6. [A Details of Dataset Construction](https://arxiv.org/html/2509.23652v1#A1 "In ReWatch-R1: Boosting Complex Video Reasoning in Large Vision-Language Models through Agentic Data Synthesis")
+     1. [A.1 Dataset Statistic](https://arxiv.org/html/2509.23652v1#A1.SS1 "In Appendix A Details of Dataset Construction ‣ ReWatch-R1: Boosting Complex Video Reasoning in Large Vision-Language Models through Agentic Data Synthesis")
+     2. [A.2 Model Settings for data synthesis](https://arxiv.org/html/2509.23652v1#A1.SS2 "In Appendix A Details of Dataset Construction ‣ ReWatch-R1: Boosting Complex Video Reasoning in Large Vision-Language Models through Agentic Data Synthesis")
+  7. [B Detailed Experiments](https://arxiv.org/html/2509.23652v1#A2 "In ReWatch-R1: Boosting Complex Video Reasoning in Large Vision-Language Models through Agentic Data Synthesis")
+     1. [B.1 Experimental Setup](https://arxiv.org/html/2509.23652v1#A2.SS1 "In Appendix B Detailed Experiments ‣ ReWatch-R1: Boosting Complex Video Reasoning in Large Vision-Language Models through Agentic Data Synthesis")
+        1. [Benchmarks](https://arxiv.org/html/2509.23652v1#A2.SS1.SSS0.Px1 "In B.1 Experimental Setup ‣ Appendix B Detailed Experiments ‣ ReWatch-R1: Boosting Complex Video Reasoning in Large Vision-Language Models through Agentic Data Synthesis")
+        2. [Training Dataset Configuration](https://arxiv.org/html/2509.23652v1#A2.SS1.SSS0.Px2 "In B.1 Experimental Setup ‣ Appendix B Detailed Experiments ‣ ReWatch-R1: Boosting Complex Video Reasoning in Large Vision-Language Models through Agentic Data Synthesis")
+        3. [Training Parameter Configuration](https://arxiv.org/html/2509.23652v1#A2.SS1.SSS0.Px3 "In B.1 Experimental Setup ‣ Appendix B Detailed Experiments ‣ ReWatch-R1: Boosting Complex Video Reasoning in Large Vision-Language Models through Agentic Data Synthesis")
+        4. [Baselines](https://arxiv.org/html/2509.23652v1#A2.SS1.SSS0.Px4 "In B.1 Experimental Setup ‣ Appendix B Detailed Experiments ‣ ReWatch-R1: Boosting Complex Video Reasoning in Large Vision-Language Models through Agentic Data Synthesis")
+        5. [Evaluation](https://arxiv.org/html/2509.23652v1#A2.SS1.SSS0.Px5 "In B.1 Experimental Setup ‣ Appendix B Detailed Experiments ‣ ReWatch-R1: Boosting Complex Video Reasoning in Large Vision-Language Models through Agentic Data Synthesis")
+     2. [B.2 Performance comparison on Video Understanding benchmarks](https://arxiv.org/html/2509.23652v1#A2.SS2 "In Appendix B Detailed Experiments ‣ ReWatch-R1: Boosting Complex Video Reasoning in Large Vision-Language Models through Agentic Data Synthesis")
+     3. [B.3 Performance comparison across different video durations](https://arxiv.org/html/2509.23652v1#A2.SS3 "In Appendix B Detailed Experiments ‣ ReWatch-R1: Boosting Complex Video Reasoning in Large Vision-Language Models through Agentic Data Synthesis")
+     4. [B.4 Comparative Analysis of Dataset-Induced Reasoning Complexity and Video Dependency](https://arxiv.org/html/2509.23652v1#A2.SS4 "In Appendix B Detailed Experiments ‣ ReWatch-R1: Boosting Complex Video Reasoning in Large Vision-Language Models through Agentic Data Synthesis")
+  8. [C Related Work](https://arxiv.org/html/2509.23652v1#A3 "In ReWatch-R1: Boosting Complex Video Reasoning in Large Vision-Language Models through Agentic Data Synthesis")
+     1. [C.1 Video QA datasets and benchmarks](https://arxiv.org/html/2509.23652v1#A3.SS1 "In Appendix C Related Work ‣ ReWatch-R1: Boosting Complex Video Reasoning in Large Vision-Language Models through Agentic Data Synthesis")
+     2. [C.2 Video Reasoning in Large Vision-Language Models](https://arxiv.org/html/2509.23652v1#A3.SS2 "In Appendix C Related Work ‣ ReWatch-R1: Boosting Complex Video Reasoning in Large Vision-Language Models through Agentic Data Synthesis")
+  9. [D Propmts](https://arxiv.org/html/2509.23652v1#A4 "In ReWatch-R1: Boosting Complex Video Reasoning in Large Vision-Language Models through Agentic Data Synthesis")
+     1. [D.1 Thinking Prompts](https://arxiv.org/html/2509.23652v1#A4.SS1 "In Appendix D Propmts ‣ ReWatch-R1: Boosting Complex Video Reasoning in Large Vision-Language Models through Agentic Data Synthesis")
+     2. [D.2 Non-Thinking Prompts](https://arxiv.org/html/2509.23652v1#A4.SS2 "In Appendix D Propmts ‣ ReWatch-R1: Boosting Complex Video Reasoning in Large Vision-Language Models through Agentic Data Synthesis")
+     3. [D.3 Answer Judge Prompt](https://arxiv.org/html/2509.23652v1#A4.SS3 "In Appendix D Propmts ‣ ReWatch-R1: Boosting Complex Video Reasoning in Large Vision-Language Models through Agentic Data Synthesis")
+
+
+
+\useunder
+
+# ReWatch-R1: Boosting Complex Video Reasoning in Large Vision-Language Models through Agentic Data Synthesis
+
+Congzhi Zhang, Zhibin Wang∗, Yinchao Ma∗, Jiawei Peng,   
+Yihan Wang, Qiang Zhou, Jun Song, Bo Zheng   
+Alibaba Group   
+{zhangcongzhi0@gmail.com, jsong.sj@alibaba-inc.com}  Equal Contribution. Corresponding Author.
+
+###### Abstract
+
+While Reinforcement Learning with Verifiable Reward (RLVR) significantly advances image reasoning in Large Vision-Language Models (LVLMs), its application to complex video reasoning remains underdeveloped. This gap stems primarily from a critical data bottleneck: existing datasets lack the challenging, multi-hop questions and high-quality, video-grounded Chain-of-Thought (CoT) data necessary to effectively bootstrap RLVR. To address this, we introduce ReWatch, a large-scale dataset built to foster advanced video reasoning. We propose a novel multi-stage synthesis pipeline to synthesize its three components: ReWatch-Caption, ReWatch-QA, and ReWatch-CoT. A core innovation is our Multi-Agent ReAct framework for CoT synthesis, which simulates a human-like "re-watching" process to generate video-grounded reasoning traces by explicitly modeling information retrieval and verification. Building on this dataset, we develop ReWatch-R1 by post-training a strong baseline LVLM with Supervised Fine-Tuning (SFT) and our RLVR framework. This framework incorporates a novel Observation & Reasoning (O&R) reward mechanism that evaluates both the final answer’s correctness and the reasoning’s alignment with video content, directly penalizing hallucination. Our experiments show that ReWatch-R1 achieves state-of-the-art average performance on five challenging video reasoning benchmarks.
+
+Figure 1: Performance comparison of our ReWatch-R1 with previous state-of-the-art LVLMs on five video reasoning benchmarks. Except for Qwen2.5-VL-7B, all other models use thinking mode. All models were evaluated at 192 frames.
+
+##  1 Introduction
+
+While the training paradigm of Supervised Fine-Tuning (SFT) combined with Reinforcement Learning with Verifiable Reward (RLVR) [[16](https://arxiv.org/html/2509.23652v1#bib.bib16); [35](https://arxiv.org/html/2509.23652v1#bib.bib35)] significantly advances image reasoning in Large Vision-Language Models (LVLMs) [[45](https://arxiv.org/html/2509.23652v1#bib.bib45); [20](https://arxiv.org/html/2509.23652v1#bib.bib20); [44](https://arxiv.org/html/2509.23652v1#bib.bib44)], its application to complex video reasoning remains nascent. Recent open-source video models [[14](https://arxiv.org/html/2509.23652v1#bib.bib14); [25](https://arxiv.org/html/2509.23652v1#bib.bib25); [38](https://arxiv.org/html/2509.23652v1#bib.bib38); [9](https://arxiv.org/html/2509.23652v1#bib.bib9); [32](https://arxiv.org/html/2509.23652v1#bib.bib32)] trained with SFT+RLVR still underperform on high-difficulty benchmarks, especially for multi-step temporal tasks such as causality, state tracking, and counting events across long videos [[33](https://arxiv.org/html/2509.23652v1#bib.bib33); [31](https://arxiv.org/html/2509.23652v1#bib.bib31); [10](https://arxiv.org/html/2509.23652v1#bib.bib10); [34](https://arxiv.org/html/2509.23652v1#bib.bib34); [29](https://arxiv.org/html/2509.23652v1#bib.bib29)].
+
+Recent efforts to apply the SFT+RLVR paradigm to video [[14](https://arxiv.org/html/2509.23652v1#bib.bib14); [25](https://arxiv.org/html/2509.23652v1#bib.bib25); [38](https://arxiv.org/html/2509.23652v1#bib.bib38); [9](https://arxiv.org/html/2509.23652v1#bib.bib9); [32](https://arxiv.org/html/2509.23652v1#bib.bib32)] typically bootstrap the SFT phase with CoT data synthesized from existing simple video QA datasets, before applying RLVR. However, this approach is fundamentally undermined by the quality of the underlying data. As illustrated in Figure [2](https://arxiv.org/html/2509.23652v1#S1.F2 "Figure 2 ‣ 1 Introduction ‣ ReWatch-R1: Boosting Complex Video Reasoning in Large Vision-Language Models through Agentic Data Synthesis")(left), prevailing open-source data [[14](https://arxiv.org/html/2509.23652v1#bib.bib14)] suffers from three flaws: (1) holistic, untimestamped captions that erase temporal structure; (2) simple, perception-based QA that can be answered from short clips or textual priors; and (3) visually unfaithful CoT that relies on commonsense knowledge and process of elimination. This data bottleneck prevents SFT from teaching true video-grounded reasoning, and the subsequent RL phase, lacking a reliable reward signal for process correctness, struggles to penalize hallucination and improve logical fidelity [[11](https://arxiv.org/html/2509.23652v1#bib.bib11); [21](https://arxiv.org/html/2509.23652v1#bib.bib21)].
+
+Figure 2: A comparative of ReWatch dataset and Video-R1 dataset on the same source video.
+
+To address these limitations, we introduce ReWatch, a large-scale dataset explicitly designed to foster advanced video reasoning. ReWatch is constructed through a multi-stage synthesis pipeline and comprises three tightly coupled components: ReWatch-Caption, ReWatch-QA, and ReWatch-CoT. First, ReWatch-Caption provides temporally dense video descriptions. We employ a hierarchical captioning method to generate detailed, timestamped narratives that form a high-fidelity foundation for complex reasoning. Second, ReWatch-QA features high-difficulty question-answer pairs. We use a contrastive generation strategy, creating questions from detailed captions that cannot be answered by concise summaries, and apply a three-tier filter to guarantee video dependency. Finally, ReWatch-CoT promotes video-grounded reasoning. We employ a novel Multi-Agent ReAct framework to synthesize CoT that simulates a human-like "re-watching" process. This generates reasoning traces that explicitly document information retrieval and verification against the video content. As shown in Figure [2](https://arxiv.org/html/2509.23652v1#S1.F2 "Figure 2 ‣ 1 Introduction ‣ ReWatch-R1: Boosting Complex Video Reasoning in Large Vision-Language Models through Agentic Data Synthesis")(right), our ReWatch data delivers high-fidelity captions, high-difficulty QAs, and video-grounded CoTs.
+
+Building on ReWatch, we post-train a strong LVLM in two stages to obtain ReWatch-R1. After an initial SFT phase that teaches step-by-step reasoning, we employ RLVR augmented with a novel Observation & Reasoning (O&R) reward. Unlike rewards that score only the final answer, O&R also evaluates whether intermediate observations are factually supported by the video and whether the reasoning is sufficient to recover the correct answer from those observations. This dual emphasis on process and outcome explicitly incentivizes verifiable, evidence-linked reasoning, reducing hallucinations and improving logical consistency. As summarized in Figure [1](https://arxiv.org/html/2509.23652v1#S0.F1 "Figure 1 ‣ ReWatch-R1: Boosting Complex Video Reasoning in Large Vision-Language Models through Agentic Data Synthesis"), ReWatch-R1 sets new state of the art on five challenging video reasoning benchmarks, substantially outperforming models trained on alternative open-source data.
+
+In summary, our contributions are:
+
+  * •
+
+A novel, multi-stage agentic pipeline for synthesizing a large-scale, high-quality video reasoning dataset (ReWatch).
+
+  * •
+
+A new Observation & Reasoning (O&R) reward for RLVR that improves reasoning by rewarding both final-answer correctness and the factual grounding of intermediate steps in video content.
+
+  * •
+
+ReWatch-R1, a post-trained LVLM that achieves state-of-the-art results on five complex video reasoning benchmarks.
+
+
+
+
+##  2 Data Construction: The ReWatch Dataset
+
+To address the above data bottlenecks, we introduce ReWatch, a large, high-fidelity, high-difficulty, and video-grounded dataset for advanced video reasoning. As shown in Figure [3](https://arxiv.org/html/2509.23652v1#S2.F3 "Figure 3 ‣ 2.2 Stage 2: High-Difficulty QA Pair Generation ‣ 2 Data Construction: The ReWatch Dataset ‣ ReWatch-R1: Boosting Complex Video Reasoning in Large Vision-Language Models through Agentic Data Synthesis"), it is constructed in three stages: Hierarchical Video Captioning, High-Difficulty QA Generation, and Multi-Agent CoT Synthesis. The dataset contains 10k captions, 170k QA pairs, and 135k CoTs. More details and statistics are in Appendix [A](https://arxiv.org/html/2509.23652v1#A1 "Appendix A Details of Dataset Construction ‣ ReWatch-R1: Boosting Complex Video Reasoning in Large Vision-Language Models through Agentic Data Synthesis").
+
+###  2.1 Stage 1: Hierarchical Video Captioning
+
+To address the hallucination issue in LVLMs when processing long videos and to generate high-fidelity video descriptions, we propose a Hierarchical Dynamic Frame-Rate Generation pipeline for our ReWatch-Caption-10k dataset. The process is applied to our video corpus 𝒱\mathcal{V}, sourced from five public datasets [[22](https://arxiv.org/html/2509.23652v1#bib.bib22); [17](https://arxiv.org/html/2509.23652v1#bib.bib17); [27](https://arxiv.org/html/2509.23652v1#bib.bib27); [14](https://arxiv.org/html/2509.23652v1#bib.bib14); [47](https://arxiv.org/html/2509.23652v1#bib.bib47)].
+
+#### Semantic Segmentation.
+
+For each video V∈𝒱V\in\mathcal{V}, we first partition VV into kk semantically coherent segments SS using LVLM ℳseg\mathcal{M}_{\text{seg}}, at a low-frame-rate. Each segment sis_{i} corresponds to a temporal interval [tistart,tiend][t_{i}^{\text{start}},t_{i}^{\text{end}}], preserving event integrity.
+
+| S={s1,…,sk}=ℳseg​(V)\displaystyle S=\\{s_{1},\dots,s_{k}\\}=\mathcal{M}_{\text{seg}}(V) |  | (1)  
+---|---|---|---  
+  
+#### Detailed Description Generation.
+
+We use a powerful LVLM ℳcap\mathcal{M}_{\text{cap}} to process each segment sis_{i} at a high frame rate and generate a detailed description DirelD_{i}^{\text{rel}}, which includes mim_{i} distinct events {ci​j}\\{c_{ij}\\} along with their relative timestamps {τi​j}\\{\tau_{ij}\\}.
+
+| Direl={(ci​j,τi​j)}j=1mi=ℳcap​(si)\displaystyle D_{i}^{\text{rel}}=\\{(c_{ij},\tau_{ij})\\}_{j=1}^{m_{i}}=\mathcal{M}_{\text{cap}}(s_{i}) |  | (2)  
+---|---|---|---  
+  
+#### Timestamp Realignment.
+
+Finally, a function 𝒫\mathcal{P} converts relative timestamps τi​j\tau_{ij} to absolute ones ti​jt_{ij} by adding the segment’s start time.
+
+| ti​j=𝒫​(τi​j,tistart)=tistart+τi​j\displaystyle t_{ij}=\mathcal{P}(\tau_{ij},t_{i}^{\text{start}})=t_{i}^{\text{start}}+\tau_{ij} |  | (3)  
+---|---|---|---  
+  
+The final video caption Cdetail​(V)C_{\text{detail}}(V) is the union of all timestamped descriptions.
+
+| Cdetail​(V)=⋃i=1k{(ci​j,ti​j)}j=1mi\displaystyle C_{\text{detail}}(V)=\bigcup_{i=1}^{k}\\{(c_{ij},t_{ij})\\}_{j=1}^{m_{i}} |  | (4)  
+---|---|---|---  
+  
+This hierarchical approach generates temporally precise and semantically rich descriptions while avoiding the hallucination issues associated with LVLMs processing long videos.
+
+###  2.2 Stage 2: High-Difficulty QA Pair Generation
+
+Figure 3: The data construction pipeline. (a) Caption Construction. Long videos are semantically segmented to produce detailed, temporally-aware captions. (b) QA Pair Generation. A contrastive method using detailed and summary captions generates complex questions, which are then purified by a three-layer filtering mechanism. (c) CoT Synthesis. A ReAct framework with a Reasoner Agent and an Observer Agent simulates a "re-watching" process by performing targeted queries on the video caption to generate video-grounded reasoning traces.
+
+To create our ReWatch-QA-170k dataset, we design a pipeline to generate challenging QA pairs requiring fine-grained video analysis. It combines Contrastive Prompting with Three-Layer Filtering.
+
+#### Contrastive QA Generation.
+
+Given a detailed caption CdetailC_{\text{detail}}, we first generate a concise summary Csum=ℳsum​(Cdetail)C_{\text{sum}}=\mathcal{M}_{\text{sum}}(C_{\text{detail}}) using a lightweight LLM. Then, inspired by previous work [[58](https://arxiv.org/html/2509.23652v1#bib.bib58); [5](https://arxiv.org/html/2509.23652v1#bib.bib5)], our QA generator ℳqa\mathcal{M}_{\text{qa}} processes both CdetailC_{\text{detail}} and CsumC_{\text{sum}} to create QA pairs (Q,A)(Q,A) that are explicitly answerable from the detailed caption but not from the summary alone. This ensures questions probe fine-grained details while excluding trivial ones.
+
+| (Q,A)raw=ℳqa​(Cdetail,Csum)\displaystyle(Q,A)_{\text{raw}}=\mathcal{M}_{\text{qa}}(C_{\text{detail}},C_{\text{sum}}) |  | (5)  
+---|---|---|---  
+  
+To guide generation and ensure diversity, we pre-define 10 question types.
+
+#### Three-Layer Filtering.
+
+Raw pairs undergo a three-layer filtering cascade to ensure quality and video-dependency:
+
+  * •
+
+Filter 1: Answer Verification, ℱ1\mathcal{F}_{1}: A verifier ℳverify\mathcal{M}_{\text{verify}} confirms the factual correctness of the answer based on CdetailC_{\text{detail}}.
+
+| (Q,A)​ passes ​ℱ1⇔ℳverify​(Q,A,Cdetail)=True\displaystyle(Q,A)\text{ passes }\mathcal{F}_{1}\iff\mathcal{M}_{\text{verify}}(Q,A,C_{\text{detail}})=\text{True} |  | (6)  
+---|---|---|---  
+  
+  * •
+
+Filter 2: Text Bias Elimination, ℱ2\mathcal{F}_{2}: Ensures the question is unanswerable from general knowledge by probing a set of LLMs 𝕄probe\mathbb{M}_{\text{probe}}.
+
+| (Q,A)​ passes ​ℱ2⇔1|𝕄probe|​∑ℳ∈𝕄probe𝟏​(ℳ​(Q)≈A)<θtext\displaystyle(Q,A)\text{ passes }\mathcal{F}_{2}\iff\frac{1}{|\mathbb{M}_{\text{probe}}|}\sum_{\mathcal{M}\in\mathbb{M}_{\text{probe}}}\mathbf{1}(\mathcal{M}(Q)\approx A)<\theta_{\text{text}} |  | (7)  
+---|---|---|---  
+  
+  * •
+
+Filter 3: Summary Bias Elimination, ℱ3\mathcal{F}_{3}: Similarly ensures the question is unanswerable using the summary CsumC_{\text{sum}}.
+
+| (Q,A)​ passes ​ℱ3⇔1|𝕄probe|​∑ℳ∈𝕄probe𝟏​(ℳ​(Q,Csum)≈A)<θsum\displaystyle(Q,A)\text{ passes }\mathcal{F}_{3}\iff\frac{1}{|\mathbb{M}_{\text{probe}}|}\sum_{\mathcal{M}\in\mathbb{M}_{\text{probe}}}\mathbf{1}(\mathcal{M}(Q,C_{\text{sum}})\approx A)<\theta_{\text{sum}} |  | (8)  
+---|---|---|---  
+  
+
+
+
+Where θtext\theta_{\text{text}} and θsum\theta_{\text{sum}} are threshold for consensus. The 85k pairs passing all filters are then rewritten by LLM ℳrewrite\mathcal{M}_{\text{rewrite}} into multiple-choice questions, yielding a total of 170k QA pairs.
+
+###  2.3 Stage 3: Multi-Agent Chain-of-Thought Synthesis
+
+To generate our ReWatch-CoT-135k dataset, we introduce a multi-agent ReAct-based framework that explicitly construct the video-grounded CoT. This method externalizes the observation process for active information retrieval.
+
+We define two agents: a Reasoner 𝒜R\mathcal{A}_{R} that produces thoughts TT and actions A​c​tAct, and an Observer 𝒜O\mathcal{A}_{O} that executes actions on the video caption CdetailC_{\text{detail}} to return observations O​b​sObs.
+
+For a given question QQ, the agents interact in a loop. At each step tt, the Reasoner uses the history Ht−1=(Q,T1,A​c​t1,O​b​s1,…,Tt−1,A​c​tt−1,O​b​st−1)H_{t-1}=(Q,T_{1},Act_{1},Obs_{1},\dots,T_{t-1},Act_{t-1},Obs_{t-1}) to decide the next step:
+
+| (Tt,A​c​tt)=𝒜R​(Ht−1)\displaystyle(T_{t},Act_{t})=\mathcal{A}_{R}(H_{t-1}) |  | (9)  
+---|---|---|---  
+  
+The Observer executes the action to retrieve information from the video context:
+
+| O​b​st=𝒜O​(A​c​tt,Cdetail)\displaystyle Obs_{t}=\mathcal{A}_{O}(Act_{t},C_{\text{detail}}) |  | (10)  
+---|---|---|---  
+  
+This process continues until the Reasoner produces a final answer. The core actions A​c​ttAct_{t} simulate visual lookup:
+
+  * •
+
+segment_retrieval(query): Finds the timestamp of an event from a natural language query.
+
+  * •
+
+segment_query(timestamp): Retrieves the detailed description of an event from a timestamp.
+
+
+
+
+This entire text-based simulation is highly efficient. The structured execution trajectory 𝒯={(T1,A​c​t1,O​b​s1),…,(Afinal)}\mathcal{T}=\\{(T_{1},Act_{1},Obs_{1}),\dots,(A_{\text{final}})\\} is then converted by LLM ℳconvert\mathcal{M}_{\text{convert}} into a natural language CoT string ℛ\mathcal{R} with explicit <action> and <observation> tags, making it ready for supervised fine-tuning and O&R reward calculation.
+
+##  3 Post-Traing on ReWatch Dataset
+
+As shown in Figure [4](https://arxiv.org/html/2509.23652v1#S3.F4 "Figure 4 ‣ 3 Post-Traing on ReWatch Dataset ‣ ReWatch-R1: Boosting Complex Video Reasoning in Large Vision-Language Models through Agentic Data Synthesis"), we use the SFT+RL paradigm to train Qwen2.5-VL. In the SFT stage, we use multi-task objectives to train to obtain ReWatch-R1-SFT. In the RL stage, based on the GRPO [[16](https://arxiv.org/html/2509.23652v1#bib.bib16)] algorithm and a novel O&R reward mechanism we propos, we obtain ReWatch-R1.
+
+Figure 4: Our two-stage Post-Training framework. (a) A Base Model is first fine-tuned (SFT) on all ReWatch datasets, (b) then further refined as a policy via Reinforcement Learning (RL) using the ReWatch-QA dataset. (c) The "Rollout" panel illustrates the generative process of the policy: producing a purely textual chain-of-thought that simulates a Thought-Action-Observation reasoning loop through self-generated text segments. (d) We employ four verifiable reward mechanisms.
+
+###  3.1 Supervised Fine-Tuning Stage
+
+In this stage, we perform multi-task SFT on a base LVLM using our three datasets: ReWatch-Caption-10k (𝒟Cap\mathcal{D}_{\text{Cap}}), ReWatch-QA-170k (𝒟QA\mathcal{D}_{\text{QA}}), and ReWatch-CoT-135k (𝒟CoT\mathcal{D}_{\text{CoT}}). The goal is to jointly instill three core abilities: foundational video-text alignment, direct question-answering ("non-thinking" mode), and step-by-step reasoning ("thinking" mode). Crucially, we train the model to switch between these response modes using distinct instruction prompts. For detailed prompt setting during SFT, please refer to Appendix [D.2](https://arxiv.org/html/2509.23652v1#A4.SS2 "D.2 Non-Thinking Prompts ‣ Appendix D Propmts ‣ ReWatch-R1: Boosting Complex Video Reasoning in Large Vision-Language Models through Agentic Data Synthesis").
+
+The SFT objective is to minimize a composite loss function, ℒSFT\mathcal{L}_{\text{SFT}}, which is the sum of the losses from these three tasks. Let the LVLM be denoted by a policy πθ\pi_{\theta} with parameters θ\theta. The total loss is defined as:
+
+| ℒSFT​(θ)=ℒCap+ℒQA+ℒCoT\displaystyle\mathcal{L}_{\text{SFT}}(\theta)=\mathcal{L}_{\text{Cap}}+\mathcal{L}_{\text{QA}}+\mathcal{L}_{\text{CoT}} |  | (11)  
+---|---|---|---  
+  
+where each component corresponds to a specific learning objective:
+
+#### Video-Text Alignment.
+
+We train the model to generate detailed captions (CdetailC_{\text{detail}}) from videos (VV).
+
+| ℒCap=−𝔼(V,Cdetail)∈𝒟Cap​[log⁡πθ​(Cdetail|V)]\displaystyle\mathcal{L}_{\text{Cap}}=-\mathbb{E}_{(V,C_{\text{detail}})\in\mathcal{D}_{\text{Cap}}}[\log\pi_{\theta}(C_{\text{detail}}|V)] |  | (12)  
+---|---|---|---  
+  
+#### Direct Question-Answering (Non-thinking).
+
+We train the model to output a concise answer (AA) when given a direct-answer instruction IdirectI_{\text{direct}}.
+
+| ℒQA=−𝔼(V,Q,A)∈𝒟QA​[log⁡πθ​(A|V,Idirect,Q)]\displaystyle\mathcal{L}_{\text{QA}}=-\mathbb{E}_{(V,Q,A)\in\mathcal{D}_{\text{QA}}}[\log\pi_{\theta}(A|V,I_{\text{direct}},Q)] |  | (13)  
+---|---|---|---  
+  
+#### Chain-of-Thought Reasoning (Thinking).
+
+We train the model to generate the full reasoning trace (ℛ\mathcal{R}) when given a think-step-by-step instruction IthinkI_{\text{think}}.
+
+| ℒCoT=−𝔼(V,Q,ℛ)∈𝒟CoT​[log⁡πθ​(ℛ|V,Ithink,Q)]\displaystyle\mathcal{L}_{\text{CoT}}=-\mathbb{E}_{(V,Q,\mathcal{R})\in\mathcal{D}_{\text{CoT}}}[\log\pi_{\theta}(\mathcal{R}|V,I_{\text{think}},Q)] |  | (14)  
+---|---|---|---  
+  
+By optimizing these objectives concurrently, we produce a versatile SFT Model that is proficient in both direct answering and complex reasoning. This model then serves as the proficient initial policy for the subsequent Reinforcement Learning stage.
+
+###  3.2 Reinforcement Learning Stage
+
+Previous LVLMs of video reasoning [[9](https://arxiv.org/html/2509.23652v1#bib.bib9); [14](https://arxiv.org/html/2509.23652v1#bib.bib14)] directly utilize the accuracy of the final answer ra​c​cr_{acc} as the reward signal for reasoning enhancement through reinforcement learning. Formally,
+
+| ra​c​c=ℳj​u​d​g​e​(A,Ag​t),\displaystyle r_{acc}=\mathcal{M}_{judge}(A,A_{gt}), |  | (15)  
+---|---|---|---  
+  
+where ℳj​u​d​g​e​(⋅)\mathcal{M}_{judge}(\cdot) is the judge model used to assess the consistency of inputs, which can be a rule-based verifier or an LLM. However, the foundation of video reasoning lies in the ability to reason grounded in video content. Such reward for mere accuracy overlooks the capabilities of video content-oriented reasoning, which may lead to potential visual or linguistic hallucinations. To address this limitation, we design the Observation & Reasoning (O&R) reward mechanism, which encourages the model to perform appropriate reasoning grounded in the accurate understanding of video content, rather than relying on potential visual or linguistic hallucinations. Specifically, we model the video reasoning QA process as a sequential flow:
+
+Video+Question →\rightarrow Observations+Reasoning →\rightarrow Answer
+
+On one hand, the model should base its reasoning on accurate observations of the video content. Thus, we first assess the accuracy of video observations in CoT by comparing them with the detailed video caption, and use this evaluation as the observation reward. Formally, 
+
+| {A​c​ti,O​b​si}i=1N=Parse​(ℛ),\displaystyle\\{Act_{i},Obs_{i}\\}_{i=1}^{N}={\rm Parse}(\mathcal{R}), |  | (16)  
+---|---|---|---  
+| ro​b​s=mean​({ℳj​u​d​g​e​(Cd​e​t​a​i​l,{A​c​ti,O​b​si})}i=1N).\displaystyle r_{obs}={\rm mean}(\\{\mathcal{M}_{judge}(C_{detail},\\{Act_{i},Obs_{i}\\})\\}_{i=1}^{N}). |  | (17)  
+  
+Here, Parse​(⋅){\rm Parse}(\cdot) denotes parsing the actions and observations from the model output.
+
+On the other hand, the model should reason out appropriate observational actions according to the question. Therefore, we design the reasoning reward by evaluating the accuracy of directly answering questions using the actions and observations. If the model can provide a correct answer based on these actions and observations, the reasoning process is deemed valid and sufficient. This reward guides the model to reason appropriate observation actions that effectively address the question. Formally,
+
+| Aa​o=ℳi​n​f​e​r​(Q,{A​c​ti,O​b​si}i=1N),\displaystyle A_{ao}=\mathcal{M}_{infer}(Q,\\{Act_{i},Obs_{i}\\}_{i=1}^{N}), |  | (18)  
+---|---|---|---  
+| rr​e​a=ℳj​u​d​g​e​(Aa​o,Ag​t).\displaystyle r_{rea}=\mathcal{M}_{judge}(A_{ao},A_{gt}). |  | (19)  
+  
+Here, ℳi​n​f​e​r​(⋅)\mathcal{M}_{infer}(\cdot) is an LLM used to answer the question based on the given actions and observations. The final reward can be expressed as,
+
+| rO&R=ra​c​c×(1+ro​b​s+rr​e​a)+rf​m​t,\displaystyle r_{O\&R}=r_{acc}\times(1+r_{obs}+r_{rea})+r_{fmt}, |  | (20)  
+---|---|---|---  
+| rf​m​t={1,correct format0.otherwise\displaystyle r_{fmt}=\begin{cases}1,&\text{correct format}\\\ 0.&\text{otherwise}\end{cases} |  | (21)  
+  
+Here, rf​m​tr_{fmt} denotes the format reward, enabling the model to output responses in the format we desire. For example, we expect the model to enclose its actions and observations with <action>...</action> and <observation>...</observation> tags, and the answer with <answer>...</answer> tag. Finally, we employ the GRPO [[16](https://arxiv.org/html/2509.23652v1#bib.bib16)] algorithm for model optimization.
+
+##  4 Experiments
+
+We train Qwen2.5-VL-7B [[4](https://arxiv.org/html/2509.23652v1#bib.bib4)] on the ReWatch dataset to obtain Rewatch-R1, and then compare it with other LVLMs on five video reasoning and four video understanding benchmarks. For detailed experimental settings, please refer to the Appendix [B.1](https://arxiv.org/html/2509.23652v1#A2.SS1 "B.1 Experimental Setup ‣ Appendix B Detailed Experiments ‣ ReWatch-R1: Boosting Complex Video Reasoning in Large Vision-Language Models through Agentic Data Synthesis").
+
+###  4.1 Main Results
+
+Table 1: Performance comparison on Video Reasoning tasks. ∗ indicates that we reproduced the model using a training configuration with 192 frames. † indicates that reinforcement learning is conducted using exactly the same data as ReWatch-R1. The best results among models of the same size are indicated in bold. 
+
+Models Thinking VCR Bench MINERVA Video Holmes Video MathQA CG-AV Counting Average 192 Frames Qwen2.5-VL-32B ✗ 39.85 38.15 43.28 33.33 23.95 35.71 Qwen2.5-VL-7B ✗ 36.75 33.19 38.87 24.76 19.96 30.71 Qwen2.5-VL-7B ✓ 34.72 29.15 34.78 24.52 14.51 27.54 GLM4.1V-9B ✓ 34.53 33.75 38.98 27.38 21.32 31.19 InternVL3.5-8B ✓ 30.17 33.12 35.11 27.86 22.30 29.71 Video-R1 ✓ 32.69 32.36 41.97 25.95 22.01 31.00 Video-Chat-R1 ✓ 32.79 30.33 36.31 22.62 14.51 27.31 VideoRFT ✓ 34.53 32.22 41.37 25.00 21.03 30.83 Video-R1-SFT∗ ✓ 33.85 31.45 37.29 26.43 19.67 29.74 Video-R1-RL∗† ✓ 34.24 31.45 37.18 27.38 21.13 30.28 LongVideoReason-SFT∗ ✓ 24.37 29.71 38.60 23.10 15.77 26.31 LongVideoReason-RL∗† ✓ 35.30 35.01 43.49 23.57 20.55 31.58 ReWatch-R1-SFT ✓ 35.78 35.43 39.52 30.00 25.51 33.25 ReWatch-R1 ✓ 40.14 35.70 43.00 30.71 24.73 34.86 \+ O&R ✓ 40.43 36.05 43.88 31.67 25.51 35.51 384 Frames Qwen2.5-VL-32B ✗ 39.75 38.63 44.04 33.81 25.71 36.39 Qwen2.5-VL-7B ✗ 34.91 34.59 39.90 24.76 20.16 30.86 Qwen2.5-VL-7B ✓ 32.45 31.10 34.89 24.00 16.57 27.80 GLM4.1V-9B ✓ 38.59 36.54 41.10 33.10 23.08 34.48 InternVL3.5-8B ✓ 30.56 29.43 32.55 28.57 23.27 28.88 Video-R1 ✓ 32.40 35.77 41.37 23.57 20.84 30.79 Video-Chat-R1 ✓ 31.72 31.66 36.47 22.62 14.61 27.42 VideoRFT ✓ 34.62 34.38 41.26 25.24 20.93 31.29 Video-R1-SFT∗ ✓ 33.95 35.56 37.29 25.24 21.91 30.79 Video-R1-RL∗† ✓ 35.69 32.29 37.83 26.67 20.06 30.51 LongVideoReason-SFT∗ ✓ 24.18 30.20 38.49 23.33 6.04 24.45 LongVideoReason-RL∗† ✓ 34.91 37.24 43.88 24.29 22.01 32.47 ReWatch-R1-SFT ✓ 36.17 35.50 39.09 30.48 22.78 32.80 ReWatch-R1 ✓ 39.56 38.15 43.98 30.95 25.32 35.59 \+ O&R ✓ 38.78 36.54 44.26 32.62 26.68 35.78
+
+Table [1](https://arxiv.org/html/2509.23652v1#S4.T1 "Table 1 ‣ 4.1 Main Results ‣ 4 Experiments ‣ ReWatch-R1: Boosting Complex Video Reasoning in Large Vision-Language Models through Agentic Data Synthesis") shows the superior video reasoning performance of our model, yielding following key insights.
+
+SOTA Performance among models of a comparable size. In both 192-frame and 384-frame settings, the average scores of ReWatch-R1 across five reasoning benchmarks significantly surpass those of all other comparison models. This validates the effectiveness of our dataset and training methodology.
+
+High-Quality CoT Data is Critical. The SFT-only model ReWatch-R1-SFT (33.25%) already surpasses most competitors like Video-R1-SFT (29.74%) and LongVideoReason-SFT (26.31%), which use the same training configuration. This proves the superiority of our CoT training data.
+
+RL Unlocks Further Potential. Reinforcement learning further boosts performance. Our final ReWatch-R1 model improves upon the SFT version (33.25% to 35.51%). This shows that while SFT teaches the form of CoT, our RL phase imparts the spirit, enabling more logical and factually grounded reasoning.
+
+The Efficacy of "Thinking" is Contingent on Learning "How to Think". Enabling CoT ("Thinking" mode) is detrimental for an untrained base model (27.54% vs. 30.71%), as it can induce hallucinations. In contrast, our fully trained ReWatch-R1 excels with CoT. This proves our method successfully teaches the model how to reason.
+
+We further evaluate performance on video understanding benchmarks in Table [3](https://arxiv.org/html/2509.23652v1#A2.T3 "Table 3 ‣ B.2 Performance comparison on Video Understanding benchmarks ‣ Appendix B Detailed Experiments ‣ ReWatch-R1: Boosting Complex Video Reasoning in Large Vision-Language Models through Agentic Data Synthesis") and performance on videos of varying durations in Figure [9](https://arxiv.org/html/2509.23652v1#A2.F9 "Figure 9 ‣ B.3 Performance comparison across different video durations ‣ Appendix B Detailed Experiments ‣ ReWatch-R1: Boosting Complex Video Reasoning in Large Vision-Language Models through Agentic Data Synthesis"). For detailed analysis, please refer to Appendix [B.2](https://arxiv.org/html/2509.23652v1#A2.SS2 "B.2 Performance comparison on Video Understanding benchmarks ‣ Appendix B Detailed Experiments ‣ ReWatch-R1: Boosting Complex Video Reasoning in Large Vision-Language Models through Agentic Data Synthesis") and [B.3](https://arxiv.org/html/2509.23652v1#A2.SS3 "B.3 Performance comparison across different video durations ‣ Appendix B Detailed Experiments ‣ ReWatch-R1: Boosting Complex Video Reasoning in Large Vision-Language Models through Agentic Data Synthesis").
+
+###  4.2 Analysis Results
+
+(a) Ablation results using different CoT data.
+
+(b) Ablation results using different QA data.
+
+Figure 5: Ablation results of our synthesized data against baselines.
+
+High-Quality SFT Data is Foundational for RL. An ablation study in Figure [5(a)](https://arxiv.org/html/2509.23652v1#S4.F5.sf1 "In Figure 5 ‣ 4.2 Analysis Results ‣ 4 Experiments ‣ ReWatch-R1: Boosting Complex Video Reasoning in Large Vision-Language Models through Agentic Data Synthesis") shows two key findings. First, SFT is an indispensable prerequisite for RL, training without it (w/o SFT) causes a catastrophic performance drop, as RL needs a strong initial policy. Second, high-quality CoT data is vital. Replacing our ReWatch-CoT data with that from Video-R1 significantly degrades performance. This validates that our multi-agent framework produces a superior training corpus for complex reasoning.
+
+High-quality QA data is crucial for RL. A comparative analysis in Figure [5(b)](https://arxiv.org/html/2509.23652v1#S4.F5.sf2 "In Figure 5 ‣ 4.2 Analysis Results ‣ 4 Experiments ‣ ReWatch-R1: Boosting Complex Video Reasoning in Large Vision-Language Models through Agentic Data Synthesis") shows that the quality of QA data used for RL determines final performance. Training on only baseline QA data (Video-R1-QA [[14](https://arxiv.org/html/2509.23652v1#bib.bib14)] (10k) and LongVideoReason-QA [[9](https://arxiv.org/html/2509.23652v1#bib.bib9)] (10k)) yields the lowest scores (42.0% all, 34.3% reasoning, 51.7% understanding), whereas our ReWatch-QA data provides notable improvements. This confirms that ReWatch-QA, due to its challenging nature, offers a more potent reward signal that guides the model toward robust reasoning abilities instead of overfitting to simpler patterns.
+
+(a) A comparison of QA complexity.
+
+(b) Evolution of number of actions and accuracy.
+
+Figure 6: Analysis on QA complexity and Evolution of action count.
+
+Dataset Complexity & Video Dependency. Figure [6(a)](https://arxiv.org/html/2509.23652v1#S4.F6.sf1 "In Figure 6 ‣ 4.2 Analysis Results ‣ 4 Experiments ‣ ReWatch-R1: Boosting Complex Video Reasoning in Large Vision-Language Models through Agentic Data Synthesis") presents a quantitative analysis of the complexity comparison between the ReWatch-QA and Video-R1-QA datasets. The detailed experimental design can be found in Appendix [B.4](https://arxiv.org/html/2509.23652v1#A2.SS4 "B.4 Comparative Analysis of Dataset-Induced Reasoning Complexity and Video Dependency ‣ Appendix B Detailed Experiments ‣ ReWatch-R1: Boosting Complex Video Reasoning in Large Vision-Language Models through Agentic Data Synthesis"). The results show that the ReWatch-QA dataset elicits more profound reasoning than Video-R1-QA. ReWatch requires nearly double the reasoning steps (3.31 vs. 1.82) and significantly longer responses (398.75 vs. 205.74). Critically, Video-R1 has a high Text-Only Accuracy of 68.9%, indicating questions are often solvable from text alone. In contrast, the accuracy of ReWatch is only 29.4%, near the 25% random-guess baseline. This proves our three-stage filtering is effective, eliminating textual shortcuts and forcing genuine video understanding.
+
+RL optimizes the reasoning process, leading to more efficient yet more accurate responses. Figure [6(b)](https://arxiv.org/html/2509.23652v1#S4.F6.sf2 "In Figure 6 ‣ 4.2 Analysis Results ‣ 4 Experiments ‣ ReWatch-R1: Boosting Complex Video Reasoning in Large Vision-Language Models through Agentic Data Synthesis") shows a two-stage evolution. First, SFT teaches the model a structured reasoning format, increasing action counts and accuracy. Then, during RL, accuracy continues to improve while the average number of actions decreases. This indicates RL refines the policy to be more effective and efficient, pruning redundant steps to focus on critical actions. The model thus transitions from learning reasoning’s form (SFT) to mastering its function with efficiency (RL).
+
+Figure 7: Impact of SFT and RL on different prompting methods. The plots show the accuracy of our ReWatch-R1 model with "thinking" (ReAct) vs. "non-thinking" (direct answering) prompting. Solid lines show performance progression during the SFT phase, dashed lines show the final performance after RL.
+
+The thinking mode, while converging more slowly during training, ultimately achieves a significantly higher performance ceiling than the non-thinking mode. As shown in Figure [7](https://arxiv.org/html/2509.23652v1#S4.F7 "Figure 7 ‣ 4.2 Analysis Results ‣ 4 Experiments ‣ ReWatch-R1: Boosting Complex Video Reasoning in Large Vision-Language Models through Agentic Data Synthesis"), the two modes exhibit different learning dynamics. During the SFT phase (solid lines), the direct-answer "non-thinking" mode improves rapidly, whereas the "thinking" mode develops slowly. This suggests SFT primarily teaches the format of reasoning, not its logic. The subsequent RL phase (dashed lines) acts as a catalyst, causing a dramatic performance leap in the thinking mode by forcing the model to learn the causal links between reasoning and correct answers. Ultimately, the final model’s "thinking" performance surpasses the "non-thinking" mode in all tasks. This empirically proves that an explicit, step-by-step reasoning process, cultivated via our SFT-RL regimen, is optimal for complex video tasks.
+
+##  5 Conclusion
+
+In this work, we address the critical data bottleneck in complex video reasoning by introducing ReWatch, a large-scale dataset synthesized via a novel multi-stage agentic pipeline that generates temporally-dense captions, challenging multi-hop questions, and video-grounded Chain-of-Thought traces. We then develop ReWatch-R1 by post-training a strong LVLM using an SFT and RLVR framework, featuring our innovative Observation & Reasoning (O&R) reward that uniquely evaluates both the correctness of the final answer and the factual grounding of the reasoning process itself. The resulting model establishes a new state-of-the-art on five challenging video reasoning benchmarks. This demonstrates that our integrated approach of superior data synthesis and process-oriented reinforcement learning provides a robust and effective paradigm for complex temporal reasoning in LVLMs.
+
+## References
+
+  * Achiam et al. [2023] Josh Achiam, Steven Adler, Sandhini Agarwal, Lama Ahmad, Ilge Akkaya, Florencia Leoni Aleman, Diogo Almeida, Janko Altenschmidt, Sam Altman, Shyamal Anadkat, et al.  Gpt-4 technical report.  _arXiv preprint arXiv:2303.08774_ , 2023. 
+  * Arnab et al. [2025] Anurag Arnab, Ahmet Iscen, Mathilde Caron, Alireza Fathi, and Cordelia Schmid.  Temporal chain of thought: Long-video understanding by thinking in frames.  _arXiv preprint arXiv:2507.02001_ , 2025. 
+  * Bai et al. [2025a] Shuai Bai, Keqin Chen, Xuejing Liu, Jialin Wang, Wenbin Ge, Sibo Song, Kai Dang, Peng Wang, Shijie Wang, Jun Tang, Humen Zhong, Yuanzhi Zhu, Mingkun Yang, Zhaohai Li, Jianqiang Wan, Pengfei Wang, Wei Ding, Zheren Fu, Yiheng Xu, Jiabo Ye, Xi Zhang, Tianbao Xie, Zesen Cheng, Hang Zhang, Zhibo Yang, Haiyang Xu, and Junyang Lin.  Qwen2.5-vl technical report.  _arXiv preprint arXiv:2502.13923_ , 2025a. 
+  * Bai et al. [2025b] Shuai Bai, Keqin Chen, Xuejing Liu, Jialin Wang, Wenbin Ge, Sibo Song, Kai Dang, Peng Wang, Shijie Wang, Jun Tang, et al.  Qwen2. 5-vl technical report.  _arXiv preprint arXiv:2502.13923_ , 2025b. 
+  * Chen et al. [2025a] Guo Chen, Zhiqi Li, Shihao Wang, Jindong Jiang, Yicheng Liu, Lidong Lu, De-An Huang, Wonmin Byeon, Matthieu Le, Tuomas Rintamaki, et al.  Eagle 2.5: Boosting long-context post-training for frontier vision-language models.  _arXiv preprint arXiv:2504.15271_ , 2025a. 
+  * Chen et al. [2024] Jr-Jen Chen, Yu-Chien Liao, Hsi-Che Lin, Yu-Chu Yu, Yen-Chun Chen, and Frank Wang.  Rextime: A benchmark suite for reasoning-across-time in videos.  _Advances in Neural Information Processing Systems_ , 37:28662–28673, 2024. 
+  * Chen et al. [2025b] Yi Chen, Yuying Ge, Rui Wang, Yixiao Ge, Junhao Cheng, Ying Shan, and Xihui Liu.  Grpo-care: Consistency-aware reinforcement learning for multimodal reasoning.  _arXiv preprint arXiv:2506.16141_ , 2025b. 
+  * Chen et al. [2025c] Yi Chen, Yuying Ge, Rui Wang, Yixiao Ge, Lu Qiu, Ying Shan, and Xihui Liu.  Exploring the effect of reinforcement learning on video understanding: Insights from seed-bench-r1.  _arXiv preprint arXiv:2503.24376_ , 2025c. 
+  * Chen et al. [2025d] Yukang Chen, Wei Huang, Baifeng Shi, Qinghao Hu, Hanrong Ye, Ligeng Zhu, Zhijian Liu, Pavlo Molchanov, Jan Kautz, Xiaojuan Qi, et al.  Scaling rl to long videos.  _arXiv preprint arXiv:2507.07966_ , 2025d. 
+  * Cheng et al. [2025] Junhao Cheng, Yuying Ge, Teng Wang, Yixiao Ge, Jing Liao, and Ying Shan.  Video-holmes: Can mllm think like holmes for complex video reasoning?  _arXiv preprint arXiv:2505.21374_ , 2025. 
+  * Chu et al. [2025] Xu Chu, Xinrong Chen, Guanyu Wang, Zhijie Tan, Kui Huang, Wenyu Lv, Tong Mo, and Weiping Li.  Qwen look again: Guiding vision-language reasoning models to re-attention visual information.  _arXiv preprint arXiv:2505.23558_ , 2025. 
+  * Comanici et al. [2025] Gheorghe Comanici, Eric Bieber, Mike Schaekermann, Ice Pasupat, Noveen Sachdeva, Inderjit Dhillon, Marcel Blistein, Ori Ram, Dan Zhang, Evan Rosen, et al.  Gemini 2.5: Pushing the frontier with advanced reasoning, multimodality, long context, and next generation agentic capabilities.  _arXiv preprint arXiv:2507.06261_ , 2025. 
+  * Fan et al. [2024] Yue Fan, Xiaojian Ma, Rujie Wu, Yuntao Du, Jiaqi Li, Zhi Gao, and Qing Li.  Videoagent: A memory-augmented multimodal agent for video understanding.  In _European Conference on Computer Vision_ , pp. 75–92. Springer, 2024. 
+  * Feng et al. [2025] Kaituo Feng, Kaixiong Gong, Bohao Li, Zonghao Guo, Yibing Wang, Tianshuo Peng, Junfei Wu, Xiaoying Zhang, Benyou Wang, and Xiangyu Yue.  Video-r1: Reinforcing video reasoning in mllms.  _arXiv preprint arXiv:2503.21776_ , 2025. 
+  * Fu et al. [2025] Chaoyou Fu, Yuhan Dai, Yongdong Luo, Lei Li, Shuhuai Ren, Renrui Zhang, Zihan Wang, Chenyu Zhou, Yunhang Shen, Mengdan Zhang, et al.  Video-mme: The first-ever comprehensive evaluation benchmark of multi-modal llms in video analysis.  In _Proceedings of the Computer Vision and Pattern Recognition Conference_ , pp. 24108–24118, 2025. 
+  * Guo et al. [2025] Daya Guo, Dejian Yang, Haowei Zhang, Junxiao Song, Ruoyu Zhang, Runxin Xu, Qihao Zhu, Shirong Ma, Peiyi Wang, Xiao Bi, et al.  Deepseek-r1: Incentivizing reasoning capability in llms via reinforcement learning.  _arXiv preprint arXiv:2501.12948_ , 2025. 
+  * Han et al. [2025] Songhao Han, Wei Huang, Hairong Shi, Le Zhuo, Xiu Su, Shifeng Zhang, Xu Zhou, Xiaojuan Qi, Yue Liao, and Si Liu.  Videoespresso: A large-scale chain-of-thought dataset for fine-grained video reasoning via core frame selection.  In _Proceedings of the Computer Vision and Pattern Recognition Conference (CVPR)_ , pp. 26181–26191, June 2025. 
+  * Hu et al. [2025a] Jian Hu, Zixu Cheng, Chenyang Si, Wei Li, and Shaogang Gong.  Cos: Chain-of-shot prompting for long video understanding.  _arXiv preprint arXiv:2502.06428_ , 2025a. 
+  * Hu et al. [2025b] Kairui Hu, Penghao Wu, Fanyi Pu, Wang Xiao, Yuanhan Zhang, Xiang Yue, Bo Li, and Ziwei Liu.  Video-mmmu: Evaluating knowledge acquisition from multi-discipline professional videos.  _arXiv preprint arXiv:2501.13826_ , 2025b. 
+  * Huang et al. [2025] Wenxuan Huang, Bohan Jia, Zijie Zhai, Shaosheng Cao, Zheyu Ye, Fei Zhao, Zhe Xu, Yao Hu, and Shaohui Lin.  Vision-r1: Incentivizing reasoning capability in multimodal large language models.  _arXiv preprint arXiv:2503.06749_ , 2025. 
+  * Jian et al. [2025] Pu Jian, Junhong Wu, Wei Sun, Chen Wang, Shuo Ren, and Jiajun Zhang.  Look again, think slowly: Enhancing visual reflection in vision-language models.  _arXiv preprint arXiv:2509.12132_ , 2025. 
+  * Ju et al. [2024] Xuan Ju, Yiming Gao, Zhaoyang Zhang, Ziyang Yuan, Xintao Wang, Ailing Zeng, Yu Xiong, Qiang Xu, and Ying Shan.  Miradata: A large-scale video dataset with long durations and structured captions.  _Advances in Neural Information Processing Systems_ , 37:48955–48970, 2024. 
+  * Kumar et al. [2024] Somnath Kumar, Yash Gadhia, Tanuja Ganu, and Akshay Nambi.  Mmctagent: Multi-modal critical thinking agent framework for complex visual reasoning.  _arXiv preprint arXiv:2405.18358_ , 2024. 
+  * Lee et al. [2025] Daeun Lee, Jaehong Yoon, Jaemin Cho, and Mohit Bansal.  Video-skill-cot: Skill-based chain-of-thoughts for domain-adaptive video reasoning.  _arXiv preprint arXiv:2506.03525_ , 2025. 
+  * Li et al. [2025a] Xinhao Li, Ziang Yan, Desen Meng, Lu Dong, Xiangyu Zeng, Yinan He, Yali Wang, Yu Qiao, Yi Wang, and Limin Wang.  Videochat-r1: Enhancing spatio-temporal perception via reinforcement fine-tuning.  _arXiv preprint arXiv:2504.06958_ , 2025a. 
+  * Li et al. [2025b] Zongxia Li, Wenhao Yu, Chengsong Huang, Rui Liu, Zhenwen Liang, Fuxiao Liu, Jingxi Che, Dian Yu, Jordan Boyd-Graber, Haitao Mi, et al.  Self-rewarding vision-language model via reasoning decomposition.  _arXiv preprint arXiv:2508.19652_ , 2025b. 
+  * Lin et al. [2025] Jingyang Lin, Jialian Wu, Ximeng Sun, Ze Wang, Jiang Liu, Yusheng Su, Xiaodong Yu, Hao Chen, Jiebo Luo, Zicheng Liu, et al.  Unleashing hour-scale video training for long video-language understanding.  _arXiv preprint arXiv:2506.05332_ , 2025. 
+  * Liu et al. [2025] Ye Liu, Kevin Qinghong Lin, Chang Wen Chen, and Mike Zheng Shou.  Videomind: A chain-of-lora agent for long video reasoning.  _arXiv preprint arXiv:2503.13444_ , 2025. 
+  * Lu et al. [2025] Lidong Lu, Guo Chen, Zhiqi Li, Yicheng Liu, and Tong Lu.  Av-reasoner: Improving and benchmarking clue-grounded audio-visual counting for mllms.  _arXiv preprint arXiv:2506.05328_ , 2025. 
+  * Min et al. [2024] Juhong Min, Shyamal Buch, Arsha Nagrani, Minsu Cho, and Cordelia Schmid.  Morevqa: Exploring modular reasoning models for video question answering.  In _Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition_ , pp. 13235–13245, 2024. 
+  * Nagrani et al. [2025] Arsha Nagrani, Sachit Menon, Ahmet Iscen, Shyamal Buch, Ramin Mehran, Nilpa Jha, Anja Hauth, Yukun Zhu, Carl Vondrick, Mikhail Sirotenko, et al.  Minerva: Evaluating complex video reasoning.  _arXiv preprint arXiv:2505.00681_ , 2025. 
+  * Park et al. [2025] Jinyoung Park, Jeehye Na, Jinyoung Kim, and Hyunwoo J Kim.  Deepvideo-r1: Video reinforcement fine-tuning via difficulty-aware regressive grpo.  _arXiv preprint arXiv:2506.07464_ , 2025. 
+  * Qi et al. [2025] Yukun Qi, Yiming Zhao, Yu Zeng, Xikun Bao, Wenxuan Huang, Lin Chen, Zehui Chen, Jie Zhao, Zhongang Qi, and Feng Zhao.  Vcr-bench: A comprehensive evaluation framework for video chain-of-thought reasoning.  _arXiv preprint arXiv:2504.07956_ , 2025. 
+  * Rasheed et al. [2025] Hanoona Rasheed, Abdelrahman Shaker, Anqi Tang, Muhammad Maaz, Ming-Hsuan Yang, Salman Khan, and Fahad Shahbaz Khan.  Videomathqa: Benchmarking mathematical reasoning via multimodal understanding in videos.  _arXiv preprint arXiv:2506.05349_ , 2025. 
+  * Shao et al. [2024] Zhihong Shao, Peiyi Wang, Qihao Zhu, Runxin Xu, Junxiao Song, Xiao Bi, Haowei Zhang, Mingchuan Zhang, YK Li, Yang Wu, et al.  Deepseekmath: Pushing the limits of mathematical reasoning in open language models.  _arXiv preprint arXiv:2402.03300_ , 2024. 
+  * Shi et al. [2024] Yudi Shi, Shangzhe Di, Qirui Chen, and Weidi Xie.  Enhancing video-llm reasoning via agent-of-thoughts distillation.  _arXiv preprint arXiv:2412.01694_ , 2024. 
+  * Team et al. [2025] V Team, Wenyi Hong, Wenmeng Yu, Xiaotao Gu, Guo Wang, Guobing Gan, Haomiao Tang, Jiale Cheng, Ji Qi, Junhui Ji, Lihang Pan, Shuaiqi Duan, Weihan Wang, Yan Wang, Yean Cheng, Zehai He, Zhe Su, Zhen Yang, Ziyang Pan, Aohan Zeng, Baoxu Wang, Bin Chen, Boyan Shi, Changyu Pang, Chenhui Zhang, Da Yin, Fan Yang, Guoqing Chen, Jiazheng Xu, Jiale Zhu, Jiali Chen, Jing Chen, Jinhao Chen, Jinghao Lin, Jinjiang Wang, Junjie Chen, Leqi Lei, Letian Gong, Leyi Pan, Mingdao Liu, Mingde Xu, Mingzhi Zhang, Qinkai Zheng, Sheng Yang, Shi Zhong, Shiyu Huang, Shuyuan Zhao, Siyan Xue, Shangqin Tu, Shengbiao Meng, Tianshu Zhang, Tianwei Luo, Tianxiang Hao, Tianyu Tong, Wenkai Li, Wei Jia, Xiao Liu, Xiaohan Zhang, Xin Lyu, Xinyue Fan, Xuancheng Huang, Yanling Wang, Yadong Xue, Yanfeng Wang, Yanzi Wang, Yifan An, Yifan Du, Yiming Shi, Yiheng Huang, Yilin Niu, Yuan Wang, Yuanchang Yue, Yuchen Li, Yutao Zhang, Yuting Wang, Yu Wang, Yuxuan Zhang, Zhao Xue, Zhenyu Hou, Zhengxiao Du, Zihan Wang, Peng Zhang, Debing Liu, Bin Xu, Juanzi Li, Minlie Huang, Yuxiao Dong, and Jie Tang.  Glm-4.5v and glm-4.1v-thinking: Towards versatile multimodal reasoning with scalable reinforcement learning, 2025.  URL <https://arxiv.org/abs/2507.01006>. 
+  * Wang et al. [2025a] Qi Wang, Yanrui Yu, Ye Yuan, Rui Mao, and Tianfei Zhou.  Videorft: Incentivizing video reasoning capability in mllms via reinforced fine-tuning.  _arXiv preprint arXiv:2505.12434_ , 2025a. 
+  * Wang et al. [2024a] Weihan Wang, Zehai He, Wenyi Hong, Yean Cheng, Xiaohan Zhang, Ji Qi, Xiaotao Gu, Shiyu Huang, Bin Xu, Yuxiao Dong, et al.  Lvbench: An extreme long video understanding benchmark.  _arXiv preprint arXiv:2406.08035_ , 2024a. 
+  * Wang et al. [2025b] Weiyun Wang, Zhangwei Gao, Lixin Gu, Hengjun Pu, Long Cui, Xingguang Wei, Zhaoyang Liu, Linglin Jing, Shenglong Ye, Jie Shao, et al.  Internvl3.5: Advancing open-source multimodal models in versatility, reasoning, and efficiency.  _arXiv preprint arXiv:2508.18265_ , 2025b. 
+  * Wang et al. [2024b] Xiaohan Wang, Yuhui Zhang, Orr Zohar, and Serena Yeung-Levy.  Videoagent: Long-form video understanding with large language model as agent.  In _European Conference on Computer Vision_ , pp. 58–76. Springer, 2024b. 
+  * Wang et al. [2024c] Yan Wang, Yawen Zeng, Jingsheng Zheng, Xiaofen Xing, Jin Xu, and Xiangmin Xu.  Videocot: A video chain-of-thought dataset with active annotation tool.  _arXiv preprint arXiv:2407.05355_ , 2024c. 
+  * Wang et al. [2025c] Zikang Wang, Boyu Chen, Zhengrong Yue, Yi Wang, Yu Qiao, Limin Wang, and Yali Wang.  Videochat-a1: Thinking with long videos by chain-of-shot reasoning.  _arXiv preprint arXiv:2506.06097_ , 2025c. 
+  * Wei et al. [2025a] Lai Wei, Yuting Li, Kaipeng Zheng, Chen Wang, Yue Wang, Linghe Kong, Lichao Sun, and Weiran Huang.  Advancing multimodal reasoning via reinforcement learning with cold start.  _arXiv preprint arXiv:2505.22334_ , 2025a. 
+  * Wei et al. [2025b] Yana Wei, Liang Zhao, Jianjian Sun, Kangheng Lin, Jisheng Yin, Jingcheng Hu, Yinmin Zhang, En Yu, Haoran Lv, Zejia Weng, et al.  Open vision reasoner: Transferring linguistic cognitive behavior for visual reasoning.  _arXiv preprint arXiv:2507.05255_ , 2025b. 
+  * Yang et al. [2025] An Yang, Anfeng Li, Baosong Yang, Beichen Zhang, Binyuan Hui, Bo Zheng, Bowen Yu, Chang Gao, Chengen Huang, Chenxu Lv, et al.  Qwen3 technical report.  _arXiv preprint arXiv:2505.09388_ , 2025. 
+  * Yang et al. [2024a] Dongjie Yang, Suyuan Huang, Chengqiang Lu, Xiaodong Han, Haoxin Zhang, Yan Gao, Yao Hu, and Hai Zhao.  Vript: A video is worth thousands of words.  _Advances in Neural Information Processing Systems_ , 37:57240–57261, 2024a. 
+  * Yang et al. [2024b] Zeyuan Yang, Delin Chen, Xueyang Yu, Maohao Shen, and Chuang Gan.  Vca: Video curious agent for long video understanding.  _arXiv preprint arXiv:2412.10471_ , 2024b. 
+  * Yao et al. [2023] Shunyu Yao, Jeffrey Zhao, Dian Yu, Nan Du, Izhak Shafran, Karthik Narasimhan, and Yuan Cao.  React: Synergizing reasoning and acting in language models.  In _International Conference on Learning Representations (ICLR)_ , 2023. 
+  * Yuan et al. [2025] Huaying Yuan, Zheng Liu, Junjie Zhou, Hongjin Qian, Ji-Rong Wen, and Zhicheng Dou.  Videodeepresearch: Long video understanding with agentic tool using.  _arXiv preprint arXiv:2506.10821_ , 2025. 
+  * Zeng et al. [2024] Xiangyu Zeng, Kunchang Li, Chenting Wang, Xinhao Li, Tianxiang Jiang, Ziang Yan, Songze Li, Yansong Shi, Zhengrong Yue, Yi Wang, et al.  Timesuite: Improving mllms for long video understanding via grounded tuning.  _arXiv preprint arXiv:2410.19702_ , 2024. 
+  * Zhang et al. [2025a] Haoji Zhang, Xin Gu, Jiawen Li, Chixiang Ma, Sule Bai, Chubin Zhang, Bowen Zhang, Zhichao Zhou, Dongliang He, and Yansong Tang.  Thinking with videos: Multimodal tool-augmented reinforcement learning for long video reasoning.  _arXiv preprint arXiv:2508.04416_ , 2025a. 
+  * Zhang et al. [2025b] Shuyi Zhang, Xiaoshuai Hao, Yingbo Tang, Lingfeng Zhang, Pengwei Wang, Zhongyuan Wang, Hongxuan Ma, and Shanghang Zhang.  Video-cot: A comprehensive dataset for spatiotemporal understanding of videos based on chain-of-thought.  _arXiv preprint arXiv:2506.08817_ , 2025b. 
+  * Zhang et al. [2025c] Xiaoyi Zhang, Zhaoyang Jia, Zongyu Guo, Jiahao Li, Bin Li, Houqiang Li, and Yan Lu.  Deep video discovery: Agentic search with tool use for long-form video understanding.  _arXiv preprint arXiv:2505.18079_ , 2025c. 
+  * Zhang et al. [2025d] Yongheng Zhang, Xu Liu, Ruihan Tao, Qiguang Chen, Hao Fei, Wanxiang Che, and Libo Qin.  Vitcot: Video-text interleaved chain-of-thought for boosting video understanding in large language models.  _arXiv preprint arXiv:2507.09876_ , 2025d. 
+  * Zhang et al. [2025e] Yuanhan Zhang, Jinming Wu, Wei Li, Bo Li, Zejun Ma, Ziwei Liu, and Chunyuan Li.  Llava-video: Video instruction tuning with synthetic data.  _Transactions on Machine Learning Research_ , 2025e. 
+  * Zhao et al. [2025] Yilun Zhao, Haowei Zhang, Lujing Xie, Tongyan Hu, Guo Gan, Yitao Long, Zhiyuan Hu, Weiyuan Chen, Chuhan Li, Zhijian Xu, et al.  Mmvu: Measuring expert-level multi-discipline video understanding.  In _Proceedings of the Computer Vision and Pattern Recognition Conference_ , pp. 8475–8489, 2025. 
+  * Zheng et al. [2025] Ziwei Zheng, Michael Yang, Jack Hong, Chenxiao Zhao, Guohai Xu, Le Yang, Chao Shen, and Xing Yu.  Deepeyes: Incentivizing" thinking with images" via reinforcement learning.  _arXiv preprint arXiv:2505.14362_ , 2025. 
+
+
+
+##  Appendix A Details of Dataset Construction
+
+###  A.1 Dataset Statistic
+
+Table [8](https://arxiv.org/html/2509.23652v1#A1.F8.fig1 "Figure 8 ‣ A.1 Dataset Statistic ‣ Appendix A Details of Dataset Construction ‣ ReWatch-R1: Boosting Complex Video Reasoning in Large Vision-Language Models through Agentic Data Synthesis") and Figure [8](https://arxiv.org/html/2509.23652v1#A1.F8.fig1 "Figure 8 ‣ A.1 Dataset Statistic ‣ Appendix A Details of Dataset Construction ‣ ReWatch-R1: Boosting Complex Video Reasoning in Large Vision-Language Models through Agentic Data Synthesis") provide detailed statistical and distribution information of our dataset. Tabale [4](https://arxiv.org/html/2509.23652v1#A4.T4 "Table 4 ‣ D.3 Answer Judge Prompt ‣ Appendix D Propmts ‣ ReWatch-R1: Boosting Complex Video Reasoning in Large Vision-Language Models through Agentic Data Synthesis") defines the 10 types of questions that we have manually defined.
+
+Table 2: Statistics of our dataset.
+
+Statistic Number Total Videos 10989 \- Video Source MiraData 1748 (15.9%) VideoEspresso 1977 (18.0%) VideoMarathon 3291 (30.0%) Video-R1 1982 (18.0%) Vript 1991 (18.1%) \- Video Duration Short (<< 3 min) 3970 Medium (3 ∼\sim 20 min) 5472 Long (20 ∼\sim 60 min) 1547 Caption Token (avg/max) 4370.0/68279 Summary Token (avg/max) 504.3/16370 Total Questions 170862 \- Dimensions Event Localization 21111 (12.4%) Temporal Localization 17755 (10.4%) Counting 18746 (11.0%) Cause and Effect 16290 (9.5%) Reading 14470 (8.5%) Spatial Perception 16417 (9.6%) Object Recognition 18336 (10.7%) State Changes 15176 (8.9%) Numerical Reasoning 19252 (11.3%) Counterfactual Reasoning 13309 (7.8%) \- Types Multiple-choice 85792 (50.2%) Open-ended 85070 (49.8%) Question Token (avg/max) 70.5/256 Answer Token (avg/max) 6.2/256 Total Chain of Thought 135346 Reasoning Steps (avg/max) 2.3/11 Reasoning Token (avg/max) 332.5/2045
+
+Figure 8: Distribution of our dataset.
+
+###  A.2 Model Settings for data synthesis
+
+When synthesizing ReWatch-Caption, the Semantic Segmentation model ℳseg\mathcal{M}_{\text{seg}} and the Detailed Description Generation model ℳcap\mathcal{M}_{\text{cap}} are all Gemini2.5-Flash (Non-Thinking) [[12](https://arxiv.org/html/2509.23652v1#bib.bib12)].
+
+When synthesizing ReWatch-QA, the Summary Generation model ℳsum\mathcal{M}_{\text{sum}} is Gemini2.5-Flash-Lite (Non-Thinking) [[12](https://arxiv.org/html/2509.23652v1#bib.bib12)]. The Contrastive QA Generation model ℳqa\mathcal{M}_{\text{qa}} is Gemini2.5-Flash (Thinking) [[12](https://arxiv.org/html/2509.23652v1#bib.bib12)]. The Answer Verification model ℳverify\mathcal{M}_{\text{verify}} is GPT4.1 [[1](https://arxiv.org/html/2509.23652v1#bib.bib1)]. The LLMs set 𝕄probe\mathbb{M}_{\text{probe}} for Text Bias Elimination and Summary Bias Elimination includes Qwen3-235B-A22B-Instruct [[46](https://arxiv.org/html/2509.23652v1#bib.bib46)] and Qwen2.5-VL-72B-Instruct [[4](https://arxiv.org/html/2509.23652v1#bib.bib4)]. Threshold θt​e​x​t\theta_{text} and θs​u​m\theta_{sum} are equal to 1. The rewritten model ℳrewrite\mathcal{M}_{\text{rewrite}} for multiple-choice questions is Gemini2.5-Flash (Non-Thinking).
+
+When synthesizing ReWatch-CoT, Reasoner model 𝒜R\mathcal{A}_{R} is Gemini2.5-Flash (Thinking) [[12](https://arxiv.org/html/2509.23652v1#bib.bib12)], and Observer model 𝒜O\mathcal{A}_{O} is GPT4.1 [[1](https://arxiv.org/html/2509.23652v1#bib.bib1)]. The model ℳconvert\mathcal{M}_{\text{convert}} used for converting structured trajectories is Gemini2.5-Flash-Lite (Non-Thinking).
+
+##  Appendix B Detailed Experiments
+
+###  B.1 Experimental Setup
+
+#### Benchmarks
+
+We evaluate the model on five video reasoning benchmarks (VCR Bench [[33](https://arxiv.org/html/2509.23652v1#bib.bib33)], MINERVA [[31](https://arxiv.org/html/2509.23652v1#bib.bib31)], Video Holmes [[10](https://arxiv.org/html/2509.23652v1#bib.bib10)], Video MathQA [[34](https://arxiv.org/html/2509.23652v1#bib.bib34)], CG-AV Counting [[29](https://arxiv.org/html/2509.23652v1#bib.bib29)]) and four video general understanding benchmarks (MMVU [[57](https://arxiv.org/html/2509.23652v1#bib.bib57)], LVBench [[39](https://arxiv.org/html/2509.23652v1#bib.bib39)], VideoMME [[15](https://arxiv.org/html/2509.23652v1#bib.bib15)], VideoMMMU [[19](https://arxiv.org/html/2509.23652v1#bib.bib19)]).
+
+#### Training Dataset Configuration
+
+Our primary model, ReWatch-R1, is derived from Qwen2.5-VL-7B-Instruct [[4](https://arxiv.org/html/2509.23652v1#bib.bib4)] via a two-stage training pipeline. First, we create an intermediate model, ReWatch-R1-SFT, by performing SFT using a mixture of three datasets: ReWatch-Caption, ReWatch-QA, and ReWatch-CoT. Subsequently, ReWatch-R1-SFT is further refined using RL to produce ReWatch-R1. The RL phase leverages a total of 40k QA pairs, which are randomly sampled from ReWatch-QA (20k), Video-R1-QA [[14](https://arxiv.org/html/2509.23652v1#bib.bib14)] (10k), and LongVideoReason-QA [[9](https://arxiv.org/html/2509.23652v1#bib.bib9)] (10k).
+
+#### Training Parameter Configuration
+
+In the SFT stage, the length of the model context is 16k. The default fps is 2.0, with a maximum sampling of 192 frames, and the maximum resolution of each frame is 128*28*28. The train batch_size (per device) to be 1 and the gradient cumulative to be 4. The learning rate is 1e-6, max_grad_norm is 1.0, and the optimizer is AdamW. The number of epochs is 10. 16 H800 Gpus are used. In the RL stage, the length of the model context is 16k. The default fps is 2.0, with a maximum sampling of 192 frames. The maximum resolution of each frame is 128*28*28. The number of rollouts is 8. The sampling temperature is 0.8 and top_p is 0.9. Both train_batch_size and ppo_mini_batch_size are 14. ppo_micro_batch_size_per_gpu is 1. The learning rate is 1e-5, max_grad_norm is 5.0, and the optimizer is AdamW. The number of epoch is 1. 16 H800 Gpus are used. In the reward mechanism of reinforcement learning, we use Qwen3-30B-A3B-Instruct [[46](https://arxiv.org/html/2509.23652v1#bib.bib46)] as inference model ℳi​n​f​e​r\mathcal{M}_{infer} and judge model ℳj​u​d​g​e\mathcal{M}_{judge}.
+
+#### Baselines
+
+We compare the performance with that of the most advanced video reasoning models in the current literature, including Qwen2.5-VL-7B [[3](https://arxiv.org/html/2509.23652v1#bib.bib3)], GLM4.1V-9B [[37](https://arxiv.org/html/2509.23652v1#bib.bib37)], InternVL3.5-8B [[40](https://arxiv.org/html/2509.23652v1#bib.bib40)], Video-R1 [[14](https://arxiv.org/html/2509.23652v1#bib.bib14)], Video-Chat-R1 [[25](https://arxiv.org/html/2509.23652v1#bib.bib25)], VideoRFT [[38](https://arxiv.org/html/2509.23652v1#bib.bib38)]. In addition, We also use two open-source datasets, Video-R1-CoT [[14](https://arxiv.org/html/2509.23652v1#bib.bib14)] and LongVideoReason-CoT [[9](https://arxiv.org/html/2509.23652v1#bib.bib9)], to reproduce Video-R1-SFT and LongVideoReason-SFT under the same training configuration of ReWatch-R1-SFT. The RL stage for Video-R1-RL and LongVideoReason-RL utilizes an identical dataset of 40k QA pairs with ReWatch-R1.
+
+#### Evaluation
+
+We employ GPT-4.1 [[1](https://arxiv.org/html/2509.23652v1#bib.bib1)] to assess if model responses align with ground truth using Prompt [18](https://arxiv.org/html/2509.23652v1#A4.F18 "Figure 18 ‣ D.3 Answer Judge Prompt ‣ Appendix D Propmts ‣ ReWatch-R1: Boosting Complex Video Reasoning in Large Vision-Language Models through Agentic Data Synthesis"), with accuracy as the metric for all benchmarks. During inference, the maximum resolution for each frame is limited to 128*28*28 pixels, and the maximum number of frames is 192 or 384. Greedy decoding is used for Qwen2.5-VL-7B, Video-R1, Video-Chat-R1, VideoRFT, Video-R1-SFT, Video-R1-RL, LongVideoReason-SFT, LongVideoReason-RL, ReWatch-R1-SFT, and ReWatch-R1. The decoding temperature is set to 0.8 for GLM4.1V-9B and 0.6 for InternVL3.5-8B. Models utilize different prompts in "Thinking" and "Non-Thinking" modes, as detailed in the Appendix [D.1](https://arxiv.org/html/2509.23652v1#A4.SS1 "D.1 Thinking Prompts ‣ Appendix D Propmts ‣ ReWatch-R1: Boosting Complex Video Reasoning in Large Vision-Language Models through Agentic Data Synthesis").
+
+###  B.2 Performance comparison on Video Understanding benchmarks
+
+Table 3: Performance comparison on Video Understanding tasks. ∗ indicates that we reproduced the model using a training configuration with 192 frames. † indicates that reinforcement learning is conducted using exactly the same data as ReWatch-R1. The best results among models of the same size are indicated in bold. 
+
+Models Thinking MMVU LVBench VideoMME VideoMMMU Average 192 Frames Qwen2.5-VL-32B ✗ 62.30 43.83 68.52 61.56 59.05 Qwen2.5-VL-7B ✗ 53.10 41.19 63.59 49.67 51.89 Qwen2.5-VL-7B ✓ 52.20 36.93 58.19 50.78 49.53 GLM4.1V-9B ✓ 57.90 40.99 61.81 54.67 53.84 InternVL3.5-8B ✓ 50.70 36.86 61.19 55.00 50.94 Video-R1 ✓ 53.20 40.28 64.41 50.33 52.06 Video-Chat-R1 ✓ 50.70 37.83 60.07 46.44 48.76 VideoRFT ✓ 55.30 42.48 64.81 49.89 53.12 Video-R1-SFT ✓ 53.50 37.31 58.59 47.67 49.27 Video-R1-RL ✓ 55.40 37.64 63.89 50.00 51.73 LongVideoReason-SFT ✓ 37.90 35.96 55.67 45.56 43.77 LongVideoReason-RL ✓ 57.20 41.12 61.59 51.00 52.73 ReWatch-R1-SFT ✓ 53.40 41.58 62.41 46.33 50.93 ReWatch-R1 ✓ 55.80 42.74 64.96 52.22 53.93 \+ O&R ✓ 57.80 42.54 64.93 51.33 54.15 384 Frames Qwen2.5-VL-32B ✗ 62.20 46.22 68.89 60.44 59.44 Qwen2.5-VL-7B ✗ 53.70 42.80 64.19 48.11 52.20 Qwen2.5-VL-7B ✓ 51.33 36.22 57.50 48.33 48.35 GLM4.1V-9B ✓ 57.60 44.35 66.44 57.33 56.43 InternVL3.5-8B ✓ 48.20 38.02 56.41 45.89 47.13 Video-R1 ✓ 52.90 40.61 64.19 49.11 51.70 Video-Chat-R1 ✓ 50.90 37.38 59.52 45.67 48.37 VideoRFT ✓ 55.30 40.74 64.15 48.67 52.22 Video-R1-SFT ✓ 53.90 38.02 59.96 48.44 50.08 Video-R1-RL ✓ 55.40 38.35 65.41 51.67 52.71 LongVideoReason-SFT ✓ 38.10 36.54 57.33 47.67 44.91 LongVideoReason-RL ✓ 56.60 41.19 62.56 51.56 52.98 ReWatch-R1-SFT ✓ 54.80 42.22 62.22 48.22 51.87 ReWatch-R1 ✓ 54.90 42.87 64.48 51.22 53.37 \+ O&R ✓ 57.70 43.25 65.56 51.89 54.60
+
+Table [3](https://arxiv.org/html/2509.23652v1#A2.T3 "Table 3 ‣ B.2 Performance comparison on Video Understanding benchmarks ‣ Appendix B Detailed Experiments ‣ ReWatch-R1: Boosting Complex Video Reasoning in Large Vision-Language Models through Agentic Data Synthesis") presents a comparative analysis of the performance of our model against other models on video understanding benchmarks. The key experimental findings and insights are as follows.
+
+Synergistic Improvement in Reasoning and Understanding Without Catastrophic Forgetting. ReWatch-R1 achieves state-of-the-art (SOTA) performance among models of a comparable size, with an average score of 54.15% at 192 frames across four general video understanding benchmarks. This demonstrates that specialized training for complex reasoning does not impair the model’s foundational abilities. On the contrary, it enhances general understanding by facilitating a more profound analysis of video content. This positive outcome is likely attributable to the multi-task learning design implemented during the Supervised Fine-Tuning (SFT) phase. The ReWatch-Caption task preserves the model’s fundamental video-text alignment, while the ReWatch-QA (direct-answer mode) and ReWatch-CoT (reasoning mode) tasks train distinct response pathways. Together, these tasks cultivate a comprehensively capable model rather than one with a specialized or biased skill set.
+
+RL-driven Alignment of "Thinking" and "Non-thinking" Performance. After SFT with Chain-of-Thought, the performance of the ReWatch-R1-SFT variant still lags behind the direct-answer ("non-thinking") performance of the base model. However, with the application of RL, the resulting ReWatch-R1 model not only exhibits further performance gains on video understanding tasks but also surpasses the direct-answer performance of the base model. This indicates that the enhancements in reasoning capabilities successfully generalize to foundational understanding tasks. This finding suggests that "deep reasoning" and "shallow understanding" are not entirely discrete processes. A model proficient in complex logical thought may consequently develop more reliable fundamental observation and recognition abilities.
+
+###  B.3 Performance comparison across different video durations
+
+Figure 9: Performance comparison across different video durations. Short: 0-3 minutes, Medium: 3-20 minutes, Long: over 20 minutes. We averaged the performance of the benchmarks for reasoning and understanding respectively, and all results were evaluated at 192 frames.
+
+Figure [9](https://arxiv.org/html/2509.23652v1#A2.F9 "Figure 9 ‣ B.3 Performance comparison across different video durations ‣ Appendix B Detailed Experiments ‣ ReWatch-R1: Boosting Complex Video Reasoning in Large Vision-Language Models through Agentic Data Synthesis") presents a comparative analysis of model performance on videos of varying durations. The findings highlight two primary conclusions regarding long-video reasoning.
+
+Superior Performance in Long-Video Reasoning. The proposed method demonstrates a significant advantage in long-video reasoning. ReWatch-R1 substantially outperforms all other models of comparable size on reasoning tasks for long videos (>20 min). For instance, ReWatch-R1 achieves 27.46%, an absolute improvement of over 3.4 percentage points compared to the next-best model, LongVideoReason-RL (24.03%). This result provides strong evidence for the efficacy of the overall methodology. The ReWatch dataset, with its hierarchical subtitles and contrastive QA, is specifically designed to create challenges that require reasoning across extended temporal spans. The model’s success indicates that this specialized training endows it with a superior ability to locate, associate, and reason with key information embedded within lengthy and often noisy video streams.
+
+Robustness to Performance Degradation on Long Videos. An analysis of all models reveals a consistent trend: performance on reasoning tasks declines as video duration increases. This observation confirms that long-video reasoning is a pervasive and yet-unsolved challenge for current LVLMs, a phenomenon that can be described as a "Long Video Tax." However, the key advantage of ReWatch-R1 lies in its more attenuated rate of performance degradation. For example, while its own performance drops from 40.38% (short videos) to 27.46% (long videos), its decline is less severe relative to its high baseline. This indicates that the model not only establishes a superior starting performance but also demonstrates greater resilience when confronted with the challenges of extended durations, further substantiating the robustness of the proposed method in handling long-term temporal dependencies.
+
+###  B.4 Comparative Analysis of Dataset-Induced Reasoning Complexity and Video Dependency
+
+Figure [6(a)](https://arxiv.org/html/2509.23652v1#S4.F6.sf1 "In Figure 6 ‣ 4.2 Analysis Results ‣ 4 Experiments ‣ ReWatch-R1: Boosting Complex Video Reasoning in Large Vision-Language Models through Agentic Data Synthesis") presents a quantitative analysis of the reasoning characteristics elicited by the ReWatch and Video-R1 datasets. The experiment involves using the ReWatch-R1-SFT model to perform inference on the ReWatch training set and the multiple-choice subset of the Video-R1 training set. From the outputs for each dataset, 5,000 correctly answered samples are randomly selected for analysis. Three metrics are computed for these samples: the average number of reasoning steps (<action> tags), the average response length, and the degree of video dependency. Video dependency is specifically quantified as "Text-Only Accuracy"—the accuracy of the powerful Qwen2.5-VL-7B model when answering questions with only textual input and no video. The results show that the ReWatch dataset demands more profound, multi-step inference, eliciting nearly double the number of reasoning steps (3.31 vs. 1.82) and significantly longer responses (398.75 vs. 205.74 characters). Most critically, the Text-Only Accuracy for Video-R1 is 68.9%, indicating that questions can often be answered from textual cues alone. In stark contrast, the accuracy for the ReWatch dataset is merely 29.4%, a figure close to the 25% random-guessing baseline. This provides compelling evidence that the dataset’s three-stage filtering mechanism is highly effective, successfully eliminating spurious shortcuts and ensuring that problems are solvable only through genuine video understanding.
+
+##  Appendix C Related Work
+
+###  C.1 Video QA datasets and benchmarks
+
+A growing body of video reasoning benchmarks reveals that current LVLMs struggle on complex, multi-step temporal reasoning. Recent evaluations [[33](https://arxiv.org/html/2509.23652v1#bib.bib33); [31](https://arxiv.org/html/2509.23652v1#bib.bib31); [10](https://arxiv.org/html/2509.23652v1#bib.bib10); [34](https://arxiv.org/html/2509.23652v1#bib.bib34); [29](https://arxiv.org/html/2509.23652v1#bib.bib29)] target causal attribution, temporal ordering, state tracking, counting, and cross-modal grounding, and consistently report large performance gaps even for strong models [[3](https://arxiv.org/html/2509.23652v1#bib.bib3); [37](https://arxiv.org/html/2509.23652v1#bib.bib37); [40](https://arxiv.org/html/2509.23652v1#bib.bib40); [14](https://arxiv.org/html/2509.23652v1#bib.bib14); [25](https://arxiv.org/html/2509.23652v1#bib.bib25); [38](https://arxiv.org/html/2509.23652v1#bib.bib38)]. Long-video understanding suites [[57](https://arxiv.org/html/2509.23652v1#bib.bib57); [39](https://arxiv.org/html/2509.23652v1#bib.bib39); [15](https://arxiv.org/html/2509.23652v1#bib.bib15); [19](https://arxiv.org/html/2509.23652v1#bib.bib19)] further underscore the challenge by emphasizing hour-scale contexts and dense event structure. Collectively, these benchmarks confirm that multi-hop, evidence-driven video reasoning remains underdeveloped in LVLMs.
+
+In contrast, the available training corpora offer limited support for developing such capabilities. Large open sources provide long videos and captions but predominantly yield holistic or coarse descriptions that lack precise temporal annotations [[22](https://arxiv.org/html/2509.23652v1#bib.bib22); [17](https://arxiv.org/html/2509.23652v1#bib.bib17); [27](https://arxiv.org/html/2509.23652v1#bib.bib27); [47](https://arxiv.org/html/2509.23652v1#bib.bib47); [56](https://arxiv.org/html/2509.23652v1#bib.bib56); [6](https://arxiv.org/html/2509.23652v1#bib.bib6)], or perception-centric QA that only requires simple single-step reasoning [[56](https://arxiv.org/html/2509.23652v1#bib.bib56); [8](https://arxiv.org/html/2509.23652v1#bib.bib8); [7](https://arxiv.org/html/2509.23652v1#bib.bib7); [53](https://arxiv.org/html/2509.23652v1#bib.bib53); [51](https://arxiv.org/html/2509.23652v1#bib.bib51)]. Recent video-reasoning efforts augment these resources with step-by-step traces, yet their Chain-of-Thought (CoT) is typically distilled from text-only LLMs and often resorts to commonsense or elimination rather than verifiable, video-grounded retrieval [[14](https://arxiv.org/html/2509.23652v1#bib.bib14); [38](https://arxiv.org/html/2509.23652v1#bib.bib38); [42](https://arxiv.org/html/2509.23652v1#bib.bib42)]. Such supervision is ill-suited for Reinforcement Learning with Verifiable Reward (RLVR), which requires challenging, multi-hop questions and checkable, content-grounded processes to produce reliable reward signals [[11](https://arxiv.org/html/2509.23652v1#bib.bib11); [21](https://arxiv.org/html/2509.23652v1#bib.bib21)]. This mismatch leaves RL methods data-starved: they can optimize answer formats and surface patterns but struggle to learn evidence-linked temporal reasoning [[26](https://arxiv.org/html/2509.23652v1#bib.bib26)].
+
+To close this gap, we synthesize ReWatch, a dataset that couples (i) temporally precise, hierarchical captions preserving event order, (ii) high-difficulty QA generated by contrasting detailed captions against summaries to remove shortcuts, and (iii) multi-agent, video-grounded CoT that explicitly records retrieval and verification steps. This design aims to provide the process-level supervision and question difficulty necessary to unlock RLVR for complex video reasoning.
+
+###  C.2 Video Reasoning in Large Vision-Language Models
+
+Reinforcement Learning for video reasoning emerges as a complementary path. Recent works [[14](https://arxiv.org/html/2509.23652v1#bib.bib14); [25](https://arxiv.org/html/2509.23652v1#bib.bib25); [38](https://arxiv.org/html/2509.23652v1#bib.bib38); [9](https://arxiv.org/html/2509.23652v1#bib.bib9); [32](https://arxiv.org/html/2509.23652v1#bib.bib32)] adopt RL/RFT-style training to improve reasoning, generally using final-answer accuracy as the primary reward and relying on the above training data. While promising, these pipelines inherit the limits of their supervision: weakly grounded CoT and shortcut-prone QA. Rewards remain coarse, focusing on outcomes rather than verifying intermediate observations or the sufficiency of the reasoning process. As a result, models can overfit to answer patterns, exhibit hallucinations, and fail to align intermediate steps with evidence in the video.
+
+Agentic methods integrate reasoning with tool use to improve grounding. Recent work extends agentic paradigms like ReAct [[49](https://arxiv.org/html/2509.23652v1#bib.bib49)] to long video understanding, enabling models to dynamically interact with video during inference to produce grounded reasoning chains [[50](https://arxiv.org/html/2509.23652v1#bib.bib50); [54](https://arxiv.org/html/2509.23652v1#bib.bib54); [48](https://arxiv.org/html/2509.23652v1#bib.bib48); [13](https://arxiv.org/html/2509.23652v1#bib.bib13); [41](https://arxiv.org/html/2509.23652v1#bib.bib41); [23](https://arxiv.org/html/2509.23652v1#bib.bib23); [30](https://arxiv.org/html/2509.23652v1#bib.bib30); [43](https://arxiv.org/html/2509.23652v1#bib.bib43); [2](https://arxiv.org/html/2509.23652v1#bib.bib2); [18](https://arxiv.org/html/2509.23652v1#bib.bib18); [55](https://arxiv.org/html/2509.23652v1#bib.bib55)]. However, these methods are often training-free, failing to internalize such reasoning abilities within the base model. Other approaches [[36](https://arxiv.org/html/2509.23652v1#bib.bib36); [28](https://arxiv.org/html/2509.23652v1#bib.bib28); [24](https://arxiv.org/html/2509.23652v1#bib.bib24)] use agents to synthesize video-based Chain-of-Thought data and then train models with SFT, but they typically generate fixed tool-use trajectories from a single planning phase, lacking the iterative "think-and-act" capability. Concurrently, the "think with video" paradigm emerges [[52](https://arxiv.org/html/2509.23652v1#bib.bib52)], which dynamically retrieves and injects video segments into the model’s context. This strategy, however, places excessive demands on context length and involves complex model context management and agentic RL training, severely limiting training efficiency.
+
+Our work combines the strengths of the above lines while addressing their limitations: we couple agentic data synthesis with RLVR, and while maintaining dynamic interaction with long videos and evidence verification, we internalize efficient, grounded reasoning into the multimodal model, thereby overcoming key limitations of current video reasoning.
+
+##  Appendix D Propmts
+
+###  D.1 Thinking Prompts
+
+We use different prompts to activate the thinking mode of different models. The detailed Settings are as follows: Qwen2.5-VL is not a reasoning model, so we use the CoT Prompt [10](https://arxiv.org/html/2509.23652v1#A4.F10 "Figure 10 ‣ D.1 Thinking Prompts ‣ Appendix D Propmts ‣ ReWatch-R1: Boosting Complex Video Reasoning in Large Vision-Language Models through Agentic Data Synthesis"). GLM4.1V itself has the thinking mode enabled by default, so we use the direct QA Prompt [16](https://arxiv.org/html/2509.23652v1#A4.F16 "Figure 16 ‣ D.2 Non-Thinking Prompts ‣ Appendix D Propmts ‣ ReWatch-R1: Boosting Complex Video Reasoning in Large Vision-Language Models through Agentic Data Synthesis"). InternVL3.5 requires additional hints to activate the thinking mode, so we use the Prompt [15](https://arxiv.org/html/2509.23652v1#A4.F15 "Figure 15 ‣ D.1 Thinking Prompts ‣ Appendix D Propmts ‣ ReWatch-R1: Boosting Complex Video Reasoning in Large Vision-Language Models through Agentic Data Synthesis"). Video-R1 and VideoRFT use the Prompt [12](https://arxiv.org/html/2509.23652v1#A4.F12 "Figure 12 ‣ D.1 Thinking Prompts ‣ Appendix D Propmts ‣ ReWatch-R1: Boosting Complex Video Reasoning in Large Vision-Language Models through Agentic Data Synthesis"). Video-Chat-R1 uses the Promp [13](https://arxiv.org/html/2509.23652v1#A4.F13 "Figure 13 ‣ D.1 Thinking Prompts ‣ Appendix D Propmts ‣ ReWatch-R1: Boosting Complex Video Reasoning in Large Vision-Language Models through Agentic Data Synthesis"). LongVideoReason uses the Prompt [14](https://arxiv.org/html/2509.23652v1#A4.F14 "Figure 14 ‣ D.1 Thinking Prompts ‣ Appendix D Propmts ‣ ReWatch-R1: Boosting Complex Video Reasoning in Large Vision-Language Models through Agentic Data Synthesis"). Our model ReWatch-R1 uses the Prompt [11](https://arxiv.org/html/2509.23652v1#A4.F11 "Figure 11 ‣ D.1 Thinking Prompts ‣ Appendix D Propmts ‣ ReWatch-R1: Boosting Complex Video Reasoning in Large Vision-Language Models through Agentic Data Synthesis").
+
+Prompt for the Thinking mode of Qwen2.5-VL You are a video understanding expert. You are given a video and a question. You need to answer the question based on the video content. Please provide a step-by-step solution to the given question. And provide the final answer in the end. Question: {question}
+
+Figure 10:  Prompt for the Thinking mode of Qwen2.5-VL. 
+
+Prompt for the Thinking mode of ReWatch-R1 You are a video understanding expert. You are given a video and a question. You need to answer the question based on the video content. Please answer the question step by step. When you need more video details, you will re-watch the relevant clips and use <action> and </action> to mark the actions, and use <observation> and </observation> to mark the visual details you observe. When you have enough information to determine the final answer, you will wrap the final answer in <answer> and </answer>. Video Information and Question: \- Video Duration: {video_duration} \- Question: {question}
+
+Figure 11:  Prompt for the Thinking mode of ReWatch-R1. 
+
+Prompt for the Thinking mode of Video-R1 and VideoRFT {Question} Please think about this question as if you were a human pondering deeply. Engage in an internal dialogue using expressions such as ’let me think’, ’wait’, ’Hmm’, ’oh, I see’, ’let’s break it down’, etc, or other natural language thought expressions It’s encouraged to include self-reflection or verification in the reasoning process. Provide your detailed reasoning between the <think> and </think> tags, and then give your final answer between the <answer> and </answer> tags. {Output_Template} Output_Template: "multiple choice": " Please provide only the single option letter (e.g., A, B, C, D, etc.) within the <answer> </answer> tags.", "numerical": " Please provide the numerical value (e.g., 42 or 3.14) within the <answer> </answer> tags.", "OCR": " Please transcribe text from the image/video clearly and provide your text answer within the <answer> </answer> tags.", "free-form": " Please provide your text answer within the <answer> </answer> tags.", "regression": " Please provide the numerical value (e.g., 42 or 3.14) within the <answer> </answer> tags."
+
+Figure 12:  Prompt for the Thinking mode of Video-R1 and VideoRFT. 
+
+Prompt for the Thinking mode of Video-Chat-R1 {question} Output your thought process within the <think> </think> tags, including analysis with either specific timestamps (xx.xx) or time ranges (xx.xx to xx.xx) in <timestep> </timestep> tags. Then, provide your final answer within the <answer> </answer> tags.
+
+Figure 13:  Prompt for the Thinking mode of Video-Chat-R1. 
+
+Prompt for the Thinking mode of LongVideoReason You are a helpful assistant. The user asks a question, and then you solves it. Please first think deeply about the question based on the given video, and then provide the final answer. The reasoning process and answer are enclosed within <think> </think> and <answer> </answer> tags, respectively, i.e., <think> reasoning process here </think> <answer> answer here </answer>. Question: {question}
+
+Figure 14:  Prompt for the Thinking mode of LongVideoReason. 
+
+Prompt for the Thinking mode of InternVL3.5 You are an AI assistant that rigorously follows this response protocol: 1\. First, conduct a detailed analysis of the question. Consider different angles, potential solutions, and reason through the problem step-by-step. Enclose this entire thinking process within <think> and </think> tags. 2\. After the thinking section, provide a clear, concise, and direct answer to the user’s question. Separate the answer from the think section with a newline. Ensure that the thinking process is thorough but remains focused on the query. The final answer should be standalone and not reference the thinking section. You are given a video and a question. You need to answer the question based on the video content. Please directly provide your answer. Question: {question}
+
+Figure 15:  Prompt for the Thinking mode of InternVL3.5. 
+
+###  D.2 Non-Thinking Prompts
+
+In the evaluation, all the models in this paper use the same Prompt [16](https://arxiv.org/html/2509.23652v1#A4.F16 "Figure 16 ‣ D.2 Non-Thinking Prompts ‣ Appendix D Propmts ‣ ReWatch-R1: Boosting Complex Video Reasoning in Large Vision-Language Models through Agentic Data Synthesis") when applying the non-thinking mode.
+
+When training ReWatch-R1-SFT, we apply Prompt [17](https://arxiv.org/html/2509.23652v1#A4.F17 "Figure 17 ‣ D.2 Non-Thinking Prompts ‣ Appendix D Propmts ‣ ReWatch-R1: Boosting Complex Video Reasoning in Large Vision-Language Models through Agentic Data Synthesis"), Prompt [16](https://arxiv.org/html/2509.23652v1#A4.F16 "Figure 16 ‣ D.2 Non-Thinking Prompts ‣ Appendix D Propmts ‣ ReWatch-R1: Boosting Complex Video Reasoning in Large Vision-Language Models through Agentic Data Synthesis"), and Prompt [11](https://arxiv.org/html/2509.23652v1#A4.F11 "Figure 11 ‣ D.1 Thinking Prompts ‣ Appendix D Propmts ‣ ReWatch-R1: Boosting Complex Video Reasoning in Large Vision-Language Models through Agentic Data Synthesis") on datasets ReWatch-Caption, ReWatch-QA, and ReWatch-CoT respectively.
+
+Prompt for the Non-Thinking mode You are a video understanding expert. You are given a video and a question. You need to answer the question based on the video content. Please directly provide your answer. Question: {question}
+
+Figure 16:  Prompt for the Non-Thinking mode of all models in this paper. 
+
+Prompt for the video-text alignment Analyze the provided video and generate a brief, chronologically ordered set of dense descriptions. Divide the video into some meaningful segments based on its storyline. Each segment should be as long as possible and encompass a relatively complete event or core scene. Each segment must be accompanied by its corresponding start and end timestamps. **Importantly**, ensure that the timestamps for all segments are continuous and cover the entire duration ({duration}) of the video, from beginning to end. For each segment: 1\. Provide a precise start and end timestamp (format: [MM:SS-MM:SS]). 2\. Write a concise but informative description of what is happening in that segment. 3\. Focus on actions, key objects, and interactions. Please format the output as: [MM:SS-MM:SS] Description of the segment. [MM:SS-MM:SS] Description of the next segment. (and so on, until the end of the video)
+
+Figure 17:  Prompt for the video-text alignment. 
+
+###  D.3 Answer Judge Prompt
+
+Prompt for Answer judge You are an AI assistant who will help me to judge whether the answer generated by a model is consistent with the standard answer. Input Illustration: Standard Answer is the standard answer to the question Model Answer is the answer generated by a model to this question. Task Illustration: Determine whether Standard Answer and Model Answer are consistent. Consistent Criteria: If the meaning is expressed in the same way, it is also considered consistent. Output Format: 1\. If they are consistent, output 1; if they are different, output 0. 2\. DIRECTLY output 1 or 0 without any other content. Question: {question} Model Answer: {extract_answer} Standard Answer: {gt_answer} Your output:
+
+Figure 18:  Prompt for Answer judge.  Table 4: Definitions of the 10 synthesized QA types. Task Type |  Definition  
+---|---  
+Event Localization |  This task requires the LVLM to output the precise start and end times of a specific event in the video, based on a natural language query.  
+Temporal Localization |  This task provides a timestamp or time interval from the video and requires the LVLM to describe what happened within that specific time.  
+Counting |  This task requires the LVLM to calculate the frequency of events or actions and to perceive the number of occurrences of specific objects.  
+Cause and Effect |  This task requires the LVLM to identify direct causal relationships between specific events in the video, meaning one event directly led to the occurrence of another.  
+State Changes |  This task requires the LVLM to identify temporal changes in the attributes, position, behavior, or emotions of specific objects or characters in the video.  
+Reading (OCR) |  This task requires the LVLM to identify and understand textual information appearing in the video frame (e.g., signs, subtitles, screen displays, document content).  
+Spatial Perception |  This task requires the LVLM to understand the relative spatial positions, distances, and movement trajectories between objects, people, and their environment within the video.  
+Numerical Reasoning |  This task requires the LVLM to perform all mathematical operations other than simple counting, including but not limited to comparison, calculating speed, estimating time, calculating proportions, etc.  
+Object Recognition |  This task requires the LVLM to identify and name specific objects, people, or animals appearing in the video.  
+Counterfactual Reasoning |  This task requires the LVLM, given the video context, to hypothesize a scenario where a certain event did not occur or occurred differently, and then infer the likely objective, verifiable consequences. This does not involve subjective feelings or pure speculation but is based on physical laws, logic, or established patterns shown in the video.  
+  
+Generated on Sun Sep 28 05:35:57 2025 by [LaTeXML](http://dlmf.nist.gov/LaTeXML/)

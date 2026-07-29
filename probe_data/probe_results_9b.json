@@ -1,0 +1,23 @@
+{
+  "Complex_Direction_Identification|shallow": 0.8833333333333333,
+  "Complex_Direction_Identification|mid": 0.9666666666666667,
+  "Complex_Direction_Identification|deep": 0.9166666666666666,
+  "Rotation_Direction|shallow": 0.95,
+  "Rotation_Direction|mid": 0.9333333333333333,
+  "Rotation_Direction|deep": 0.8833333333333333,
+  "Rotation_Count|shallow": 1.0,
+  "Rotation_Count|mid": 1.0,
+  "Rotation_Count|deep": 1.0,
+  "Bouncing_Counting|shallow": 0.9833333333333333,
+  "Bouncing_Counting|mid": 1.0,
+  "Bouncing_Counting|deep": 0.95,
+  "Directional_Event_Counting|shallow": 0.25,
+  "Directional_Event_Counting|mid": 0.18333333333333332,
+  "Directional_Event_Counting|deep": 0.21666666666666667,
+  "Acceleration_Identification|shallow": 0.9833333333333333,
+  "Acceleration_Identification|mid": 1.0,
+  "Acceleration_Identification|deep": 0.9666666666666667,
+  "Event_Sequence|shallow": 1.0,
+  "Event_Sequence|mid": 1.0,
+  "Event_Sequence|deep": 1.0
+}

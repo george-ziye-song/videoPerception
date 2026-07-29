@@ -1,0 +1,656 @@
+  1. [1 Introduction](https://arxiv.org/html/2512.14698v1#S1 "In TimeLens: Rethinking Video Temporal Grounding with Multimodal LLMs")
+  2. [2 Related Work](https://arxiv.org/html/2512.14698v1#S2 "In TimeLens: Rethinking Video Temporal Grounding with Multimodal LLMs")
+     1. [Temporal Grounding Datasets](https://arxiv.org/html/2512.14698v1#S2.SS0.SSS0.Px1 "In 2 Related Work ‣ TimeLens: Rethinking Video Temporal Grounding with Multimodal LLMs")
+     2. [MLLMs for Temporal Grounding](https://arxiv.org/html/2512.14698v1#S2.SS0.SSS0.Px2 "In 2 Related Work ‣ TimeLens: Rethinking Video Temporal Grounding with Multimodal LLMs")
+  3. [3 Towards Reliable, High-Quality VTG Data](https://arxiv.org/html/2512.14698v1#S3 "In TimeLens: Rethinking Video Temporal Grounding with Multimodal LLMs")
+     1. [3.1 Annotation Criteria](https://arxiv.org/html/2512.14698v1#S3.SS1 "In 3 Towards Reliable, High-Quality VTG Data ‣ TimeLens: Rethinking Video Temporal Grounding with Multimodal LLMs")
+        1. [Task Formulation](https://arxiv.org/html/2512.14698v1#S3.SS1.SSS0.Px1 "In 3.1 Annotation Criteria ‣ 3 Towards Reliable, High-Quality VTG Data ‣ TimeLens: Rethinking Video Temporal Grounding with Multimodal LLMs")
+        2. [Input Criteria](https://arxiv.org/html/2512.14698v1#S3.SS1.SSS0.Px2 "In 3.1 Annotation Criteria ‣ 3 Towards Reliable, High-Quality VTG Data ‣ TimeLens: Rethinking Video Temporal Grounding with Multimodal LLMs")
+        3. [Output Criteria](https://arxiv.org/html/2512.14698v1#S3.SS1.SSS0.Px3 "In 3.1 Annotation Criteria ‣ 3 Towards Reliable, High-Quality VTG Data ‣ TimeLens: Rethinking Video Temporal Grounding with Multimodal LLMs")
+     2. [3.2 Manual Auditing and Refinement](https://arxiv.org/html/2512.14698v1#S3.SS2 "In 3 Towards Reliable, High-Quality VTG Data ‣ TimeLens: Rethinking Video Temporal Grounding with Multimodal LLMs")
+        1. [Diagnose-then-Refine](https://arxiv.org/html/2512.14698v1#S3.SS2.SSS0.Px1 "In 3.2 Manual Auditing and Refinement ‣ 3 Towards Reliable, High-Quality VTG Data ‣ TimeLens: Rethinking Video Temporal Grounding with Multimodal LLMs")
+        2. [Error Identification](https://arxiv.org/html/2512.14698v1#S3.SS2.SSS0.Px2 "In 3.2 Manual Auditing and Refinement ‣ 3 Towards Reliable, High-Quality VTG Data ‣ TimeLens: Rethinking Video Temporal Grounding with Multimodal LLMs")
+        3. [Quality Control](https://arxiv.org/html/2512.14698v1#S3.SS2.SSS0.Px3 "In 3.2 Manual Auditing and Refinement ‣ 3 Towards Reliable, High-Quality VTG Data ‣ TimeLens: Rethinking Video Temporal Grounding with Multimodal LLMs")
+     3. [3.3 Empirical Analysis on TimeLens-Bench](https://arxiv.org/html/2512.14698v1#S3.SS3 "In 3 Towards Reliable, High-Quality VTG Data ‣ TimeLens: Rethinking Video Temporal Grounding with Multimodal LLMs")
+        1. [Error Statistics and Analysis](https://arxiv.org/html/2512.14698v1#S3.SS3.SSS0.Px1 "In 3.3 Empirical Analysis on TimeLens-Bench ‣ 3 Towards Reliable, High-Quality VTG Data ‣ TimeLens: Rethinking Video Temporal Grounding with Multimodal LLMs")
+        2. [Qualitative Examples of Errors and Fixes](https://arxiv.org/html/2512.14698v1#S3.SS3.SSS0.Px2 "In 3.3 Empirical Analysis on TimeLens-Bench ‣ 3 Towards Reliable, High-Quality VTG Data ‣ TimeLens: Rethinking Video Temporal Grounding with Multimodal LLMs")
+        3. [Counter-intuitive Evaluation Results](https://arxiv.org/html/2512.14698v1#S3.SS3.SSS0.Px3 "In 3.3 Empirical Analysis on TimeLens-Bench ‣ 3 Towards Reliable, High-Quality VTG Data ‣ TimeLens: Rethinking Video Temporal Grounding with Multimodal LLMs")
+     4. [3.4 Training Data Re-annotation](https://arxiv.org/html/2512.14698v1#S3.SS4 "In 3 Towards Reliable, High-Quality VTG Data ‣ TimeLens: Rethinking Video Temporal Grounding with Multimodal LLMs")
+  4. [4 Benchmarking Grounding MLLMs](https://arxiv.org/html/2512.14698v1#S4 "In TimeLens: Rethinking Video Temporal Grounding with Multimodal LLMs")
+     1. [Evaluation Metrics](https://arxiv.org/html/2512.14698v1#S4.SS0.SSS0.Px1 "In 4 Benchmarking Grounding MLLMs ‣ TimeLens: Rethinking Video Temporal Grounding with Multimodal LLMs")
+     2. [Evaluation Results](https://arxiv.org/html/2512.14698v1#S4.SS0.SSS0.Px2 "In 4 Benchmarking Grounding MLLMs ‣ TimeLens: Rethinking Video Temporal Grounding with Multimodal LLMs")
+  5. [5 Exploring Algorithmic Designs](https://arxiv.org/html/2512.14698v1#S5 "In TimeLens: Rethinking Video Temporal Grounding with Multimodal LLMs")
+     1. [5.1 Timestamp Encoding](https://arxiv.org/html/2512.14698v1#S5.SS1 "In 5 Exploring Algorithmic Designs ‣ TimeLens: Rethinking Video Temporal Grounding with Multimodal LLMs")
+     2. [5.2 Optimization Paradigms](https://arxiv.org/html/2512.14698v1#S5.SS2 "In 5 Exploring Algorithmic Designs ‣ TimeLens: Rethinking Video Temporal Grounding with Multimodal LLMs")
+     3. [5.3 Recipes for RLVR Training](https://arxiv.org/html/2512.14698v1#S5.SS3 "In 5 Exploring Algorithmic Designs ‣ TimeLens: Rethinking Video Temporal Grounding with Multimodal LLMs")
+  6. [6 Conclusion](https://arxiv.org/html/2512.14698v1#S6 "In TimeLens: Rethinking Video Temporal Grounding with Multimodal LLMs")
+  7. [A Details of TimeLens-Bench](https://arxiv.org/html/2512.14698v1#A1 "In TimeLens: Rethinking Video Temporal Grounding with Multimodal LLMs")
+     1. [Source datasets](https://arxiv.org/html/2512.14698v1#A1.SS0.SSS0.Px1 "In Appendix A Details of TimeLens-Bench ‣ TimeLens: Rethinking Video Temporal Grounding with Multimodal LLMs")
+     2. [Detailed Statistics](https://arxiv.org/html/2512.14698v1#A1.SS0.SSS0.Px2 "In Appendix A Details of TimeLens-Bench ‣ TimeLens: Rethinking Video Temporal Grounding with Multimodal LLMs")
+     3. [A.1 Evaluation Metrics](https://arxiv.org/html/2512.14698v1#A1.SS1 "In Appendix A Details of TimeLens-Bench ‣ TimeLens: Rethinking Video Temporal Grounding with Multimodal LLMs")
+  8. [B More Implementation Details.](https://arxiv.org/html/2512.14698v1#A2 "In TimeLens: Rethinking Video Temporal Grounding with Multimodal LLMs")
+     1. [B.1 Preliminaries for RL](https://arxiv.org/html/2512.14698v1#A2.SS1 "In Appendix B More Implementation Details. ‣ TimeLens: Rethinking Video Temporal Grounding with Multimodal LLMs")
+        1. [Thinking-based vs. Thinking-free RLVR.](https://arxiv.org/html/2512.14698v1#A2.SS1.SSS0.Px1 "In B.1 Preliminaries for RL ‣ Appendix B More Implementation Details. ‣ TimeLens: Rethinking Video Temporal Grounding with Multimodal LLMs")
+        2. [Difficulty-aware Sampling](https://arxiv.org/html/2512.14698v1#A2.SS1.SSS0.Px2 "In B.1 Preliminaries for RL ‣ Appendix B More Implementation Details. ‣ TimeLens: Rethinking Video Temporal Grounding with Multimodal LLMs")
+     2. [B.2 Experimental Setup](https://arxiv.org/html/2512.14698v1#A2.SS2 "In Appendix B More Implementation Details. ‣ TimeLens: Rethinking Video Temporal Grounding with Multimodal LLMs")
+        1. [Model Configuration](https://arxiv.org/html/2512.14698v1#A2.SS2.SSS0.Px1 "In B.2 Experimental Setup ‣ Appendix B More Implementation Details. ‣ TimeLens: Rethinking Video Temporal Grounding with Multimodal LLMs")
+        2. [Timestamp Encoding](https://arxiv.org/html/2512.14698v1#A2.SS2.SSS0.Px2 "In B.2 Experimental Setup ‣ Appendix B More Implementation Details. ‣ TimeLens: Rethinking Video Temporal Grounding with Multimodal LLMs")
+        3. [Training Configuration](https://arxiv.org/html/2512.14698v1#A2.SS2.SSS0.Px3 "In B.2 Experimental Setup ‣ Appendix B More Implementation Details. ‣ TimeLens: Rethinking Video Temporal Grounding with Multimodal LLMs")
+  9. [C More Experimental Results](https://arxiv.org/html/2512.14698v1#A3 "In TimeLens: Rethinking Video Temporal Grounding with Multimodal LLMs")
+     1. [Results across different model sizes](https://arxiv.org/html/2512.14698v1#A3.SS0.SSS0.Px1 "In Appendix C More Experimental Results ‣ TimeLens: Rethinking Video Temporal Grounding with Multimodal LLMs")
+     2. [Comparison of results on TimeLens-Bench and original benchmarks](https://arxiv.org/html/2512.14698v1#A3.SS0.SSS0.Px2 "In Appendix C More Experimental Results ‣ TimeLens: Rethinking Video Temporal Grounding with Multimodal LLMs")
+     3. [Results on general video understanding](https://arxiv.org/html/2512.14698v1#A3.SS0.SSS0.Px3 "In Appendix C More Experimental Results ‣ TimeLens: Rethinking Video Temporal Grounding with Multimodal LLMs")
+  10. [D Discussion on Thinking-free vs. Thinking-based RLVR](https://arxiv.org/html/2512.14698v1#A4 "In TimeLens: Rethinking Video Temporal Grounding with Multimodal LLMs")
+     1. [Intuitive Analysis.](https://arxiv.org/html/2512.14698v1#A4.SS0.SSS0.Px1 "In Appendix D Discussion on Thinking-free vs. Thinking-based RLVR ‣ TimeLens: Rethinking Video Temporal Grounding with Multimodal LLMs")
+     2. [Empirical Observations.](https://arxiv.org/html/2512.14698v1#A4.SS0.SSS0.Px2 "In Appendix D Discussion on Thinking-free vs. Thinking-based RLVR ‣ TimeLens: Rethinking Video Temporal Grounding with Multimodal LLMs")
+     3. [Implications and Future Work.](https://arxiv.org/html/2512.14698v1#A4.SS0.SSS0.Px3 "In Appendix D Discussion on Thinking-free vs. Thinking-based RLVR ‣ TimeLens: Rethinking Video Temporal Grounding with Multimodal LLMs")
+  11. [E Annotation Interface and Manual](https://arxiv.org/html/2512.14698v1#A5 "In TimeLens: Rethinking Video Temporal Grounding with Multimodal LLMs")
+  12. [F Details of Curating TimeLens-100K](https://arxiv.org/html/2512.14698v1#A6 "In TimeLens: Rethinking Video Temporal Grounding with Multimodal LLMs")
+  13. [G Implementation Details for Benchmarking Existing MLLMs](https://arxiv.org/html/2512.14698v1#A7 "In TimeLens: Rethinking Video Temporal Grounding with Multimodal LLMs")
+     1. [TimeLens Models](https://arxiv.org/html/2512.14698v1#A7.SS0.SSS0.Px1 "In Appendix G Implementation Details for Benchmarking Existing MLLMs ‣ TimeLens: Rethinking Video Temporal Grounding with Multimodal LLMs")
+     2. [GPT-5 [OpenAI2025_GPT5] and GPT-4o [hurst2024gpt-4o]](https://arxiv.org/html/2512.14698v1#A7.SS0.SSS0.Px2 "In Appendix G Implementation Details for Benchmarking Existing MLLMs ‣ TimeLens: Rethinking Video Temporal Grounding with Multimodal LLMs")
+     3. [Gemini models [comanici2025gemini-2-5]](https://arxiv.org/html/2512.14698v1#A7.SS0.SSS0.Px3 "In Appendix G Implementation Details for Benchmarking Existing MLLMs ‣ TimeLens: Rethinking Video Temporal Grounding with Multimodal LLMs")
+     4. [Qwen3-VL [Qwen3-VL], Qwen2.5-VL [qwen2-5-vl] and MiMo-VL [mimo-vl]](https://arxiv.org/html/2512.14698v1#A7.SS0.SSS0.Px4 "In Appendix G Implementation Details for Benchmarking Existing MLLMs ‣ TimeLens: Rethinking Video Temporal Grounding with Multimodal LLMs")
+     5. [Other Open-source Models](https://arxiv.org/html/2512.14698v1#A7.SS0.SSS0.Px5 "In Appendix G Implementation Details for Benchmarking Existing MLLMs ‣ TimeLens: Rethinking Video Temporal Grounding with Multimodal LLMs")
+
+
+
+\useunder
+
+\ul
+
+# TimeLens: Rethinking Video Temporal Grounding with Multimodal LLMs
+
+Jun Zhang1,2,* Teng Wang2, 🖂 Yuying Ge2 Yixiao Ge2 Xinhao Li1   
+XX Ying Shan2 Limin Wang1,3, 🖂   
+1Nanjing University 2ARC Lab, Tencent PCG 3Shanghai AI Lab   
+<https://timelens-arc-lab.github.io/>
+
+###### Abstract
+
+This paper does not introduce a novel method but instead establishes a straightforward, incremental, yet essential baseline for video temporal grounding (VTG), a core capability in video understanding. While multimodal large language models (MLLMs) excel at various video understanding tasks, the recipes for optimizing them for VTG remain under-explored. In this paper, we present TimeLens, a systematic investigation into building MLLMs with strong VTG ability, along two primary dimensions: data quality and algorithmic design. We first expose critical quality issues in existing VTG benchmarks and introduce TimeLens-Bench, comprising meticulously re-annotated versions of three popular benchmarks with strict quality criteria. Our analysis reveals dramatic model re-rankings compared to legacy benchmarks, confirming the unreliability of prior evaluation standards. We also address noisy training data through an automated re-annotation pipeline, yielding TimeLens-100K, a large-scale, high-quality training dataset. Building on our data foundation, we conduct in-depth explorations of algorithmic design principles, yielding a series of meaningful insights and effective yet efficient practices. These include interleaved textual encoding for time representation, a thinking-free reinforcement learning with verifiable rewards (RLVR) approach as the training paradigm, and carefully designed recipes for RLVR training. These efforts culminate in TimeLens models, a family of MLLMs with state-of-the-art VTG performance among open-source models and even surpass proprietary models such as GPT-5 and Gemini-2.5-Flash. All codes, data, and models will be released to facilitate future research.
+
+00footnotetext: 🖂 Corresponding author. * Work done during internship at ARC Lab, Tencent PCG.
+
+##  1 Introduction
+
+Recent multimodal large language models (MLLMs) have excelled at understanding “what” happens in a video, yet they largely fail when asked “when.” This limitation is central to the task of video temporal grounding (VTG). The challenge is twofold: 1) VTG necessitates a fundamental shift from coarse semantic aggregation to fine-grained time-aware perception; 2) Distinguishing queried events requires modeling long-term visual dynamics over appearance-centric features, which are notoriously difficult to annotate and learn. As MLLMs become integral to perception [yuan2021closerlookat, wu2025numberit, perception_test, vcr_bench] and reasoning systems [nagrani2025minerva, nagrani2024neptune, liu2025videomind, chain_of_frames, zhang2025vitcot, longvila_rl], equipping them with robust temporal awareness is no longer optional, but essential [vtg_survey, univtg, timechat, wang2025timer1, team2025vidi].
+
+Figure 1: Overview of the proposed TimeLens framework. We systematically explore the key factors for building performant video temporal grounding models, dissecting our efforts along two primary dimensions: data quality and algorithmic design. For data quality, we focus on benchmark diagnosis, benchmark refinement, and creating a reliable evaluation suite. For algorithmic design, we study various aspects including time encoding, training recipes, and optimization strategies to establish best practices and develop the TimeLens models. 
+
+(a)
+
+(b)
+
+Figure 2:  (a) Impact of data quality on model evaluation. A comparison of Mean IoU on original versus our refined Charades-STA benchmarks. The deviation from the diagonal line shows that legacy benchmarks are misleading, as they inflate the results of some open-source models while underestimating proprietary ones. (b) Cumulative performance gains of TimeLens explorations. This analysis shows how each component boosts the model’s average performance on TimeLens-Bench. From data curation to thinking-free RLVR with early stopping and difficulty-based data sampling, each step demonstrates a clear positive impact towards our final TimeLens model. TimeLens-7B and TimeLens-8B are based on Qwen2.5-VL-7B and Qwen3-VL-8B, respectively. 
+
+This work focuses on post-training MLLMs with leading temporal grounding ability. This investigation is a straightforward extension given the recent progress in pretrained foundation MLLMs [qwen2-5-vl, Qwen3-VL, internvideo2]. Different from heavily studied general understanding tasks, recipes for fine-grained grounding tasks are not yet to be established. This paper aims to systematically investigate core components of building time-aware MLLMs (Fig. [1](https://arxiv.org/html/2512.14698v1#S1.F1 "Figure 1 ‣ 1 Introduction ‣ TimeLens: Rethinking Video Temporal Grounding with Multimodal LLMs")) along two primary dimensions: data quality and algorithmic design.
+
+Our investigation starts by exposing critical flaws in evaluation benchmarks. We find that existing VTG benchmarks [charades-sta, activitynet-captions, qvhighlights] not only lack a clear comparison between leading proprietary and open-source models but are also rife with low-quality queries and erroneous timestamps. This noisy data may render current leaderboards misleading and misguide research efforts. To rectify this, we undertook a meticulous data overhaul. We first defined strict criteria for query and timestamp quality, in terms of uniqueness, existence, clarity, and accuracy. We then manually re-annotated three popular datasets (Charades-STA [charades-sta], ActivityNet Captions [activitynet-captions], QVHighlights [qvhighlights]) to create TimeLens-Bench, a rigorously cross-validated benchmark. As shown in Fig. [2(a)](https://arxiv.org/html/2512.14698v1#S1.F2.sf1 "Figure 2\(a\) ‣ Figure 2 ‣ 1 Introduction ‣ TimeLens: Rethinking Video Temporal Grounding with Multimodal LLMs"), the necessity of this correction is confirmed by a dramatic re-ranking of models on TimeLens-Bench compared to their performance on legacy benchmarks, proving the unreliability of prior evaluation standards. Beyond evaluation, we also fix the noisy training data by automated re-annotation, yielding TimeLens-100K, a large-scale, high-quality training dataset.
+
+With our curated data suite as a solid foundation, we conduct in-depth explorations on the algorithmic design principles from three key aspects. First, for timestamp representation, we discovered that a simple yet effective interleaved textual encoding strategy outperforms more complex alternatives. Second, we determined that VTG is fundamentally a perception-driven task, and thus employ a pure thinking-free reinforcement learning with verifiable rewards (RLVR) approach that outperforms other training paradigms in both efficiency and performance. Finally, our detailed analysis of RLVR training reveals two key recipes for both performance and training efficiency: (1) early stopping when reward metrics plateau, and (2) difficulty-based data sampling. By integrating these insights and design principles, we ultimately develop TimeLens models, a family of MLLMs with superior VTG capability. As shown in [Fig. 2(b)](https://arxiv.org/html/2512.14698v1#S1.F2.sf2 "In Figure 2 ‣ 1 Introduction ‣ TimeLens: Rethinking Video Temporal Grounding with Multimodal LLMs"), our model achieves state-of-the-art performance among open-source models and even surpasses proprietary models such as GPT-5 and Gemini-2.5-Flash.
+
+Through these efforts, we identified and addressed long-overlooked quality issues in existing datasets, and derived a series of insights and best practices in algorithmic design. We hope TimeLens can serve as a solid foundation in both data curation and algorithmic design principles, to facilitate future research on building MLLMs with strong VTG capabilities. Our code, data, and models will be open-sourced.
+
+Figure 3: Qualitative examples of errors and fixes. We present representative errors identified in existing datasets, spanning different error types, including multiple event occurrences, no event occurrence, duplicate queries for the same video, unclear query, and inaccurate annotation. Through our rigorous manual refinement, these errors have been properly corrected, significantly improving data quality.
+
+##  2 Related Work
+
+#### Temporal Grounding Datasets
+
+Numerous VTG datasets have been proposed, spanning diverse domains [qvhighlights, activitynet-captions, oncescu2021queryd, wang2024cosmo_cap, huang2024vtimellm-internvid-vtime, grauman2022ego4d, tacos]. Early works [charades-sta, 2d-tan, lu2019debug] trained and evaluated models on the training and test splits of a single benchmark [tacos, activitynet-captions] to assess their ability to fit single-domain data distribution. In recent works [liu2025videomind, timechat, guo2024trace], large diverse corpuses composed of multiple different source datasets [didemo, oncescu2021queryd, wang2024cosmo_cap, huang2024vtimellm-internvid-vtime, zala2023hirest, liu2024etbench] are aggregated for training, and a suite of distinct benchmarks [activitynet-captions, charades-sta, qvhighlights] are used to probe the models’ real-world cross-domain generalizability.
+
+However, the critical issue of data quality has been overlooked. There lacks a systematic examination on whether existing datasets are reliable enough for training and evaluation. In this paper, we manually inspect existing datasets, identify and correct errors, and produce quality-improved training and evaluation suites for developing more practical VTG models.
+
+#### MLLMs for Temporal Grounding
+
+Substantial works focus on algorithmic designs to improve MLLMs’ VTG capability. One line of research explores model architectures, including token compression methods to reduce computation on long videos [timechat, zeng2024timesuite] and timestamp encoding strategies to align the timestamps of each frame with its corresponding features [chen2024timemarker, wu2025numberit, li2025unitime, ge2025arc-hunyuan-video, zeng2025distime]. Another line of works investigate training strategies: introducing various supervised fine-tuning tasks to improve VTG performance [zeng2024timesuite, cheng2025tempura], or designing verifiable rewards to improve performance via reinforcement learning [wang2025timer1, tvg-r1, li2025tempsamp_r1, yue2025tempo_r0].
+
+Despite the abundance of proposed designs, their inconsistent experimental settings make it difficult to fairly compare their relative merits and establish best practices. In this paper, we systematically analyze these design choices using our quality-assured training and evaluation suites, offering key insights for improving MLLMs’ VTG capability.
+
+Figure 4: Statistics of errors indicating alarmingly high proportion of errors in existing datasets.
+
+##  3 Towards Reliable, High-Quality VTG Data
+
+###  3.1 Annotation Criteria
+
+#### Task Formulation
+
+For temporal grounding, a model takes as input a video vv and a text query qq, localizes the event EE described by qq, and outputs the corresponding temporal segment S=(tstart,tend)S=(t_{\text{start}},t_{\text{end}}). In practice, a video is typically annotated with one or more query-segment pairs {(qi,Si)}i=1n\\{(q_{i},S_{i})\\}_{i=1}^{n}.
+
+#### Input Criteria
+
+The input video and query should satisfy:
+
+  * •
+
+Query clarity and specificity. The query must be clear, precise, and unambiguous for accurate and definitive grounding (A counterexample like “the game continues”).
+
+  * •
+
+Event existence. The event described in the text query must genuinely exist within the video content.
+
+  * •
+
+Query uniqueness. All queries must be unique in a single video. The presence of multiple nearly identical queries describing the same event is equivalent to duplicating or weighting certain samples, leading to biased metrics. Indeed, this issue is severe in Charades-STA dataset.
+
+  * •
+
+Avoid information leakage in queries. Queries like “ending credits” leak their temporal position, allowing the model to answer via shortcut, without truly “grounding” the query over the entire video. However, annotators tend to label such queries since they are easy to identify.
+
+
+
+
+#### Output Criteria
+
+The temporal segment should satisfy:
+
+  * •
+
+Annotation precision. The annotated event boundaries should be precise, excluding any subsegments that do not conform to the query’s description.
+
+  * •
+
+Annotation exhaustiveness. There should be no other time segments outside the annotated one that also satisfy the query’s description.
+
+
+
+
+###  3.2 Manual Auditing and Refinement
+
+We introduce a rigorous and efficient pipeline for auditing and refining existing temporal grounding datasets.
+
+#### Diagnose-then-Refine
+
+Our pipeline follows a diagnose-then-refine workflow. Given a video-query pair from existing datasets, annotators first carefully review the video to identify potential errors against the criteria in [Sec. 3.1](https://arxiv.org/html/2512.14698v1#S3.SS1 "3.1 Annotation Criteria ‣ 3 Towards Reliable, High-Quality VTG Data ‣ TimeLens: Rethinking Video Temporal Grounding with Multimodal LLMs"). If an error is detected, they select the error category, then either revise the query or choose a new valid event to describe. Subsequently, the precise temporal segment is annotated. The core principle is that the same annotator performs both error detection and subsequent correction, which not only improves efficiency but also strengthens annotators’ awareness of potential errors, thereby reducing the risk of introducing similar ones.
+
+#### Error Identification
+
+Directly applying the abstract criteria from [Sec. 3.1](https://arxiv.org/html/2512.14698v1#S3.SS1 "3.1 Annotation Criteria ‣ 3 Towards Reliable, High-Quality VTG Data ‣ TimeLens: Rethinking Video Temporal Grounding with Multimodal LLMs") for error detection proves overly challenging for annotators. Therefore, as shown in [Fig. 3](https://arxiv.org/html/2512.14698v1#S1.F3 "In 1 Introduction ‣ TimeLens: Rethinking Video Temporal Grounding with Multimodal LLMs"), we derive from these criteria a set of concrete, easily identifiable error types with clear illustrations. Annotators check whether each error type is present and fill in the corresponding information. Additionally, we group all queries from the same video together to detect violations of “query uniqueness” and improve annotation efficiency. During the process, we do not provide original temporal segments to annotators.
+
+#### Quality Control
+
+Upon completion of each small data batch, every sample is assigned to a different annotator for cross-validation and error correction. If the error rate in a batch exceeds a threshold, the entire batch is rejected for re-annotation and then validated again. For annotator selection and training, we sampled a small subset of data for trial annotation with over a dozen vendors, then selected the vendor with the highest quality and consistency. Before formal annotation, we provided a detailed handbook and conducted several training sessions. The annotation interface and detailed manual are provided in [Appendix E](https://arxiv.org/html/2512.14698v1#A5 "Appendix E Annotation Interface and Manual ‣ TimeLens: Rethinking Video Temporal Grounding with Multimodal LLMs") of the appendix.
+
+| Charades-TimeLens | ActivityNet-TimeLens | QVHighlights-TimeLens  
+---|---|---|---  
+Model | R1@0.3 | R1@0.5 | R1@0.7 | mIoU | R1@0.3 | R1@0.5 | R1@0.7 | mIoU | R1@0.3 | R1@0.5 | R1@0.7 | mIoU  
+Proprietary Models |  |  |  |  |  |  |  |  |  |  |  |   
+GPT-4o [hurst2024gpt-4o] | 60.6 | 44.5 | 23.5 | 41.8 | 55.2 | 41.4 | 25.8 | 40.4 | 69.0 | 54.8 | 38.5 | 52.1  
+GPT-5 [OpenAI2025_GPT5] | 59.3 | 42.0 | 22.0 | 40.5 | 57.4 | 44.9 | 30.4 | 42.9 | 72.4 | 60.4 | 46.4 | 56.8  
+Gemini-2.0-Flash [comanici2025gemini-2-5] | 66.4 | 53.5 | 27.1 | 46.7 | 62.9 | 54.0 | 37.7 | 49.3 | 76.2 | 66.4 | 48.3 | 60.8  
+Gemini-2.5-Flash [comanici2025gemini-2-5] | 68.7 | 56.1 | 30.6 | 48.6 | 66.8 | 57.5 | 41.3 | 52.5 | 78.2 | 69.4 | 55.0 | 64.3  
+Gemini-2.5-Pro [comanici2025gemini-2-5] | 74.1 | 61.1 | 34.0 | 52.8 | 72.3 | 64.2 | 47.1 | 58.1 | 84.1 | 75.9 | 61.1 | 70.4  
+Open-Source Models |  |  |  |  |  |  |  |  |  |  |  |   
+VideoChat-Flash-7B [li2024videochat_flash] | 60.2 | 37.9 | 17.8 | 39.7 | 35.5 | 21.8 | 10.5 | 24.8 | 45.2 | 30.6 | 16.7 | 32.7  
+VideoChat-R1-7B [li2025videochat_r1] | 51.9 | 30.8 | 11.7 | 33.7 | 35.0 | 23.9 | 11.3 | 25.0 | 29.3 | 19.1 | 9.4 | 21.5  
+Time-R1-7B [wang2025timer1] | 57.9 | 32.0 | 16.9 | 36.6 | 44.8 | 31.0 | 19.0 | 33.1 | 65.8 | 51.5 | 36.1 | 49.2  
+MiMo-VL-7B [mimo-vl] | 57.9 | 42.6 | 20.5 | 39.6 | 49.3 | 38.7 | 22.4 | 35.5 | 57.1 | 42.6 | 28.4 | 41.5  
+\rowcolor[HTML]EFEFEF Qwen2.5-VL-7B [qwen2-5-vl] | 59.7 | 37.8 | 16.6 | 39.3 | 44.1 | 31.0 | 16.1 | 31.4 | 41.5 | 27.8 | 15.2 | 31.6  
+\rowcolor[HTML]E8F0FB TimeLens-7B | 70.5 | 55.6 | 28.4 | 48.8 | 62.8 | 51.0 | 32.6 | 46.2 | 74.1 | 62.7 | 43.1 | 56.0  
+\rowcolor[HTML]EFEFEF Qwen3-VL-8B [Qwen3-VL] | 69.2 | 53.4 | 27.5 | 48.3 | 62.1 | 51.2 | 34.4 | 46.8 | 74.2 | 64.6 | 49.3 | 59.4  
+\rowcolor[HTML]E8F0FB TimeLens-8B | 76.6 | 63.0 | 35.2 | 55.2 | 68.9 | 58.4 | 40.6 | 53.2 | 80.2 | 71.6 | 55.5 | 65.5  
+Table 1:  Main Results. We benchmark the performance of various state-of-the-art proprietary and open-source models on TimeLens-Bench. Our TimeLens models are built upon their respective baseline models (preceding rows in the table). Our TimeLens-7B not only delivers substantial improvements over the Qwen2.5-VL baseline but also closes the gap with the more powerful Qwen3-VL-8B model. Building upon the stronger Qwen3-VL baseline, our TimeLens-8B pushes performance even further, setting a new state-of-the-art among open-source models and surpassing prominent proprietary models like GPT-5 and Gemini-2.5-Flash. 
+
+###  3.3 Empirical Analysis on TimeLens-Bench
+
+In this section, we present our efforts and findings by applying the above annotation pipeline to existing datasets. We focus on three most widely-used temporal grounding benchmarks: Charades-STA [charades-sta], ActivityNet Captions [activitynet-captions], and QVHighlights [qvhighlights]. These datasets exhibit diversity across video domains, video durations, and query semantics. They are all manually annotated and generally considered the highest-quality VTG datasets available. Therefore, analyzing them offers a representative view of the quality and issues prevalent in existing data. Through diagnosis and refinement, we release TimeLens-Bench, comprising refined versions of the three aforementioned benchmarks: Charades-TimeLens, ActivityNet-TimeLens, and QVHighlights-TimeLens. Together, they form a comprehensive evaluation suite that combines diversity with high quality. Detailed statistics for these benchmarks are provided in [Appendix A](https://arxiv.org/html/2512.14698v1#A1 "Appendix A Details of TimeLens-Bench ‣ TimeLens: Rethinking Video Temporal Grounding with Multimodal LLMs").
+
+Finding 1: Widely-used benchmarks have an alarmingly high proportion of errors.
+
+#### Error Statistics and Analysis
+
+As shown in [Fig. 4](https://arxiv.org/html/2512.14698v1#S2.F4 "In MLLMs for Temporal Grounding ‣ 2 Related Work ‣ TimeLens: Rethinking Video Temporal Grounding with Multimodal LLMs"), we observe an alarmingly high proportion of errors across different categories in these benchmarks. The distribution of error composition varies across different datasets, yet all datasets exhibit consistently high overall error rates. For example, in Charades-STA, we find that 20.6% of samples violate query uniqueness, while 34.9% exhibit annotation accuracy issues. Such severe errors will lead to unreliable evaluation results and misguide research efforts.
+
+#### Qualitative Examples of Errors and Fixes
+
+As shown in [Fig. 3](https://arxiv.org/html/2512.14698v1#S1.F3 "In 1 Introduction ‣ TimeLens: Rethinking Video Temporal Grounding with Multimodal LLMs"), various error examples are identified in existing datasets, including multiple event occurrences, no event occurrence, duplicate queries for the same video, unclear query, and inaccurate annotation. Through our rigorous manual refinement, these detected errors have been properly corrected, significantly improving data quality. Our refined datasets provide more reliable evaluation results.
+
+Finding 2: Low-quality evaluation data inflates performance of open-source models, while underestimating proprietary models.
+
+#### Counter-intuitive Evaluation Results
+
+We evaluate various frontier models on both the original and refined benchmarks, observing drastically contrasting performance trends. As illustrated in Fig. [2(a)](https://arxiv.org/html/2512.14698v1#S1.F2.sf1 "Figure 2\(a\) ‣ Figure 2 ‣ 1 Introduction ‣ TimeLens: Rethinking Video Temporal Grounding with Multimodal LLMs"), on the original benchmarks, we observe a surprising phenomenon: frontier proprietary models like Gemini-2.5-Pro [comanici2025gemini-2-5] receive poor scores, whereas open-source models [wang2025timer1, qwen2-5-vl] attain significantly higher ones. Conversely, on our refined benchmarks, this trend reverses. The proprietary models exhibit much better results, though with room for improvement, while the open-source models suffer a substantial performance degradation, lagging far behind their proprietary counterparts. This reversal indicates that the original benchmarks produce misleading results due to inherent quality flaws, while our refined benchmarks yield results that align more closely with real-world user experience, providing reliable evaluation for developing better VTG models.
+
+###  3.4 Training Data Re-annotation
+
+By applying our manual pipeline from [Sec. 3.2](https://arxiv.org/html/2512.14698v1#S3.SS2 "3.2 Manual Auditing and Refinement ‣ 3 Towards Reliable, High-Quality VTG Data ‣ TimeLens: Rethinking Video Temporal Grounding with Multimodal LLMs") to a sampled subset of existing VTG training corpus [didemo, oncescu2021queryd, wang2024cosmo_cap, huang2024vtimellm-internvid-vtime, zala2023hirest], we found that the training data exhibits an even higher error rate compared to the evaluation benchmarks. This motivated us to refine training data based on scalable re-annotation. Given the vast scale of the training sets, we employ an automated pipeline to improve their quality based on advanced multimodal models. Owing to the poor quality of these training datasets, especially the high proportion of queries that fail to meet our criteria in [Sec. 3.1](https://arxiv.org/html/2512.14698v1#S3.SS1 "3.1 Annotation Criteria ‣ 3 Towards Reliable, High-Quality VTG Data ‣ TimeLens: Rethinking Video Temporal Grounding with Multimodal LLMs"), we re-annotate the videos rather than refining existing labels. Through this process, we curate TimeLens-100K, a large-scale, high-quality, and diverse VTG training set. Additional details are provided in [Appendix F](https://arxiv.org/html/2512.14698v1#A6 "Appendix F Details of Curating TimeLens-100K ‣ TimeLens: Rethinking Video Temporal Grounding with Multimodal LLMs").
+
+Finding 3: Improved annotation quality in training data yields stronger grounding ability.
+
+As presented in Fig. [2(b)](https://arxiv.org/html/2512.14698v1#S1.F2.sf2 "Figure 2\(b\) ‣ Figure 2 ‣ 1 Introduction ‣ TimeLens: Rethinking Video Temporal Grounding with Multimodal LLMs"), models trained on TimeLens-100K demonstrate substantially improved performance on our refined evaluation benchmarks. This performance gain serves as a direct validation of the data’s enhanced quality. Notably, our automated re-annotation for training data is developed entirely independently of the manual benchmark refinement process, ensuring an unbiased evaluation.
+
+(a) Interleaved Textual Timestamp Encoding.
+
+(b) Visual Timestamp Overlay.
+
+(c) Position-embedding-based Time Encoding.
+
+Figure 5: Illustration of different timestamp encoding schemes. (a) Textual Encoding uses the text tokenizer of LLMs to tokenize textual timestamps into textual tokens. (b) Visual Overlay directly overlays timestamps as visual text onto the corresponding frames. (c) Position-embedding-based Methods aligns the positional encodings of visual tokens in the LLM with the sampling time of each frame. |  | Charades-TimeLens | ActivityNet-TimeLens | QVHighlights-TimeLens  
+---|---|---|---|---  
+Method |  Timestamp Format | R1@0.3 | R1@0.5 | R1@0.7 | mIoU | R1@0.3 | R1@0.5 | R1@0.7 | mIoU | R1@0.3 | R1@0.5 | R1@0.7 | mIoU  
+Position Embed. [qwen2-5-vl] | - | 57.9 | 32.0 | 16.9 | 36.6 | 44.8 | 31.0 | 19.0 | 33.1 | 65.8 | 51.5 | 36.1 | 49.2  
+| Frame Index | 65.5 | 48.0 | 22.2 | 44.0 | 47.5 | 34.0 | 17.8 | 33.3 | 61.4 | 43.6 | 24.1 | 42.3  
+Visual Overlay | Raw Timestamp | 67.6 | 50.7 | 25.7 | 46.3 | 54.0 | 42.2 | 26.3 | 39.8 | 70.0 | 58.3 | 42.1 | 53.6  
+| Not-Interleaved  
+---  
+Textual Prefix  
+Raw Timestamp | 64.9 | 49.4 | 27.3 | 45.8 | 48.2 | 35.5 | 21.4 | 35.2 | 59.7 | 45.8 | 26.4 | 42.8  
+| Frame Index | 66.0 | 51.6 | 25.6 | 45.6 | 51.0 | 39.1 | 23.1 | 36.9 | 64.4 | 52.1 | 32.3 | 47.2  
+Interleaved Textual Prefix |  \cellcolor[HTML]C0E4F5Raw Timestamp |  \cellcolor[HTML]C0E4F570.0 |  \cellcolor[HTML]C0E4F553.9 |  \cellcolor[HTML]C0E4F528.1 |  \cellcolor[HTML]C0E4F548.3 |  \cellcolor[HTML]C0E4F557.9 |  \cellcolor[HTML]C0E4F546.3 |  \cellcolor[HTML]C0E4F530.5 |  \cellcolor[HTML]C0E4F543.1 |  \cellcolor[HTML]C0E4F573.0 |  \cellcolor[HTML]C0E4F562.2 |  \cellcolor[HTML]C0E4F546.1 |  \cellcolor[HTML]C0E4F556.7  
+Table 2: Ablation on timestamp encoding methods. For each method, we experiment with two timestamp formats: raw timestamps (_e.g_., “10.2s”) or frame indices (_e.g_., “1, 2, 3”). “Position Embed.” means “Position Embedding”. Results show that interleaved textual prefix with raw timestamps is the most effective approach, while maintaining simplicity.
+
+##  4 Benchmarking Grounding MLLMs
+
+In this section, we benchmark the performance of various state-of-the-art proprietary and open-source models on TimeLens-Bench, including our TimeLens models derived from the exploration in [Sec. 5](https://arxiv.org/html/2512.14698v1#S5 "5 Exploring Algorithmic Designs ‣ TimeLens: Rethinking Video Temporal Grounding with Multimodal LLMs").
+
+#### Evaluation Metrics
+
+We evaluate VTG performance using the “R1@m” metric, which measures the proportion of test instances where the highest-ranked predicted segment achieves an IoU exceeding threshold m (where m takes values from 0.3, 0.5, 0.7). Additionally, we employ mIoU as a primary measure, computing the mean IoU across the entire test set for conciseness.
+
+#### Evaluation Results
+
+As shown in [Tab. 1](https://arxiv.org/html/2512.14698v1#S3.T1 "In Quality Control ‣ 3.2 Manual Auditing and Refinement ‣ 3 Towards Reliable, High-Quality VTG Data ‣ TimeLens: Rethinking Video Temporal Grounding with Multimodal LLMs"), we observe a significant performance gap between existing open-source and proprietary models, and our TimeLens models substantially narrow this gap. TimeLens-7B delivers substantial improvements over its baseline, demonstrating the effectiveness of the insights and best practices obtained from our experiments in [Sec. 5](https://arxiv.org/html/2512.14698v1#S5 "5 Exploring Algorithmic Designs ‣ TimeLens: Rethinking Video Temporal Grounding with Multimodal LLMs"). It surpasses strong open-source competitors such as Time-R1-7B [wang2025timer1] and MiMo-VL-7B [mimo-vl], as well as proprietary models like GPT-4o [hurst2024gpt-4o] and GPT-5 [OpenAI2025_GPT5]. More remarkably, on the already stronger baseline Qwen3-VL-8B, our TimeLens-8B model still achieves substantial performance gains, establishing a new state-of-the-art among open-source models and even surpassing frontier proprietary models like Gemini-2.5-Flash [comanici2025gemini-2-5].
+
+##  5 Exploring Algorithmic Designs
+
+In this section, we conduct a systematic study on the algorithmic designs for improving MLLMs’ VTG performance, covering various aspects from model architectures to training strategies. Leveraging our high-quality training and evaluation suites as a reliable testbed, we derive several novel and valuable insights. As shown in [Fig. 2(b)](https://arxiv.org/html/2512.14698v1#S1.F2.sf2 "In Figure 2 ‣ 1 Introduction ‣ TimeLens: Rethinking Video Temporal Grounding with Multimodal LLMs"), each of our findings contributes a non-trivial performance gain, ultimately culminating in our TimeLens model.
+
+Experimental Setup. Our experiments use Qwen2.5-VL-7B [qwen2-5-vl] as the baseline. For RLVR experiments, we employ GRPO [shao2024deepseekmath] as optimization method. We use TimeLens-Bench for evaluation and TimeLens-100K for training. To ensure rigor, all ablation studies are based on the final, best-performing model configuration, isolating the impact of a single design choice at a time. Due to limited computational resources, we adopt a lower per-frame resolution for our ablation experiments. More implementation details are provided in [Appendix B](https://arxiv.org/html/2512.14698v1#A2 "Appendix B More Implementation Details. ‣ TimeLens: Rethinking Video Temporal Grounding with Multimodal LLMs") of the appendix.
+
+|  | Charades-TimeLens | ActivityNet-TimeLens | QVHighlights-TimeLens  
+---|---|---|---|---  
+Training Paradigm |  Training Time | R1@0.3 | R1@0.5 | R1@0.7 | mIoU | R1@0.3 | R1@0.5 | R1@0.7 | mIoU | R1@0.3 | R1@0.5 | R1@0.7 | mIoU  
+SFT (32K Data) |  1.0×\times | 68.8 | 53.0 | 26.2 | 47.4 | 53.3 | 42.6 | 27.5 | 39.9 | 65.8 | 54.8 | 40.6 | 52.0  
+SFT (100K Data) |  2.4×\times | 70.6 | 54.9 | 27.1 | 48.6 | 53.2 | 43.1 | 27.2 | 39.7 | 63.1 | 51.1 | 36.9 | 49.0  
+Thinking-based RLVR |  1.9×\times | 60.3 | 46.4 | 24.7 | 42.7 | 54.3 | 44.2 | 29.1 | 41.2 | 72.1 | 62.7 | 48.2 | 57.8  
+| SFT +  
+---  
+Thinking-free RLVR  
+2.9×\times | 71.7 | 56.7 | 29.8 | 50.1 | 56.9 | 46.1 | 30.1 | 42.7 | 72.2 | 60.6 | 43.8 | 55.9  
+\rowcolor[HTML]C0E4F5 Thinking-free RLVR |  1.0×\times | 70.0 | 53.9 | 28.1 | 48.3 | 57.9 | 46.3 | 30.5 | 43.1 | 73.0 | 62.2 | 46.1 | 56.7  
+Table 3: Ablation on different training paradigms. We compare the performance and efficiency of different training paradigms, showing that thinking-free RLVR achieves the best performance while maintaining high efficiency. All training is conducted on our quality-improved TimeLens-100K training data. Training time is measured on 8×\times H20 GPUs, where 1.0×\times corresponds to approximately 4h10m. As described in [Sec. 5.3](https://arxiv.org/html/2512.14698v1#S5.SS3 "5.3 Recipes for RLVR Training ‣ 5 Exploring Algorithmic Designs ‣ TimeLens: Rethinking Video Temporal Grounding with Multimodal LLMs"), before RLVR training, offline inference on the training data is required to select samples with appropriate difficulty; this time is also included in the reported RLVR training time.
+
+###  5.1 Timestamp Encoding
+
+Finding 4: Encoding timestamps as interleaved textual prefix is the most effective while maintaining simplicity.
+
+To enable MLLMs to perform temporal grounding, a critical design decision is timestamp encoding (_i.e_., aligning the timestamp of each frame with its corresponding features). Effective timestamp encoding allows the model to accurately perceive the absolute temporal position of each frame and the relative order between frames, thereby producing precise localization results. As illustrated in [Fig. 5](https://arxiv.org/html/2512.14698v1#S3.F5 "In 3.4 Training Data Re-annotation ‣ 3 Towards Reliable, High-Quality VTG Data ‣ TimeLens: Rethinking Video Temporal Grounding with Multimodal LLMs"), various timestamp encoding strategies have been proposed:
+
+  * •
+
+Position-embedding based. These methods adapt position embeddings in LLMs to represent the temporal position of each frame. For example, MRoPE [qwen2-5-vl, mimo-vl] and 3D RoPE [team2025kwai_keye] extend pure-text RoPE to multimodal scenarios, encoding the spatial and temporal dimensions of video frame tokens.
+
+  * •
+
+Visual overlay. These methods [ge2025arc-hunyuan-video, wu2025numberit, cheng2025tempura] directly overlay timestamps or frame index onto each frame, enabling MLLMs to “read” the temporal position through their OCR capabilities.
+
+  * •
+
+Textual encoding. These methods convert timestamps into text tokens using the MLLM’s text tokenizer. There are two main variants: the Interleaved approach [guo2025seed1_5_vl, li2025unitime, yao2025genS, hong2024cogvlm2, chen2024timemarker] in [Fig. 5(a)](https://arxiv.org/html/2512.14698v1#S3.F5.sf1 "In Figure 5 ‣ 3.4 Training Data Re-annotation ‣ 3 Towards Reliable, High-Quality VTG Data ‣ TimeLens: Rethinking Video Temporal Grounding with Multimodal LLMs") inserts timestamp tokens before the visual tokens of each frame. In contrast, the Non-interleaved approach [li2024videochat_flash, wang2025spacevllm, li2023videochat] adds an instruction like “This video samples NN frames of a TT-second video at t1,t2,…t_{1},t_{2},\ldots seconds.” into the prompt.
+
+
+
+
+We conduct a comprehensive comparison of different timestamp encoding methods. For each method, we experiment with two timestamp formats: raw timestamps (_e.g_., “10.2s”) or frame indices (_e.g_., “1, 2, 3”), which are simpler but neglects the temporal interval between frames. As shown in [Tab. 2](https://arxiv.org/html/2512.14698v1#S3.T2 "In 3.4 Training Data Re-annotation ‣ 3 Towards Reliable, High-Quality VTG Data ‣ TimeLens: Rethinking Video Temporal Grounding with Multimodal LLMs"), our results reveal: Position-embedding based methods yield unsatisfactory results. Given that they require fundamental modifications to the RoPE mechanism in LLMs, their practicality is limited without large-scale retraining. Instead, interleaved textual prefix with raw timestamps achieves the best performance among all approaches, while remaining simple and intuitive.
+
+###  5.2 Optimization Paradigms
+
+Finding 5: For the optimization paradigm, a pure thinking-free RLVR approach achieves superior performance and efficiency. Both SFT and thinking-based RLVR are not necessary.
+
+In this section, we review different training paradigms and conduct systematic experiments to compare their effectiveness and efficiency for VTG, seeking insights into the optimal training paradigm.
+
+Earlier works [timechat, huang2024vtimellm-internvid-vtime, zeng2024timesuite, guo2024trace, guo2025vtg-llm] employ supervised fine-tuning (SFT) to improve MLLMs’ VTG capability. Recently, some works [wang2025timer1, tvg-r1] utilize reinforcement learning with verifiable rewards (RLVR), following a “think-then-answer” approach [guo2025deepseek_r1] (details in [Appendix B](https://arxiv.org/html/2512.14698v1#A2 "Appendix B More Implementation Details. ‣ TimeLens: Rethinking Video Temporal Grounding with Multimodal LLMs")): during sampling, the model first generates an explicit thinking process and then produces the final answer. The task-specific VTG accuracy reward is computed only on the final answer. Despite these efforts, there lacks a systematic comparison of the respective merits of these methods, leaving some key questions unanswered:
+
+  * •
+
+Is RLVR superior to SFT? While the pioneering work Time-R1 [wang2025timer1] demonstrates that RLVR outperforms SFT, they compare the two methods using the same amount of training data, despite RLVR requiring significantly more training time. A fair comparison under equal training budgets remains absent.
+
+  * •
+
+Is explicit “thinking” necessary for RLVR? Recent works suggest that the thinking process is not essential when applying RLVR to visual perception such as counting [li2025cls-rl, perception_test]. Whether this holds for VTG, a predominantly perception-oriented task, remains unanswered.
+
+  * •
+
+Does a preceding SFT phase benefit RLVR? An SFT phase prior to RLVR is typically employed to enhance the model’s capability and facilitate subsequent RLVR training [team2025kwai_keye, mimo-vl]. However, whether this preceding SFT phase actually improves final performance in the VTG scenario remains unexplored.
+
+
+
+
+In [Tab. 3](https://arxiv.org/html/2512.14698v1#S5.T3 "In 5 Exploring Algorithmic Designs ‣ TimeLens: Rethinking Video Temporal Grounding with Multimodal LLMs"), we compare the performance and efficiency of different training paradigms. Our results reveal that thinking-free RLVR surpasses both SFT and thinking-based RLVR in performance while being more efficient. Adding a preceding SFT phase before RLVR yields no significant performance gain compared to pure RLVR. Overall, a pure thinking-free RLVR approach maintains simplicity, superior performance, and high efficiency.
+
+Figure 6: The effectiveness of early stopping for RLVR. We show the trends of training reward and evaluation metrics during RLVR training. When the temporal IoU reward and the within-group reward standard deviation plateau, performance reaches its peak. Continued training beyond this point leads to performance degradation. Therefore, performing early stopping when the reward plateaus ensures optimal training efficiency and performance. Training is conducted on ∼\sim12K samples selected from TimeLens-100K via difficulty-aware sampling.
+
+###  5.3 Recipes for RLVR Training
+
+Building on the finding in [Sec. 5.2](https://arxiv.org/html/2512.14698v1#S5.SS2 "5.2 Optimization Paradigms ‣ 5 Exploring Algorithmic Designs ‣ TimeLens: Rethinking Video Temporal Grounding with Multimodal LLMs") that thinking-free RLVR is the optimal training paradigm, in this section, we further explore effective recipes for RLVR training, focusing on two key questions: (i) How long should we train? (ii) How to effectively sample training data?
+
+Finding 6: For RLVR training, performing early stopping when reward metrics plateau saves computational cost, while preventing performance degradation.
+
+How long should we train? In SFT, the prevailing wisdom is “train longer, generalize better” [hoffer2017train_longer]. Given training data with sufficient scale and quality, we typically train MLLMs for at least one full epoch over the entire dataset, ensuring the model sees as much data as possible to enhance generalization. However, whether this strategy is optimal for RLVR remains to be explored.
+
+In [Fig. 6](https://arxiv.org/html/2512.14698v1#S5.F6 "In 5.2 Optimization Paradigms ‣ 5 Exploring Algorithmic Designs ‣ TimeLens: Rethinking Video Temporal Grounding with Multimodal LLMs"), we conduct RLVR training on ∼\sim12K data from TimeLens-100K, tracking the reward and evaluating model checkpoints at different training steps on our evaluation benchmarks. When the temporal IoU reward and the within-group reward standard deviation plateau, model performance has reached its peak. Continued training beyond this point leads to performance degradation. Therefore, in RL training, even with sufficiently high data quality, training for a full epoch over all available data is suboptimal. A good practice is performing early stopping when reward metrics plateau, which not only saves computational cost but also prevents performance degradation.
+
+Finding 7: For RLVR training, sampling training data with sufficiently high difficulty relative to the model is crucial for performance.
+
+Figure 7: The importance of difficulty-based training data sampling for RLVR. We investigate the impact of training data with different difficulty levels on performance by adjusting the mean of the Gaussian distribution for difficulty-based data sampling. Model performance improves as the average sample difficulty increases, and eventually plateaus when difficulty becomes high. This demonstrates that selecting samples with sufficiently high difficulty is crucial for achieving optimal performance.
+
+How to sample training data? For RLVR training, it is crucial to select samples with appropriate difficulty relative to the model, and many works propose assessing training sample difficulty and employing difficulty-aware sampling [yuan2025vl_cogito, wang2025timer1, hong2025glm_4_5]. To evaluate the impact of sample difficulty on video temporal grounding, we conduct experiments on our TimeLens-100K high-quality training corpus. Following prior works [wang2025timer1, yuan2025vl_cogito], we use the model to be trained to perform offline inference on the training data, compute IoU metrics to estimate sample difficulty, and then perform Gaussian sampling based on sample difficulty (details in [Appendix B](https://arxiv.org/html/2512.14698v1#A2 "Appendix B More Implementation Details. ‣ TimeLens: Rethinking Video Temporal Grounding with Multimodal LLMs")). By varying the mean of the Gaussian distribution, we obtain training sets with different difficulty levels relative to the model, and conduct RLVR training on each set independently.
+
+As shown in [Fig. 7](https://arxiv.org/html/2512.14698v1#S5.F7 "In 5.3 Recipes for RLVR Training ‣ 5 Exploring Algorithmic Designs ‣ TimeLens: Rethinking Video Temporal Grounding with Multimodal LLMs"), model performance improves as the average sample difficulty increases, and eventually plateaus when difficulty becomes sufficiently high (over 0.75). This trend demonstrates that selecting training samples with sufficiently high difficulty relative to the model is crucial for achieving optimal performance.
+
+##  6 Conclusion
+
+In this work, we presented TimeLens, a systematic investigation into building MLLMs with robust video temporal grounding capabilities. On the data front, we first exposed severe quality issues in existing VTG benchmarks. Through meticulous manual re-annotation guided by strict quality criteria, we created TimeLens-Bench, a reliable evaluation suite that dramatically reshapes model rankings and provides trustworthy evaluation for future research. We also developed an automated re-annotation pipeline for noisy training data, yielding TimeLens-100K, a large-scale, high-quality training dataset. On the algorithmic front, our comprehensive exploration yielded several key insights, which culminate in TimeLens models, a family of MLLMs with state-of-the-art VTG performance among open-source models and even surpasses leading proprietary models like GPT-5 and Gemini-2.5-Flash. By open-sourcing our code, data, and models, we hope TimeLens can serve as a strong foundation for building MLLMs with stronger temporal video grounding capability.
+
+\thetitle   
+
+
+Supplementary Material   
+
+
+##  Appendix A Details of TimeLens-Bench
+
+In this section, we provide details on our proposed TimeLens-Bench, a comprehensive, high-quality evaluation benchmark for video temporal grounding (VTG), comprising refined versions of three mainstream benchmarks: Charades-TimeLens, ActivityNet-TimeLens, and QVHighlights-TimeLens.
+
+#### Source datasets
+
+We construct our TimeLens-Bench based on Charades-STA [charades-sta], ActivityNet Captions [activitynet-captions], and QVHighlights [qvhighlights]. For Charades-STA and ActivityNet Captions, we utilize their test splits, while for QVHighlights, we use the validation split, as its test split annotations are not publicly available and prior works [liu2025videomind, guo2025vtg-llm] also adopt the validation split. Since the test set of ActivityNet Captions is excessively large, resulting in prohibitively high evaluation cost, we uniformly partition videos based on their duration and sample an equal number of videos from each duration bin. This yields a subset with a video count comparable to Charades-STA and QVHighlights, while maintaining a balanced distribution of video durations. Although QVHighlights was originally annotated for both video temporal grounding and video highlight detection, our work focuses exclusively on the temporal grounding task.
+
+Dataset | # Videos |  | Avg.  
+---  
+Duration  
+# Annotations |  | # Rewritten  
+---  
+Queries  
+| # Refined  
+---  
+Time Segments  
+Domain  
+Charades-STA [charades-sta] | 1334 | 29.5 | 3720 | - | - | Daily Life  
+\rowcolor[HTML]E8F0FB Charades-TimeLens | 1313 | 29.6 | 3363 | 2467 | 896 | Daily Life  
+ActivityNet Captions [activitynet-captions] | 4885 | 118.1 | 17031 | - | - | Activity  
+\rowcolor[HTML]E8F0FB ActivityNet-TimeLens | 1455 | 134.9 | 4500 | 3137 | 1363 | Activity  
+QVHighlights [qvhighlights] | 1529 | 149.6 | 1542 | - | - | Mixed  
+\rowcolor[HTML]E8F0FB QVHighlights-TimeLens | 1511 | 149.6 | 1541 | 859 | 682 | Mixed  
+\rowcolor[HTML]E8F0FB Total (TimeLens-Bench) | 4279 | 107.8 | 9404 | 6463 | 2941 | Mixed  
+  
+Table 4: Statistics of the datasets in our proposed TimeLens-Bench, compared against their original versions (Charades-STA [charades-sta], ActivityNet Captions [activitynet-captions] and QVHighlights [qvhighlights]). 
+
+#### Detailed Statistics
+
+In [Tab. 4](https://arxiv.org/html/2512.14698v1#A1.T4 "In Source datasets ‣ Appendix A Details of TimeLens-Bench ‣ TimeLens: Rethinking Video Temporal Grounding with Multimodal LLMs"), we present detailed statistics of our TimeLens-Bench and its source dataset counterparts. For each source dataset, annotations with high-quality queries had their corresponding temporal segments refined. For the remaining annotations with low-quality queries, we either revised the queries or rewrote them entirely. A small fraction of queries that were deemed unfixable were subsequently discarded. Overall, TimeLens-Bench comprises a total of 4,279 videos with an average duration of 107.8 seconds, and 9,404 annotations.
+
+###  A.1 Evaluation Metrics
+
+We evaluate model performance on TimeLens-Bench using four standard metrics: Recall@1 at IoU thresholds of 0.3, 0.5, and 0.7 (denoted as R1@0.3, R1@0.5, R1@0.7), and mean Intersection over Union (mIoU).
+
+  * •
+
+mIoU is defined as the average of the temporal Intersection over Union (IoU) scores between the predicted and ground-truth segments across all test samples.
+
+  * •
+
+R1@mm measures the percentage of samples for which the temporal IoU of the prediction exceeds a given threshold mm.
+
+
+
+
+While TimeLens-Bench can be treated as a single unified benchmark for computing the aforementioned metrics, we compute and report metrics separately on its three constituent benchmarks to enable a more fine-grained analysis of model performance across different domains. We encourage future works to adopt this evaluation protocol.
+
+| Charades-TimeLens | ActivityNet-TimeLens | QVHighlights-TimeLens  
+---|---|---|---  
+Training Data | R1@0.3 | R1@0.5 | R1@0.7 | mIoU | R1@0.3 | R1@0.5 | R1@0.7 | mIoU | R1@0.3 | R1@0.5 | R1@0.7 | mIoU  
+Original Noisy Data | 52.6 | 30.4 | 14.0 | 35.6 | 45.0 | 29.5 | 16.0 | 31.3 | 61.3 | 46.1 | 29.1 | 44.6  
+\rowcolor[HTML]E8F0FB TimeLens-100K | 70.0 | 53.9 | 28.1 | 48.3 | 57.9 | 46.3 | 30.5 | 43.1 | 73.0 | 62.2 | 46.1 | 56.7  
+  
+Table 5: Ablation on training data. Our TimeLens-100K training set significantly improves model performance, validating its enhanced quality.
+
+| Charades-TimeLens | ActivityNet-TimeLens | QVHighlights-TimeLens  
+---|---|---|---  
+Model | R1@0.3 | R1@0.5 | R1@0.7 | mIoU | R1@0.3 | R1@0.5 | R1@0.7 | mIoU | R1@0.3 | R1@0.5 | R1@0.7 | mIoU  
+Qwen2.5-VL-3B [qwen2-5-vl] (Baseline) | 51.3 | 30.5 | 14.2 | 33.9 | 25.3 | 18.2 | 9.4 | 18.4 | 27.4 | 19.3 | 10.6 | 20.9  
+\rowcolor[HTML]E8F0FB +TimeLens |  \ul63.5 |  \ul48.1 |  \ul23.9 |  \ul43.3 |  \ul56.6 |  \ul44.9 |  \ul27.4 |  \ul41.2 |  \ul71.9 |  \ul58.9 |  \ul37.8 |  \ul52.9  
+Qwen2.5-VL-7B [qwen2-5-vl] (Baseline) | 59.7 | 37.8 | 16.6 | 39.3 | 44.1 | 31.0 | 16.1 | 31.4 | 41.5 | 27.8 | 15.2 | 31.6  
+\rowcolor[HTML]E8F0FB +TimeLens | 70.5 | 55.6 | 28.4 | 48.8 | 62.8 | 51.0 | 32.6 | 46.2 | 74.1 | 62.7 | 43.1 | 56.0  
+  
+Table 6: Results across different model sizes. The best and second-best results are highlighted in bold and underlined, respectively.
+
+| Charades-TimeLens | Charades-STA  
+---|---|---  
+Model | R1@0.3 | R1@0.5 | R1@0.7 | mIoU | R1@0.3 | R1@0.5 | R1@0.7 | mIoU  
+Proprietary Models |  |  |  |  |  |  |  |   
+GPT-4o [hurst2024gpt-4o] | 60.6 | 44.5 | 23.5 | 41.8 | 51.6 | 27.9 | 11.7 | 34.7  
+GPT-5 [OpenAI2025_GPT5] | 59.3 | 42.0 | 22.0 | 40.5 | 39.7 | 18.3 | 6.2 | 28.4  
+Gemini-2.0-Flash [comanici2025gemini-2-5] | 66.4 | 53.5 | 27.1 | 46.7 | 55.6 | 29.0 | 9.5 | 35.1  
+Gemini-2.5-Flash [comanici2025gemini-2-5] | 68.7 | 56.1 | 30.6 | 48.6 | 47.0 | 21.8 | 7.1 | 31.1  
+Gemini-2.5-Pro [comanici2025gemini-2-5] | 74.1 | 61.1 | 34.0 | 52.8 | 53.9 | 25.5 | 8.8 | 34.6  
+Open-Source Models |  |  |  |  |  |  |  |   
+VideoChat-Flash-7B [li2024videochat_flash] | 60.2 | 37.9 | 17.8 | 39.7 | 72.5* | 51.4* | 26.4* | 45.2*  
+VideoChat-R1-7B [li2025videochat_r1] | 51.9 | 30.8 | 11.7 | 33.7 | - | 71.7* | 50.2* | 60.8*  
+Time-R1-7B [wang2025timer1] | 57.9 | 32.0 | 16.9 | 36.6 | 78.1* | 60.8* | 35.3* | 58.1*  
+MiMo-VL-7B [mimo-vl] | 57.9 | 42.6 | 20.5 | 39.6 | - | - | - | 50.0*  
+Qwen2.5-VL-7B [qwen2-5-vl] (Baseline) | 59.7 | 37.8 | 16.6 | 39.3 | 59.4 | 38.2 | 18.1 | 43.6*  
+\rowcolor[HTML]E8F0FB TimeLens-7B | 70.5 | 55.6 | 28.4 | 48.8 | 70.7 | 39.8 | 14.5 | 42.3  
+  
+Table 7: Results on our refined Charades-TimeLens and the original Charades-STA benchmark. * indicates results from the original paper, other results are from our evaluation.
+
+##  Appendix B More Implementation Details.
+
+| ActivityNet-TimeLens | ActivityNet-Captions  
+---|---|---  
+Model | R1@0.3 | R1@0.5 | R1@0.7 | mIoU | R1@0.3 | R1@0.5 | R1@0.7 | mIoU  
+Proprietary Models |  |  |  |  |  |  |  |   
+Gemini-2.0-Flash [comanici2025gemini-2-5] | 62.9 | 54.0 | 37.7 | 49.3 | 50.4 | 33.2 | 19.9 | 36.5  
+Gemini-2.5-Flash [comanici2025gemini-2-5] | 66.8 | 57.5 | 41.3 | 52.5 | 51.2 | 34.7 | 21.0 | 37.4  
+Open-Source Models |  |  |  |  |  |  |  |   
+VideoChat-R1-7B [li2025videochat_r1] | 35.0 | 23.9 | 11.3 | 25.0 | - | 33.3* | 16.7* | 35.5*  
+Time-R1-7B [wang2025timer1] | 44.8 | 31.0 | 19.0 | 33.1 | 58.1* | 39.0* | 21.4* | 40.5*  
+MiMo-VL-7B [mimo-vl] | 49.3 | 38.7 | 22.4 | 35.5 | 39.3 | 24.3 | 12.9 | 28.1  
+Qwen2.5-VL-7B [qwen2-5-vl] (Baseline) | 44.1 | 31.0 | 16.1 | 31.4 | 34.5 | 20.8 | 11.2 | 26.4  
+\rowcolor[HTML]E8F0FB TimeLens-7B |  \cellcolor[HTML]E8F0FB62.8 |  \cellcolor[HTML]E8F0FB51.0 |  \cellcolor[HTML]E8F0FB32.6 |  \cellcolor[HTML]E8F0FB46.2 | 53.5 | 35.2 | 19.7 | 37.7  
+  
+Table 8: Results on our refined ActivityNet-TimeLens and the original ActivityNet-Captions benchmark. * indicates results from the original paper, other results are from our evaluation.
+
+|  | QVHighlights-TimeLens  
+---  
+QVHighlights  
+Model | R1@0.3 | R1@0.5 | R1@0.7 | mIoU | R1@0.3 | R1@0.5 | R1@0.7 | mIoU  
+Proprietary |  |  |  |  |  |  |  |   
+Gemini-2.0-Flash [comanici2025gemini-2-5] | 76.2 | 66.4 | 48.3 | 60.8 | 72.1 | 58.1 | 41.9 | 54.9  
+Gemini-2.5-Flash [comanici2025gemini-2-5] | 78.2 | 69.4 | 55.0 | 64.3 | 76.9 | 62.6 | 46.7 | 59.1  
+Open-Source |  |  |  |  |  |  |  |   
+MiMo-VL-7B [mimo-vl] | 57.1 | 42.6 | 28.4 | 41.5 | 59.6 | 43.3 | 24.7 | 41.8  
+Qwen2.5-VL-7B [qwen2-5-vl] | 41.5 | 27.8 | 15.2 | 31.6 | 29.2 | 19.2 | 11.9 | 27.4  
+\rowcolor[HTML]E8F0FB TimeLens-7B |  \cellcolor[HTML]E8F0FB74.1 |  \cellcolor[HTML]E8F0FB62.7 |  \cellcolor[HTML]E8F0FB43.1 |  \cellcolor[HTML]E8F0FB56.0 | 78.4 | 63.6 | 43.7 | 57.4  
+  
+Table 9: Results on our refined QVHighlights-TimeLens and the original QVHighlights benchmark. All results are from our evaluation.
+
+(a)
+
+(b)
+
+Figure 8: Observations during thinking-based RLVR training. (a) The model’s thinking length gradually decreases during training. (b) The model generates simple thinking content, primarily perception-related, without exhibiting any complex reasoning.
+
+###  B.1 Preliminaries for RL
+
+#### Thinking-based vs. Thinking-free RLVR.
+
+We formalize the distinction between thinking-based and thinking-free RLVR paradigms using GRPO [shao2024deepseekmath] as the reinforcement learning algorithm.
+
+In the task of video temporal grounding, given a video vv and query qq, the model generates a response yy. For GRPO training, for each input pair (v,q)(v,q) in the training set DD, we sample a group of GG responses {y(i)}i=1G\\{y^{(i)}\\}_{i=1}^{G} from the policy πθ\pi_{\theta}, compute their rewards {r​(y(i))}i=1G\\{r(y^{(i)})\\}_{i=1}^{G}, and optimize the policy to maximize the relative advantage within the group:
+
+| ℒGRPO=−𝔼(v,q)∼𝒟​𝔼y(i)∼πθ​[A(i)​log⁡πθ​(y(i)|v,q)],\mathcal{L}_{\text{GRPO}}=-\mathbb{E}_{(v,q)\sim\mathcal{D}}\mathbb{E}_{y^{(i)}\sim\pi_{\theta}}\left[A^{(i)}\log\pi_{\theta}(y^{(i)}|v,q)\right], |  | (1)  
+---|---|---|---  
+  
+where the advantage is computed as:
+
+| A(i)=r​(y(i))−1G​∑j=1Gr​(y(j)).A^{(i)}=r(y^{(i)})-\frac{1}{G}\sum_{j=1}^{G}r(y^{(j)}). |  | (2)  
+---|---|---|---  
+  
+The key distinction between the two paradigms lies in the response structure and reward computation. In thinking-based RLVR, following the “think-then-answer” approach [guo2025deepseek_r1], the response consists of two parts:
+
+| y=[ythinking,yanswer],y=[y_{\text{thinking}},y_{\text{answer}}], |  | (3)  
+---|---|---|---  
+  
+where ythinkingy_{\text{thinking}} represents the explicit reasoning process and yanswery_{\text{answer}} contains the predicted temporal segment S^=(t^start,t^end)\hat{S}=(\hat{t}_{\text{start}},\hat{t}_{\text{end}}). The reward function combines accuracy and format compliance:
+
+| r​(y)=racc​(yanswer)+rformat​(y),r(y)=r_{\text{acc}}(y_{\text{answer}})+r_{\text{format}}(y), |  | (4)  
+---|---|---|---  
+  
+where racc​(yanswer)=IoU​(S^,S∗)r_{\text{acc}}(y_{\text{answer}})=\text{IoU}(\hat{S},S^{*}) measures the temporal intersection-over-union with the ground truth segment S∗S^{*}, and rformat​(y)r_{\text{format}}(y) ensures proper output formatting following the “think-then-answer” structure.
+
+In contrast, our thinking-free RLVR directly generates the answer without explicit reasoning:
+
+| y=yanswer,y=y_{\text{answer}}, |  | (5)  
+---|---|---|---  
+  
+with a simplified reward based solely on grounding accuracy:
+
+| r​(y)=racc​(y)=IoU​(S^,S∗).r(y)=r_{\text{acc}}(y)=\text{IoU}(\hat{S},S^{*}). |  | (6)  
+---|---|---|---  
+  
+As shown in [Tab. 3](https://arxiv.org/html/2512.14698v1#S5.T3 "In 5 Exploring Algorithmic Designs ‣ TimeLens: Rethinking Video Temporal Grounding with Multimodal LLMs"), the thinking-free paradigm eliminates the need for explicit reasoning generation and format reward engineering, leading to simpler mplementation, faster training and inference, and superior performance.
+
+#### Difficulty-aware Sampling
+
+To formalize difficulty-aware sampling [yuan2025vl_cogito, wang2025timer1, hong2025glm_4_5], we first perform offline inference with the model to be trained on the training dataset 𝒟={(vi,qi,Si∗)}i=1N\mathcal{D}=\\{(v_{i},q_{i},S_{i}^{*})\\}_{i=1}^{N}. For each sample, we obtain the predicted segment S^i\hat{S}_{i} and compute the difficulty estimate as:
+
+| di=1−IoU​(S^i,Si∗),d_{i}=1-\text{IoU}(\hat{S}_{i},S_{i}^{*}), |  | (7)  
+---|---|---|---  
+  
+where higher values indicate more challenging samples for the current model.
+
+We then compute sampling weights for each sample based on its difficulty. Following [yuan2025vl_cogito, wang2025timer1], we employ Gaussian sampling to construct a training subset where samples with difficulty around a target mean μ\mu are more likely to be selected. Let g​(d;μ,σ2)g(d;\mu,\sigma^{2}) denote the target Gaussian distribution:
+
+| g​(d;μ,σ2)=12​π​σ2​exp⁡(−(d−μ)22​σ2).g(d;\mu,\sigma^{2})=\frac{1}{\sqrt{2\pi\sigma^{2}}}\exp\left(-\frac{(d-\mu)^{2}}{2\sigma^{2}}\right). |  | (8)  
+---|---|---|---  
+  
+To ensure that samples with difficulty dd are selected with probability proportional to g​(d)g(d), we compute the sampling weight for each sample ii as:
+
+| wi=g​(di;μ,σ2)p^​(di),w_{i}=\frac{g(d_{i};\mu,\sigma^{2})}{\hat{p}(d_{i})}, |  | (9)  
+---|---|---|---  
+  
+where p^​(di)\hat{p}(d_{i}) is the empirical density of samples with difficulty did_{i} in the original dataset. This density correction ensures that the difficulty distribution of the sampled subset follows the target Gaussian distribution, rather than being biased by the original difficulty distribution in 𝒟\mathcal{D}.
+
+By varying the mean μ\mu of the Gaussian distribution, we obtain training sets with different average difficulty levels and conduct RLVR training on each independently to evaluate the impact of sample difficulty on final model performance in [Sec. 5.3](https://arxiv.org/html/2512.14698v1#S5.SS3 "5.3 Recipes for RLVR Training ‣ 5 Exploring Algorithmic Designs ‣ TimeLens: Rethinking Video Temporal Grounding with Multimodal LLMs").
+
+###  B.2 Experimental Setup
+
+Unless otherwise specified, all experiments are conducted using Qwen2.5-VL-7B [qwen2-5-vl] as the base model. Under the Qwen2.5-VL architecture, every two consecutive video frames are merged during the patch-embedding stage of the vision encoder.
+
+#### Model Configuration
+
+We sample video frames at 2 FPS. For all ablation experiments, we set the minimum number of tokens per frame (i.e., every two merged frames) to min_tokens=16\texttt{min\\_tokens}=16, and the maximum number of tokens for the entire video to total_tokens=3584\texttt{total\\_tokens}=3584. Under this configuration, the model adaptively adjusts the spatial resolution based on the video’s duration and raw resolution. For the final TimeLens models presented in [Tab. 1](https://arxiv.org/html/2512.14698v1#S3.T1 "In Quality Control ‣ 3.2 Manual Auditing and Refinement ‣ 3 Towards Reliable, High-Quality VTG Data ‣ TimeLens: Rethinking Video Temporal Grounding with Multimodal LLMs"), we scale the resolution budget to min_tokens=64\texttt{min\\_tokens}=64 and total_tokens=14336\texttt{total\\_tokens}=14336. Under this setting, for a 110-second video, the maximum resolution per frame is about 320×320320\times 320 pixels.
+
+#### Timestamp Encoding
+
+In [Tab. 2](https://arxiv.org/html/2512.14698v1#S3.T2 "In 3.4 Training Data Re-annotation ‣ 3 Towards Reliable, High-Quality VTG Data ‣ TimeLens: Rethinking Video Temporal Grounding with Multimodal LLMs") and [Sec. 5.1](https://arxiv.org/html/2512.14698v1#S5.SS1 "5.1 Timestamp Encoding ‣ 5 Exploring Algorithmic Designs ‣ TimeLens: Rethinking Video Temporal Grounding with Multimodal LLMs"), we experiment with different timestamp encoding methods. For position-embedding methods, we directly adopt the original MRoPE implementation from Qwen2.5-VL [qwen2-5-vl]. For Visual Overlay, we render timestamps in red with a font size of 4040 pt, overlaid at the bottom-left corner of each frame. For Non-interleaved Textual Encoding, an instruction like “This video samples NN frames of a TT-second video at t1,t2,…t_{1},t_{2},\ldots seconds” is prepended to the prompt.
+
+For Interleaved Textual Encoding, timestamps are converted to text with one decimal place retained (_e.g_., 10.2 seconds), then tokenized and prepended to the tokens of each frame. As described above, when processing videos, every two consecutive frames are merged during the patch-embedding stage of the vision encoder, while for images, each image is duplicated into two identical copies for merging. Since we insert textual timestamp tokens into the original video tokens to form an interleaved visual-text sequence, we treat each video frame as an independent image and duplicate it for processing. This approach allows us to bypass the original MRoPE mechanism entirely, enabling an isolated comparison between Interleaved Textual Encoding and MRoPE. Meanwhile, we adopt 1 FPS sampling to ensure the computational cost matches that of other temporal encoding methods using 2 FPS sampling.
+
+#### Training Configuration
+
+For all training procedures, we freeze the vision encoder while updating all other parameters, and train for one epoch. For supervised fine-tuning (SFT) experiments, we use a batch size of 128128 and a learning rate of 1×10−51\times 10^{-5}. For reinforcement learning (RL) experiments, we perform difficulty-aware data sampling with a Gaussian distribution where μ=0.05\mu=0.05 and σ=0.2\sigma=0.2. The training batch size is 88, each prompt samples 88 roll-outs, the learning rate is 1×10−61\times 10^{-6}, and the KL coefficient β\beta is set to 0. We train until we observe that the reward plateaus and then perform early stopping. In practice, this corresponds to approximately 310 training steps (∼\sim2.5K training examples) for Qwen2.5-VL models.
+
+Throughout the development of this work, our experiments were conducted based on Qwen2.5-VL. More recently, the more powerful Qwen3-VL [Qwen3-VL] models have been released, so we also validated the effectiveness of our data and recipe on Qwen3-VL. We observed that directly applying RL training on Qwen3-VL fails to yield improvements, likely because Qwen3-VL has undergone large-scale multi-task RL training that includes VTG data, preventing the model from generating rollouts with sufficient diversity on VTG task during our continual RL. Therefore, we first perform a small SFT stage to, in a sense, revert the model back to the “base model” state before RL. This is merely a workaround specific to Qwen3-VL, a model that has already acquired strong VTG capabilities through an RL stage similar to that proposed in this paper. In the common scenario, our recipes are designed to enhance the VTG capabilities of a “base MLLM”, where this trick is not required.
+
+##  Appendix C More Experimental Results
+
+#### Results across different model sizes
+
+In [Tab. 6](https://arxiv.org/html/2512.14698v1#A1.T6 "In A.1 Evaluation Metrics ‣ Appendix A Details of TimeLens-Bench ‣ TimeLens: Rethinking Video Temporal Grounding with Multimodal LLMs"), we demonstrate the effectiveness of our proposed design principles across various model sizes. Across base models of varying sizes, TimeLens consistently delivers significant performance gains. Remarkably, despite having fewer parameters, TimeLens-3B substantially surpasses even the larger Qwen-2.5-VL-7B model.
+
+#### Comparison of results on TimeLens-Bench and original benchmarks
+
+In [Tab. 7](https://arxiv.org/html/2512.14698v1#A1.T7 "In A.1 Evaluation Metrics ‣ Appendix A Details of TimeLens-Bench ‣ TimeLens: Rethinking Video Temporal Grounding with Multimodal LLMs"), [Tab. 8](https://arxiv.org/html/2512.14698v1#A2.T8 "In Appendix B More Implementation Details. ‣ TimeLens: Rethinking Video Temporal Grounding with Multimodal LLMs"), and [Tab. 9](https://arxiv.org/html/2512.14698v1#A2.T9 "In Appendix B More Implementation Details. ‣ TimeLens: Rethinking Video Temporal Grounding with Multimodal LLMs"), we compare the evaluation results of various models on TimeLens-Bench and the original benchmarks. On the original benchmarks, due to data quality issues, open-source models deceptively surpass state-of-the-art proprietary models like Gemini-2.5-Pro. On our refined benchmarks, model capabilities are more reliably evaluated, with proprietary models maintaining a significant advantage over open-source models. Remarkably, our TimeLens model substantially narrows the performance gap between open-source and proprietary models.
+
+#### Results on general video understanding
+
+In [Tab. 10](https://arxiv.org/html/2512.14698v1#A3.T10 "In Results on general video understanding ‣ Appendix C More Experimental Results ‣ TimeLens: Rethinking Video Temporal Grounding with Multimodal LLMs"), we evaluate TimeLens-7B’s general video understanding capabilities on VideoMME [fu2025videomme], the most comprehensive and widely-adopted video understanding benchmark. The results demonstrate that TimeLens-7B maintains the strong general video understanding capability of its base model. This validates that our proposed design principles can effectively enhance video temporal grounding capabilities without sacrificing general-purpose video understanding abilities.
+
+| Video-MME  
+---|---  
+Model | Short | Medium | Long | All  
+\rowcolor[HTML]EFEFEF Qwen2.5-VL-7B [qwen2-5-vl] (Baseline) |  64.3* |  75.2* | 55.1* |  65.1†  
+\rowcolor[HTML]E8F0FB TimeLens-7B | 66.4* | 76.7* |  54.1* | 65.7*  
+  
+Table 10: Results on the general video understanding benchmark Video-MME [fu2025videomme]. The results show that TimeLens-Qwen2.5-VL-7B maintains strong general video understanding capability while achieving substantial improvements in video temporal grounding. * Results reproduced by us. † Results reported in original paper.
+
+##  Appendix D Discussion on Thinking-free vs. Thinking-based RLVR
+
+We analyze the possible reasons why thinking-based RLVR underperforms thinking-free methods in our experiments, from both intuitive and empirical perspectives.
+
+#### Intuitive Analysis.
+
+When manually examining and refining existing grounding datasets, we observe that queries in the grounding task are relatively straightforward, primarily testing the model’s perception capability: whether the model can accurately localize the corresponding event in a long video containing massive information. From a human perspective, completing existing grounding tasks indeed relies mainly on intuition and instinct, rather than complex reasoning.
+
+#### Empirical Observations.
+
+In our experiments, when training with thinking-based RLVR, the model’s thinking length gradually decreases and converges to simple, non-reasoning thinking processes, as shown in [Fig. 8](https://arxiv.org/html/2512.14698v1#A2.F8 "In Appendix B More Implementation Details. ‣ TimeLens: Rethinking Video Temporal Grounding with Multimodal LLMs"). This suggests that the model learns to bypass explicit reasoning when it provides no benefit to the task.
+
+#### Implications and Future Work.
+
+We believe that most samples in existing video temporal grounding data do not require complex reasoning capabilities, but rather demand sufficiently robust long-video perception and localization abilities. Due to the high cost and corresponding low quality of existing data annotation, as well as limitations in current algorithmic designs, existing MLLMs cannot yet achieve this perfectly. Therefore, in this work, we focus on addressing these two fundamental issues. Meanwhile, we believe that certain grounding tasks do require reasoning capabilities, and we leave the exploration of reasoning-intensive VTG scenarios to future work.
+
+##  Appendix E Annotation Interface and Manual
+
+We present our annotation interface in [Fig. 14](https://arxiv.org/html/2512.14698v1#A7.F14 "In Other Open-source Models ‣ Appendix G Implementation Details for Benchmarking Existing MLLMs ‣ TimeLens: Rethinking Video Temporal Grounding with Multimodal LLMs") and our annotation manual in [Fig. 15](https://arxiv.org/html/2512.14698v1#A7.F15 "In Other Open-source Models ‣ Appendix G Implementation Details for Benchmarking Existing MLLMs ‣ TimeLens: Rethinking Video Temporal Grounding with Multimodal LLMs").
+
+Figure 9: Prompt for training and evaluating TimeLens. Figure 10: Prompt for annotating TimeLens-100K.
+
+##  Appendix F Details of Curating TimeLens-100K
+
+As described in [Appendix F](https://arxiv.org/html/2512.14698v1#A6 "Appendix F Details of Curating TimeLens-100K ‣ TimeLens: Rethinking Video Temporal Grounding with Multimodal LLMs"), we perform automated re-annotation on existing training datasets, resulting in TimeLens-100K, a large-scale, high-quality VTG training set comprising approximately 20K videos and 100K VTG annotations.
+
+We begin by sampling videos from numerous existing VTG datasets, including CosMo-Cap [wang2024cosmo_cap], InternVid-VTime [huang2024vtimellm-internvid-vtime], DiDeMo [didemo], QuerYD [oncescu2021queryd], HiREST [zala2023hirest], etc. These datasets already cover sufficiently diverse video domains. Additionally, we perform uniform sampling based on video duration to ensure sampled videos are approximately uniformly distributed within 0–240 seconds, with a small portion of longer videos included.
+
+Given that most queries in the original annotations either lack clarity and specificity, or describe events that do not exist in the video, we directly use MLLMs for re-annotation. First, we prompt the MLLM to identify distinct events in the video and ensure these events are distributed across different time periods rather than being concentrated in a particular segment. Then, we have the model describe each event to generate queries and output the corresponding timestamps. Finally, we prompt the model to verify the quality of the queries and annotations.
+
+Specifically, we use Gemini-2.5-Pro [comanici2025gemini-2-5], currently the best-performing VTG model, for re-annotation. The annotation prompt is provided in [Fig. 10](https://arxiv.org/html/2512.14698v1#A5.F10 "In Appendix E Annotation Interface and Manual ‣ TimeLens: Rethinking Video Temporal Grounding with Multimodal LLMs"). Notably, although this prompt appears simple, it is the result of extensive prompt engineering and optimization. We find that a concise and intuitive prompt is sufficient, as the model possesses adequate common sense and reasoning capabilities to understand the task. Overly complex and detailed prompts are unnecessary and can actually degrade annotation quality. During its reasoning process, the model can automatically verify and ensure the uniqueness and uniform distribution of events throughout the video.
+
+As shown in [Tab. 5](https://arxiv.org/html/2512.14698v1#A1.T5 "In A.1 Evaluation Metrics ‣ Appendix A Details of TimeLens-Bench ‣ TimeLens: Rethinking Video Temporal Grounding with Multimodal LLMs"), our training data substantially improves model performance, validating the enhanced quality of our training set. Notably, the construction of our training data is independent of our manual benchmark refinement process, ensuring a fair comparison.
+
+##  Appendix G Implementation Details for Benchmarking Existing MLLMs
+
+In this section, we present the implementation details for evaluating existing MLLMs on our TimeLens evaluation suite, yielding the results reported in [Fig. 2(a)](https://arxiv.org/html/2512.14698v1#S1.F2.sf1 "In Figure 2 ‣ 1 Introduction ‣ TimeLens: Rethinking Video Temporal Grounding with Multimodal LLMs") and [Tab. 1](https://arxiv.org/html/2512.14698v1#S3.T1 "In Quality Control ‣ 3.2 Manual Auditing and Refinement ‣ 3 Towards Reliable, High-Quality VTG Data ‣ TimeLens: Rethinking Video Temporal Grounding with Multimodal LLMs").
+
+#### TimeLens Models
+
+The prompt for training and evaluating TimeLens models is illustrated in [Fig. 9](https://arxiv.org/html/2512.14698v1#A5.F9 "In Appendix E Annotation Interface and Manual ‣ TimeLens: Rethinking Video Temporal Grounding with Multimodal LLMs"). Implementation details are provided in [Appendix B](https://arxiv.org/html/2512.14698v1#A2 "Appendix B More Implementation Details. ‣ TimeLens: Rethinking Video Temporal Grounding with Multimodal LLMs").
+
+#### GPT-5 [OpenAI2025_GPT5] and GPT-4o [hurst2024gpt-4o]
+
+Since GPT models only support multi-image sequences as input, we sample frames from videos at 1 FPS and prepend textual timestamps (i.e., “Frame at 2.5s:”) to each frame. As the Azure OpenAI API we use does not support more than 50 images for a single request, we adopt different strategies for videos longer than 50 seconds: for videos lasting 50-80 seconds, we uniformly sample 50 frames; for videos longer than 80 seconds, we sample at 1 FPS and arrange every 4 consecutive frames into a 2×22\times 2 grid within a single image, following previous works [ju2024miradata, zhang2024internlm-xcomposer-2-5, zhang2024longva]. For GPT-5, which is a thinking model, we use the default value for the reasoning.effort parameter. The evaluation prompt is shown in [Fig. 14](https://arxiv.org/html/2512.14698v1#A7.F14 "In Other Open-source Models ‣ Appendix G Implementation Details for Benchmarking Existing MLLMs ‣ TimeLens: Rethinking Video Temporal Grounding with Multimodal LLMs").
+
+#### Gemini models [comanici2025gemini-2-5]
+
+Although Gemini models support audio input, we remove the audio from videos to ensure fair comparison with other vision-only models and maintain consistency with our benchmarks, which features vision-only, audio-free annotations. Following the best practices outlined in the official Gemini API documentation, we prompt the models to output timestamps in “MM:SS” format. For other hyperparameters, we use the default settings: 1 FPS sampling and default mediaResolution, which tokenizes each frame into 258 tokens. For thinking models, we do not impose any limit on the thinkingBudget parameter. The evaluation prompt is shown in [Fig. 14](https://arxiv.org/html/2512.14698v1#A7.F14 "In Other Open-source Models ‣ Appendix G Implementation Details for Benchmarking Existing MLLMs ‣ TimeLens: Rethinking Video Temporal Grounding with Multimodal LLMs").
+
+#### Qwen3-VL [Qwen3-VL], Qwen2.5-VL [qwen2-5-vl] and MiMo-VL [mimo-vl]
+
+TimeLens models, Qwen2.5-VL-7B, and MiMo-VL share approximately the same model architecture and hyperparameter configurations. Therefore, when evaluating these models, we adopt the same settings to ensure fair comparisons in [Tab. 1](https://arxiv.org/html/2512.14698v1#S3.T1 "In Quality Control ‣ 3.2 Manual Auditing and Refinement ‣ 3 Towards Reliable, High-Quality VTG Data ‣ TimeLens: Rethinking Video Temporal Grounding with Multimodal LLMs"). Specifically, consistent with [Sec. B.2](https://arxiv.org/html/2512.14698v1#A2.SS2 "B.2 Experimental Setup ‣ Appendix B More Implementation Details. ‣ TimeLens: Rethinking Video Temporal Grounding with Multimodal LLMs"), we sample video frames at 2 FPS and set the resolution budget to min_tokens=64\texttt{min\\_tokens}=64 and total_tokens=14,336\texttt{total\\_tokens}=14,336. For MiMo-VL, we evaluate their best-performing model, MiMo-VL-7B-RL. The evaluation prompt is shown in [Fig. 14](https://arxiv.org/html/2512.14698v1#A7.F14 "In Other Open-source Models ‣ Appendix G Implementation Details for Benchmarking Existing MLLMs ‣ TimeLens: Rethinking Video Temporal Grounding with Multimodal LLMs").
+
+#### Other Open-source Models
+
+When evaluating Time-R1 [wang2025timer1], VideoChat-Flash [li2024videochat_flash] and VideoChat-R1 [li2025videochat_r1], we directly use their original codebases. Please refer to their papers and code repositories for details.
+
+Figure 11: Prompts for evaluating GPT-5 and GPT-4o.
+
+Figure 12: Prompt for evaluating Gemini models.
+
+Figure 13: Prompt for evaluating Qwen3-VL, Qwen2.5-VL and MiMo-VL models.
+
+Figure 14: Illustration of our annotation interface.
+
+(a)
+
+(b)
+
+(c)
+
+(d)
+
+Figure 15: Illustration of our annotation manual. Some figures and details are removed for confidentiality and safety reasons.
+
+Generated on Tue Dec 16 08:01:16 2025 by [LaTeXML](http://dlmf.nist.gov/LaTeXML/)

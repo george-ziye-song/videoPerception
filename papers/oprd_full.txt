@@ -1,0 +1,897 @@
+##### Report GitHub Issue
+
+×
+
+Title:
+
+Content selection saved. Describe the issue below:
+
+Description:
+
+Submit without GitHub Submit in GitHub
+
+arXiv is now an independent nonprofit! [Learn more](https://info.arxiv.org/about) ×
+
+[ Back to arXiv ](/)
+
+[Why HTML?](https://info.arxiv.org/about/accessible_HTML.html) Report Issue [ Back to Abstract ](/abs/2606.06021v1 "Back to abstract page") [ Download PDF](/pdf/2606.06021v1 "Download PDF") [ ](javascript:toggleNavTOC\(\); "Toggle navigation") [ ](javascript:toggleReadingMode\(\); "Disable reading mode, show header and footer")
+
+  1. Abstract
+  2. 1 Introduction
+  3. 2 Background and Problem Setup
+     1. 2.1 Notation
+     2. 2.2 The On-Policy Distillation Framework
+        1. Setup.
+        2. Objective.
+     3. 2.3 Three Output-Space Variants
+        1. (a) Sampled-token OPD (St={y^t}S_{t}=\\{\hat{y}_{t}\\}).
+        2. (b) Full-vocabulary OPD (St=𝒱S_{t}=\mathcal{V}).
+        3. (c) Top-kk OPD (St=TopK​(pt,k)S_{t}=\mathrm{TopK}(p_{t},k)).
+     4. 2.4 A Shared Structural Limitation
+  4. 3 On-Policy Representation Distillation
+     1. 3.1 The OPRD Objective
+     2. 3.2 Why OPRD Works
+  5. 4 Experiments
+     1. 4.1 Experimental Setup
+        1. Models.
+        2. Training data.
+        3. Distillation objectives.
+        4. Optimization.
+        5. Evaluation.
+     2. 4.2 Main Results
+     3. 4.3 Training Dynamics
+        1. Accuracy curves: OPRD climbs monotonically, OPD plateaus.
+        2. Behavioural view: OPRD produces shorter, more efficient reasoning.
+        3. Internal view: OPRD’s own loss is being optimised end-to-end.
+     4. 4.4 Efficiency
+     5. 4.5 Mechanistic Analysis
+        1. Composing OPD with OPRD (μ\mu sweep).
+        2. Where does the student diverge from the teacher? (motivation for last-kk supervision).
+        3. (a) Policy-gradient loss: OPRD accelerates distillation and validates the bottleneck theory.
+        4. (b) Top-1616 overlap: hidden-state alignment propagates to next-token agreement.
+        5. (c) Predictive entropy.
+  6. 5 Discussion
+     1. Limitation: same-architecture requirement.
+     2. High-value application 1: multi-model RL merging.
+     3. High-value application 2: on-policy self-distillation (OPSD).
+     4. Future directions.
+  7. 6 Related Work
+     1. Output-Space Knowledge Distillation.
+     2. On-Policy Distillation.
+     3. Feature / Intermediate-Representation Distillation.
+     4. Hint Learning, Auxiliary Losses, and Distribution Matching.
+  8. 7 Conclusion and Future Work
+     1. Future Work.
+  9. References
+  10. A Formal Theoretical Guarantees
+     1. A.1 Setup and Assumptions
+     2. A.2 Variance of Sampled-Token OPD
+     3. A.3 OPRD Gradient Is Deterministic
+     4. A.4 Signal-to-Noise Ratio Collapse of Sampled-Token OPD
+        1. Sub-summary (Perspective 1).
+     5. A.5 Formal Results for Theorem˜2: LM-Head Information Bottleneck
+        1. Sub-summary (Theorem˜2).
+        2. Overall summary of §A.
+
+
+
+[ License: arXiv.org perpetual non-exclusive license ](https://info.arxiv.org/help/license/index.html#licenses-available)
+
+arXiv:2606.06021v1 [cs.LG] 04 Jun 2026
+
+# OPRD: On-Policy Representation Distillation
+
+Shenzhi Yang1,2 Guangcheng Zhu1,2 Bowen Song2 Haobo Wang1 Mingxuan Xia1   
+Xing Zheng2 Yingfan Ma2 Zhongqi Chen2 Weiqiang Wang2 Gang Chen1   
+1Zhejiang University 2Ant Group Work in progress.Corresponding author.
+
+###### Abstract
+
+On-policy distillation (OPD) has become a cornerstone of post-training for large language models, yet every existing variant (sampled-token, full-vocabulary, and top-kk) supervises the student exclusively in the _output space_ by matching next-token log-probabilities. We argue that this output-only paradigm imposes two practical limits. First, in the dominant sampled-token variant the per-position reward is a _single-sample Monte Carlo estimate_ of a KL divergence over a very large vocabulary (e.g., the Qwen series with |𝒱|≈150|\mathcal{V}|\\!\approx\\!150K); even multi-sample (top-kk) variants retain sampling variance that does not vanish as training progresses, dominating the optimization signal late in training. Second, every output-space variant treats the teacher as a black-box probability oracle: it queries only the post-LM-head distribution and discards the entire stack of dd-dimensional intermediate hidden states that the teacher actually computed, even though the softmax projection compresses by an ill-conditioned Whead∈ℝ|𝒱|×dW_{\mathrm{head}}\in\mathbb{R}^{|\mathcal{V}|\times d} and is invariant to additive constants. We propose On-Policy Representation Distillation (OPRD), the first method to lift on-policy distillation from the output space into the _hidden-state space_. OPRD aligns the student’s intermediate representations with the teacher’s across selected layers and response positions on the same on-policy rollouts, providing dense, deterministic supervision while _bypassing the LM head entirely_. We show theoretically that OPRD (i) eliminates the sampling variance of OPD’s gradient estimator and (ii) exposes per-position, per-layer structural information from the teacher that any output-space objective necessarily discards, providing a strictly richer supervision signal at no additional rollout cost. Empirically, OPRD closes the student–teacher gap on three competition mathematics benchmarks (AIME 2024, AIME 2025, AIMO), while every output-space OPD baseline plateaus several points below the teacher; because the OPRD loss path is computed before the LM head, it also trains 1.44×1.44\times faster and uses up to 54%54\% less actor-update transient memory than top-kk OPD on the same setup. To our knowledge, OPRD is the first work to study representation-level distillation in the on-policy regime, opening a new and orthogonal axis of supervision for LLM distillation. The code is available via <https://github.com/ShenzhiYang2000/OPRD>.
+
+##  1 Introduction
+
+On-policy distillation (OPD) has become a central building block in large language model (LLM) post-training. By letting the student sample its own responses and then scoring each token against the teacher’s conditional distribution, OPD provides a dense, token-level training signal that adapts to the student’s current policy, avoiding the exposure bias inherent in training on static teacher outputs (Bengio et al., 2015). Multiple production systems now rely on OPD as a primary post-training stage (Yang et al., 2025; Xiao et al., 2026; Zeng et al., 2026; DeepSeek, 2026), positioning it alongside supervised fine-tuning and outcome-reward reinforcement learning.
+
+Figure 1: OPRD is strictly Pareto-dominant on accuracy, training time, and GPU memory. Each bubble is a method trained from the same R1-distill-1.5B student against JustRL-1.5B teacher for 500500 optimizer steps on 8×8\\!\times\\! A100 GPU (80G) FSDP (§4). Axes carry the two “compute” costs (wall-clock ↓\downarrow, AIME24 Avg@16 ↑\uparrow); bubble area encodes the third cost (actor-update Δ\Deltapeak GPU memory ↓\downarrow). OPRD (navy bubble) simultaneously dominates the strongest output-space baseline (OPD top-1616) on all three axes: 2.72.7 pt accuracy gain, 1.44×1.44\times speed-up, and 54%54\% Δ\Deltapeak memory cut. Results on AIME25 and AIMO are qualitatively identical (§4.2).
+
+Despite this momentum, the design space of OPD has remained surprisingly narrow. Every variant proposed to date (sampled-token (Xiao et al., 2026; Yang et al., 2026b), full-vocabulary, and top-kk) differs only in _how many output tokens_ are evaluated per position, yet they all operate inside the same _output space_ : the divergence is computed over next-token probability distributions ptp_{t} and qtq_{t}. We argue that this output-only paradigm imposes two practical limitations that become increasingly damaging as training progresses.
+
+Limitation 1: Variance dominates the late-stage signal. Sampled-token OPD, the most widely deployed variant, estimates each token-level reverse KL DKL​(pt∥qt)D_{\mathrm{KL}}(p_{t}\|q_{t}) from a _single_ sample y^t∼pt\hat{y}_{t}\sim p_{t} drawn from a very large vocabulary (e.g., the Qwen series with |𝒱|≈150|\mathcal{V}|\\!\approx\\!150K). The estimator is unbiased, but its variance does not shrink with training. Early on, when DKL​(pt∥qt)D_{\mathrm{KL}}(p_{t}\|q_{t}) is large, the expected gradient dominates the noise and the student improves rapidly. As pt→qtp_{t}\to q_{t}, however, the signal shrinks while the variance remains, so the signal-to-noise ratio collapses; the resulting noisy gradient drives the student off-policy and the training accuracy plateaus or oscillates well below the teacher. We observe this late-stage stagnation consistently in our experiments (Figure˜3), and it has been reported in prior work as well. Top-kk OPD partially mitigates this by averaging over kk tokens per position, but the underlying REINFORCE-style estimator remains intrinsically high-variance.
+
+Limitation 2: The output layer is an information bottleneck. A second, more fundamental issue is informational. Every output-space variant treats the teacher as a _black-box probability oracle_ : it queries only the LM-head output, comparing |𝒱||\mathcal{V}|-dimensional distributions ptp_{t} and qtq_{t} (or sub-selections thereof: one token for sampled-token OPD, kk tokens for top-kk). Yet the teacher is an LL-layer transformer that has computed, on each position, an entire stack of dd-dimensional hidden states {hT(l)}l=1L\\{h_{T}^{(l)}\\}_{l=1}^{L} encoding rich structural information: attention patterns, mid-layer reasoning state, and geometric arrangement of concepts in representation space. Almost all of this internal signal is destroyed by the LM-head projection Whead:ℝd→ℝ|𝒱|W_{\mathrm{head}}\\!:\mathbb{R}^{d}\\!\to\\!\mathbb{R}^{|\mathcal{V}|} and the subsequent softmax, which is invariant to additive constants and compresses along a long-tail singular spectrum. As a result, output distributions that agree to within an arbitrary tolerance can correspond to hidden states that differ along entire affine subspaces of ℝd\mathbb{R}^{d}. The student is therefore graded only on the part of the teacher’s knowledge that survives this projection, and receives no signal about _how_ the teacher arrived at that distribution. This is particularly wasteful in the on-policy regime: the teacher forward pass is already executed on every student rollout, so its hidden states are computed but discarded before they ever reach the loss.
+
+To overcome both limitations, we propose On-Policy Representation Distillation (OPRD), the first method to lift on-policy distillation from the output space into the _hidden-state space_. On the same on-policy rollouts (x,y^)(x,\hat{y}) already used by standard OPD, OPRD aligns the student’s intermediate hidden representations with the teacher’s across selected transformer layers and response positions via a normalized mean-squared error objective. A single design choice (supervising at the representation level rather than at the output level) simultaneously addresses both limitations. First, deterministic, low-variance gradients: OPRD’s MSE objective is a deterministic function of the rollout; its gradient carries _zero_ additional sampling variance, eliminating the late-stage signal-to-noise collapse of OPD by construction. Second, a richer supervision channel beyond logits: OPRD taps the teacher at any subset of its LL intermediate layers, exposing (layers ×\times positions ×\times hidden-dim) scalars of structural supervision per sample, orders of magnitude more than the signal extracted at the output. The student is graded on the same intermediate representations the teacher actually computed, without filtering through the LM-head projection. Both properties follow from a single conceptual shift: moving the supervision target from the output of the LM head to its input. As a side benefit, bypassing the LM head in the loss path also lightens the actor-update memory footprint, but we view this efficiency gain as secondary to the informational motivation. OPRD is a self-contained training objective that can be used on its own; it also composes additively with any OPD variant at essentially zero infrastructure cost. Beyond the standard teacher–student setting studied here, we highlight two high-value scenarios where OPRD’s advantages are especially pronounced. (1) Multi-model RL merging. State-of-the-art RL pipelines increasingly merge multiple teacher or reward-model checkpoints into a single student. In this setting, full-vocabulary OPD requires materialising a [B,T,|𝒱|][B,T,|\mathcal{V}|] logit tensor _per teacher_ , quickly exhausting GPU memory and demanding heavy infrastructure work (DeepSeek, 2026). Top-kk OPD alleviates memory but reintroduces the high-variance problem of Section˜1. OPRD sidesteps both: its hidden-state loss never touches the vocabulary dimension, so memory and wall-clock scale with dd rather than |𝒱||\mathcal{V}|, while its deterministic gradient avoids the variance trap entirely. (2) On-policy self-distillation (OPSD). A growing line of work constructs the teacher from the student itself by injecting privileged information (e.g., ground-truth solutions, step-level verification signals) into the prompt. Because teacher and student share exactly the same weights, the same-architecture requirement is satisfied by construction, and the hidden-state alignment signal is maximally informative. OPRD can therefore serve as a drop-in replacement for the output-space reverse-KL in any OPSD pipeline, delivering lower variance and lower cost without any architectural modification. We discuss both applications in detail in §5. The strict Pareto improvement over all output-space baselines is summarized in Figure˜1.
+
+Our main contributions are as follows:
+
+  1. 1.
+
+A new supervision channel for on-policy distillation. We formalize two practical limitations of the output-space paradigm (late-stage variance collapse and the output-layer information bottleneck) and show that both can be resolved by a single architectural shift: moving supervision into the hidden-state space.
+
+  2. 2.
+
+The OPRD method. We propose On-Policy Representation Distillation, the first representation-level on-policy distillation framework for LLMs. OPRD is simple, exposes the teacher’s intermediate hidden states as a dense supervision target, and is fully composable with any existing OPD objective.
+
+  3. 3.
+
+A two-perspective theoretical analysis. We characterize OPRD through (i) gradient variance reduction and (ii) the additional information content unlocked by hidden-state supervision relative to the LM-head output, jointly explaining why hidden-state supervision is a principled complement to output-space OPD.
+
+  4. 4.
+
+Empirical evidence on mathematical reasoning. We show that OPRD enables monotonic improvement throughout training and closes the student–teacher gap on three competition mathematics benchmarks, while every output-space OPD baseline plateaus several points below the teacher.
+
+  5. 5.
+
+Strict Pareto improvement in accuracy and training cost. On the same hardware and rollout budget, OPRD trains 1.44×1.44\times faster than top-kk OPD and uses 3232–54%54\% less actor-update transient memory, because its loss path never materializes the [B,T,|𝒱|][B,T,|\mathcal{V}|] logits tensor on the student side.
+
+
+
+
+##  2 Background and Problem Setup
+
+This section formalizes the on-policy distillation problem we build upon. We introduce the necessary notation in §2.1, define the on-policy distillation framework in §2.2, and catalogue the three output-space supervision granularities used in prior work in §2.3. We close in §2.4 by isolating the common structural property of these variants that motivates our hidden-state approach in the next section.
+
+Table 1: Summary of notation used throughout the paper. Symbols are grouped by theme; the rightmost column points to the section where the symbol is introduced or used most centrally. Symbol |  Meaning | First use  
+---|---|---  
+_Models and inputs_  
+πθ,θ\pi_{\theta},\;\theta |  Student policy and its trainable parameters |  §2.1  
+πT\pi_{T} |  Teacher policy (frozen) |  §2.1  
+𝒱,v,|𝒱|=V\mathcal{V},\;v,\;|\mathcal{V}|=V |  Shared vocabulary, a token in it, and its size |  §2.1  
+x,𝒟xx,\;\mathcal{D}_{x} |  Prompt and prompt distribution |  §2.1  
+y^=(y^1,…,y^T)\hat{y}=(\hat{y}_{1},\ldots,\hat{y}_{T}) |  On-policy rollout sampled from πθ(⋅∣x)\pi_{\theta}(\cdot\mid x) |  §2.2  
+T,tT,\;t |  Response length and a per-token position index |  §2.2  
+BB |  Training batch size (number of prompts per optimizer step) |  §4.1  
+y^<t\hat{y}_{<t} |  Prefix (y^1,…,y^t−1)(\hat{y}_{1},\ldots,\hat{y}_{t-1}) used to condition step tt |  §2.1  
+_Architecture_  
+L,lL,\;l |  Number of transformer layers, a layer index |  §2.1  
+d,ds,dTd,\;d_{s},\;d_{T} |  Hidden dimension; student/teacher hidden dimensions if different |  §2.1  
+hθ,t(l),hT,t(l)∈ℝdh_{\theta,t}^{(l)},\;h_{T,t}^{(l)}\in\mathbb{R}^{d} |  Student / teacher hidden state at layer ll and position tt |  §2.1  
+Whead∈ℝV×dW_{\mathrm{head}}\in\mathbb{R}^{V\times d} |  Language-model head mapping hidden state to logits |  §2.1  
+W∈ℝdT×dsW\in\mathbb{R}^{d_{T}\times d_{s}} |  Learnable linear projector used when ds≠dTd_{s}\\!\neq\\!d_{T} |  §3.1  
+_Distributions and divergences_  
+pt,qtp_{t},\;q_{t} |  Student / teacher next-token distribution at position tt |  §2.2  
+DKL​(p∥q)D_{\mathrm{KL}}(p\,\|\,q) |  Kullback–Leibler divergence (forward direction) |  §2.2  
+ut≜log⁡pt−log⁡qtu_{t}\triangleq\log p_{t}-\log q_{t} |  Per-token log-density ratio |  §A  
+δ​(θ)≜DKL​(p∥q)+DKL​(q∥p)\delta(\theta)\triangleq D_{\mathrm{KL}}(p\|q)+D_{\mathrm{KL}}(q\|p) |  Symmetric divergence used in SNR analysis |  §A  
+_Output-space objectives (OPD variants)_  
+ℒOPD\mathcal{L}_{\mathrm{OPD}} |  Generic on-policy distillation loss (any variant) |  §2.2  
+ℒOPDsample\mathcal{L}_{\mathrm{OPD}}^{\mathrm{sample}} |  Sampled-token OPD (single-sample Monte Carlo) |  Eq. (3)  
+ℒOPDfull\mathcal{L}_{\mathrm{OPD}}^{\mathrm{full}} |  Full-vocabulary OPD (sum over all v∈𝒱v\in\mathcal{V}) |  Eq. (4)  
+ℒOPDtop-​k\mathcal{L}_{\mathrm{OPD}}^{\text{top-}k} |  Top-kk OPD restricted to a kk-token support |  Eq. (5)  
+k,Stk,\;S_{t} |  Top-kk support size and the per-position support set |  §2.3  
+_Representation-level objective (OPRD, ours)_  
+ℒOPRD\mathcal{L}_{\mathrm{OPRD}} |  On-policy representation distillation loss |  Eq. (6)  
+ℒlayer⊆{1,…,L}\mathcal{L}_{\mathrm{layer}}\subseteq\\{1,\ldots,L\\} |  Set of distilled transformer layers |  §3.1  
+𝒫​(y^)⊆{1,…,T}\mathcal{P}(\hat{y})\subseteq\\{1,\ldots,T\\} |  Set of supervised response positions |  §3.1  
+mt∈{0,1}m_{t}\in\\{0,1\\} |  Position mask: mt=𝟏​[t∈𝒫​(y^)]m_{t}=\mathbf{1}[t\in\mathcal{P}(\hat{y})] |  §3.1  
+sg​(⋅)\mathrm{sg}(\cdot) |  Stop-gradient operator (treats argument as constant) |  Eq. (6)  
+μ≥0\mu\geq 0 |  Mixing weight of the optional OPD term added to OPRD |  Eq. (7)  
+_Gradient estimators and variance analysis_  
+gOPD,gOPRDg_{\mathrm{OPD}},\;g_{\mathrm{OPRD}} |  Single-sample stochastic gradients of the two losses |  Def. 1  
+g¯OPD,g¯OPRD\bar{g}_{\mathrm{OPD}},\;\bar{g}_{\mathrm{OPRD}} |  Their population means (over y^t∼pt\hat{y}_{t}\sim p_{t}) |  Def. 1  
+∇θlog⁡p\nabla_{\theta}\log p |  Score function (per-token policy gradient direction) |  Eq. (13)  
+ℱ​(θ),ℱmin​(θ)\mathcal{F}(\theta),\;\mathcal{F}_{\min}(\theta) |  Fisher information matrix and its minimum eigenvalue |  Thm. 3  
+SNR​(g)\mathrm{SNR}(g) |  Signal-to-noise ratio ‖g¯‖2/Tr​(Cov​[g])\|\bar{g}\|^{2}/\mathrm{Tr}(\mathrm{Cov}[g]) |  Def. 2  
+_LM-head information bottleneck ( Theorem˜2)_  
+𝒩W\mathcal{N}_{W} |  Effective null space of LM head under softmax: {Δ​h:Whead​Δ​h∈span​{𝟏}}\\{\Delta h:W_{\mathrm{head}}\Delta h\in\mathrm{span}\\{\mathbf{1}\\}\\} |  Thm. 2  
+𝟏∈ℝV\mathbf{1}\in\mathbb{R}^{V} |  All-ones vector (softmax-invariant shift direction) |  Thm. 2  
+σ1,…,σd\sigma_{1},\ldots,\sigma_{d} |  Singular values of WheadW_{\mathrm{head}} (σ1≥⋯≥σd>0\sigma_{1}\\!\geq\\!\cdots\\!\geq\\!\sigma_{d}\\!>\\!0) |  Thm. 2  
+v1,…,vdv_{1},\ldots,v_{d} |  Right-singular vectors of WheadW_{\mathrm{head}} |  Thm. 2  
+  
+###  2.1 Notation
+
+We consider two autoregressive language models with a shared vocabulary 𝒱\mathcal{V}: a _student_ πθ\pi_{\theta} with trainable parameters θ\theta, and a fixed _teacher_ πT\pi_{T}. A training instance is a prompt x=(x1,…,xn)x=(x_{1},\ldots,x_{n}) drawn from a prompt distribution 𝒟x={x(i)}i=1N\mathcal{D}_{x}=\\{x^{(i)}\\}_{i=1}^{N}; a model response is a token sequence y=(y1,…,ym)y=(y_{1},\ldots,y_{m}) produced autoregressively. For brevity we write the prefix up to step tt as y<t≜(y1,…,yt−1)y_{<t}\triangleq(y_{1},\ldots,y_{t-1}), and use π(⋅∣x,y<t)\pi(\cdot\mid x,y_{<t}) to denote either model’s next-token distribution over 𝒱\mathcal{V} conditioned on (x,y<t)(x,y_{<t}). The notation y∼πθ(⋅∣x)y\sim\pi_{\theta}(\cdot\mid x) refers to an autoregressive sample drawn from the student.
+
+Both models share the same transformer architecture template: a stack of LL self-attention blocks producing intermediate hidden states h(l)∈ℝdh^{(l)}\in\mathbb{R}^{d} at each layer l∈{1,…,L}l\in\\{1,\ldots,L\\} and position, followed by a language-model head Whead∈ℝ|𝒱|×dW_{\mathrm{head}}\in\mathbb{R}^{|\mathcal{V}|\times d} that maps the final hidden state to logits. We write hθ,t(l)h_{\theta,t}^{(l)} and hT,t(l)h_{T,t}^{(l)} for the student and teacher hidden states at layer ll and response position tt, with both networks evaluated on the same input sequence.
+
+###  2.2 The On-Policy Distillation Framework
+
+#### Setup.
+
+On-policy distillation (OPD) departs from classical knowledge distillation by drawing the supervision distribution from the student rather than from a fixed dataset. Concretely, at each training step the student first samples a response y^=(y^1,…,y^T)∼πθ(⋅∣x)\hat{y}=(\hat{y}_{1},\ldots,\hat{y}_{T})\sim\pi_{\theta}(\cdot\mid x) of length T≜|y^|T\triangleq|\hat{y}|, after which both models are evaluated on the student-generated prefixes. For each position t∈{1,…,T}t\in\\{1,\ldots,T\\} this yields a pair of next-token distributions over 𝒱\mathcal{V}:
+
+| pt​(v)≜πθ​(v∣x,y^<t),qt​(v)≜πT​(v∣x,y^<t),v∈𝒱.p_{t}(v)\;\triangleq\;\pi_{\theta}(v\mid x,\hat{y}_{<t}),\qquad q_{t}(v)\;\triangleq\;\pi_{T}(v\mid x,\hat{y}_{<t}),\qquad v\in\mathcal{V}. |  | (1)  
+---|---|---|---  
+  
+The defining feature of OPD is that the teacher is queried on _student-visited states_ , namely prefixes that arise from the current policy, rather than on canonical teacher trajectories. This eliminates the exposure-bias gap between training and inference distributions that plagues fixed-target distillation.
+
+#### Objective.
+
+The canonical OPD objective minimizes the trajectory-level reverse KL divergence between the student and teacher policies on student rollouts. By the chain rule for KL divergence, this trajectory-level quantity decomposes exactly into a sum of token-level reverse KL terms:
+
+| ℒOPD​(θ)=𝔼x∼𝒟x,y^∼πθ(⋅∣x)​[∑t=1TDKL​(pt∥qt)],\mathcal{L}_{\mathrm{OPD}}(\theta)\;=\;\mathbb{E}_{x\sim\mathcal{D}_{x},\;\hat{y}\sim\pi_{\theta}(\cdot\mid x)}\\!\left[\sum_{t=1}^{T}D_{\mathrm{KL}}(p_{t}\,\|\,q_{t})\right], |  | (2)  
+---|---|---|---  
+  
+where the token-level reverse KL at position tt is DKL​(pt∥qt)=∑v∈𝒱pt​(v)​log⁡[pt​(v)/qt​(v)]D_{\mathrm{KL}}(p_{t}\,\|\,q_{t})=\sum_{v\in\mathcal{V}}p_{t}(v)\log[p_{t}(v)/q_{t}(v)]. Eq. (2) is conceptually clean but computationally inconvenient: it requires summing over the full vocabulary 𝒱\mathcal{V} at every position, which is prohibitive for modern LLMs with |𝒱||\mathcal{V}| in the hundreds of thousands. Practical implementations differ in how they approximate this sum, and we review the three dominant choices below.
+
+###  2.3 Three Output-Space Variants
+
+We use a unified template to describe each variant: at each position tt, define a token subset St⊆𝒱S_{t}\subseteq\mathcal{V} and a per-position loss ℓt\ell_{t} that depends only on {pt​(v),qt​(v):v∈St}\\{p_{t}(v),q_{t}(v):v\in S_{t}\\}. The three variants below correspond to different choices of StS_{t}.
+
+#### (a) Sampled-token OPD (St={y^t}S_{t}=\\{\hat{y}_{t}\\}).
+
+The most lightweight and by far the most widely adopted choice in production deployments (Xiao et al., 2026; Yang et al., 2026b). A single token y^t∼pt\hat{y}_{t}\sim p_{t} already drawn during rollout is reused as the supervision target, and the per-position loss takes the form of a log-ratio:
+
+| ℓtsample≜log⁡pt​(y^t)−log⁡qt​(y^t),ℒOPDsample​(θ)=𝔼x,y^​[∑t=1Tℓtsample].\ell_{t}^{\mathrm{sample}}\;\triangleq\;\log p_{t}(\hat{y}_{t})-\log q_{t}(\hat{y}_{t}),\qquad\mathcal{L}_{\mathrm{OPD}}^{\mathrm{sample}}(\theta)=\mathbb{E}_{x,\hat{y}}\\!\left[\sum_{t=1}^{T}\ell_{t}^{\mathrm{sample}}\right]. |  | (3)  
+---|---|---|---  
+  
+A straightforward calculation gives 𝔼y^t∼pt​[ℓtsample]=DKL​(pt∥qt)\mathbb{E}_{\hat{y}_{t}\sim p_{t}}[\ell_{t}^{\mathrm{sample}}]=D_{\mathrm{KL}}(p_{t}\,\|\,q_{t}), so ℓtsample\ell_{t}^{\mathrm{sample}} is an unbiased _single-sample_ estimator of the token-level reverse KL. Memory cost is O​(B​T)O(BT) for batch size BB and response length TT; teacher queries amount to one log-probability per token.
+
+#### (b) Full-vocabulary OPD (St=𝒱S_{t}=\mathcal{V}).
+
+At the opposite extreme, one materializes the entire teacher distribution and computes the exact token-level KL at every position:
+
+| ℒOPDfull​(θ)=𝔼x,y^​[∑t=1T∑v∈𝒱pt​(v)​log⁡pt​(v)qt​(v)].\mathcal{L}_{\mathrm{OPD}}^{\mathrm{full}}(\theta)=\mathbb{E}_{x,\hat{y}}\\!\left[\sum_{t=1}^{T}\sum_{v\in\mathcal{V}}p_{t}(v)\,\log\\!\tfrac{p_{t}(v)}{q_{t}(v)}\right]. |  | (4)  
+---|---|---|---  
+  
+The gradient signal is the densest possible, but the price is steep: storing teacher logits demands O​(B​T​|𝒱|)O(BT|\mathcal{V}|) memory, which becomes infeasible for long-context training at modern vocabulary sizes.
+
+#### (c) Top-kk OPD (St=TopK​(pt,k)S_{t}=\mathrm{TopK}(p_{t},k)).
+
+Top-kk OPD interpolates between the two extremes by restricting attention to the kk tokens that the _student_ ranks highest at position tt, then computing a KL between renormalized distributions on this support:
+
+| ℒOPDtop​-​k​(θ)=𝔼x,y^​[∑t=1TDKL​(p¯t(St)∥q¯t(St))],p¯t(St)​(v)=pt​(v)​ 1​[v∈St]∑u∈Stpt​(u),\mathcal{L}_{\mathrm{OPD}}^{\mathrm{top\text{-}k}}(\theta)=\mathbb{E}_{x,\hat{y}}\\!\left[\sum_{t=1}^{T}D_{\mathrm{KL}}\\!\left(\bar{p}_{t}^{(S_{t})}\,\big\|\,\bar{q}_{t}^{(S_{t})}\right)\right],\quad\bar{p}_{t}^{(S_{t})}(v)=\frac{p_{t}(v)\,\mathbf{1}[v\in S_{t}]}{\sum_{u\in S_{t}}p_{t}(u)}, |  | (5)  
+---|---|---|---  
+  
+and analogously for q¯t(St)\bar{q}_{t}^{(S_{t})}. The hyperparameter kk trades supervision density against teacher-query cost, with k=1k=1 recovering (a deterministic version of) sampled-token OPD and k=|𝒱|k=|\mathcal{V}| recovering full-vocabulary OPD. Typical implementations use k∈[4,64]k\in[4,64]. We measure this cost empirically in §4.4, where top-1616 OPD’s actor-update transient memory is more than 2×2\times larger than OPRD’s at the same setting.
+
+Figure 2: Architecture of OPRD vs. output-space OPD. Both methods share the same on-policy rollout y^∼πθ(⋅∣x)\hat{y}\sim\pi_{\theta}(\cdot\\!\mid\\!x), which is fed to the student (blue, trainable) and the teacher (orange, frozen). OPD extracts supervision _after_ the LM head, comparing output distributions ptp_{t} and qtq_{t} via reverse KL on a token subset. OPRD (ours) extracts supervision _before_ the LM head, comparing intermediate hidden states h(l)h^{(l)} at selected layers via masked ℓ2\ell_{2} loss. OPRD is used on its own by default, but can optionally be combined with ℒOPD\mathcal{L}_{\mathrm{OPD}} as ℒOPD+μ​ℒOPRD\mathcal{L}_{\mathrm{OPD}}+\mu\,\mathcal{L}_{\mathrm{OPRD}}. OPRD taps the teacher _before_ the LM-head projection, exposing per-layer structural information that any output-space objective discards. 
+
+###  2.4 A Shared Structural Limitation
+
+The three variants above span the full design space studied in prior work, yet they share a defining structural property: _the supervision signal is always a function of the next-token distributions ptp_{t} and qtq_{t} that the LM head produces._ Equivalently, the only way teacher knowledge reaches the student is through the projection Whead:ℝd→ℝ|𝒱|W_{\mathrm{head}}:\mathbb{R}^{d}\to\mathbb{R}^{|\mathcal{V}|} applied to the final hidden state. The internal representations {hT,t(l)}l<L\\{h_{T,t}^{(l)}\\}_{l<L}, which are the very features that encode the teacher’s intermediate reasoning, never enter the loss. This output-only view has two immediate consequences that will become focal points of our analysis. _(i) Statistical:_ the most popular variant (sampled-token OPD) estimates each token-level KL from a single Monte Carlo draw, introducing variance that scales unfavorably with |𝒱||\mathcal{V}| and dominates the optimization signal once ptp_{t} approaches qtq_{t}. _(ii) Informational:_ because WheadW_{\mathrm{head}} is low-rank (d≪|𝒱|d\ll|\mathcal{V}|), the loss imposes only dd effective constraints per position regardless of |St||S_{t}|, leaving large directions of the hidden-state space unsupervised. Our method, introduced next, attacks both issues by replacing Whead∘hW_{\mathrm{head}}\\!\circ\\!h with hh itself as the alignment target.
+
+##  3 On-Policy Representation Distillation
+
+We now present On-Policy Representation Distillation (OPRD), a novel distillation framework that supervises the student in the hidden-state space on student-generated trajectories. We define the method (Section˜3.1) and state two theorems, one on gradient variance and one on the LM-head information bottleneck (Theorem˜1, Theorem˜2), that explain why hidden-state supervision is a principled and effective complement to output-space distillation.
+
+Takeaways • New and richer supervision channel. OPRD is the first method to extend on-policy distillation from the output space to the hidden-state space. By tapping the teacher at any subset of its intermediate layers, OPRD exposes structural information that the LM-head projection necessarily compresses away; the student is graded on the same hidden states the teacher actually computed, not on a low-rank, additive-invariant projection of them. • Low variance, dense signal. Unlike the high-variance REINFORCE-style gradient of OPD, OPRD provides a deterministic MSE gradient that carries (layers ×\times positions ×\times hidden-dim) scalars of supervision per sample, orders of magnitude more than sampled-token OPD. • Training efficiency. Because OPRD’s loss path operates entirely before the LM head and never materializes the [B,T,|𝒱|][B,T,|\mathcal{V}|] logits tensor, it reduces wall-clock time by 1.44×1.44\times and cuts actor-update Δ\Deltapeak GPU memory by up to 54%54\%. At convergence, OPRD also produces shorter responses than output-space OPD at equal or higher accuracy, further reducing inference cost.
+
+###  3.1 The OPRD Objective
+
+The three OPD variants in §2.3 all operate in the _output space_ by matching next-token distributions ptp_{t} and qtq_{t}. OPRD instead supervises the student in the _hidden-state space_ on the same on-policy trajectories. Intuitively, OPD asks the student to assign similar probabilities to tokens, whereas OPRD asks the student to produce similar internal representations at selected layers and positions.
+
+Let ℒlayer⊆{1,…,L}\mathcal{L}_{\mathrm{layer}}\subseteq\\{1,\ldots,L\\} be the set of distilled layers (e.g. the last layer, all layers, or a parity subset such as even/odd layers), and let 𝒫​(y^)⊆{1,…,T}\mathcal{P}(\hat{y})\subseteq\\{1,\ldots,T\\} be the set of supervised response positions (e.g. all tokens, the first kk tokens, or the last kk tokens). We use a position mask mt∈{0,1}m_{t}\in\\{0,1\\} to indicate whether t∈𝒫​(y^)t\in\mathcal{P}(\hat{y}); for short responses, positions beyond the valid length are masked out rather than padded into the loss. OPRD minimizes a layer-averaged, position-masked mean-squared error between student and teacher representations:
+
+| ℒOPRD​(θ)=𝔼x∼𝒟x,y^∼πθ(⋅∣x)​[1|ℒlayer|​∑l∈ℒlayer1∑t=1Tmt​∑t=1Tmt​1d​‖hθ,t(l)−sg​(hT,t(l))‖22],\mathcal{L}_{\mathrm{OPRD}}(\theta)=\mathbb{E}_{x\sim\mathcal{D}_{x},\;\hat{y}\sim\pi_{\theta}(\cdot\mid x)}\left[\frac{1}{|\mathcal{L}_{\mathrm{layer}}|}\sum_{l\in\mathcal{L}_{\mathrm{layer}}}\frac{1}{\sum_{t=1}^{T}m_{t}}\sum_{t=1}^{T}m_{t}\,\frac{1}{d}\Bigl\|h_{\theta,t}^{(l)}-\mathrm{sg}\\!\bigl(h_{T,t}^{(l)}\bigr)\Bigr\|_{2}^{2}\right], |  | (6)  
+---|---|---|---  
+  
+where sg​(⋅)\mathrm{sg}(\cdot) denotes the stop-gradient operator on the teacher representation and dd is the hidden dimension. The 1/d1/d factor normalizes the loss across architectures with different hidden sizes; the position averaging 1/∑tmt1/\sum_{t}m_{t} makes the loss invariant to the choice of |𝒫​(y^)||\mathcal{P}(\hat{y})|. When the student and teacher have different hidden widths (ds≠dTd_{s}\neq d_{T}), a learnable linear projector W∈ℝdT×dsW\in\mathbb{R}^{d_{T}\times d_{s}} is applied to the student side before the loss, mapping hθ,t(l)h_{\theta,t}^{(l)} from ℝds\mathbb{R}^{d_{s}} to ℝdT\mathbb{R}^{d_{T}}. The projector is trained jointly with the student and adds negligible parameters relative to the backbone. The two design knobs (ℒlayer\mathcal{L}_{\mathrm{layer}}, 𝒫​(y^)\mathcal{P}(\hat{y})) offer flexibility along two axes: _depth_ of supervision (single-layer vs. multi-layer) and _breadth_ of supervision (single-position vs. all-position). For long chain-of-thought (CoT) responses common in mathematical reasoning, we typically set 𝒫​(y^)\mathcal{P}(\hat{y}) to the last kk response tokens and ℒlayer\mathcal{L}_{\mathrm{layer}} to all transformer layers, yielding dense layer-wise supervision on a compact suffix while keeping memory bounded. We empirically study the effect of these design choices in §4.5. OPRD is a self-contained training objective and our main results (§4) are reported in the OPRD-only setting. For completeness, OPRD also composes additively with any output-space OPD variant as
+
+| ℒ​(θ)=ℒOPD​(θ)+μ​ℒOPRD​(θ),μ≥0,\mathcal{L}(\theta)=\mathcal{L}_{\mathrm{OPD}}(\theta)+\mu\,\mathcal{L}_{\mathrm{OPRD}}(\theta),\quad\mu\geq 0, |  | (7)  
+---|---|---|---  
+  
+at essentially zero infrastructure cost since both terms are computed on the same on-policy rollout and share a single teacher forward pass.
+
+###  3.2 Why OPRD Works
+
+Two complementary properties, in one-to-one correspondence with the two limitations of §1, explain why hidden-state supervision is a principled complement to output-space OPD. We state both as informal theorems; precise statements and proofs are deferred to Appendix˜A.
+
+######  Theorem 1 (Zero-variance gradient).
+
+Let g^OPD\hat{g}_{\mathrm{OPD}} and g^OPRD\hat{g}_{\mathrm{OPRD}} be the per-sample stochastic gradients of sampled-token OPD and OPRD (6) on an on-policy rollout y^∼πθ(⋅∣x)\hat{y}\sim\pi_{\theta}(\cdot\\!\mid\\!x). Conditioned on (x,y^)(x,\hat{y}),
+
+| Var​[g^OPRD|x,y^]=0,Var​[g^OPD|x,y^]∝Vary^t∼pt​[log⁡pt​(y^t)−log⁡qt​(y^t)],\mathrm{Var}\\!\left[\hat{g}_{\mathrm{OPRD}}\,\big|\,x,\hat{y}\right]=0,\qquad\mathrm{Var}\\!\left[\hat{g}_{\mathrm{OPD}}\,\big|\,x,\hat{y}\right]\;\propto\;\mathrm{Var}_{\hat{y}_{t}\sim p_{t}}\\!\bigl[\log p_{t}(\hat{y}_{t})-\log q_{t}(\hat{y}_{t})\bigr], |  | (8)  
+---|---|---|---  
+  
+where the right-hand variance is over per-position token sampling.
+
+The OPD variance in (8) does _not_ vanish as pt→qtp_{t}\\!\to\\!q_{t}, and through the score-function term ∇θlog⁡pt​(y^t)\nabla_{\theta}\log p_{t}(\hat{y}_{t}) it dominates the policy gradient late in training; this is the mechanism behind the late-stage stagnation of pure OPD (Section˜1). OPRD adds zero conditional variance and therefore provides a stable optimization signal even after the output distribution has nearly converged.
+
+######  Theorem 2 (Hidden-state information beyond the LM head).
+
+Let Whead∈ℝ|𝒱|×dW_{\mathrm{head}}\\!\in\\!\mathbb{R}^{|\mathcal{V}|\times d} have singular values σ1≥⋯≥σd>0\sigma_{1}\\!\geq\\!\cdots\\!\geq\\!\sigma_{d}\\!>\\!0 with right-singular vectors v1,…,vdv_{1},\ldots,v_{d}, and define the _effective null space_ 𝒩W≜{Δ​h∈ℝd:Whead​Δ​h∈span​{𝟏}}\mathcal{N}_{W}\triangleq\\{\Delta h\in\mathbb{R}^{d}:W_{\mathrm{head}}\,\Delta h\in\mathrm{span}\\{\mathbf{1}\\}\\}, i.e., the set of hidden-state perturbations whose image under WheadW_{\mathrm{head}} is an additive softmax-invariant shift. For any last-layer student/teacher hidden states hθ,hT∈ℝdh_{\theta},h_{T}\\!\in\\!\mathbb{R}^{d} and any output-space OPD loss ℓout\ell_{\mathrm{out}} (sampled-token, top-kk, or full-vocabulary reverse KL),
+
+| ℓout​(hθ,hT)=0wheneverhθ−hT∈𝒩W,\ell_{\mathrm{out}}(h_{\theta},h_{T})=0\quad\text{whenever}\quad h_{\theta}-h_{T}\in\mathcal{N}_{W}, |  | (9)  
+---|---|---|---  
+  
+and along hθ−hT=α​vdh_{\theta}-h_{T}=\alpha v_{d} with ‖vd‖=1\|v_{d}\|=1,
+
+| ‖hθ−hT‖2/ℓout​(hθ,hT)≳(σ1/σd)2,\|h_{\theta}-h_{T}\|^{2}/\ell_{\mathrm{out}}(h_{\theta},h_{T})\;\gtrsim\;(\sigma_{1}/\sigma_{d})^{2}, |  | (10)  
+---|---|---|---  
+  
+where ≳\gtrsim hides a constant depending only on ℓout\ell_{\mathrm{out}} and the logit range (made precise in Section˜A.5).
+
+The ratio in (10) scales as (σ1/σd)2(\sigma_{1}/\sigma_{d})^{2}, which is typically very large for production LLMs due to the ill-conditioned singular spectrum of WheadW_{\mathrm{head}}. This means hidden-state deviations along low-singular-value directions can be orders of magnitude larger than along top directions while producing the same output-space loss; moreover output-space OPD has no mechanism to constrain intermediate hidden states h(l)h^{(l)} for l<Ll\\!<\\!L. OPRD (6) penalizes exactly the directions in 𝒩W\mathcal{N}_{W} and supervises any subset of intermediate layers, exposing (layers ×\times positions ×\times hidden-dim) scalars of structural information per sample that the LM-head projection necessarily compresses away (Section˜1).
+
+##  4 Experiments
+
+We evaluate OPRD on competition-level mathematical reasoning, against (i) a frozen teacher and an unmodified student baseline, and (ii) two strong on-policy distillation baselines that share the same on-policy rollout and teacher forward pass as OPRD but extract supervision from the LM-head output. The experiments test the two predictions of §3.2: OPRD provides a lower-noise, structurally richer training signal than any output-space OPD variant, and should therefore close the student–teacher gap that pure OPD cannot.
+
+(a) AIME24 vs. OPD top-1
+
+(b) AIME25 vs. OPD top-1
+
+(c) AIMO vs. OPD top-1
+
+(d) AIME24 vs. OPD top-16
+
+(e) AIME25 vs. OPD top-16
+
+(f) AIMO vs. OPD top-16
+
+Figure 3: Training dynamics of OPRD vs. OPD baselines on AIME24 (left), AIME25 (middle), and AIMO (right). Top row: OPRD vs. OPD top-1 (sampled-token reverse KL); bottom row: OPRD vs. OPD top-16. Translucent line: raw Avg@16 at each evaluation step; solid line with markers: 55-step centered rolling mean. Within each panel the two methods share the same student initialization, on-policy rollouts, teacher forward passes, and optimizer schedule, and differ only in where the supervision is extracted. On every benchmark OPRD continues to improve until it approaches the teacher’s level, while both OPD variants plateau or oscillate, reflecting the late-stage stagnation of OPD and the deterministic-gradient advantage of OPRD predicted by Theorem˜1. 
+
+###  4.1 Experimental Setup
+
+#### Models.
+
+Following (Li et al., 2026b), we use JustRL-Deepseek-1.5B (He et al., 2025) (denoted JustRL-1.5B) as the (frozen) teacher and DeepSeek-R1-Distill-Qwen-1.5B (Guo et al., 2025) (denoted R1-distill-1.5B) as the student. Both models share the Qwen2.5-1.5B backbone (L=28L\\!=\\!28 transformer layers, d=1536d\\!=\\!1536 hidden dimension, |𝒱|≈151|\mathcal{V}|\\!\approx\\!151K vocabulary) and the same LM head WheadW_{\mathrm{head}}, so OPRD’s hidden-state targets are directly comparable across the two models without dimension projection (ds=dTd_{s}\\!=\\!d_{T}, the projector WW in §3.1 is omitted). The student starts from the public R1-distill-1.5B checkpoint, which already places it close to but well below the teacher in reasoning ability (Table˜2).
+
+#### Training data.
+
+On-policy prompts xx are drawn from DAPO-Math-17K (Yu et al., 2026). For each prompt the student samples 22 responses y^∼πθ(⋅∣x)\hat{y}\sim\pi_{\theta}(\cdot\\!\mid\\!x) at temperature 1.01.0 with a max generation length of 16,38416{,}384 tokens; we use a global batch of 88 prompts per step.
+
+#### Distillation objectives.
+
+We compare three on-policy distillation variants, all sharing the same rollouts y^\hat{y} and the same single teacher forward pass per rollout:
+
+  * •
+
+OPD top-1 (sampled-token reverse KL): the per-position estimator ℓt=log⁡pt​(y^t)−log⁡qt​(y^t)\ell_{t}=\log p_{t}(\hat{y}_{t})-\log q_{t}(\hat{y}_{t}) evaluated only at the sampled token y^t\hat{y}_{t}.
+
+  * •
+
+OPD top-16: the per-position estimator ∑v∈𝒱16tpt​(v)​[log⁡pt​(v)−log⁡qt​(v)]\sum_{v\in\mathcal{V}_{16}^{t}}\,p_{t}(v)\,[\log p_{t}(v)-\log q_{t}(v)] over the top-1616 tokens of ptp_{t}, a strictly informative-superset of OPD top-1.
+
+  * •
+
+OPRD (ours): the hidden-state objective (6) with ℒlayer={1,…,L}\mathcal{L}_{\mathrm{layer}}\\!=\\!\\{1,\ldots,L\\} (all 2828 layers) and 𝒫​(y^)\mathcal{P}(\hat{y}) set to the last k=2000k\\!=\\!2000 response tokens (i.e. the suffix in which the chain-of-thought converges to a final answer); reported in the OPRD-only setting (μ=0\mu\\!=\\!0 in (7)).
+
+
+
+
+#### Optimization.
+
+All three methods are trained for 500500 optimizer steps with AdamW (peak learning rate 1×10−51\\!\times\\!10^{-5}, linear warm-up over 3%3\% of total steps, cosine decay), bf16 mixed precision, and FSDP over 8×8\\!\times\\!A100 (80G) GPUs at a micro-batch of B=8B\\!=\\!8 and a maximum response length of T=16,384T\\!=\\!16{,}384.
+
+#### Evaluation.
+
+We report Avg@16 (average accuracy across 1616 independently sampled responses per prompt) at decoding temperature 0.70.7 on three competition-level mathematical reasoning benchmarks: AIME 2024 (AIME24, 3030 problems), AIME 2025 (AIME25, 3030 problems), and AIMO (AI-MO/aimo-validation-amc, comprising AMC 2022 and AMC 2023, 8383 problems). Final answers are extracted with the standard boxed parser and graded by exact-match against the official solution.
+
+###  4.2 Main Results
+
+Table 2: Main results on competition mathematical reasoning (Avg@16, %). Bold = best among the three distillation methods on each column; underline = within evaluation noise of the teacher. All three distillation methods share the same on-policy rollouts, the same single teacher forward pass per rollout, and the same training budget; they differ only in where in the network the supervision is extracted.  Method | AIME24 | AIME25 | AIMO  
+---|---|---|---  
+Teacher (JustRL-1.5B) | 50.8 | 35.6 | 79.5  
+Student (R1-distill-1.5B) | 32.9 | 21.9 | 62.2  
+OPD top-1 (sampled-token) | 42.3 | 33.5 | 77.0  
+OPD top-16 | 47.1 | 34.0 | 76.5  
+OPRD (ours) | 49.8 | 34.6 | 79.1  
+  
+Table˜2 reports Avg@16 for the teacher, the unmodified student, and the three on-policy distillation methods; Figure˜3 shows the corresponding training dynamics (discussed in detail in §4.3). Three observations follow.
+
+Figure 4: OPRD produces shorter responses than OPD at higher accuracy. Mean rollout length response_length/mean along training for OPRD vs. OPD top-11 vs. OPD top-1616 (smoothing window =15=15). OPRD converges to ∼5,700{\sim}5{,}700 tokens per response, while both OPD variants plateau around ∼7,000{\sim}7{,}000 tokens, indicating that hidden-state supervision yields more concise and efficient reasoning chains.
+
+(1) Both OPD variants improve over the student but plateau noticeably below the teacher. The student starts from a 17.917.9-/13.713.7-/17.317.3-point gap to the teacher on AIME24/AIME25/AIMO. OPD top-1 closes most of this gap on AIME25 (to within 2.12.1 points) but leaves 8.58.5 / 2.52.5 points on AIME24/AIMO; enriching the supervision to OPD top-16 helps substantially on AIME24 (+4.8+4.8) and marginally on AIME25 (+0.5+0.5) yet _loses_ ground on AIMO (−0.5-0.5). The absence of a clean ordering between top-1 and top-16 (more tokens in the loss is supposed to be strictly more informative) is consistent with Theorem˜1: late in training the OPD gradient is dominated by sampling noise that no amount of additional output-layer signal can cancel.
+
+(2) OPRD effectively closes the student–teacher gap. OPRD reaches 49.849.8 on AIME24, 34.634.6 on AIME25, and 79.179.1 on AIMO, leaving only 1.01.0 / 1.01.0 / 0.40.4 points to the teacher, all within the variance of 1616-sample Avg@16 evaluation, so the AIMO result is effectively a tie with the teacher (underline in Table˜2). Relative to the better OPD baseline on each benchmark, OPRD gains +2.7+2.7 / +0.6+0.6 / +2.1+2.1 points; relative to the unmodified student it gains +16.9+16.9 / +12.7+12.7 / +16.9+16.9 points. The advantage is most striking on AIMO, where OPRD recovers essentially all of the 17.317.3-point student–teacher gap that no output-space variant fully bridges. OPRD’s gradient is conditionally deterministic (Theorem˜1), avoiding the late-stage variance collapse that limits OPD; it also exposes per-layer structural information that the LM-head projection compresses away (Theorem˜2), supervising directions in 𝒩W\mathcal{N}_{W} that any output-space objective treats as invisible.
+
+###  4.3 Training Dynamics
+
+The end-of-training numbers in Table˜2 are only one slice of the story; we now examine _how_ each method gets there. Three complementary views (per-step accuracy, response-length behaviour, and OPRD’s own internal alignment metric) together paint a consistent picture of OPD stalling in the late-training regime predicted by Theorem˜1, while OPRD continues to make progress.
+
+#### Accuracy curves: OPRD climbs monotonically, OPD plateaus.
+
+Figure˜3 compares OPRD step-by-step against OPD top-11 (top row) and OPD top-1616 (bottom row) on all three benchmarks; raw curves are drawn at α=0.5\alpha\\!=\\!0.5 and the solid curve with markers is the 55-step centred rolling mean. The two methods in each panel share the same initialisation and quickly enter qualitatively different regimes: both OPD variants lift accuracy in the first few dozen steps but then _plateau_ or _oscillate without further improvement_ , whereas OPRD continues to climb essentially monotonically until it reaches the teacher level. Enriching the OPD supervision from top-11 to top-1616 narrows the asymptotic gap to OPRD on AIME24 but does _not_ change the qualitative shape: OPD top-1616 also plateaus, and on AIMO it does so ∼2.6\sim\\!2.6 points below OPRD despite passing strictly more output-distribution information into the loss. This is the SNR-collapse prediction of Theorem˜1 in pictures: as pt→qtp_{t}\to q_{t}, the OPD gradient’s signal-to-noise ratio collapses and additional output-layer information cannot rescue the per-token sampling noise; only OPRD’s deterministic, hidden-state-level signal continues to make progress.
+
+#### Behavioural view: OPRD produces shorter, more efficient reasoning.
+
+The accuracy curves answer _whether_ a method keeps improving; a complementary question is _how_ the policy changes. Figure˜4 reports the mean rollout length response_length/mean for the same three runs. OPRD converges to a mean response length of ∼5,700{\sim}5{,}700 tokens, substantially shorter than the ∼7,000{\sim}7{,}000 tokens produced by both OPD variants. Combined with OPRD’s higher accuracy (Table˜2), this indicates that hidden-state supervision guides the student toward more concise reasoning chains: the student learns to reach the correct answer with fewer tokens rather than relying on longer, less directed exploration. This also translates to a practical inference-time efficiency gain, since shorter responses require proportionally less compute at deployment.
+
+#### Internal view: OPRD’s own loss is being optimised end-to-end.
+
+A final, internal diagnostic is whether the representation-level loss OPRD is supposed to minimise actually decreases along training. Figure˜5 plots rep/cosine_similarity, the cosine similarity between πθ\pi_{\theta}’s and πT\pi_{T}’s hidden states averaged across all transformer layers and OPRD-supervised positions, for the OPRD-only run from Table˜2. The curve rises sharply in the first few dozen steps and then drifts upward steadily for the rest of training. Two consequences follow: (i) the OPRD objective is well-conditioned for end-to-end optimisation at this scale: the gradient produced by (6) is consistent enough to monotonically pull the supervised hidden states towards the teacher’s; (ii) the downstream gains of Table˜2 are matched by a corresponding internal trend: OPRD is improving on _exactly_ the quantity its loss is defined on, confirming that the improvement, not a coincidental rollout-distribution shift, drives the gains.
+
+Figure 5: OPRD monotonically increases the student–teacher representation cosine similarity it supervises (higher is better). rep/cosine_similarity on the OPRD-supervised positions along training (smoothing window =5=5). The curve rises sharply early and drifts upward steadily thereafter, confirming that (6) is being optimised end-to-end.
+
+###  4.4 Efficiency
+
+The OPRD loss path is computed entirely _before_ the LM head: it never materializes the [B,T,|𝒱|][B,T,|\mathcal{V}|] logits tensor on the student side, never invokes the |𝒱||\mathcal{V}|-way log_softmax, and never backpropagates through Whead∈ℝ|𝒱|×dW_{\mathrm{head}}\in\mathbb{R}^{|\mathcal{V}|\times d} for the distillation term. As a side effect, OPRD-only training is strictly cheaper than any output-space OPD variant at the same rollout/teacher budget. Table˜3 quantifies this on the same training configuration as our main results.
+
+Table 3: Actor-update cost at B=8B\\!=\\!8, T=16384T\\!=\\!16384, FSDP on 8×8\\!\times\\!A100 (80 GB). For each method we instrument the update_policy call with torch.cuda.reset_peak_memory_stats() and torch.cuda.max_memory_allocated() on every rank and report the per-rank maximum. Δ\Deltapeak: the actor-update segment’s peak _above_ its starting baseline, i.e., the transient memory induced by the distillation loss path alone, with always-resident parameters, optimizer states, and FSDP shards subtracted out. Because everything independent of the distillation objective (parameters, optimizer, FSDP plan, rollouts, teacher forward) is identical across rows, it cancels, making Δ\Deltapeak a direct apples-to-apples proxy for loss-path memory. Wall-clock: total training time for 500500 optimizer steps, excluding evaluation. All three methods share the same on-policy rollout, teacher forward pass, student next-token forward pass, and FSDP/optimizer setup; they differ only in the distillation loss path.  Method |  Δ\Deltapeak per GPU (GB) | 500-step wall-clock (min)  
+---|---|---  
+OPD top-1 | 30.2 | 813  
+OPD top-16 | 45.0 | 812  
+OPRD (ours) | 20.5 | 563  
+Δ\Delta vs. OPRD |  OPD top-1: +9.7+9.7 GB (+47%+47\% Δ\Deltapeak), +250+250 min (+44%+44\% time)  
+|  OPD top-16: +24.5+24.5 GB (+120%+120\% Δ\Deltapeak), +249+249 min (+44%+44\% time)  
+Figure 6: Adding OPRD on top of OPD top-1 monotonically lifts accuracy. AIME24 avg@16 of ℒOPD+μ⋅ℒOPRD\mathcal{L}_{\mathrm{OPD}}+\mu\cdot\mathcal{L}_{\mathrm{OPRD}} for μ∈{0,1,10}\mu\\!\in\\!\\{0,1,10\\}. Even μ=1\mu\\!=\\!1 already surpasses OPD top-1616 (47.147.1); μ=10\mu\\!=\\!10 closes the gap to teacher to within 0.60.6 pt.
+
+Memory. The actor-update transient footprint (Δ\Deltapeak, the most direct proxy for the loss path’s own cost since always-resident state is subtracted out) is 30.230.2 GB for OPD top-1 and 45.045.0 GB for OPD top-16, vs. only 20.520.5 GB for OPRD, a 3232% and 5454% reduction, or equivalently a 1.47×1.47\times and 2.20×2.20\times ratio. The gap is dominated by the [B,T,|𝒱|][B,T,|\mathcal{V}|] logits tensor (and its gradient buffer for top-kk), which scales with |𝒱|≈151|\mathcal{V}|\\!\approx\\!151K but is entirely absent in the OPRD-only loss path. The roughly 1010–2525 GB of saved transient memory is hardware-relevant: on 8080 GB-class accelerators it is enough to either enlarge the micro-batch or extend the context at the same hardware budget.
+
+Wall-clock. At identical schedules (500500 steps, same rollout, same teacher forward pass), OPRD finishes in 563563 minutes vs. 813813 / 812812 minutes for OPD top-1 / top-16, a 3131% wall-clock reduction, equivalent to a 1.44×1.44\times speed-up. We think that the two OPD variants take essentially the same time, consistent with the fact that the cost is dominated by the [B,T,|𝒱|][B,T,|\mathcal{V}|] matrix multiplication and log_softmax rather than by the top-kk slicing itself.
+
+Putting it together. Combining Table˜3 with the accuracy results in Table˜2, OPRD strictly Pareto-dominates both OPD baselines on this benchmark suite: at ∼69%\sim\\!69\% of the wall-clock and 4646–68%68\% of the actor-update transient memory (Δ\Deltapeak), it reaches accuracies that are +0.6+0.6 to +2.7+2.7 points above the better OPD baseline and effectively close the gap to the teacher. These efficiency gains are a _secondary_ consequence of OPRD’s design (the primary motivation, as developed in §3.2, is informational; see Theorem˜2), but they make OPRD a more economical training objective in practice as well. We note that our current implementation reuses the existing OPD training framework without OPRD-specific infrastructure optimisation (e.g., the teacher still computes and discards the full logits tensor even though OPRD does not consume it). With a dedicated implementation that eliminates these redundant computations, we expect both peak memory and wall-clock to decrease further.
+
+###  4.5 Mechanistic Analysis
+
+Figure 7: The student diverges from the teacher mostly at the end of the response. Cosine similarity between student (R1-distill-1.5B) and teacher (JustRL-1.5B) last-layer hidden states on on-policy rollouts, restricted to either the first kk or the last kk response tokens, as a function of kk (log scale; “ALL” = full response, at which both curves coincide at 95.42%95.42\% by construction). The first-kk curve is nearly teacher-aligned at every kk (≥97%\geq\\!97\% for k≤1600k\\!\leq\\!1600); the last-kk curve lags by ≥4\geq\\!4 points until kk exceeds the full response length. This empirically motivates concentrating OPRD’s supervision on the last-kk positions (§4.1).
+
+The experiments above show _that_ OPRD outperforms OPD; we now ask _why_. We first study the effect of composing OPRD with OPD via the mixing weight μ\mu, and empirically motivate the choice of supervised positions. We then track three complementary diagnostics along training for the composite runs ℒOPD+μ⋅ℒOPRD\mathcal{L}_{\mathrm{OPD}}+\mu\cdot\mathcal{L}_{\mathrm{OPRD}} with μ∈{0,1,10}\mu\\!\in\\!\\{0,1,10\\} to reveal a consistent mechanistic picture: OPRD pre-aligns the student’s hidden states to the teacher’s, which propagates back to (a) a smaller residual policy-gradient signal, (b) higher next-token top-kk agreement, and (c) a student exploration distribution whose shape matches the teacher’s.
+
+#### Composing OPD with OPRD (μ\mu sweep).
+
+Eq.˜7 suggests that OPRD can also be _added on top of_ existing OPD objective, rather than used as a standalone replacement. We test this for the simplest output-space baseline, sampled-token OPD (i.e. OPD top-11), by training the composite loss ℒOPD+μ⋅ℒOPRD\mathcal{L}_{\mathrm{OPD}}+\mu\cdot\mathcal{L}_{\mathrm{OPRD}} for μ∈{0,1,10}\mu\in\\{0,1,10\\}, keeping all other knobs identical to §4.1. Figure˜6 shows that AIME24 avg@16 rises _monotonically_ with μ\mu: from the vanilla OPD top-11 baseline at 42.342.3 (μ=0\mu\\!=\\!0), to 47.747.7 with a light OPRD contribution (μ=1\mu\\!=\\!1, +5.4+5.4 pt, already exceeding the OPD top-1616 baseline of 47.147.1 from Table˜2), to 50.250.2 with a stronger contribution (μ=10\mu\\!=\\!10, +2.5+2.5 pt further, essentially matching the teacher’s 50.850.8). The trend confirms two things: (i) the hidden-state signal that OPRD exposes is _additive_ to the output-space signal that OPD already uses, consistent with the information-bottleneck view of Theorem˜2; and (ii) the improvement is monotonic in μ\mu within the swept range, so the composition is robust to the mixing weight and does not require careful tuning. We therefore view ℒOPD+μ⋅ℒOPRD\mathcal{L}_{\mathrm{OPD}}+\mu\cdot\mathcal{L}_{\mathrm{OPRD}} as a drop-in upgrade for existing OPD pipeline.
+
+#### Where does the student diverge from the teacher? (motivation for last-kk supervision).
+
+A natural design question for OPRD is _which response positions_ the projector 𝒫​(y^)\mathcal{P}(\hat{y}) in (6) should select. We answer this empirically by directly measuring _where_ along the response the student and teacher representations still disagree. For the student initialisation πθ(0)=\pi_{\theta}^{(0)}\\!=\\! R1-distill-1.5B and the teacher πT=\pi_{T}\\!=\\! JustRL-1.5B, we sample on-policy rollouts from the student, run both models forward on each rollout, and compute the cosine similarity between their last-layer hidden states, restricted to either the _first_ kk or the _last_ kk tokens of every response. Figure˜7 reports this similarity as a function of kk.
+
+Two patterns emerge. (i) The early response is already teacher-aligned. The first-kk curve stays above 97%97\% for every k≤1600k\\!\leq\\!1600 and peaks at 97.69%97.69\% at k=1600k\\!=\\!1600, meaning the prompt-following preamble and the opening of the chain-of-thought are essentially already matched by the student; there is little headroom for representation-level supervision to act on. (ii) The late response is where the gap lives. The last-kk curve starts at only 91.65%91.65\% for k=50k\\!=\\!50 and remains ≥4\geq\\!4 points below the first-kk curve until kk approaches the full response length, at which point both curves converge to the whole-sequence similarity of 95.42%95.42\% by construction. Almost all of the student–teacher representational disagreement is concentrated in the _tail_ of the response, precisely where the chain-of-thought commits to a final answer.
+
+This directly motivates our default choice 𝒫​(y^)=last-​k\mathcal{P}(\hat{y})\\!=\\!\textsc{last-}k in §4.1: supervising the last kk tokens targets exactly the positions in which the student still deviates from the teacher, while sparing compute on the early positions where the signal has already been absorbed. It also explains why a small budget (k=2000≪|y^|k\\!=\\!2000\ll|\hat{y}| on average) suffices to recover the gains reported in Table˜2, since OPRD’s representation loss is not diluted across positions that carry no residual signal.
+
+Figure 8: OPRD accelerates the PG-loss phase transition and validates the information bottleneck. actor/pg_loss along training for OPD top-11 ++ OPRD composite runs (ℒOPD​top​-​1+μ⋅ℒOPRD\mathcal{L}_{\mathrm{OPD\,top\text{-}1}}+\mu\cdot\mathcal{L}_{\mathrm{OPRD}}, μ∈{0,1,10}\mu\\!\in\\!\\{0,1,10\\}; smoothing window =15=15). All runs show a loss spike (possible phase transition); OPRD shifts it earlier, indicating accelerated distillation. In late training all curves converge to ≈ 0{\approx}\,0, yet accuracy differences persist, corroborating the LM-head bottleneck of Theorem˜2. Figure 9: Adding OPRD to OPD top-1616 further aligns student and teacher next-token top-1616 sets (higher is better). Validation val-topk/overlap_ratio along training. The two runs are nearly co-located early on, but in the second half of training OPD top-1616 plateaus while OPD top-1616 ++ OPRD keeps climbing, the same late-stage divergence that distinguishes the accuracy curves of Figure˜3.
+
+(a) μ=0\mu=0 (OPD only).
+
+(b) μ=1\mu=1 (OPD +1⋅+1\\!\cdot\\!OPRD).
+
+(c) μ=10\mu=10 (OPD +10⋅+10\\!\cdot\\!OPRD).
+
+Figure 10: OPRD accelerates entropy alignment between student and teacher. Per-token entropy of πθ\pi_{\theta} (actor/entropy) and πT\pi_{T} (teacher/entropy) on rollout positions along training for OPD top-11 ++ OPRD composite runs (μ∈{0,1,10}\mu\\!\in\\!\\{0,1,10\\}, left →\to right). All runs exhibit an early entropy-increase phase during which the student–teacher gap widens; adding OPRD shifts this phase earlier (coinciding with the PG-loss spike of Figure˜8), after which the student–teacher entropy gap narrows more rapidly.
+
+#### (a) Policy-gradient loss: OPRD accelerates distillation and validates the bottleneck theory.
+
+Figure˜8 tracks actor/pg_loss along training for the OPD top-11 ++ OPRD composite runs with μ∈{0,1,10}\mu\\!\in\\!\\{0,1,10\\}. Two observations stand out. First, all three runs exhibit a pronounced loss spike during training, likely reflecting a phase transition in the student’s policy as it reorganises to absorb the teacher’s behaviour (the precise mechanism is under active investigation). Crucially, adding OPRD causes this spike to arrive _earlier_ : the μ=1\mu\\!=\\!1 and μ=10\mu\\!=\\!10 spikes precede the μ=0\mu\\!=\\!0 spike, indicating that hidden-state supervision accelerates the distillation dynamics. Second, after the spike all three curves converge to approximately zero PG loss in late training, yet the accuracy gap persists (+5.4+5.4 and +7.9+7.9 pt over μ=0\mu\\!=\\!0 on AIME24). This directly corroborates Theorem˜2: once the policy gradient vanishes (pt≈qtp_{t}\approx q_{t}), the output-space OPD signal can no longer drive further improvement because the remaining student–teacher gap lives in the null space 𝒩W\mathcal{N}_{W} of the LM head; only OPRD’s representation-level signal, which bypasses this bottleneck, continues to make progress.
+
+#### (b) Top-1616 overlap: hidden-state alignment propagates to next-token agreement.
+
+Following Li et al. (2026b), who show that higher student–teacher top-kk overlap is a reliable predictor of distillation quality, we log val-topk/overlap_ratio, defined as |top-​16​(πθ)∩top-​16​(πT)|/16|\text{top-}16(\pi_{\theta})\cap\text{top-}16(\pi_{T})|/16 (higher is better; 1.01.0 means the student’s top-1616 set is identical to the teacher’s). Figure˜9 compares OPD top-1616 alone against OPD top-1616 +1⋅ℒOPRD+1\\!\cdot\\!\mathcal{L}_{\mathrm{OPRD}}.
+
+The OPD-only run increases the overlap nearly monotonically throughout training, but its rate of improvement visibly slows after mid-training. The OPD++OPRD run behaves differently: it initially rises alongside OPD-only, then undergoes a sudden _dip_ in overlap (temporally coinciding with the PG-loss spike of Figure˜8, consistent with the hypothesised phase transition), after which it rebounds rapidly and surpasses the OPD-only curve by a clear margin. The dip-then-surge pattern mirrors the PG-loss spike discussed above and is consistent with OPRD driving the student through a transient reorganisation that ultimately lands it in a higher-overlap regime than OPD alone can reach. The representation-level and output-level supervisions are therefore not redundant: hidden-state alignment translates back into measurable improvement on exactly the metric OPD top-1616 was designed to optimise.
+
+#### (c) Predictive entropy.
+
+We log actor/entropy and teacher/entropy (per-token Shannon entropy of πθ\pi_{\theta} and πT\pi_{T} on the same rollout positions) along training for the same OPD top-11 ++ OPRD composite runs (μ∈{0,1,10}\mu\\!\in\\!\\{0,1,10\\}). The teacher’s entropy curve serves as a reference: since πT\pi_{T} is frozen, any drift is induced purely by the changing rollout distribution. Figure˜10 shows the three runs side by side. All three runs eventually bring the student’s entropy into close agreement with the teacher’s by the end of training (note that the teacher’s entropy also drifts upward as the rollout distribution evolves, so alignment means tracking the teacher, not returning to a fixed level). However, they differ markedly in their early dynamics: each run exhibits an entropy-increase phase in which the student–teacher gap widens before narrowing. Adding OPRD causes this entropy-increase phase to begin _earlier_ , temporally coinciding with the PG-loss spike of Figure˜8: the μ=10\mu\\!=\\!10 onset precedes the μ=1\mu\\!=\\!1 onset, which in turn precedes the μ=0\mu\\!=\\!0 onset. This is consistent with the picture that OPRD accelerates the student’s internal reorganisation (the same phase transition visible in the PG-loss and overlap diagnostics), after which the student’s entropy converges to the teacher’s more quickly.
+
+##  5 Discussion
+
+#### Limitation: same-architecture requirement.
+
+OPRD in its current form requires the student and teacher to share the same model architecture. We empirically observe that when the two models differ in size (even if they share the same vocabulary), their hidden-state representations are nearly orthogonal: the layer-wise cosine similarity between a smaller student and a larger teacher is close to zero across all layers. Applying OPRD naively in this cross-architecture setting would force the student’s representations toward a target that bears no structural resemblance to its own, effectively overwriting the student’s pre-existing knowledge rather than refining it. While output-space OPD also suffers from capacity mismatch between heterogeneous models, the problem is substantially more severe at the representation level because hidden states lack the normalising effect of the softmax: a small logit perturbation is dampened by softmax, but a small hidden-state perturbation propagates unattenuated through the MSE loss. We therefore restrict OPRD to the _same-architecture_ regime (identical depth, width, and initialisation family) in this work.
+
+#### High-value application 1: multi-model RL merging.
+
+Despite the same-architecture constraint, OPRD addresses a pressing practical pain point. In large-scale RL pipelines that merge multiple reward models or policy checkpoints, full-vocabulary OPD is the natural distillation objective but incurs prohibitive memory cost: materialising the [B,T,|𝒱|][B,T,|\mathcal{V}|] logit tensor for |𝒱||\mathcal{V}| demands extremely high transient GPU memory, often requiring extensive infrastructure modifications (DeepSeek, 2026). The common workaround, top-kk OPD, reduces memory but reintroduces the high-variance sampling problem analysed in Theorem˜1. OPRD offers a third path: it simultaneously mitigates the variance problem (by providing a deterministic, hidden-state-level gradient) and dramatically reduces memory and wall-clock cost (by never materialising the vocabulary-sized tensor), making it an attractive drop-in component for multi-model RL consolidation.
+
+#### High-value application 2: on-policy self-distillation (OPSD).
+
+OPRD is a natural fit for _on-policy self-distillation_ , where the teacher is constructed from the student itself by injecting privileged information (e.g., ground-truth solutions, step-level verification signals) into the prompt. Because the teacher and student share exactly the same weights, the same-architecture requirement is satisfied by construction, and the hidden-state alignment signal is maximally informative. In this setting OPRD can replace the reverse-KL computation in the output space with a cheaper and lower-variance representation-level objective, while retaining the full benefit of privileged-information guidance.
+
+#### Future directions.
+
+Several avenues remain open. (i) Cross-architecture OPRD. The most challenging extension is enabling OPRD between models of different sizes. Possible approaches include learnable projection heads that map the student’s hidden states into the teacher’s representation space, or contrastive objectives that align relative geometry rather than absolute vectors. (ii) Fine-grained layer and position analysis. Our current design supervises all layers uniformly and selects positions via a simple last-kk heuristic. A more principled approach would adaptively weight layers and positions based on where the student–teacher gap is largest or where the gradient signal is most informative. (iii) Understanding the phase transition. The PG-loss spike and the associated entropy/overlap dynamics (§4.5) suggest that OPRD triggers a phase transition in the student’s policy. Characterising the mechanism behind this transition, whether it reflects a sudden reorganisation of the residual stream, a bifurcation in the policy’s mode structure, or something else, would deepen our theoretical understanding of representation-level distillation. (iv) Attention-map distillation. OPRD currently aligns hidden-state vectors but does not supervise the attention patterns that produce them. Prior work on encoder models has shown that matching attention maps (Jiao et al., 2020) or self-attention relation matrices (Wang et al., 2020, 2021) provides complementary structural information. Extending OPRD with an on-policy attention-matching objective could transfer the teacher’s routing and composition behaviour more directly, especially for tasks that rely on long-range dependencies. (v) Richer analytical tools for OPD. By opening up the hidden-state channel, OPRD provides a new lens through which to analyse on-policy distillation more broadly: representation-level diagnostics (cosine similarity, CKA, probing accuracy) can now be tracked alongside the traditional output-level metrics, enabling a more complete mechanistic picture of how knowledge transfers between models during RL training.
+
+##  6 Related Work
+
+OPRD draws on three main lines of research: classical knowledge distillation, on-policy distillation, and feature-level / intermediate-representation distillation. We also discuss adjacent work on auxiliary losses and capacity-gap analyses. Throughout, we emphasize how OPRD differs from prior work that may at first appear similar.
+
+#### Output-Space Knowledge Distillation.
+
+The idea of compressing a large model into a smaller one by matching their output distributions dates back to Hinton et al. (2015). In the sequence-modelling setting, Kim and Rush (2016) showed that training a student on teacher-generated translations is an effective form of sequence-level knowledge transfer; subsequent work applied the same principle to pre-trained language models (Sanh et al., 2019; Jiao et al., 2020; Wang et al., 2020) and to instruction-following LLMs via supervised fine-tuning on teacher rollouts (Chung et al., 2024; Sanh et al., 2021; Wei et al., 2021). A common thread across all these methods is that supervision is provided (i)  _off-policy_ , on data the student did not generate, and (ii) exclusively in the _output space_ , at the LM-head logits or the softmax distribution derived from them. The first property introduces exposure bias (Bengio et al., 2015); the second confines the learning signal to the ill-conditioned image of WheadW_{\mathrm{head}}, leaving hidden-state deviations along its effective null space entirely unpenalised (Theorem˜2). OPRD departs from both properties simultaneously.
+
+#### On-Policy Distillation.
+
+The exposure-bias problem motivated a shift toward on-policy training. MiniLLM (Gu et al., 2024) optimised a reverse-KL objective on student-sampled responses via policy gradient, observing that the mode-seeking property of reverse KL discourages the student from placing mass where the teacher assigns low probability. GKD (Agarwal et al., 2024) generalised this to a family of divergences that interpolate between on- and off-policy data. More recently, Yang et al. (2026b) reinterpreted OPD through the lens of KL-constrained RL, revealing that the teacher’s per-token log-probability ratio serves as an implicit dense reward. Building on these foundations, OPD has been adopted in several production post-training pipelines (DeepSeek, 2026; Yang et al., 2025; Zeng et al., 2026; Xiao et al., 2026; Ko et al., 2026; Jin et al., 2026; Jang et al., 2026; Fu et al., 2026) and extended to self-distillation settings where the teacher is derived from the student itself via privileged information (Hübotter et al., 2026; Zhao et al., 2026; He et al., 2026; Shenfeld et al., 2026; Ye et al., 2026b; Sang et al., 2026; Kim et al., 2026; Ye et al., 2026a; Yang et al., 2026a; Li et al., 2026a; Ding, 2026). A key observation, however, is that the entire design space explored so far (sampled-token, top-kk, and full-vocabulary variants) concerns only _how many output tokens_ to supervise per position; the supervision itself never leaves the output space. OPRD is, to our knowledge, the first on-policy method whose learning signal originates _strictly before the LM head_ , operating on the student’s own trajectories.
+
+#### Feature / Intermediate-Representation Distillation.
+
+A separate line of work supervises the student’s intermediate representations rather than its outputs. Early instances include FitNets (Romero et al., 2014), which match a single “hint” layer of the student to the teacher; attention-transfer (Zagoruyko and Komodakis, 2016), which matches per-pixel attention maps in CNNs; and FSP-matrix distillation (Yim et al., 2017), which matches Gram matrices between layers. For BERT-style language models, TinyBERT (Jiao et al., 2020) and MobileBERT (Sun et al., 2020) extend this idea by jointly matching hidden states and attention maps across all layers, and MiniLM/MiniLMv2 (Wang et al., 2020, 2021) match self-attention relation matrices. At first glance, OPRD may look like a straightforward port of these ideas to autoregressive LLMs, but two structural differences set it apart:
+
+  * •
+
+On-policy vs. off-policy supervision. FitNets, TinyBERT, MiniLM, and their successors compute the feature-matching loss on _fixed_ inputs from a pre-training or downstream corpus, i.e. inputs the student does not generate. The student is never exposed to its own rollout distribution during distillation, so exposure bias remains. OPRD, by contrast, computes the hidden-state loss on _student-generated_ sequences y^∼πθ(⋅∣x)\hat{y}\sim\pi_{\theta}(\cdot\mid x) that evolve as training progresses. The teacher is queried on states the student actually visits, making the supervision signal adaptive to the student’s evolving policy.
+
+  * •
+
+Encoder representations vs. autoregressive prefix representations. Prior feature-distillation work targets encoder models (BERT, vision CNNs) whose representations are computed once per input; the teacher and student process the same input and are aligned post-hoc. In the autoregressive LLM setting, each hidden state ht(l)h_{t}^{(l)} encodes the model’s belief _just before predicting token y^t\hat{y}_{t}_, conditional on the entire sampled prefix y^<t\hat{y}_{<t}. OPRD therefore aligns the student’s predictive computation at every decoding step under its own sampling distribution, a fundamentally on-policy object with no analog in encoder-style feature distillation.
+
+
+
+
+#### Hint Learning, Auxiliary Losses, and Distribution Matching.
+
+A related body of work uses intermediate signals to regularize or augment training rather than to distill from a separate teacher. Deeply-supervised nets (Lee et al., 2015) attach auxiliary classifiers to intermediate layers of a single model; DINO (Caron et al., 2021) aligns hidden states across augmented views of the same input in self-supervised learning; representation engineering (Zou et al., 2023) steers or interprets hidden states without explicit teacher supervision. OPRD shares the high-level intuition that intermediate representations carry useful signal, but differs in three crucial ways: it is (i) explicitly teacher–student rather than self-supervised, (ii) on-policy on student-generated autoregressive trajectories, and (iii) a self-contained training objective that can additionally compose with any output-space OPD variant via Eq. 7.
+
+##  7 Conclusion and Future Work
+
+We presented OPRD, the first on-policy distillation method that supervises the student in the hidden-state space rather than at the LM-head output. The central thesis is that all existing OPD variants (sampled-token, top-kk, and full-vocabulary) share two practical limitations inherent to the output-space paradigm: a high-variance REINFORCE-style gradient estimator whose signal-to-noise ratio collapses as the student approaches the teacher, and an LM-head projection that acts as an information bottleneck, compressing the teacher’s full stack of intermediate hidden states through an ill-conditioned, softmax-invariant mapping. By moving supervision from the output of the LM head to its input, OPRD eliminates the sampling variance by construction and exposes per-position, per-layer structural information that any output-space objective necessarily discards. Empirically, OPRD enables monotonic improvement throughout training and closes the student–teacher gap on three competition mathematics benchmarks (AIME 2024, AIME 2025, AIMO), while every output-space baseline plateaus several points below the teacher. On the same hardware budget, OPRD is strictly Pareto-dominant: 1.44×1.44\times faster wall-clock training and up to 54%54\% less actor-update transient memory than top-kk OPD, because its loss path never materialises the [B,T,|𝒱|][B,T,|\mathcal{V}|] logits tensor.
+
+#### Future Work.
+
+Several directions follow naturally from our framework:
+
+  * •
+
+Beyond mathematical reasoning. Our experiments focus on long-CoT math benchmarks. Whether OPRD’s gains transfer to code generation, agentic interaction, and open-ended dialogue, each with different position-level supervision characteristics, remains an open question.
+
+  * •
+
+Adaptive layer and position selection. We use uniform layer weighting and a simple last-kk position heuristic. Adaptively weighting layers and positions based on where the student–teacher gap is largest or where the gradient signal is most informative could further sharpen supervision.
+
+  * •
+
+Cross-architecture distillation. OPRD currently requires the same architecture because cross-model hidden states are nearly orthogonal (§5). Overcoming this limitation, e.g. via contrastive objectives that align relative geometry or learned projection heads trained with auxiliary tasks, would broaden applicability to heterogeneous teacher–student pairs.
+
+  * •
+
+On-policy representation self-distillation (OPRSD). As discussed in §5, OPRD is a natural fit for self-distillation with privileged information, where the same-architecture requirement is satisfied by construction. Scaling OPSD to multi-turn and multi-task settings is a promising next step.
+
+  * •
+
+Understanding the phase transition. Our mechanistic analysis (§4.5) reveals a PG-loss spike and associated entropy/overlap dynamics when OPRD is active. Characterising the mechanism behind this transition would deepen the theoretical understanding of representation-level distillation.
+
+  * •
+
+Attention-map distillation. OPRD aligns hidden-state vectors but does not supervise the attention patterns that produce them. Extending OPRD with an on-policy attention-matching objective could transfer the teacher’s routing and composition behaviour more directly.
+
+  * •
+
+Tighter theoretical bounds. Our analysis identifies the qualitative mechanisms behind OPRD’s success. Quantifying these effects, including explicit convergence-rate bounds for OPRD vs. sampled-token OPD and spectral characterisations of which hidden-state directions the LM head nulls out, would solidify the theoretical foundation.
+
+
+
+
+More broadly, our results suggest that hidden-state representations are an under-exploited resource in LLM distillation. We hope this work encourages the community to treat the teacher not merely as a probability oracle but as a structured source of layered internal computation that the student can learn to inhabit.
+
+## References
+
+  * R. Agarwal, N. Vieillard, Y. Zhou, P. Stanczyk, S. Ramos Garea, M. Geist, and O. Bachem (2024) On-policy distillation of language models: learning from self-generated mistakes.  In International Conference on Learning Representations,  Vol. 2024,  pp. 21246–21263.  Cited by: §6. 
+  * S. Bengio, O. Vinyals, N. Jaitly, and N. Shazeer (2015) Scheduled sampling for sequence prediction with recurrent neural networks.  Advances in neural information processing systems 28.  Cited by: §1, §6. 
+  * M. Caron, H. Touvron, I. Misra, H. Jégou, J. Mairal, P. Bojanowski, and A. Joulin (2021) Emerging properties in self-supervised vision transformers.  In Proceedings of the IEEE/CVF international conference on computer vision,  pp. 9650–9660.  Cited by: §6. 
+  * H. W. Chung, L. Hou, S. Longpre, B. Zoph, Y. Tay, W. Fedus, Y. Li, X. Wang, M. Dehghani, S. Brahma, et al. (2024) Scaling instruction-finetuned language models.  Journal of Machine Learning Research 25 (70),  pp. 1–53.  Cited by: §6. 
+  * A. DeepSeek (2026) Deepseek-v4: towards highly efficient million-token context intelligence.  Cited by: §1, §1, §5, §6. 
+  * K. Ding (2026) Hdpo: hybrid distillation policy optimization via privileged self-distillation.  arXiv preprint arXiv:2603.23871.  Cited by: §6. 
+  * Y. Fu, H. Huang, K. Jiang, J. Liu, Z. Jiang, Y. Zhu, and D. Zhao (2026) Revisiting on-policy distillation: empirical failure modes and simple fixes.  arXiv preprint arXiv:2603.25562.  Cited by: §6. 
+  * Y. Gu, L. Dong, F. Wei, and M. Huang (2024) Minillm: knowledge distillation of large language models.  In International Conference on Learning Representations,  Vol. 2024,  pp. 32694–32717.  Cited by: §6. 
+  * D. Guo, D. Yang, H. Zhang, J. Song, P. Wang, Q. Zhu, R. Xu, R. Zhang, S. Ma, X. Bi, et al. (2025) DeepSeek-r1 incentivizes reasoning in llms through reinforcement learning.  Nature 645 (8081),  pp. 633–638.  Cited by: §4.1. 
+  * B. He, Z. Qu, Z. Liu, Y. Chen, Y. Zuo, C. Qian, K. Zhang, W. Chen, C. Xiao, G. Cui, et al. (2025) Justrl: scaling a 1.5 b llm with a simple rl recipe.  arXiv preprint arXiv:2512.16649.  Cited by: §4.1. 
+  * B. He, Y. Zuo, Z. Liu, S. Zhao, Z. Fu, J. Yang, C. Qian, K. Zhang, Y. Fan, G. Cui, et al. (2026) How far can unsupervised rlvr scale llm training?.  arXiv preprint arXiv:2603.08660.  Cited by: §6. 
+  * G. Hinton, O. Vinyals, and J. Dean (2015) Distilling the knowledge in a neural network.  arXiv preprint arXiv:1503.02531.  Cited by: §6. 
+  * J. Hübotter, F. Lübeck, L. Behric, A. Baumann, M. Bagatella, D. Marta, I. Hakimi, I. Shenfeld, T. K. Buening, C. Guestrin, et al. (2026) Reinforcement learning via self-distillation.  arXiv preprint arXiv:2601.20802.  Cited by: §6. 
+  * I. Jang, J. Yeom, J. Yeo, H. Lim, and T. Kim (2026) Stable on-policy distillation through adaptive target reformulation.  arXiv preprint arXiv:2601.07155.  Cited by: §6. 
+  * X. Jiao, Y. Yin, L. Shang, X. Jiang, X. Chen, L. Li, F. Wang, and Q. Liu (2020) Tinybert: distilling bert for natural language understanding.  In Findings of the association for computational linguistics: EMNLP 2020,  pp. 4163–4174.  Cited by: §5, §6, §6. 
+  * W. Jin, T. Min, Y. Yang, S. R. Kadhe, Y. Zhou, D. Wei, N. Baracaldo, and K. Lee (2026) Entropy-aware on-policy distillation of language models.  arXiv preprint arXiv:2603.07079.  Cited by: §6. 
+  * J. Kim, X. Luo, M. Kim, S. Lee, D. Kim, J. Jeon, D. Li, and Y. Yang (2026) Why does self-distillation (sometimes) degrade the reasoning capability of llms?.  arXiv preprint arXiv:2603.24472.  Cited by: §6. 
+  * Y. Kim and A. M. Rush (2016) Sequence-level knowledge distillation.  In Proceedings of the 2016 conference on empirical methods in natural language processing,  pp. 1317–1327.  Cited by: §6. 
+  * J. Ko, S. Abdali, Y. J. Kim, T. Chen, and P. Cameron (2026) Scaling reasoning efficiently via relaxed on-policy distillation.  arXiv preprint arXiv:2603.11137.  Cited by: §6. 
+  * C. Lee, S. Xie, P. Gallagher, Z. Zhang, and Z. Tu (2015) Deeply-supervised nets.  In Artificial intelligence and statistics,  pp. 562–570.  Cited by: §6. 
+  * G. Li, T. Yang, J. Fang, M. Song, M. Zheng, H. Guo, D. Zhang, J. Wang, and T. Chua (2026a) Unifying group-relative and self-distillation policy optimization via sample routing.  arXiv preprint arXiv:2604.02288.  Cited by: §6. 
+  * Y. Li, Y. Zuo, B. He, J. Zhang, C. Xiao, C. Qian, T. Yu, H. Gao, W. Yang, Z. Liu, et al. (2026b) Rethinking on-policy distillation of large language models: phenomenology, mechanism, and recipe.  arXiv preprint arXiv:2604.13016.  Cited by: §4.1, §4.5. 
+  * A. Romero, N. Ballas, S. E. Kahou, A. Chassang, C. Gatta, and Y. Bengio (2014) FitNets: hints for thin deep nets (2014).  arXiv preprint arXiv:1412.6550 3.  Cited by: §6. 
+  * H. Sang, Y. Xu, Z. Zhou, R. He, Z. Wang, and J. Sun (2026) Crisp: compressed reasoning via iterative self-policy distillation.  arXiv preprint arXiv:2603.05433.  Cited by: §6. 
+  * V. Sanh, L. Debut, J. Chaumond, and T. Wolf (2019) DistilBERT, a distilled version of bert: smaller, faster, cheaper and lighter.  arXiv preprint arXiv:1910.01108.  Cited by: §6. 
+  * V. Sanh, A. Webson, C. Raffel, S. H. Bach, L. Sutawika, Z. Alyafeai, A. Chaffin, A. Stiegler, T. L. Scao, A. Raja, et al. (2021) Multitask prompted training enables zero-shot task generalization.  arXiv preprint arXiv:2110.08207.  Cited by: §6. 
+  * I. Shenfeld, M. Damani, J. Hübotter, and P. Agrawal (2026) Self-distillation enables continual learning.  arXiv preprint arXiv:2601.19897.  Cited by: §6. 
+  * Z. Sun, H. Yu, X. Song, R. Liu, Y. Yang, and D. Zhou (2020) Mobilebert: a compact task-agnostic bert for resource-limited devices.  In Proceedings of the 58th annual meeting of the association for computational linguistics,  pp. 2158–2170.  Cited by: §6. 
+  * W. Wang, H. Bao, S. Huang, L. Dong, and F. Wei (2021) Minilmv2: multi-head self-attention relation distillation for compressing pretrained transformers.  In Findings of the Association for Computational Linguistics: ACL-IJCNLP 2021,  pp. 2140–2151.  Cited by: §5, §6. 
+  * W. Wang, F. Wei, L. Dong, H. Bao, N. Yang, and M. Zhou (2020) Minilm: deep self-attention distillation for task-agnostic compression of pre-trained transformers.  Advances in neural information processing systems 33,  pp. 5776–5788.  Cited by: §5, §6, §6. 
+  * J. Wei, M. Bosma, V. Y. Zhao, K. Guu, A. W. Yu, B. Lester, N. Du, A. M. Dai, and Q. V. Le (2021) Finetuned language models are zero-shot learners.  arXiv preprint arXiv:2109.01652.  Cited by: §6. 
+  * B. Xiao, B. Xia, B. Yang, B. Gao, B. Shen, C. Zhang, C. He, C. Lou, F. Luo, G. Wang, et al. (2026) Mimo-v2-flash technical report.  arXiv preprint arXiv:2601.02780.  Cited by: §1, §1, §2.3, §6. 
+  * A. Yang, A. Li, B. Yang, B. Zhang, B. Hui, B. Zheng, B. Yu, C. Gao, C. Huang, C. Lv, et al. (2025) Qwen3 technical report.  arXiv preprint arXiv:2505.09388.  Cited by: §1, §6. 
+  * C. Yang, C. Qin, Q. Si, M. Chen, N. Gu, D. Yao, Z. Lin, W. Wang, J. Wang, and N. Duan (2026a) Self-distilled rlvr.  arXiv preprint arXiv:2604.03128.  Cited by: §6. 
+  * W. Yang, W. Liu, R. Xie, K. Yang, S. Yang, and Y. Lin (2026b) Learning beyond teacher: generalized on-policy distillation with reward extrapolation.  arXiv preprint arXiv:2602.12125.  Cited by: §1, §2.3, §6. 
+  * T. Ye, L. Dong, Q. Dong, X. Wu, S. Huang, and F. Wei (2026a) Online experiential learning for language models.  arXiv preprint arXiv:2603.16856.  Cited by: §6. 
+  * T. Ye, L. Dong, X. Wu, S. Huang, and F. Wei (2026b) On-policy context distillation for language models.  arXiv preprint arXiv:2602.12275.  Cited by: §6. 
+  * J. Yim, D. Joo, J. Bae, and J. Kim (2017) A gift from knowledge distillation: fast optimization, network minimization and transfer learning.  In Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition,  pp. 4133–4141.  Cited by: §6. 
+  * Q. Yu, Z. Zhang, R. Zhu, Y. Yuan, X. Zuo, Y. Yue, W. Dai, T. Fan, G. Liu, L. Liu, et al. (2026) Dapo: an open-source llm reinforcement learning system at scale.  Advances in Neural Information Processing Systems 38,  pp. 113222–113244.  Cited by: §4.1. 
+  * S. Zagoruyko and N. Komodakis (2016) Paying more attention to attention: improving the performance of convolutional neural networks via attention transfer.  arXiv preprint arXiv:1612.03928.  Cited by: §6. 
+  * A. Zeng, X. Lv, Z. Hou, Z. Du, Q. Zheng, B. Chen, D. Yin, C. Ge, C. Huang, C. Xie, et al. (2026) Glm-5: from vibe coding to agentic engineering.  arXiv preprint arXiv:2602.15763.  Cited by: §1, §6. 
+  * S. Zhao, Z. Xie, M. Liu, J. Huang, G. Pang, F. Chen, and A. Grover (2026) Self-distilled reasoner: on-policy self-distillation for large language models.  arXiv preprint arXiv:2601.18734.  Cited by: §6. 
+  * A. Zou, L. Phan, S. Chen, J. Campbell, P. Guo, R. Ren, A. Pan, X. Yin, M. Mazeika, A. Dombrowski, et al. (2023) Representation engineering: a top-down approach to ai transparency.  arXiv preprint arXiv:2310.01405.  Cited by: §6. 
+
+
+
+##  Appendix A Formal Theoretical Guarantees
+
+The two theorems in §3.2 (Theorems˜1 and 2) establish OPRD’s properties at an intuitive level. We now state both formally, in one-to-one correspondence with the main conclusions stated in §3.2:
+
+  * •
+
+§A.1 formalizes Theorem˜1 (gradient variance): variance gap (Theorems˜3, 4 and 1) and signal-to-noise collapse (Theorem˜5).
+
+  * •
+
+§A.5 formalizes Theorem˜2 (LM-head information bottleneck): the null-direction identity (Theorem˜6) and the spectral gap (Theorem˜7).
+
+
+
+
+Throughout this section, all expectations are taken over a single fixed prompt xx and a single response position tt; the multi-position case follows by linearity. We use θ\theta to denote the student parameters, πθ\pi_{\theta} and πT\pi_{T} to denote the student and teacher policies, and write p≡pt=πθ(⋅∣x,y^<t)p\equiv p_{t}=\pi_{\theta}(\cdot\mid x,\hat{y}_{<t}) and q≡qt=πT(⋅∣x,y^<t)q\equiv q_{t}=\pi_{T}(\cdot\mid x,\hat{y}_{<t}) for brevity. We let ut≜log⁡p−log⁡qu_{t}\triangleq\log p-\log q denote the per-token log-density ratio.
+
+###  A.1 Setup and Assumptions
+
+######  Definition 1 (Stochastic gradient estimators).
+
+Fix a student response position tt and a sampled-token estimator y^t∼p\hat{y}_{t}\sim p. The two per-position stochastic gradient estimators considered in this paper are
+
+| gOPD​(θ;y^t)\displaystyle g_{\mathrm{OPD}}(\theta;\hat{y}_{t}) | ≜∇θ[log⁡p​(y^t)−log⁡q​(y^t)]=∇θlog⁡p​(y^t),\displaystyle\triangleq\nabla_{\theta}\bigl[\log p(\hat{y}_{t})-\log q(\hat{y}_{t})\bigr]=\nabla_{\theta}\log p(\hat{y}_{t}), |  | (11)  
+---|---|---|---|---  
+| gOPRD​(θ)\displaystyle g_{\mathrm{OPRD}}(\theta) | ≜∇θ1d​‖hθ,t(L)−sg​(hT,t(L))‖22,\displaystyle\triangleq\nabla_{\theta}\,\tfrac{1}{d}\,\bigl\|h_{\theta,t}^{(L)}-\mathrm{sg}(h_{T,t}^{(L)})\bigr\|_{2}^{2}, |  | (12)  
+  
+where in (11) we used the fact that ∇θlog⁡q​(y^t)=0\nabla_{\theta}\log q(\hat{y}_{t})=0 because qq depends only on the (frozen) teacher. The corresponding population gradients are g¯OPD​(θ)≜𝔼y^t∼p​[gOPD]\bar{g}_{\mathrm{OPD}}(\theta)\triangleq\mathbb{E}_{\hat{y}_{t}\sim p}[g_{\mathrm{OPD}}] and g¯OPRD​(θ)≜gOPRD\bar{g}_{\mathrm{OPRD}}(\theta)\triangleq g_{\mathrm{OPRD}} (which is already deterministic in y^t\hat{y}_{t}).
+
+######  Assumption 1 (Standard regularity).
+
+The following standard conditions hold throughout: (R1) The log-densities log⁡pθ​(v)\log p_{\theta}(v) are twice continuously differentiable in θ\theta for every v∈𝒱v\in\mathcal{V}. (R2) The score sθ​(v)≜∇θlog⁡pθ​(v)s_{\theta}(v)\triangleq\nabla_{\theta}\log p_{\theta}(v) satisfies 𝔼p​[‖sθ‖22]<∞\mathbb{E}_{p}[\|s_{\theta}\|_{2}^{2}]<\infty (finite Fisher information). (R3) For each vv, |log⁡pθ​(v)−log⁡q​(v)|≤M|\log p_{\theta}(v)-\log q(v)|\leq M for some constant M<∞M<\infty on the trajectory of training (bounded log-ratio). (R4) The hidden state hθ,t(L)h_{\theta,t}^{(L)} is a continuously differentiable function of θ\theta with bounded Jacobian: ‖∇θhθ,t(L)‖op≤J<∞\|\nabla_{\theta}h_{\theta,t}^{(L)}\|_{\mathrm{op}}\leq J<\infty.
+
+Conditions (R1)–(R2) hold for any LLM with softmax output; (R3) holds whenever both student and teacher assign nonzero probability to every supported token (e.g., after a small label-smoothing or temperature adjustment); (R4) holds for any Lipschitz transformer with bounded weights. These assumptions are mild and standard in the policy-gradient literature.
+
+###  A.2 Variance of Sampled-Token OPD
+
+######  Lemma 1 (Score-function decomposition of OPD gradient).
+
+Under Assumption˜1, the OPD population gradient at position tt admits the score-function representation
+
+| g¯OPD​(θ)=𝔼y^t∼p​[ut​(y^t)​∇θlog⁡p​(y^t)],ut​(v)≜log⁡p​(v)−log⁡q​(v).\bar{g}_{\mathrm{OPD}}(\theta)\;=\;\mathbb{E}_{\hat{y}_{t}\sim p}\bigl[\,u_{t}(\hat{y}_{t})\,\nabla_{\theta}\log p(\hat{y}_{t})\,\bigr],\qquad u_{t}(v)\triangleq\log p(v)-\log q(v). |  | (13)  
+---|---|---|---  
+  
+###### Proof.
+
+Starting from (11), write g¯OPD=𝔼p​[∇θlog⁡p​(y^t)]\bar{g}_{\mathrm{OPD}}=\mathbb{E}_{p}[\nabla_{\theta}\log p(\hat{y}_{t})]. The unconditional expectation of the score is zero:
+
+| 𝔼p​[∇θlog⁡p​(y^t)]=∑vp​(v)​∇θlog⁡p​(v)=∑v∇θp​(v)=∇θ​∑vp​(v)=∇θ1=0.\mathbb{E}_{p}[\nabla_{\theta}\log p(\hat{y}_{t})]=\sum_{v}p(v)\,\nabla_{\theta}\log p(v)=\sum_{v}\nabla_{\theta}p(v)=\nabla_{\theta}\\!\sum_{v}p(v)=\nabla_{\theta}1=0. |   
+---|---|---  
+  
+Therefore g¯OPD\bar{g}_{\mathrm{OPD}} vanishes, which would make it useless as a learning signal. This apparent paradox is resolved by recognizing that what we actually optimize is the OPD _loss surrogate_ along its stochastic gradient, which by the REINFORCE identity satisfies
+
+| ∇θ𝔼y^t∼p​[log⁡p​(y^t)−log⁡q​(y^t)]=𝔼p​[(log⁡p−log⁡q)​∇θlog⁡p]+𝔼p​[∇θlog⁡p],\nabla_{\theta}\,\mathbb{E}_{\hat{y}_{t}\sim p}\\!\bigl[\log p(\hat{y}_{t})-\log q(\hat{y}_{t})\bigr]=\mathbb{E}_{p}\\!\bigl[(\log p-\log q)\,\nabla_{\theta}\log p\bigr]+\mathbb{E}_{p}[\nabla_{\theta}\log p], |   
+---|---|---  
+  
+where the last term vanishes by the calculation above, giving (13). ∎
+
+Lemma˜1 shows that the OPD gradient is essentially a _REINFORCE estimator_ with utu_{t} playing the role of the reward. This structural property is what makes it high-variance.
+
+######  Theorem 3 (OPD gradient variance lower bound).
+
+Under Assumption˜1, the conditional variance (conditioned on the prompt xx and prefix y^<t\hat{y}_{<t}) of the single-sample OPD gradient satisfies
+
+| Var​[gOPD​(θ;y^t)]=𝔼p​[ut2​‖∇θlog⁡p‖22]−‖g¯OPD​(θ)‖22.\mathrm{Var}\bigl[g_{\mathrm{OPD}}(\theta;\hat{y}_{t})\bigr]\;=\;\mathbb{E}_{p}\\!\Bigl[u_{t}^{2}\,\|\nabla_{\theta}\log p\|_{2}^{2}\Bigr]\;-\;\bigl\|\bar{g}_{\mathrm{OPD}}(\theta)\bigr\|_{2}^{2}. |  | (14)  
+---|---|---|---  
+  
+Moreover, near the optimum where p→qp\to q, the variance is bounded below by
+
+| Var​[gOPD]≥Varp​(ut)⋅ℱmin​(θ)−o​(1)​as ​p→q,\mathrm{Var}\bigl[g_{\mathrm{OPD}}\bigr]\;\geq\;\mathrm{Var}_{p}(u_{t})\;\cdot\;\mathcal{F}_{\min}(\theta)\;-\;o(1)\;\;\text{as }p\to q, |  | (15)  
+---|---|---|---  
+  
+where ℱmin​(θ)≜λmin​(𝔼p​[∇θlog⁡p​∇θlog⁡p⊤])\mathcal{F}_{\min}(\theta)\triangleq\lambda_{\min}\\!\bigl(\mathbb{E}_{p}[\nabla_{\theta}\log p\,\nabla_{\theta}\log p^{\top}]\bigr) is the minimum eigenvalue of the Fisher information matrix. In particular, Var​[gOPD]=Ω​(Varp​(ut))\mathrm{Var}[g_{\mathrm{OPD}}]=\Omega(\mathrm{Var}_{p}(u_{t})) does not vanish as the loss approaches zero.
+
+###### Proof.
+
+The exact identity (14) follows from the definition of variance applied to the score-weighted estimator in Lemma˜1:
+
+| Var​[gOPD]\displaystyle\mathrm{Var}[g_{\mathrm{OPD}}] | =𝔼p​[‖ut​∇θlog⁡p‖22]−‖𝔼p​[ut​∇θlog⁡p]‖22\displaystyle=\mathbb{E}_{p}\bigl[\|u_{t}\nabla_{\theta}\log p\|_{2}^{2}\bigr]-\bigl\|\mathbb{E}_{p}[u_{t}\nabla_{\theta}\log p]\bigr\|_{2}^{2} |   
+---|---|---|---  
+|  | =𝔼p​[ut2​‖∇θlog⁡p‖22]−‖g¯OPD‖22,\displaystyle=\mathbb{E}_{p}\bigl[u_{t}^{2}\,\|\nabla_{\theta}\log p\|_{2}^{2}\bigr]-\|\bar{g}_{\mathrm{OPD}}\|_{2}^{2}, |   
+  
+which is (14).
+
+For the lower bound (15), we decompose ut=u¯+(ut−u¯)u_{t}=\bar{u}+(u_{t}-\bar{u}) where u¯≜𝔼p​[ut]=DKL​(p∥q)\bar{u}\triangleq\mathbb{E}_{p}[u_{t}]=D_{\mathrm{KL}}(p\|q). Substituting into (14) and applying the Cauchy–Schwarz inequality to bound the cross term,
+
+| 𝔼p​[ut2​‖∇θlog⁡p‖22]\displaystyle\mathbb{E}_{p}\bigl[u_{t}^{2}\|\nabla_{\theta}\log p\|_{2}^{2}\bigr] | =u¯2​𝔼p​[‖∇θlog⁡p‖22]+𝔼p​[(ut−u¯)2​‖∇θlog⁡p‖22]\displaystyle=\bar{u}^{2}\,\mathbb{E}_{p}[\|\nabla_{\theta}\log p\|_{2}^{2}]+\mathbb{E}_{p}\bigl[(u_{t}-\bar{u})^{2}\|\nabla_{\theta}\log p\|_{2}^{2}\bigr] |   
+---|---|---|---  
+|  | +2​u¯​𝔼p​[(ut−u¯)​‖∇θlog⁡p‖22].\displaystyle\quad+2\bar{u}\,\mathbb{E}_{p}\bigl[(u_{t}-\bar{u})\|\nabla_{\theta}\log p\|_{2}^{2}\bigr]. |   
+  
+By the Cauchy–Schwarz / Rayleigh quotient argument, the middle term satisfies
+
+| 𝔼p​[(ut−u¯)2​‖∇θlog⁡p‖22]≥Varp​(ut)⋅ℱmin​(θ),\mathbb{E}_{p}\bigl[(u_{t}-\bar{u})^{2}\|\nabla_{\theta}\log p\|_{2}^{2}\bigr]\;\geq\;\mathrm{Var}_{p}(u_{t})\cdot\mathcal{F}_{\min}(\theta), |   
+---|---|---  
+  
+since the covariance matrix of ∇θlog⁡p\nabla_{\theta}\log p is precisely the Fisher information matrix and its minimum eigenvalue lower-bounds any positive-definite quadratic form averaged over pp.
+
+As p→qp\to q in total variation, the first and third terms above are O​(u¯2)+O​(u¯)O(\bar{u}^{2})+O(\bar{u}), both of which vanish (since u¯=DKL​(p∥q)→0\bar{u}=D_{\mathrm{KL}}(p\|q)\to 0). Meanwhile ‖g¯OPD‖22=O​(u¯2)\|\bar{g}_{\mathrm{OPD}}\|_{2}^{2}=O(\bar{u}^{2}), also o​(1)o(1). Combining, Var​[gOPD]≥Varp​(ut)⋅ℱmin​(θ)−o​(1)\mathrm{Var}[g_{\mathrm{OPD}}]\geq\mathrm{Var}_{p}(u_{t})\cdot\mathcal{F}_{\min}(\theta)-o(1), which is (15). Note that Varp​(ut)=Θ​(δ)\mathrm{Var}_{p}(u_{t})=\Theta(\delta) vanishes at the same rate as δ\delta, but crucially the _signal_ ‖g¯OPD‖22=O​(δ2)\|\bar{g}_{\mathrm{OPD}}\|_{2}^{2}=O(\delta^{2}) vanishes _faster_ , leading to the SNR collapse formalized in Theorem˜5. ∎
+
+###  A.3 OPRD Gradient Is Deterministic
+
+######  Theorem 4 (OPRD has zero conditional variance).
+
+Under Assumption˜1, the OPRD per-position gradient satisfies
+
+| Var​[gOPRD​(θ)|x,y^<t]= 0,\mathrm{Var}\bigl[g_{\mathrm{OPRD}}(\theta)\,\big|\,x,\hat{y}_{<t}\bigr]\;=\;0, |  | (16)  
+---|---|---|---  
+  
+and is given in closed form by
+
+| gOPRD​(θ)=2d​(∇θhθ,t(L))⊤​(hθ,t(L)−hT,t(L)).g_{\mathrm{OPRD}}(\theta)\;=\;\frac{2}{d}\,\bigl(\nabla_{\theta}h_{\theta,t}^{(L)}\bigr)^{\\!\top}\,\bigl(h_{\theta,t}^{(L)}-h_{T,t}^{(L)}\bigr). |  | (17)  
+---|---|---|---  
+  
+###### Proof.
+
+Conditioned on the prompt xx and the prefix y^<t\hat{y}_{<t}, both hθ,t(L)h_{\theta,t}^{(L)} (a deterministic function of θ\theta, xx, y^<t\hat{y}_{<t}) and hT,t(L)h_{T,t}^{(L)} (which has sg​(⋅)\mathrm{sg}(\cdot) applied, so it is treated as a constant in the gradient) are fixed. Hence the OPRD loss
+
+| ℓOPRD≜1d​‖hθ,t(L)−hT,t(L)‖22\ell_{\mathrm{OPRD}}\triangleq\tfrac{1}{d}\,\|h_{\theta,t}^{(L)}-h_{T,t}^{(L)}\|_{2}^{2} |   
+---|---|---  
+  
+is a deterministic function of θ\theta given the conditioning. Therefore its gradient is also deterministic, giving (16).
+
+The closed form (17) follows from the chain rule applied to the squared ℓ2\ell_{2} norm:
+
+| ∇θ1d​‖hθ,t(L)−hT,t(L)‖22\displaystyle\nabla_{\theta}\tfrac{1}{d}\|h_{\theta,t}^{(L)}-h_{T,t}^{(L)}\|_{2}^{2} | =2d​Jθ​(hθ,t(L))⊤​(hθ,t(L)−hT,t(L)),\displaystyle=\tfrac{2}{d}\,J_{\theta}(h_{\theta,t}^{(L)})^{\top}\,(h_{\theta,t}^{(L)}-h_{T,t}^{(L)}), |   
+---|---|---|---  
+  
+where Jθ​(hθ,t(L))=∇θhθ,t(L)∈ℝd×dim(θ)J_{\theta}(h_{\theta,t}^{(L)})=\nabla_{\theta}h_{\theta,t}^{(L)}\in\mathbb{R}^{d\times\dim(\theta)} is the Jacobian. By (R4), ‖Jθ‖op≤J\|J_{\theta}\|_{\mathrm{op}}\leq J, so ‖gOPRD‖2≤2​Jd​‖hθ,t(L)−hT,t(L)‖2\|g_{\mathrm{OPRD}}\|_{2}\leq\tfrac{2J}{d}\,\|h_{\theta,t}^{(L)}-h_{T,t}^{(L)}\|_{2}, confirming that gOPRDg_{\mathrm{OPRD}} is well-defined and bounded. ∎
+
+######  Corollary 1 (Variance gap).
+
+Combining Theorems˜3 and 4, the conditional variance gap between the two estimators is
+
+| Var​[gOPD]−Var​[gOPRD]=𝔼p​[ut2​‖∇θlog⁡p‖22]−‖g¯OPD‖22≥ 0,\mathrm{Var}\bigl[g_{\mathrm{OPD}}\bigr]-\mathrm{Var}\bigl[g_{\mathrm{OPRD}}\bigr]\;=\;\mathbb{E}_{p}\\!\Bigl[u_{t}^{2}\,\|\nabla_{\theta}\log p\|_{2}^{2}\Bigr]-\|\bar{g}_{\mathrm{OPD}}\|_{2}^{2}\;\geq\;0, |  | (18)  
+---|---|---|---  
+  
+with equality only in the degenerate case where pp is a point mass. In particular, OPRD’s gradient is _always_ a lower-variance estimator (under the same conditioning), and the gap grows with the magnitude of the per-token log-ratio utu_{t} and the spread of the policy.
+
+###  A.4 Signal-to-Noise Ratio Collapse of Sampled-Token OPD
+
+We now formalize the most surprising prediction of our analysis: that the OPD signal-to-noise ratio _collapses_ as training progresses, while OPRD’s signal-to-noise ratio remains bounded away from zero. This explains why pure OPD stagnates in late-stage training while OPD++OPRD continues to improve monotonically.
+
+######  Definition 2 (Signal-to-noise ratio).
+
+For a stochastic gradient estimator gg with population mean g¯=𝔼​[g]\bar{g}=\mathbb{E}[g], the signal-to-noise ratio is
+
+| SNR​(g)≜‖g¯‖22Tr​(Cov​[g]).\mathrm{SNR}(g)\;\triangleq\;\frac{\|\bar{g}\|_{2}^{2}}{\mathrm{Tr}(\mathrm{Cov}[g])}. |  | (19)  
+---|---|---|---  
+  
+SNR​(g)→0\mathrm{SNR}(g)\to 0 means the gradient is dominated by noise; SNR​(g)→∞\mathrm{SNR}(g)\to\infty means the gradient is essentially deterministic.
+
+######  Theorem 5 (SNR collapse for OPD, SNR stability for OPRD).
+
+Define the symmetric divergence δ​(θ)≜DKL​(p∥q)+DKL​(q∥p)\delta(\theta)\triangleq D_{\mathrm{KL}}(p\|q)+D_{\mathrm{KL}}(q\|p). As training drives δ​(θ)→0\delta(\theta)\to 0,
+
+  1. 1.
+
+(OPD) SNR​(gOPD)=O​(δ)→0\mathrm{SNR}(g_{\mathrm{OPD}})=O(\delta)\to 0 at rate at least linear in δ\delta;
+
+  2. 2.
+
+(OPRD) SNR​(gOPRD)=+∞\mathrm{SNR}(g_{\mathrm{OPRD}})=+\infty as long as hθ,t(L)≠hT,t(L)h_{\theta,t}^{(L)}\neq h_{T,t}^{(L)} (i.e., the OPRD loss has not yet converged).
+
+
+
+
+###### Proof.
+
+_(OPD case.)_ By Lemma˜1, ‖g¯OPD‖22=‖𝔼p​[ut​∇log⁡p]‖22\|\bar{g}_{\mathrm{OPD}}\|_{2}^{2}=\|\mathbb{E}_{p}[u_{t}\nabla\log p]\|_{2}^{2}. Applying Cauchy–Schwarz,
+
+| ‖g¯OPD‖22≤𝔼p​[ut2]⋅𝔼p​[‖∇log⁡p‖22]=(Varp​(ut)+u¯2)⋅Tr​(ℱ​(θ)),\|\bar{g}_{\mathrm{OPD}}\|_{2}^{2}\;\leq\;\mathbb{E}_{p}[u_{t}^{2}]\cdot\mathbb{E}_{p}[\|\nabla\log p\|_{2}^{2}]\;=\;(\mathrm{Var}_{p}(u_{t})+\bar{u}^{2})\cdot\mathrm{Tr}(\mathcal{F}(\theta)), |   
+---|---|---  
+  
+where ℱ​(θ)\mathcal{F}(\theta) is the Fisher information matrix. Since u¯=DKL​(p∥q)≤δ\bar{u}=D_{\mathrm{KL}}(p\|q)\leq\delta and Varp​(ut)≤2​δ+O​(δ2)\mathrm{Var}_{p}(u_{t})\leq 2\delta+O(\delta^{2}) by a standard Pinsker-type expansion of log⁡(p/q)\log(p/q) around p=qp=q, we have
+
+| ‖g¯OPD‖22=O​(δ).\|\bar{g}_{\mathrm{OPD}}\|_{2}^{2}\;=\;O(\delta). |   
+---|---|---  
+  
+Meanwhile, by Theorem˜3 (Eq. 15), Tr​(Cov​[gOPD])≥Varp​(ut)⋅ℱmin​(θ)=Θ​(δ)\mathrm{Tr}(\mathrm{Cov}[g_{\mathrm{OPD}}])\geq\mathrm{Var}_{p}(u_{t})\cdot\mathcal{F}_{\min}(\theta)=\Theta(\delta). Since the numerator is O​(δ)O(\delta) and the denominator is Ω​(δ)\Omega(\delta), we have at first glance
+
+| SNR​(gOPD)=O​(δ)Ω​(δ)=O​(1)​at best.\mathrm{SNR}(g_{\mathrm{OPD}})\;=\;\frac{O(\delta)}{\Omega(\delta)}\;=\;O(1)\;\;\text{at best}. |   
+---|---|---  
+  
+A sharper analysis reveals that the numerator is in fact O​(δ2)O(\delta^{2}): by the REINFORCE structure of Lemma˜1, ‖g¯OPD‖2=‖𝔼p​[ut​∇log⁡p]‖2≤𝔼p​[ut2]⋅Tr​(ℱ)\|\bar{g}_{\mathrm{OPD}}\|_{2}=\|\mathbb{E}_{p}[u_{t}\nabla\log p]\|_{2}\leq\sqrt{\mathbb{E}_{p}[u_{t}^{2}]}\cdot\sqrt{\mathrm{Tr}(\mathcal{F})}, and since 𝔼p​[ut2]=Varp​(ut)+u¯2=Θ​(δ)+Θ​(δ2)=Θ​(δ)\mathbb{E}_{p}[u_{t}^{2}]=\mathrm{Var}_{p}(u_{t})+\bar{u}^{2}=\Theta(\delta)+\Theta(\delta^{2})=\Theta(\delta), the Cauchy–Schwarz bound gives ‖g¯OPD‖22=O​(δ)\|\bar{g}_{\mathrm{OPD}}\|_{2}^{2}=O(\delta). However, this upper bound is not tight: the actual signal g¯OPD=𝔼p​[ut​∇log⁡p]\bar{g}_{\mathrm{OPD}}=\mathbb{E}_{p}[u_{t}\nabla\log p] involves the _correlation_ between utu_{t} and ∇log⁡p\nabla\log p, which is O​(u¯)=O​(δ)O(\bar{u})=O(\delta) in magnitude (since ut−u¯u_{t}-\bar{u} is mean-zero and contributes only through its correlation with ∇log⁡p\nabla\log p, which is bounded by O​(δ)O(\sqrt{\delta})). Therefore ‖g¯OPD‖22=O​(δ2)\|\bar{g}_{\mathrm{OPD}}\|_{2}^{2}=O(\delta^{2}), giving SNR​(gOPD)=O​(δ2)/Ω​(δ)=O​(δ)→0\mathrm{SNR}(g_{\mathrm{OPD}})=O(\delta^{2})/\Omega(\delta)=O(\delta)\to 0.
+
+_(OPRD case.)_ By Theorem˜4, Cov​[gOPRD]=0\mathrm{Cov}[g_{\mathrm{OPRD}}]=0 identically, so Tr​(Cov​[gOPRD])=0\mathrm{Tr}(\mathrm{Cov}[g_{\mathrm{OPRD}}])=0. As long as gOPRD≠0g_{\mathrm{OPRD}}\neq 0 (equivalently, hθ,t(L)≠hT,t(L)h_{\theta,t}^{(L)}\neq h_{T,t}^{(L)}), the ratio in (19) is ‖gOPRD‖22/0=+∞\|g_{\mathrm{OPRD}}\|_{2}^{2}/0=+\infty in the extended-real sense, meaning the gradient signal is completely noise-free. ∎
+
+######  Remark 1 (Interpretation: late-stage stagnation of pure OPD).
+
+Theorem˜5 predicts the following two-phase training dynamics for sampled-token OPD:
+
+  * •
+
+Phase 1 (effective learning). Initially δ​(θ)\delta(\theta) is large, so ‖g¯OPD‖2\|\bar{g}_{\mathrm{OPD}}\|_{2} dominates the noise. The student improves rapidly along −g¯OPD-\bar{g}_{\mathrm{OPD}}.
+
+  * •
+
+Phase 2 (stagnation). As δ​(θ)→0\delta(\theta)\to 0, SNR​(gOPD)→0\mathrm{SNR}(g_{\mathrm{OPD}})\to 0 by Theorem˜5. The student’s update direction becomes effectively random, and under any positive learning rate the training accuracy plateaus or oscillates around an asymptote well below the teacher.
+
+
+
+
+By contrast, OPRD’s SNR remains infinite throughout training (until convergence in hidden space), so the descent direction is always informative. This is exactly the empirical pattern we observe in §4: pure OPD plateaus or oscillates several points below the teacher, while OPD ++ μ⋅\mu\cdot OPRD (and OPRD on its own) improves monotonically.
+
+#### Sub-summary (Perspective 1).
+
+The theorems above formalize two claims that explain OPRD’s variance advantage: (1) OPRD’s gradient is exactly deterministic and has zero conditional variance (Theorem˜4); (2) OPD’s gradient signal-to-noise ratio collapses to zero as the loss approaches its minimum (Theorem˜5), causing the late-stage stagnation we observe empirically.
+
+###  A.5 Formal Results for Theorem˜2: LM-Head Information Bottleneck
+
+We now make precise the two claims of Theorem˜2: the null-direction identity (9) and the spectral gap (10). Fix a single response position tt and write zθ≜Whead​hθ∈ℝ|𝒱|z_{\theta}\triangleq W_{\mathrm{head}}\,h_{\theta}\in\mathbb{R}^{|\mathcal{V}|} and zT≜Whead​hTz_{T}\triangleq W_{\mathrm{head}}\,h_{T} for the corresponding logit vectors; let σ:ℝ|𝒱|→Δ|𝒱|−1\sigma:\mathbb{R}^{|\mathcal{V}|}\\!\to\\!\Delta^{|\mathcal{V}|-1} denote the softmax map and 𝟏∈ℝ|𝒱|\mathbf{1}\in\mathbb{R}^{|\mathcal{V}|} the all-ones vector. Let Whead=U​Σ​V⊤W_{\mathrm{head}}=U\Sigma V^{\top} be the (thin) SVD, with V=[v1,…,vd]∈ℝd×dV=[v_{1},\ldots,v_{d}]\in\mathbb{R}^{d\times d} orthonormal, Σ=diag​(σ1≥⋯≥σd≥0)\Sigma=\mathrm{diag}(\sigma_{1}\\!\geq\\!\cdots\\!\geq\\!\sigma_{d}\\!\geq\\!0), and U∈ℝ|𝒱|×dU\in\mathbb{R}^{|\mathcal{V}|\times d} having orthonormal columns. We assume throughout that WheadW_{\mathrm{head}} has full column rank (σd>0\sigma_{d}>0), which holds for any production LLM.
+
+By an _output-space OPD loss_ we mean any ℓout≥0\ell_{\mathrm{out}}\geq 0 that is a fixed function of the two output distributions σ​(zθ)\sigma(z_{\theta}) and σ​(zT)\sigma(z_{T}) and that vanishes whenever σ​(zθ)=σ​(zT)\sigma(z_{\theta})=\sigma(z_{T}); this includes the sampled-token estimator, the top-kk truncated reverse KL, and the full-vocabulary reverse KL (§2.3).
+
+######  Definition 3 (Effective null space of the LM head).
+
+Define
+
+| 𝒩W≜{Δ​h∈ℝd:Whead​Δ​h∈span​{𝟏}}=Whead−1​(span​{𝟏}).\mathcal{N}_{W}\;\triangleq\;\bigl\\{\Delta h\in\mathbb{R}^{d}:W_{\mathrm{head}}\,\Delta h\in\mathrm{span}\\{\mathbf{1}\\}\bigr\\}\;=\;W_{\mathrm{head}}^{-1}\\!\bigl(\mathrm{span}\\{\mathbf{1}\\}\bigr). |  | (20)  
+---|---|---|---  
+  
+######  Lemma 2 (Softmax kernel).
+
+For any z∈ℝ|𝒱|z\in\mathbb{R}^{|\mathcal{V}|} and any c∈ℝc\in\mathbb{R}, σ​(z+c​𝟏)=σ​(z)\sigma(z+c\mathbf{1})=\sigma(z). Conversely, σ​(z)=σ​(z′)\sigma(z)=\sigma(z^{\prime}) implies z′−z∈span​{𝟏}z^{\prime}-z\in\mathrm{span}\\{\mathbf{1}\\}.
+
+###### Proof.
+
+For the forward direction, the ii-th coordinate of σ​(z+c​𝟏)\sigma(z+c\mathbf{1}) is ezi+c∑jezj+c=ec​eziec​∑jezj=σ​(z)i\frac{e^{z_{i}+c}}{\sum_{j}e^{z_{j}+c}}=\frac{e^{c}e^{z_{i}}}{e^{c}\sum_{j}e^{z_{j}}}=\sigma(z)_{i}. For the converse, σ​(z)=σ​(z′)\sigma(z)=\sigma(z^{\prime}) implies zi−zj=zi′−zj′z_{i}-z_{j}=z^{\prime}_{i}-z^{\prime}_{j} for all i,ji,j (by taking logs of coordinate ratios), so z′−zz^{\prime}-z is a constant vector. ∎
+
+######  Theorem 6 (Null-direction identity; formal version of (9)).
+
+For any output-space OPD loss ℓout\ell_{\mathrm{out}} as above,
+
+| hθ−hT∈𝒩W⟹ℓout​(hθ,hT)=0.h_{\theta}-h_{T}\in\mathcal{N}_{W}\quad\Longrightarrow\quad\ell_{\mathrm{out}}(h_{\theta},h_{T})=0. |  | (21)  
+---|---|---|---  
+  
+###### Proof.
+
+If hθ−hT∈𝒩Wh_{\theta}-h_{T}\in\mathcal{N}_{W}, then by (20) there exists c∈ℝc\in\mathbb{R} with Whead​(hθ−hT)=c​𝟏W_{\mathrm{head}}(h_{\theta}-h_{T})=c\mathbf{1}, i.e. zθ=zT+c​𝟏z_{\theta}=z_{T}+c\mathbf{1}. By Lemma˜2, σ​(zθ)=σ​(zT)\sigma(z_{\theta})=\sigma(z_{T}). Since ℓout\ell_{\mathrm{out}} vanishes whenever the two output distributions coincide, ℓout​(hθ,hT)=0\ell_{\mathrm{out}}(h_{\theta},h_{T})=0. ∎
+
+To formalize (10) we need a local Lipschitz upper bound on any output-space loss in terms of ‖zθ−zT‖2\|z_{\theta}-z_{T}\|_{2}. Such a bound holds for every standard ℓout\ell_{\mathrm{out}} under mild regularity (e.g., logits bounded in a compact set), with a constant depending only on ℓout\ell_{\mathrm{out}} and the logit range:
+
+######  Lemma 3 (Local Lipschitzness of output-space losses).
+
+Let ℓout\ell_{\mathrm{out}} be the sampled-token, top-kk, or full-vocabulary reverse KL. On any compact logit region 𝒵⊂ℝ|𝒱|\mathcal{Z}\subset\mathbb{R}^{|\mathcal{V}|}, there exists Cℓ<∞C_{\ell}<\infty such that
+
+| ℓout​(hθ,hT)≤Cℓ​‖zθ−zT−c∗​𝟏‖22for allzθ,zT∈𝒵,\ell_{\mathrm{out}}(h_{\theta},h_{T})\;\leq\;C_{\ell}\,\|z_{\theta}-z_{T}-c^{\\!*}\mathbf{1}\|_{2}^{2}\quad\text{for all}\quad z_{\theta},z_{T}\in\mathcal{Z}, |  | (22)  
+---|---|---|---  
+  
+where c∗=1|𝒱|​𝟏⊤​(zθ−zT)c^{\\!*}=\tfrac{1}{|\mathcal{V}|}\mathbf{1}^{\top}(z_{\theta}-z_{T}) projects out the softmax-invariant direction.
+
+###### Proof sketch.
+
+The reverse KL DKL​(σ​(zT)∥σ​(zθ))D_{\mathrm{KL}}(\sigma(z_{T})\|\sigma(z_{\theta})) has gradient and Hessian in zθz_{\theta} that are continuous in zθz_{\theta} and vanish at zθ=zT+c∗​𝟏z_{\theta}=z_{T}+c^{\\!*}\mathbf{1}; on a compact 𝒵\mathcal{Z} its Hessian is operator-norm bounded. A second-order Taylor expansion in zθ−zTz_{\theta}-z_{T} around the additive-invariance optimum then yields (22) with CℓC_{\ell} proportional to half the Hessian’s operator-norm bound on 𝒵\mathcal{Z}. The sampled-token and top-kk estimators are pointwise convex combinations of the full-vocabulary log-ratios and inherit the same upper bound (up to a constant). ∎
+
+######  Theorem 7 (Spectral gap; formal version of (10)).
+
+Under the setup of this section and the bound (22), for any α∈ℝ∖{0}\alpha\\!\in\\!\mathbb{R}\setminus\\{0\\} and the bottom right-singular vector vdv_{d} with ‖vd‖2=1\|v_{d}\|_{2}=1,
+
+| ‖hθ−hT‖22ℓout​(hθ,hT)≥1Cℓ​(σ1σd)2whenhθ−hT=α​vd.\frac{\|h_{\theta}-h_{T}\|_{2}^{2}}{\ell_{\mathrm{out}}(h_{\theta},h_{T})}\;\geq\;\frac{1}{C_{\ell}}\,\Bigl(\frac{\sigma_{1}}{\sigma_{d}}\Bigr)^{\\!2}\quad\text{when}\quad h_{\theta}-h_{T}=\alpha v_{d}. |  | (23)  
+---|---|---|---  
+  
+In particular, holding ℓout\ell_{\mathrm{out}} fixed, hidden-state perturbations along vdv_{d} can grow σ1/σd\sigma_{1}/\sigma_{d} times _larger in ℓ2\ell_{2} norm_ than perturbations along the top singular direction v1v_{1}.
+
+###### Proof.
+
+Take Δ​h=α​vd\Delta h\\!=\\!\alpha v_{d}. Then ‖Δ​h‖22=α2\|\Delta h\|_{2}^{2}=\alpha^{2} and, by the SVD, Whead​Δ​h=α​σd​udW_{\mathrm{head}}\Delta h=\alpha\sigma_{d}u_{d} where udu_{d} is the corresponding left-singular vector with ‖ud‖2=1\|u_{d}\|_{2}=1. Since ud⟂𝟏u_{d}\perp\mathbf{1} generically (or after subtracting its component along 𝟏\mathbf{1} via the projector in (22)), the residual after removing the additive-invariance direction satisfies ‖zθ−zT−c∗​𝟏‖2≤‖Whead​Δ​h‖2=α​σd\|z_{\theta}-z_{T}-c^{\\!*}\mathbf{1}\|_{2}\leq\|W_{\mathrm{head}}\Delta h\|_{2}=\alpha\sigma_{d}. By Lemma˜3, ℓout≤Cℓ​α2​σd2\ell_{\mathrm{out}}\leq C_{\ell}\,\alpha^{2}\sigma_{d}^{2}, i.e. α2≥ℓout/(Cℓ​σd2)\alpha^{2}\geq\ell_{\mathrm{out}}/(C_{\ell}\sigma_{d}^{2}). Therefore
+
+| ‖hθ−hT‖22ℓout=α2ℓout≥1Cℓ​σd2.\frac{\|h_{\theta}-h_{T}\|_{2}^{2}}{\ell_{\mathrm{out}}}\;=\;\frac{\alpha^{2}}{\ell_{\mathrm{out}}}\;\geq\;\frac{1}{C_{\ell}\sigma_{d}^{2}}. |   
+---|---|---  
+  
+For comparison, the analogous bound along v1v_{1} is ‖hθ−hT‖22/ℓout≤1/(cℓ​σ12)\|h_{\theta}-h_{T}\|_{2}^{2}/\ell_{\mathrm{out}}\leq 1/(c_{\ell}\sigma_{1}^{2}) for the lower Lipschitz constant cℓc_{\ell} of ℓout\ell_{\mathrm{out}}, so the ratio between the two directions scales as (σ1/σd)2(\sigma_{1}/\sigma_{d})^{2} up to constants determined by ℓout\ell_{\mathrm{out}}, recovering (23) after absorbing constants into CℓC_{\ell}. ∎
+
+######  Remark 2 (Intermediate layers).
+
+Theorems˜6 and 7 concern only the last-layer hidden state, because any output-space ℓout\ell_{\mathrm{out}} is computed solely from Whead​h(L)W_{\mathrm{head}}\,h^{(L)} and therefore has no functional dependence on intermediate states h(l)h^{(l)} for l<Ll\\!<\\!L. For any l<Ll\\!<\\!L, an arbitrary perturbation of h(l)h^{(l)} that leaves h(L)h^{(L)} unchanged (e.g., a perturbation in the kernel of the residual stack from layer ll onwards) yields ℓout=0\ell_{\mathrm{out}}=0 for every output-space objective. OPRD (6) with ℒlayer∋l\mathcal{L}_{\mathrm{layer}}\ni l directly penalizes ‖hθ,t(l)−hT,t(l)‖22\|h_{\theta,t}^{(l)}-h_{T,t}^{(l)}\|_{2}^{2} at that layer and is therefore the only mechanism considered in this paper that can constrain intermediate hidden states.
+
+#### Sub-summary (Theorem˜2).
+
+Theorem˜6 formalizes (9): every output-space distillation objective treats the entire affine subspace 𝒩W\mathcal{N}_{W} as invisible, regardless of how much it inspects the output distribution. Theorem˜7 formalizes (10): the LM head’s singular-value spread σ1/σd\sigma_{1}/\sigma_{d} amplifies hidden-state deviations along vdv_{d} by a (σ1/σd)2(\sigma_{1}/\sigma_{d})^{2} factor for the same output-space loss budget, empirically 106∼108×10^{6}\\!\sim\\!10^{8}\times for production LLMs. Remark˜2 extends both observations to intermediate layers. OPRD (6) penalizes exactly the directions and layers that output-space OPD cannot.
+
+#### Overall summary of §A.
+
+The theorems above formalize Theorem˜1 (gradient variance and SNR) in one-to-one correspondence with the intuitive claims of §3.2: they explain why OPRD provides a more reliable optimization signal than sampled-token OPD, especially in late-stage training, and why adding OPRD to OPD strictly improves the SGD convergence bound without introducing additional noise. These guarantees apply under mild regularity conditions that hold for any standard LLM, supporting our empirical observation that combining OPD with OPRD yields a stronger and more stable result than OPD alone.
+
+Experimental support, please [view the build logs](./2606.06021v1/__stdout.txt) for errors. Generated by [ L A T E xml ](https://math.nist.gov/~BMiller/LaTeXML/). 
+
+## Instructions for reporting errors
+
+We are continuing to improve HTML versions of papers, and your feedback helps enhance accessibility and mobile support. To report errors in the HTML that will help us improve conversion and rendering, choose any of the methods listed below:
+
+  * Click the "Report Issue" ( ) button, located in the page header.
+
+
+
+**Tip:** You can select the relevant text first, to include it in your report.
+
+Our team has already identified [the following issues](https://github.com/arXiv/html_feedback/issues). We appreciate your time reviewing and reporting rendering errors we may not have found yet. Your efforts will help us improve the HTML versions for all readers, because disability should not be a barrier to accessing research. Thank you for your continued support in championing open access for all.
+
+Have a free development cycle? Help support accessibility at arXiv! Our collaborators at LaTeXML maintain a [list of packages that need conversion](https://github.com/brucemiller/LaTeXML/wiki/Porting-LaTeX-packages-for-LaTeXML), and welcome [developer contributions](https://github.com/brucemiller/LaTeXML/issues).
+
+We gratefully acknowledge support from our **major funders** , [**member institutions**](https://info.arxiv.org/about/ourmembers.html) , ****, and all contributors.
+
+[About](https://info.arxiv.org/about) * [Help](https://info.arxiv.org/help) * [Contact](https://info.arxiv.org/help/contact.html) * [Subscribe](https://info.arxiv.org/help/subscribe) * [Copyright](https://info.arxiv.org/help/license/index.html) * [Privacy](https://info.arxiv.org/help/policies/privacy_policy.html) * [Accessibility](https://info.arxiv.org/help/web_accessibility.html) * [Operational Status (opens in new tab)](https://status.arxiv.org)
+
+Major funding support from
+
+[ ](https://www.simonsfoundation.org/) [ ](https://www.sfi.org.bm/) [ ](https://www.schmidtsciences.org/)
+
+[ ](javascript:toggleReadingMode\(\); "Disable reading mode, show header and footer")

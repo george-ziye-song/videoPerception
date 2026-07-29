@@ -72,15 +72,39 @@ NPROC=$((TP * DP))
 GPUS="${GPUS:?must set GPUS=0,1,2,3 or 4,5,6,7}"
 PORT="${PORT:-29519}"
 
-# 启动守卫
-for g in $(echo "$GPUS" | tr ',' ' '); do
-  m=$(nvidia-smi --query-gpu=memory.used --format=csv,noheader,nounits -i "$g")
-  if [ "$m" -gt 1000 ]; then
-    echo "ABORT: GPU $g 显存已被占用 ${m}MiB,先清理旧进程再跑"; exit 1
-  fi
-done
+# 启动守卫(2026-07-06 改成每条腿开始前都查,不只脚本启动时查一次):
+# 连续两次 accelerate launch 抢占同一组 4 卡背靠背起(上一条腿刚 TP=4 释放,下一条紧接着
+# 初始化)会撞 NVML/CUDA 设备探测的竞态(`RuntimeError: Device string must not be empty`,
+# nvidia-smi 同一时刻也会报 `Failed to initialize NVML`)——已实测复现3次(锚模型
+# mvbench→tomato、9B 的 tomato→videomme、9B→35b_35 切换时)。等 nvidia-smi 能正常查询
+# 且显存干净,再留一点缓冲时间让驱动层彻底收尾。
+wait_for_gpu_ready () {
+  local tries=0
+  while true; do
+    if nvidia-smi --query-gpu=memory.used --format=csv,noheader >/tmp/gpu_ready_check.$$ 2>/dev/null; then
+      local dirty=0
+      for g in $(echo "$GPUS" | tr ',' ' '); do
+        m=$(nvidia-smi --query-gpu=memory.used --format=csv,noheader,nounits -i "$g" 2>/dev/null)
+        if [ -z "$m" ] || [ "$m" -gt 1000 ]; then dirty=1; fi
+      done
+      if [ "$dirty" -eq 0 ]; then rm -f /tmp/gpu_ready_check.$$; return 0; fi
+    fi
+    rm -f /tmp/gpu_ready_check.$$
+    tries=$((tries+1))
+    if [ "$tries" -gt 60 ]; then
+      echo "ABORT: 等了5分钟 GPU $GPUS 还没就绪(NVML查不到或显存没释放干净)"; exit 1
+    fi
+    sleep 5
+  done
+}
 
-run () { # $1=tasks $2=nframes $3=max_model_len
+run () { # $1=tasks $2=nframes $3=max_model_len $4=完成检测用的metric key子串(断点续跑)
+  if [ -n "${4:-}" ] && grep -rl "$4" "$OUT"/models__*/*_results.json >/dev/null 2>&1; then
+    echo "===== $MODEL_KEY/$1 已有结果(检测到 $4),跳过 ====="
+    return 0
+  fi
+  wait_for_gpu_ready
+  sleep 10  # 额外缓冲:让上一条腿的 vLLM/NCCL 资源彻底收尾,不要背靠背起新引擎
   local leglog="${OUT}_${1}.leg.log"
   echo "===== $(date '+%F %T') START $MODEL_KEY/$1 (TP=$TP DP=$DP max_new_tokens=$MAX_NEW_TOKENS) ====="
   CUDA_VISIBLE_DEVICES="$GPUS" accelerate launch --num_processes $NPROC --main_process_port $PORT -m lmms_eval \
@@ -98,7 +122,7 @@ run () { # $1=tasks $2=nframes $3=max_model_len
   echo "===== $(date '+%F %T') DONE $MODEL_KEY/$1 (rc=$rc, 已核实日志无报错) ====="
 }
 
-run mvbench 32 24576
-run tomato 16 16384
-run videomme 32 24576
+run mvbench 32 24576 mvbench_accuracy
+run tomato 16 16384 tomato_score
+run videomme 32 24576 videomme_perception_score
 echo "P2_${MODEL_KEY}_ALL_DONE $(date '+%F %T')"

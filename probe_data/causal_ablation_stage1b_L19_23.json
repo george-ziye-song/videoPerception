@@ -1,0 +1,588 @@
+{
+  "baseline": {
+    "Rotation_Direction": 58.0,
+    "Rotation_Count": 46.0,
+    "Bouncing_Counting": 42.0,
+    "Acceleration_Identification": 64.0
+  },
+  "ablations": [
+    {
+      "layer": 19,
+      "head": null,
+      "mode": "mean",
+      "acc": {
+        "Rotation_Direction": 46.0,
+        "Rotation_Count": 62.0,
+        "Bouncing_Counting": 36.0,
+        "Acceleration_Identification": 44.0
+      },
+      "delta": {
+        "Rotation_Direction": 12.0,
+        "Rotation_Count": -16.0,
+        "Bouncing_Counting": 6.0,
+        "Acceleration_Identification": 20.0
+      }
+    },
+    {
+      "layer": 23,
+      "head": null,
+      "mode": "mean",
+      "acc": {
+        "Rotation_Direction": 58.0,
+        "Rotation_Count": 50.0,
+        "Bouncing_Counting": 32.0,
+        "Acceleration_Identification": 62.0
+      },
+      "delta": {
+        "Rotation_Direction": 0.0,
+        "Rotation_Count": -4.0,
+        "Bouncing_Counting": 10.0,
+        "Acceleration_Identification": 2.0
+      }
+    },
+    {
+      "layer": 19,
+      "head": 0,
+      "mode": "mean",
+      "acc": {
+        "Rotation_Direction": 58.0,
+        "Rotation_Count": 44.0,
+        "Bouncing_Counting": 38.0,
+        "Acceleration_Identification": 64.0
+      },
+      "delta": {
+        "Rotation_Direction": 0.0,
+        "Rotation_Count": 2.0,
+        "Bouncing_Counting": 4.0,
+        "Acceleration_Identification": 0.0
+      }
+    },
+    {
+      "layer": 19,
+      "head": 1,
+      "mode": "mean",
+      "acc": {
+        "Rotation_Direction": 58.0,
+        "Rotation_Count": 44.0,
+        "Bouncing_Counting": 36.0,
+        "Acceleration_Identification": 64.0
+      },
+      "delta": {
+        "Rotation_Direction": 0.0,
+        "Rotation_Count": 2.0,
+        "Bouncing_Counting": 6.0,
+        "Acceleration_Identification": 0.0
+      }
+    },
+    {
+      "layer": 19,
+      "head": 2,
+      "mode": "mean",
+      "acc": {
+        "Rotation_Direction": 56.0,
+        "Rotation_Count": 48.0,
+        "Bouncing_Counting": 38.0,
+        "Acceleration_Identification": 64.0
+      },
+      "delta": {
+        "Rotation_Direction": 2.0,
+        "Rotation_Count": -2.0,
+        "Bouncing_Counting": 4.0,
+        "Acceleration_Identification": 0.0
+      }
+    },
+    {
+      "layer": 19,
+      "head": 3,
+      "mode": "mean",
+      "acc": {
+        "Rotation_Direction": 54.0,
+        "Rotation_Count": 44.0,
+        "Bouncing_Counting": 42.0,
+        "Acceleration_Identification": 64.0
+      },
+      "delta": {
+        "Rotation_Direction": 4.0,
+        "Rotation_Count": 2.0,
+        "Bouncing_Counting": 0.0,
+        "Acceleration_Identification": 0.0
+      }
+    },
+    {
+      "layer": 19,
+      "head": 4,
+      "mode": "mean",
+      "acc": {
+        "Rotation_Direction": 56.0,
+        "Rotation_Count": 46.0,
+        "Bouncing_Counting": 40.0,
+        "Acceleration_Identification": 64.0
+      },
+      "delta": {
+        "Rotation_Direction": 2.0,
+        "Rotation_Count": 0.0,
+        "Bouncing_Counting": 2.0,
+        "Acceleration_Identification": 0.0
+      }
+    },
+    {
+      "layer": 19,
+      "head": 5,
+      "mode": "mean",
+      "acc": {
+        "Rotation_Direction": 58.0,
+        "Rotation_Count": 46.0,
+        "Bouncing_Counting": 38.0,
+        "Acceleration_Identification": 64.0
+      },
+      "delta": {
+        "Rotation_Direction": 0.0,
+        "Rotation_Count": 0.0,
+        "Bouncing_Counting": 4.0,
+        "Acceleration_Identification": 0.0
+      }
+    },
+    {
+      "layer": 19,
+      "head": 6,
+      "mode": "mean",
+      "acc": {
+        "Rotation_Direction": 56.0,
+        "Rotation_Count": 48.0,
+        "Bouncing_Counting": 42.0,
+        "Acceleration_Identification": 64.0
+      },
+      "delta": {
+        "Rotation_Direction": 2.0,
+        "Rotation_Count": -2.0,
+        "Bouncing_Counting": 0.0,
+        "Acceleration_Identification": 0.0
+      }
+    },
+    {
+      "layer": 19,
+      "head": 7,
+      "mode": "mean",
+      "acc": {
+        "Rotation_Direction": 58.0,
+        "Rotation_Count": 48.0,
+        "Bouncing_Counting": 36.0,
+        "Acceleration_Identification": 64.0
+      },
+      "delta": {
+        "Rotation_Direction": 0.0,
+        "Rotation_Count": -2.0,
+        "Bouncing_Counting": 6.0,
+        "Acceleration_Identification": 0.0
+      }
+    },
+    {
+      "layer": 19,
+      "head": 8,
+      "mode": "mean",
+      "acc": {
+        "Rotation_Direction": 52.0,
+        "Rotation_Count": 42.0,
+        "Bouncing_Counting": 48.0,
+        "Acceleration_Identification": 62.0
+      },
+      "delta": {
+        "Rotation_Direction": 6.0,
+        "Rotation_Count": 4.0,
+        "Bouncing_Counting": -6.0,
+        "Acceleration_Identification": 2.0
+      }
+    },
+    {
+      "layer": 19,
+      "head": 9,
+      "mode": "mean",
+      "acc": {
+        "Rotation_Direction": 56.0,
+        "Rotation_Count": 52.0,
+        "Bouncing_Counting": 28.0,
+        "Acceleration_Identification": 62.0
+      },
+      "delta": {
+        "Rotation_Direction": 2.0,
+        "Rotation_Count": -6.0,
+        "Bouncing_Counting": 14.0,
+        "Acceleration_Identification": 2.0
+      }
+    },
+    {
+      "layer": 19,
+      "head": 10,
+      "mode": "mean",
+      "acc": {
+        "Rotation_Direction": 56.0,
+        "Rotation_Count": 48.0,
+        "Bouncing_Counting": 26.0,
+        "Acceleration_Identification": 64.0
+      },
+      "delta": {
+        "Rotation_Direction": 2.0,
+        "Rotation_Count": -2.0,
+        "Bouncing_Counting": 16.0,
+        "Acceleration_Identification": 0.0
+      }
+    },
+    {
+      "layer": 19,
+      "head": 11,
+      "mode": "mean",
+      "acc": {
+        "Rotation_Direction": 54.0,
+        "Rotation_Count": 50.0,
+        "Bouncing_Counting": 44.0,
+        "Acceleration_Identification": 64.0
+      },
+      "delta": {
+        "Rotation_Direction": 4.0,
+        "Rotation_Count": -4.0,
+        "Bouncing_Counting": -2.0,
+        "Acceleration_Identification": 0.0
+      }
+    },
+    {
+      "layer": 19,
+      "head": 12,
+      "mode": "mean",
+      "acc": {
+        "Rotation_Direction": 58.0,
+        "Rotation_Count": 44.0,
+        "Bouncing_Counting": 36.0,
+        "Acceleration_Identification": 64.0
+      },
+      "delta": {
+        "Rotation_Direction": 0.0,
+        "Rotation_Count": 2.0,
+        "Bouncing_Counting": 6.0,
+        "Acceleration_Identification": 0.0
+      }
+    },
+    {
+      "layer": 19,
+      "head": 13,
+      "mode": "mean",
+      "acc": {
+        "Rotation_Direction": 54.0,
+        "Rotation_Count": 44.0,
+        "Bouncing_Counting": 38.0,
+        "Acceleration_Identification": 64.0
+      },
+      "delta": {
+        "Rotation_Direction": 4.0,
+        "Rotation_Count": 2.0,
+        "Bouncing_Counting": 4.0,
+        "Acceleration_Identification": 0.0
+      }
+    },
+    {
+      "layer": 19,
+      "head": 14,
+      "mode": "mean",
+      "acc": {
+        "Rotation_Direction": 56.0,
+        "Rotation_Count": 48.0,
+        "Bouncing_Counting": 52.0,
+        "Acceleration_Identification": 64.0
+      },
+      "delta": {
+        "Rotation_Direction": 2.0,
+        "Rotation_Count": -2.0,
+        "Bouncing_Counting": -10.0,
+        "Acceleration_Identification": 0.0
+      }
+    },
+    {
+      "layer": 19,
+      "head": 15,
+      "mode": "mean",
+      "acc": {
+        "Rotation_Direction": 64.0,
+        "Rotation_Count": 42.0,
+        "Bouncing_Counting": 38.0,
+        "Acceleration_Identification": 64.0
+      },
+      "delta": {
+        "Rotation_Direction": -6.0,
+        "Rotation_Count": 4.0,
+        "Bouncing_Counting": 4.0,
+        "Acceleration_Identification": 0.0
+      }
+    },
+    {
+      "layer": 23,
+      "head": 0,
+      "mode": "mean",
+      "acc": {
+        "Rotation_Direction": 58.0,
+        "Rotation_Count": 46.0,
+        "Bouncing_Counting": 34.0,
+        "Acceleration_Identification": 64.0
+      },
+      "delta": {
+        "Rotation_Direction": 0.0,
+        "Rotation_Count": 0.0,
+        "Bouncing_Counting": 8.0,
+        "Acceleration_Identification": 0.0
+      }
+    },
+    {
+      "layer": 23,
+      "head": 1,
+      "mode": "mean",
+      "acc": {
+        "Rotation_Direction": 58.0,
+        "Rotation_Count": 46.0,
+        "Bouncing_Counting": 34.0,
+        "Acceleration_Identification": 64.0
+      },
+      "delta": {
+        "Rotation_Direction": 0.0,
+        "Rotation_Count": 0.0,
+        "Bouncing_Counting": 8.0,
+        "Acceleration_Identification": 0.0
+      }
+    },
+    {
+      "layer": 23,
+      "head": 2,
+      "mode": "mean",
+      "acc": {
+        "Rotation_Direction": 58.0,
+        "Rotation_Count": 46.0,
+        "Bouncing_Counting": 34.0,
+        "Acceleration_Identification": 64.0
+      },
+      "delta": {
+        "Rotation_Direction": 0.0,
+        "Rotation_Count": 0.0,
+        "Bouncing_Counting": 8.0,
+        "Acceleration_Identification": 0.0
+      }
+    },
+    {
+      "layer": 23,
+      "head": 3,
+      "mode": "mean",
+      "acc": {
+        "Rotation_Direction": 58.0,
+        "Rotation_Count": 48.0,
+        "Bouncing_Counting": 40.0,
+        "Acceleration_Identification": 64.0
+      },
+      "delta": {
+        "Rotation_Direction": 0.0,
+        "Rotation_Count": -2.0,
+        "Bouncing_Counting": 2.0,
+        "Acceleration_Identification": 0.0
+      }
+    },
+    {
+      "layer": 23,
+      "head": 4,
+      "mode": "mean",
+      "acc": {
+        "Rotation_Direction": 58.0,
+        "Rotation_Count": 46.0,
+        "Bouncing_Counting": 34.0,
+        "Acceleration_Identification": 64.0
+      },
+      "delta": {
+        "Rotation_Direction": 0.0,
+        "Rotation_Count": 0.0,
+        "Bouncing_Counting": 8.0,
+        "Acceleration_Identification": 0.0
+      }
+    },
+    {
+      "layer": 23,
+      "head": 5,
+      "mode": "mean",
+      "acc": {
+        "Rotation_Direction": 58.0,
+        "Rotation_Count": 46.0,
+        "Bouncing_Counting": 42.0,
+        "Acceleration_Identification": 64.0
+      },
+      "delta": {
+        "Rotation_Direction": 0.0,
+        "Rotation_Count": 0.0,
+        "Bouncing_Counting": 0.0,
+        "Acceleration_Identification": 0.0
+      }
+    },
+    {
+      "layer": 23,
+      "head": 6,
+      "mode": "mean",
+      "acc": {
+        "Rotation_Direction": 56.0,
+        "Rotation_Count": 46.0,
+        "Bouncing_Counting": 38.0,
+        "Acceleration_Identification": 64.0
+      },
+      "delta": {
+        "Rotation_Direction": 2.0,
+        "Rotation_Count": 0.0,
+        "Bouncing_Counting": 4.0,
+        "Acceleration_Identification": 0.0
+      }
+    },
+    {
+      "layer": 23,
+      "head": 7,
+      "mode": "mean",
+      "acc": {
+        "Rotation_Direction": 58.0,
+        "Rotation_Count": 48.0,
+        "Bouncing_Counting": 38.0,
+        "Acceleration_Identification": 64.0
+      },
+      "delta": {
+        "Rotation_Direction": 0.0,
+        "Rotation_Count": -2.0,
+        "Bouncing_Counting": 4.0,
+        "Acceleration_Identification": 0.0
+      }
+    },
+    {
+      "layer": 23,
+      "head": 8,
+      "mode": "mean",
+      "acc": {
+        "Rotation_Direction": 54.0,
+        "Rotation_Count": 46.0,
+        "Bouncing_Counting": 36.0,
+        "Acceleration_Identification": 64.0
+      },
+      "delta": {
+        "Rotation_Direction": 4.0,
+        "Rotation_Count": 0.0,
+        "Bouncing_Counting": 6.0,
+        "Acceleration_Identification": 0.0
+      }
+    },
+    {
+      "layer": 23,
+      "head": 9,
+      "mode": "mean",
+      "acc": {
+        "Rotation_Direction": 56.0,
+        "Rotation_Count": 58.0,
+        "Bouncing_Counting": 38.0,
+        "Acceleration_Identification": 64.0
+      },
+      "delta": {
+        "Rotation_Direction": 2.0,
+        "Rotation_Count": -12.0,
+        "Bouncing_Counting": 4.0,
+        "Acceleration_Identification": 0.0
+      }
+    },
+    {
+      "layer": 23,
+      "head": 10,
+      "mode": "mean",
+      "acc": {
+        "Rotation_Direction": 56.0,
+        "Rotation_Count": 46.0,
+        "Bouncing_Counting": 34.0,
+        "Acceleration_Identification": 64.0
+      },
+      "delta": {
+        "Rotation_Direction": 2.0,
+        "Rotation_Count": 0.0,
+        "Bouncing_Counting": 8.0,
+        "Acceleration_Identification": 0.0
+      }
+    },
+    {
+      "layer": 23,
+      "head": 11,
+      "mode": "mean",
+      "acc": {
+        "Rotation_Direction": 58.0,
+        "Rotation_Count": 46.0,
+        "Bouncing_Counting": 38.0,
+        "Acceleration_Identification": 64.0
+      },
+      "delta": {
+        "Rotation_Direction": 0.0,
+        "Rotation_Count": 0.0,
+        "Bouncing_Counting": 4.0,
+        "Acceleration_Identification": 0.0
+      }
+    },
+    {
+      "layer": 23,
+      "head": 12,
+      "mode": "mean",
+      "acc": {
+        "Rotation_Direction": 58.0,
+        "Rotation_Count": 46.0,
+        "Bouncing_Counting": 36.0,
+        "Acceleration_Identification": 64.0
+      },
+      "delta": {
+        "Rotation_Direction": 0.0,
+        "Rotation_Count": 0.0,
+        "Bouncing_Counting": 6.0,
+        "Acceleration_Identification": 0.0
+      }
+    },
+    {
+      "layer": 23,
+      "head": 13,
+      "mode": "mean",
+      "acc": {
+        "Rotation_Direction": 58.0,
+        "Rotation_Count": 46.0,
+        "Bouncing_Counting": 38.0,
+        "Acceleration_Identification": 64.0
+      },
+      "delta": {
+        "Rotation_Direction": 0.0,
+        "Rotation_Count": 0.0,
+        "Bouncing_Counting": 4.0,
+        "Acceleration_Identification": 0.0
+      }
+    },
+    {
+      "layer": 23,
+      "head": 14,
+      "mode": "mean",
+      "acc": {
+        "Rotation_Direction": 50.0,
+        "Rotation_Count": 44.0,
+        "Bouncing_Counting": 44.0,
+        "Acceleration_Identification": 64.0
+      },
+      "delta": {
+        "Rotation_Direction": 8.0,
+        "Rotation_Count": 2.0,
+        "Bouncing_Counting": -2.0,
+        "Acceleration_Identification": 0.0
+      }
+    },
+    {
+      "layer": 23,
+      "head": 15,
+      "mode": "mean",
+      "acc": {
+        "Rotation_Direction": 56.0,
+        "Rotation_Count": 48.0,
+        "Bouncing_Counting": 36.0,
+        "Acceleration_Identification": 64.0
+      },
+      "delta": {
+        "Rotation_Direction": 2.0,
+        "Rotation_Count": -2.0,
+        "Bouncing_Counting": 6.0,
+        "Acceleration_Identification": 0.0
+      }
+    }
+  ]
+}

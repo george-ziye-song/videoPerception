@@ -1,0 +1,746 @@
+  1. [1 Introduction](https://arxiv.org/html/2507.18100v1#S1 "In Datasets and Recipes for Video Temporal Grounding via Reinforcement Learning")
+  2. [2 Related Works](https://arxiv.org/html/2507.18100v1#S2 "In Datasets and Recipes for Video Temporal Grounding via Reinforcement Learning")
+  3. [3 Datasets and Recipes](https://arxiv.org/html/2507.18100v1#S3 "In Datasets and Recipes for Video Temporal Grounding via Reinforcement Learning")
+     1. [3.1 Data Collection and Curation](https://arxiv.org/html/2507.18100v1#S3.SS1 "In 3 Datasets and Recipes ‣ Datasets and Recipes for Video Temporal Grounding via Reinforcement Learning")
+        1. [Data Collection.](https://arxiv.org/html/2507.18100v1#S3.SS1.SSS0.Px1 "In 3.1 Data Collection and Curation ‣ 3 Datasets and Recipes ‣ Datasets and Recipes for Video Temporal Grounding via Reinforcement Learning")
+        2. [CoT Annotation and Data Filtering.](https://arxiv.org/html/2507.18100v1#S3.SS1.SSS0.Px2 "In 3.1 Data Collection and Curation ‣ 3 Datasets and Recipes ‣ Datasets and Recipes for Video Temporal Grounding via Reinforcement Learning")
+     2. [3.2 Supervised Fine-Tuning (SFT) Stage](https://arxiv.org/html/2507.18100v1#S3.SS2 "In 3 Datasets and Recipes ‣ Datasets and Recipes for Video Temporal Grounding via Reinforcement Learning")
+     3. [3.3 Reinforcement Learning (RL) Stage](https://arxiv.org/html/2507.18100v1#S3.SS3 "In 3 Datasets and Recipes ‣ Datasets and Recipes for Video Temporal Grounding via Reinforcement Learning")
+        1. [3.3.1 Reward Modeling](https://arxiv.org/html/2507.18100v1#S3.SS3.SSS1 "In 3.3 Reinforcement Learning \(RL\) Stage ‣ 3 Datasets and Recipes ‣ Datasets and Recipes for Video Temporal Grounding via Reinforcement Learning")
+           1. [Timestamp-aware IoU Reward rtIoU⁢(⋅)subscript𝑟tIoU⋅r_{\text{tIoU}}(\cdot)italic_r start_POSTSUBSCRIPT tIoU end_POSTSUBSCRIPT ( ⋅ )](https://arxiv.org/html/2507.18100v1#S3.SS3.SSS1.Px1 "In 3.3.1 Reward Modeling ‣ 3.3 Reinforcement Learning \(RL\) Stage ‣ 3 Datasets and Recipes ‣ Datasets and Recipes for Video Temporal Grounding via Reinforcement Learning")
+           2. [Reasoning Format Reward rform⁢(⋅)subscript𝑟form⋅r_{\text{form}}(\cdot)italic_r start_POSTSUBSCRIPT form end_POSTSUBSCRIPT ( ⋅ )](https://arxiv.org/html/2507.18100v1#S3.SS3.SSS1.Px2 "In 3.3.1 Reward Modeling ‣ 3.3 Reinforcement Learning \(RL\) Stage ‣ 3 Datasets and Recipes ‣ Datasets and Recipes for Video Temporal Grounding via Reinforcement Learning")
+           3. [Final Reward risubscript𝑟𝑖r_{i}italic_r start_POSTSUBSCRIPT italic_i end_POSTSUBSCRIPT](https://arxiv.org/html/2507.18100v1#S3.SS3.SSS1.Px3 "In 3.3.1 Reward Modeling ‣ 3.3 Reinforcement Learning \(RL\) Stage ‣ 3 Datasets and Recipes ‣ Datasets and Recipes for Video Temporal Grounding via Reinforcement Learning")
+        2. [3.3.2 GRPO Training](https://arxiv.org/html/2507.18100v1#S3.SS3.SSS2 "In 3.3 Reinforcement Learning \(RL\) Stage ‣ 3 Datasets and Recipes ‣ Datasets and Recipes for Video Temporal Grounding via Reinforcement Learning")
+  4. [4 Experiment](https://arxiv.org/html/2507.18100v1#S4 "In Datasets and Recipes for Video Temporal Grounding via Reinforcement Learning")
+     1. [4.1 Experimental Setups](https://arxiv.org/html/2507.18100v1#S4.SS1 "In 4 Experiment ‣ Datasets and Recipes for Video Temporal Grounding via Reinforcement Learning")
+        1. [Benchmarks and Evaluation Metrics](https://arxiv.org/html/2507.18100v1#S4.SS1.SSS0.Px1 "In 4.1 Experimental Setups ‣ 4 Experiment ‣ Datasets and Recipes for Video Temporal Grounding via Reinforcement Learning")
+        2. [Baselines](https://arxiv.org/html/2507.18100v1#S4.SS1.SSS0.Px2 "In 4.1 Experimental Setups ‣ 4 Experiment ‣ Datasets and Recipes for Video Temporal Grounding via Reinforcement Learning")
+        3. [Training Details.](https://arxiv.org/html/2507.18100v1#S4.SS1.SSS0.Px3 "In 4.1 Experimental Setups ‣ 4 Experiment ‣ Datasets and Recipes for Video Temporal Grounding via Reinforcement Learning")
+     2. [4.2 Main Results](https://arxiv.org/html/2507.18100v1#S4.SS2 "In 4 Experiment ‣ Datasets and Recipes for Video Temporal Grounding via Reinforcement Learning")
+     3. [4.3 Analysis](https://arxiv.org/html/2507.18100v1#S4.SS3 "In 4 Experiment ‣ Datasets and Recipes for Video Temporal Grounding via Reinforcement Learning")
+        1. [Finding 1: High-Quality cold start data is crucial.](https://arxiv.org/html/2507.18100v1#S4.SS3.SSS0.Px1 "In 4.3 Analysis ‣ 4 Experiment ‣ Datasets and Recipes for Video Temporal Grounding via Reinforcement Learning")
+        2. [Finding 2: Controlling the difficulty of RL training data is necessary.](https://arxiv.org/html/2507.18100v1#S4.SS3.SSS0.Px2 "In 4.3 Analysis ‣ 4 Experiment ‣ Datasets and Recipes for Video Temporal Grounding via Reinforcement Learning")
+  5. [5 Conclusion](https://arxiv.org/html/2507.18100v1#S5 "In Datasets and Recipes for Video Temporal Grounding via Reinforcement Learning")
+  6. [A Implementation Details](https://arxiv.org/html/2507.18100v1#A1 "In Datasets and Recipes for Video Temporal Grounding via Reinforcement Learning")
+     1. [A.1 Recipes](https://arxiv.org/html/2507.18100v1#A1.SS1 "In Appendix A Implementation Details ‣ Datasets and Recipes for Video Temporal Grounding via Reinforcement Learning")
+        1. [TVG-Coldstart Dataset](https://arxiv.org/html/2507.18100v1#A1.SS1.SSS0.Px1 "In A.1 Recipes ‣ Appendix A Implementation Details ‣ Datasets and Recipes for Video Temporal Grounding via Reinforcement Learning")
+        2. [Coldstart Stage](https://arxiv.org/html/2507.18100v1#A1.SS1.SSS0.Px2 "In A.1 Recipes ‣ Appendix A Implementation Details ‣ Datasets and Recipes for Video Temporal Grounding via Reinforcement Learning")
+        3. [RL Stage](https://arxiv.org/html/2507.18100v1#A1.SS1.SSS0.Px3 "In A.1 Recipes ‣ Appendix A Implementation Details ‣ Datasets and Recipes for Video Temporal Grounding via Reinforcement Learning")
+     2. [A.2 Experiments](https://arxiv.org/html/2507.18100v1#A1.SS2 "In Appendix A Implementation Details ‣ Datasets and Recipes for Video Temporal Grounding via Reinforcement Learning")
+  7. [B Qualitative Result](https://arxiv.org/html/2507.18100v1#A2 "In Datasets and Recipes for Video Temporal Grounding via Reinforcement Learning")
+     1. [B.1 TVG-R1 Evaluation Cases](https://arxiv.org/html/2507.18100v1#A2.SS1 "In Appendix B Qualitative Result ‣ Datasets and Recipes for Video Temporal Grounding via Reinforcement Learning")
+     2. [B.2 TVG-Coldstart Dataset Cases](https://arxiv.org/html/2507.18100v1#A2.SS2 "In Appendix B Qualitative Result ‣ Datasets and Recipes for Video Temporal Grounding via Reinforcement Learning")
+  8. [C Additional Related Works](https://arxiv.org/html/2507.18100v1#A3 "In Datasets and Recipes for Video Temporal Grounding via Reinforcement Learning")
+
+# Datasets and Recipes for Video Temporal Grounding via Reinforcement Learning
+
+Ruizhe Chen 1,2111Work done during his internship at Bytedance. Zhiting Fan 2
+Tianze Luo 1 Heqing Zou 1 Zhaopeng Feng 2  
+Guiyang Xie 1 Hansheng Zhang 1 Zhuochen Wang 1 Zuozhu Liu 2 Huaijian Zhang 1  
+1 Bytedance  
+2 Zhejiang University  
+Link: [Code & Model](https://github.com/zjuruizhechen/TVG-R1)
+
+###### Abstract
+
+Video Temporal Grounding (VTG) aims to localize relevant temporal segments in
+videos given natural language queries. Despite recent progress with large
+vision-language models (LVLMs) and instruction-tuning, existing approaches
+often suffer from limited temporal awareness and poor generalization. In this
+work, we introduce a two-stage training framework that integrates supervised
+fine-tuning with reinforcement learning (RL) to improve both the accuracy and
+robustness of VTG models. Our approach first leverages high-quality curated
+cold start data for SFT initialization, followed by difficulty-controlled RL
+to further enhance temporal localization and reasoning abilities.
+Comprehensive experiments on multiple VTG benchmarks demonstrate that our
+method consistently outperforms existing models, particularly in challenging
+and open-domain scenarios. We conduct an in-depth analysis of training
+strategies and dataset curation, highlighting the importance of both high-
+quality cold start data and difficulty-controlled RL. To facilitate further
+research and industrial adoption, we release all intermediate datasets,
+models, and code to the community.
+
+##  1 Introduction
+
+With the proliferation of social media platforms, video content has become the
+most information-rich and diverse medium for capturing and conveying daily
+experiences. As a result, efficiently identifying specific moments within
+videos based on user queries—a task known as _Video Temporal Grounding_
+(VTG)—has emerged as a core capability for a range of industrial applications,
+from intelligent video retrieval to workflow optimization and automated event
+monitoring [[16](https://arxiv.org/html/2507.18100v1#bib.bib16),
+[19](https://arxiv.org/html/2507.18100v1#bib.bib19),
+[27](https://arxiv.org/html/2507.18100v1#bib.bib27)]. VTG enables
+practitioners to swiftly pinpoint relevant segments in massive videos,
+significantly reducing manual review workloads and empowering real-time
+decision-making [[39](https://arxiv.org/html/2507.18100v1#bib.bib39)].
+
+Recent advances in large vision-language models (LVLMs) have led to the
+development of end-to-end temporal grounding frameworks. Instruction-tuned
+models such as TimeChat [[35](https://arxiv.org/html/2507.18100v1#bib.bib35)],
+VTimeLLM [[23](https://arxiv.org/html/2507.18100v1#bib.bib23)], and LITA
+[[24](https://arxiv.org/html/2507.18100v1#bib.bib24)] reformulate temporal
+grounding as a text generation task, while models like Momentor
+[[34](https://arxiv.org/html/2507.18100v1#bib.bib34)] and VTG-LLM
+[[18](https://arxiv.org/html/2507.18100v1#bib.bib18)] introduce specialized
+modules or vocabulary to improve temporal perception. Despite notable
+progress, existing approaches are still constrained by the inherent
+limitations of supervised fine-tuning, struggling with precise temporal
+awareness and generalization.
+
+To address these challenges, we propose a novel two-stage training framework
+that integrates supervised fine-tuning (SFT) with reinforcement learning (RL)
+to significantly improve the performance and generalization of open-source
+models for VTG tasks. Our framework first leverages high-quality curated data
+to provide the model with a robust _coldstart_ initialization via SFT,
+followed by a difficulty-controlled RL stage that further enhances temporal
+grounding abilities and reasoning.
+
+We conduct extensive experiments across multiple VTG benchmarks,
+systematically evaluating the contributions of each training stage. Our
+findings highlight the critical importance of high-quality cold-start data and
+controlled RL training, providing actionable insights for practical deployment
+in real-world industrial scenarios. Furthermore, to facilitate future research
+and application, we release all intermediate results and code as open-source
+resources.
+
+![Refer to caption](extracted/6648788/images/VTG_R1_pipeline.png) Figure 1:
+Overview of the proposed training pipeline for Video Temporal Grounding
+(VTG-R1). The framework first performs supervised fine-tuning (SFT) with
+curated high-quality cold-start data to initialize the base model, followed by
+reinforcement learning (RL) to further enhance temporal localization
+abilities.
+
+The main contributions of this work are:
+
+  * •
+
+We introduce a two-stage training framework that combines SFT and RL to
+advance open-source LVLMs for video temporal grounding.
+
+  * •
+
+We conduct comprehensive evaluations across multiple benchmarks, validating
+the effectiveness and scalability of our approach.
+
+  * •
+
+We open-source all intermediate datasets, models, and code to support further
+research and industrial adoption.
+
+##  2 Related Works
+
+Video Temporal Grounding (VTG) aims to localize relevant temporal segments
+within untrimmed videos given natural language queries
+[[16](https://arxiv.org/html/2507.18100v1#bib.bib16),
+[20](https://arxiv.org/html/2507.18100v1#bib.bib20),
+[27](https://arxiv.org/html/2507.18100v1#bib.bib27),
+[9](https://arxiv.org/html/2507.18100v1#bib.bib9),
+[44](https://arxiv.org/html/2507.18100v1#bib.bib44)]. Early efforts, such as
+CTRL and MCN, introduced foundational approaches that leveraged sliding
+windows and dual-stream networks to generate candidate segments for text-video
+matching [[15](https://arxiv.org/html/2507.18100v1#bib.bib15),
+[19](https://arxiv.org/html/2507.18100v1#bib.bib19)], which laid the
+groundwork for subsequent advancements.
+
+With the emergence of large vision-language models (LVLMs), recent research
+has shifted towards end-to-end VTG frameworks that leverage instruction-tuning
+and textual generation. Models such as TimeChat
+[[35](https://arxiv.org/html/2507.18100v1#bib.bib35)], VTimeLLM
+[[23](https://arxiv.org/html/2507.18100v1#bib.bib23)], and LITA
+[[24](https://arxiv.org/html/2507.18100v1#bib.bib24)] reformulate temporal
+grounding as a sequence generation task, while Momentor
+[[34](https://arxiv.org/html/2507.18100v1#bib.bib34)] addresses temporal
+quantization errors by introducing temporal-aware modules. Other approaches,
+including Grounded-VideoLLM and VTG-LLM
+[[41](https://arxiv.org/html/2507.18100v1#bib.bib41),
+[18](https://arxiv.org/html/2507.18100v1#bib.bib18)], expand model
+vocabularies to facilitate the learning of temporal embeddings, further
+improving grounding precision.
+
+VTG technology has shown practical value in diverse domains. In manufacturing,
+VTG supports automated workflow analysis and anomaly detection to improve
+operational efficiency [[26](https://arxiv.org/html/2507.18100v1#bib.bib26)].
+For security surveillance, VTG enables fast retrieval of critical events,
+supporting both real-time monitoring and retrospective investigation
+[[39](https://arxiv.org/html/2507.18100v1#bib.bib39)]. In healthcare, VTG
+facilitates efficient identification of key procedures in large-scale surgical
+videos, benefiting both clinical analysis and education
+[[40](https://arxiv.org/html/2507.18100v1#bib.bib40)].
+
+Despite these advances, the predominant reliance on supervised fine-tuning
+(SFT) often restricts the model’s temporal awareness and generalization
+capabilities, especially in open-domain or challenging scenarios. To address
+these limitations, we propose a two-stage training framework that integrates
+supervised fine-tuning with reinforcement learning, aiming to enhance both the
+accuracy and generalization of VTG models. To support further research and
+application, we release all intermediate data, models, and code as open-source
+resources.
+
+Task | # Original Samples | Source Datasets | # Coldstart Samples | # RL Samples  
+---|---|---|---|---  
+Instance Grounding (Moment Retrieval) | 40K |  HiREST [[47](https://arxiv.org/html/2507.18100v1#bib.bib47)] (4K), QuerYD [[32](https://arxiv.org/html/2507.18100v1#bib.bib32)] (33K), TACoS [[14](https://arxiv.org/html/2507.18100v1#bib.bib14)] (10K), DiDeMo [[1](https://arxiv.org/html/2507.18100v1#bib.bib1)] (33K), InternVid-VTime [[43](https://arxiv.org/html/2507.18100v1#bib.bib43)] (54K) | 10K | 13K  
+Query Grounding | 16K | Grounded-VLLM [[41](https://arxiv.org/html/2507.18100v1#bib.bib41)] (16K) | 3K | 5K  
+Total | 56K | - | 13K | 18K  
+  
+Table 1: Statistics of the source datasets and filtered coldstart and RL
+datasets.
+
+##  3 Datasets and Recipes
+
+In this section, we present the detailed process for constructing VTG-R1 via a
+two-stage training pipeline, encompassing data collection, curation, and
+specific training procedures.
+
+###  3.1 Data Collection and Curation
+
+High-quality coldstart and RL datasets are essential for enhancing the
+temporal video grounding capabilities of MLLMs. Here, we describe our approach
+to collecting source data and curating the TVG-RL-18K dataset for RL training
+and the TVG-Coldstart-13K dataset for SFT-based coldstart.
+
+##### Data Collection.
+
+We aggregate data from various public datasets, including those for moment
+retrieval and query grounding tasks, carefully sampling and balancing the
+proportion of each subset. The distributions of the raw source data for TVG-
+RL-18K and TVG-Coldstart-13K are categorized and summarized in Table
+[1](https://arxiv.org/html/2507.18100v1#S2.T1 "Table 1 ‣ 2 Related Works ‣
+Datasets and Recipes for Video Temporal Grounding via Reinforcement
+Learning").
+
+##### CoT Annotation and Data Filtering.
+
+To enable effective supervised fine-tuning (SFT) cold-start, we employ
+Gemini-2.5-Pro to generate chain-of-thought (CoT) rationales for the source
+samples. The prompt template used for CoT generation is provided below and is
+consistently applied during both the SFT and RL stages. We then filter the
+annotated samples according to their final Intersection-over-Union (IoU)
+scores: samples with IoU >ϵ1absentsubscriptitalic-ϵ1>\epsilon_{1}> italic_ϵ
+start_POSTSUBSCRIPT 1 end_POSTSUBSCRIPT are regarded as high-quality and their
+CoT rationales are retained for cold-start, forming the TVG-Coldstart-13K
+subset. In contrast, source samples with IoU
+<ϵ2absentsubscriptitalic-ϵ2<\epsilon_{2}< italic_ϵ start_POSTSUBSCRIPT 2
+end_POSTSUBSCRIPT are considered low-quality—often due to excessive difficulty
+or annotation errors—and are excluded from the RL stage. The remaining samples
+constitute the TVG-RL-18K subset.
+
+Prompt Template for TVG-R1 system  You MUST reason based on the temporal
+changes and visual evidence in the video to determine the precise time period
+related to the query. The reasoning MUST reflect how the content evolves over
+time, not general logic. The reasoning process MUST BE enclosed within
+⟨⟨\langle⟨ think⟩⟩\rangle⟩ ⟨⟨\langle⟨/think⟩⟩\rangle⟩ tags. The specific time
+period MUST BE in the format [start time, end time] in seconds enclosed within
+⟨⟨\langle⟨time⟩⟩\rangle⟩ ⟨⟨\langle⟨/time⟩⟩\rangle⟩ tags. user {query /
+instance}
+
+###  3.2 Supervised Fine-Tuning (SFT) Stage
+
+In the first stage of our training pipeline, we employ supervised fine-tuning
+(SFT) to provide the model with a high-quality initialization, referred to as
+the cold start phase. This process equips the model with robust multimodal
+alignment and structured reasoning capabilities from the outset, laying a
+solid foundation for the subsequent reinforcement learning stage.
+
+###  3.3 Reinforcement Learning (RL) Stage
+
+####  3.3.1 Reward Modeling
+
+The reward risubscript𝑟𝑖r_{i}italic_r start_POSTSUBSCRIPT italic_i
+end_POSTSUBSCRIPT plays a crucial role in guiding the model’s learning
+objective. To promote effective temporal grounding with explicit reasoning, we
+employ a composite reward function consisting of two components: the IoU
+reward rtIoUsubscript𝑟tIoUr_{\text{tIoU}}italic_r start_POSTSUBSCRIPT tIoU
+end_POSTSUBSCRIPT and the reasoning format reward
+rformsubscript𝑟formr_{\text{form}}italic_r start_POSTSUBSCRIPT form
+end_POSTSUBSCRIPT.
+
+##### Timestamp-aware IoU Reward
+rtIoU⁢(⋅)subscript𝑟tIoU⋅r_{\text{tIoU}}(\cdot)italic_r start_POSTSUBSCRIPT
+tIoU end_POSTSUBSCRIPT ( ⋅ )
+
+In the TVG task, the quality of a predicted temporal segment
+[ts,te]subscript𝑡𝑠subscript𝑡𝑒[t_{s},t_{e}][ italic_t start_POSTSUBSCRIPT
+italic_s end_POSTSUBSCRIPT , italic_t start_POSTSUBSCRIPT italic_e
+end_POSTSUBSCRIPT ] is primarily evaluated using the Intersection-over-Union
+(IoU) metric, which measures the overlap between the predicted segment and the
+ground-truth segment
+[ts′,te′]subscriptsuperscript𝑡′𝑠subscriptsuperscript𝑡′𝑒[t^{\prime}_{s},t^{\prime}_{e}][
+italic_t start_POSTSUPERSCRIPT ′ end_POSTSUPERSCRIPT start_POSTSUBSCRIPT
+italic_s end_POSTSUBSCRIPT , italic_t start_POSTSUPERSCRIPT ′
+end_POSTSUPERSCRIPT start_POSTSUBSCRIPT italic_e end_POSTSUBSCRIPT ]. The IoU
+is computed as:
+
+| rtIoU=[ts,te]∩[ts′,te′][ts,te]∪[ts′,te′]subscript𝑟tIoUsubscript𝑡𝑠subscript𝑡𝑒subscriptsuperscript𝑡′𝑠subscriptsuperscript𝑡′𝑒subscript𝑡𝑠subscript𝑡𝑒subscriptsuperscript𝑡′𝑠subscriptsuperscript𝑡′𝑒r_{\text{tIoU}}=\frac{[t_{s},t_{e}]\cap[t^{\prime}_{s},t^{\prime}_{e}]}{[t_{s}% ,t_{e}]\cup[t^{\prime}_{s},t^{\prime}_{e}]}italic_r start_POSTSUBSCRIPT tIoU end_POSTSUBSCRIPT = divide start_ARG [ italic_t start_POSTSUBSCRIPT italic_s end_POSTSUBSCRIPT , italic_t start_POSTSUBSCRIPT italic_e end_POSTSUBSCRIPT ] ∩ [ italic_t start_POSTSUPERSCRIPT ′ end_POSTSUPERSCRIPT start_POSTSUBSCRIPT italic_s end_POSTSUBSCRIPT , italic_t start_POSTSUPERSCRIPT ′ end_POSTSUPERSCRIPT start_POSTSUBSCRIPT italic_e end_POSTSUBSCRIPT ] end_ARG start_ARG [ italic_t start_POSTSUBSCRIPT italic_s end_POSTSUBSCRIPT , italic_t start_POSTSUBSCRIPT italic_e end_POSTSUBSCRIPT ] ∪ [ italic_t start_POSTSUPERSCRIPT ′ end_POSTSUPERSCRIPT start_POSTSUBSCRIPT italic_s end_POSTSUBSCRIPT , italic_t start_POSTSUPERSCRIPT ′ end_POSTSUPERSCRIPT start_POSTSUBSCRIPT italic_e end_POSTSUBSCRIPT ] end_ARG |   
+---|---|---  
+  
+where ∩\cap∩ and ∪\cup∪ denote the intersection and union of the predicted and
+ground-truth intervals.
+
+##### Reasoning Format Reward
+rform⁢(⋅)subscript𝑟form⋅r_{\text{form}}(\cdot)italic_r start_POSTSUBSCRIPT
+form end_POSTSUBSCRIPT ( ⋅ )
+
+To explicitly encourage the model to generate responses with structured
+reasoning, we introduce a format-based reward
+rformsubscript𝑟formr_{\text{form}}italic_r start_POSTSUBSCRIPT form
+end_POSTSUBSCRIPT, which verifies whether the output follows the expected
+reasoning format. Specifically, we require the model to enclose the reasoning
+process within <think>...</think> tags and the final answer within
+<answer>...</answer> tags. The reward is defined as:
+
+| rform=𝟙{<think>,</think>,<answer>,</answer>}⊆outputsubscript𝑟formsubscript1<think></think><answer></answer>outputr_{\text{form}}=\mathbbm{1}_{\\{\texttt{<think>},\texttt{</think>},\texttt{<% answer>},\texttt{</answer>}\\}\subseteq\text{output}}italic_r start_POSTSUBSCRIPT form end_POSTSUBSCRIPT = blackboard_1 start_POSTSUBSCRIPT { <think> , </think> , <answer> , </answer> } ⊆ output end_POSTSUBSCRIPT |   
+---|---|---  
+  
+where 𝟙⋅subscript1⋅\mathbbm{1}_{\cdot}blackboard_1 start_POSTSUBSCRIPT ⋅
+end_POSTSUBSCRIPT denotes the indicator function.
+
+##### Final Reward risubscript𝑟𝑖r_{i}italic_r start_POSTSUBSCRIPT italic_i
+end_POSTSUBSCRIPT
+
+The final reward risubscript𝑟𝑖r_{i}italic_r start_POSTSUBSCRIPT italic_i
+end_POSTSUBSCRIPT is defined as a weighted sum of the two components:
+
+| ri=λtIoU⋅rtIoU+λform⋅rformsubscript𝑟𝑖⋅subscript𝜆tIoUsubscript𝑟tIoU⋅subscript𝜆formsubscript𝑟formr_{i}=\lambda_{\text{tIoU}}\cdot r_{\text{tIoU}}+\lambda_{\text{form}}\cdot r_% {\text{form}}italic_r start_POSTSUBSCRIPT italic_i end_POSTSUBSCRIPT = italic_λ start_POSTSUBSCRIPT tIoU end_POSTSUBSCRIPT ⋅ italic_r start_POSTSUBSCRIPT tIoU end_POSTSUBSCRIPT + italic_λ start_POSTSUBSCRIPT form end_POSTSUBSCRIPT ⋅ italic_r start_POSTSUBSCRIPT form end_POSTSUBSCRIPT |   
+---|---|---  
+  
+where λtIoUsubscript𝜆tIoU\lambda_{\text{tIoU}}italic_λ start_POSTSUBSCRIPT
+tIoU end_POSTSUBSCRIPT and λformsubscript𝜆form\lambda_{\text{form}}italic_λ
+start_POSTSUBSCRIPT form end_POSTSUBSCRIPT are hyperparameters.
+
+Model | NExTGQA | RexTime  
+---|---|---  
+R@0.3 | R@0.5 | R@0.7 | mIoU | R@0.3 | R@0.5 | R@0.7 | mIoU  
+Qwen2.5-VL-7B thinking | 25.81 | 14.73 | 8.72 | 17.74 | 12.16 | 7.17 | 2.71 | 10.17  
+Qwen2.5-VL-7B | 31.60 | 18.06 | 7.46 | 20.87 | 10.31 | 6.08 | 3.04 | 8.10  
+Qwen2.5-VL-32B | 37.96 | 22.26 | 9.98 | 25.35 | 16.83 | 9.99 | 5.10 | 13.02  
+VTimeLLM | 37.90 | 20.20 | 9.71 | 24.40 | 28.84 | 17.41 | 7.19 | 20.14  
+TimeChat | 34.10 | 17.90 | 6.24 | 20.60 | 14.42 | 7.61 | 3.06 | 11.65  
+VideoChat-TPO | 41.20 | 23.40 | 8.15 | 27.70 | 34.53 | 19.26 | 9.81 | 25.23  
+TVG-ColdStart | 21.74 | 11.54 | 5.24 | 15.09 | 13.57 | 7.82 | 4.34 | 10.18  
+TVG-R1 | 41.65 | 20.78 | 10.01 | 29.25 | 41.04 | 24.54 | 11.07 | 28.20  
+  
+Table 2: Performance comparison on NExTGQA and RexTime benchmarks. It can be
+observed that VTG-R1 outperforms existing SFT-based methods trained with
+large-scale data.
+
+####  3.3.2 GRPO Training
+
+We adopt Group Relative Policy Optimization (GRPO)
+[[37](https://arxiv.org/html/2507.18100v1#bib.bib37)] for reinforcement
+learning, which is a variant of Proximal Policy Optimization (PPO)
+[[36](https://arxiv.org/html/2507.18100v1#bib.bib36)]. Unlike PPO, which
+relies on a learned critic, GRPO directly compares a group of candidate
+responses, removing the need for a critic model and thereby reducing
+computational overhead.
+
+Given a query q𝑞qitalic_q, GRPO samples G𝐺Gitalic_G distinct candidate
+responses o={o1,…,oG}𝑜subscript𝑜1…subscript𝑜𝐺o=\\{o_{1},\dots,o_{G}\\}italic_o
+= { italic_o start_POSTSUBSCRIPT 1 end_POSTSUBSCRIPT , … , italic_o
+start_POSTSUBSCRIPT italic_G end_POSTSUBSCRIPT } from the policy. Rewards for
+each response are assigned as described in Sec.
+[3.3.1](https://arxiv.org/html/2507.18100v1#S3.SS3.SSS1 "3.3.1 Reward Modeling
+‣ 3.3 Reinforcement Learning \(RL\) Stage ‣ 3 Datasets and Recipes ‣ Datasets
+and Recipes for Video Temporal Grounding via Reinforcement Learning"),
+yielding {r1,…,rG}subscript𝑟1…subscript𝑟𝐺\\{r_{1},\dots,r_{G}\\}{ italic_r
+start_POSTSUBSCRIPT 1 end_POSTSUBSCRIPT , … , italic_r start_POSTSUBSCRIPT
+italic_G end_POSTSUBSCRIPT }. These scores are then normalized within the
+group, and the advantage of each response is defined as:
+
+| Ai=ri−μσ,where ⁢μ=1G⁢∑j=1Grj,σ=1G⁢∑j=1G(rj−μ)2.formulae-sequencesubscript𝐴𝑖subscript𝑟𝑖𝜇𝜎formulae-sequencewhere 𝜇1𝐺superscriptsubscript𝑗1𝐺subscript𝑟𝑗𝜎1𝐺superscriptsubscript𝑗1𝐺superscriptsubscript𝑟𝑗𝜇2\displaystyle A_{i}=\frac{r_{i}-\mu}{\sigma},\quad\text{where }\mu=\frac{1}{G}% \sum_{j=1}^{G}r_{j},\sigma=\sqrt{\frac{1}{G}\sum_{j=1}^{G}(r_{j}-\mu)^{2}}.italic_A start_POSTSUBSCRIPT italic_i end_POSTSUBSCRIPT = divide start_ARG italic_r start_POSTSUBSCRIPT italic_i end_POSTSUBSCRIPT - italic_μ end_ARG start_ARG italic_σ end_ARG , where italic_μ = divide start_ARG 1 end_ARG start_ARG italic_G end_ARG ∑ start_POSTSUBSCRIPT italic_j = 1 end_POSTSUBSCRIPT start_POSTSUPERSCRIPT italic_G end_POSTSUPERSCRIPT italic_r start_POSTSUBSCRIPT italic_j end_POSTSUBSCRIPT , italic_σ = square-root start_ARG divide start_ARG 1 end_ARG start_ARG italic_G end_ARG ∑ start_POSTSUBSCRIPT italic_j = 1 end_POSTSUBSCRIPT start_POSTSUPERSCRIPT italic_G end_POSTSUPERSCRIPT ( italic_r start_POSTSUBSCRIPT italic_j end_POSTSUBSCRIPT - italic_μ ) start_POSTSUPERSCRIPT 2 end_POSTSUPERSCRIPT end_ARG . |   
+---|---|---  
+  
+Here, Aisubscript𝐴𝑖A_{i}italic_A start_POSTSUBSCRIPT italic_i
+end_POSTSUBSCRIPT denotes the normalized advantage of the i𝑖iitalic_i-th
+response. GRPO encourages the model to assign higher probabilities to
+relatively better responses within the group. The final training objective
+also includes a KL-divergence regularization term to prevent the updated
+policy πθsubscript𝜋𝜃\pi_{\theta}italic_π start_POSTSUBSCRIPT italic_θ
+end_POSTSUBSCRIPT from deviating significantly from a reference policy
+πrefsubscript𝜋ref\pi_{\text{ref}}italic_π start_POSTSUBSCRIPT ref
+end_POSTSUBSCRIPT. The complete objective is given by:
+
+| ℒGRPO=𝔼o∼πθold⁢(p)subscriptℒGRPOsubscript𝔼similar-to𝑜subscript𝜋subscript𝜃old𝑝\displaystyle\mathcal{L}_{\text{GRPO}}=\mathbb{E}_{o\sim\pi_{\theta_{\text{old% }}}(p)}caligraphic_L start_POSTSUBSCRIPT GRPO end_POSTSUBSCRIPT = blackboard_E start_POSTSUBSCRIPT italic_o ∼ italic_π start_POSTSUBSCRIPT italic_θ start_POSTSUBSCRIPT old end_POSTSUBSCRIPT end_POSTSUBSCRIPT ( italic_p ) end_POSTSUBSCRIPT | [∑i=1Gπθ⁢(oi)πθold⁢(oi)⋅Ai−β⋅DKL⁢(πθ∥πref)],delimited-[]superscriptsubscript𝑖1𝐺⋅subscript𝜋𝜃subscript𝑜𝑖subscript𝜋subscript𝜃oldsubscript𝑜𝑖subscript𝐴𝑖⋅𝛽subscript𝐷KLconditionalsubscript𝜋𝜃subscript𝜋ref\displaystyle\Bigg{[}\sum_{i=1}^{G}\frac{\pi_{\theta}(o_{i})}{\pi_{\theta_{% \text{old}}}(o_{i})}\cdot A_{i}-\beta\cdot D_{\text{KL}}\left(\pi_{\theta}\,\|% \,\pi_{\text{ref}}\right)\Bigg{]},[ ∑ start_POSTSUBSCRIPT italic_i = 1 end_POSTSUBSCRIPT start_POSTSUPERSCRIPT italic_G end_POSTSUPERSCRIPT divide start_ARG italic_π start_POSTSUBSCRIPT italic_θ end_POSTSUBSCRIPT ( italic_o start_POSTSUBSCRIPT italic_i end_POSTSUBSCRIPT ) end_ARG start_ARG italic_π start_POSTSUBSCRIPT italic_θ start_POSTSUBSCRIPT old end_POSTSUBSCRIPT end_POSTSUBSCRIPT ( italic_o start_POSTSUBSCRIPT italic_i end_POSTSUBSCRIPT ) end_ARG ⋅ italic_A start_POSTSUBSCRIPT italic_i end_POSTSUBSCRIPT - italic_β ⋅ italic_D start_POSTSUBSCRIPT KL end_POSTSUBSCRIPT ( italic_π start_POSTSUBSCRIPT italic_θ end_POSTSUBSCRIPT ∥ italic_π start_POSTSUBSCRIPT ref end_POSTSUBSCRIPT ) ] , |   
+---|---|---|---  
+  
+where β𝛽\betaitalic_β is a regularization coefficient controlling the
+divergence from the reference policy.
+
+![Refer to caption](x1.png) (a) Total Rewards
+
+![Refer to caption](x2.png) (b) Response Length
+
+![Refer to caption](x3.png) (c) Validation Score
+
+Figure 2: Comparison of RL training curves with high-quality cold start and
+without cold start. TVG-R1, with a high-quality cold start, converges to
+higher scores, demonstrating the benefit of cold start in unlocking the
+model’s potential and enhancing its reasoning abilities, as indicated by the
+increased response length during training.
+
+Model | Filter | NExTG. | RexT. | Charad.  
+---|---|---|---|---  
+TVG-Coldstart-13k Dataset  
+Qwen2.5-VL-7B | - | 20.87 | 8.10 | 46.14  
+TVG-ColdStart | - | 26.14 | 26.26 | 42.19  
+TVG-R1-U | ×\times× | 23.92 | 29.14 | 29.57  
+TVG-R1 | ✓✓\checkmark✓ | 30.41 | 26.38 | 48.78  
+TVG-R1-Zero | - | 27.76 | 26.00 | 48.75  
+  
+Table 3: Validation of the effectiveness of high-quality cold start data.
+TVG-R1-U refers to performing the cold start on unfiltered data. The results
+show that TVG-R1 outperforms TVG-R1-U, highlighting the importance of high-
+quality SFT data.
+
+Model | Filter | NExTG. | RexT. | Charad.  
+---|---|---|---|---  
+TVG-RL-18k Dataset  
+Qwen2.5-VL-7B | - | 20.87 | 8.10 | 46.14  
+TVG-R1 | ×\times× | 27.88 | 25.91 | 46.96  
+TVG-R1 | ✓✓\checkmark✓ | 30.41 | 26.38 | 48.78  
+TVG-R1-Zero | ×\times× | 5.49 | 24.18 | 20.32  
+TVG-R1-Zero | ✓✓\checkmark✓ | 27.76 | 26.00 | 48.75  
+  
+Table 4: Validation of the effectiveness of RL data. TVG-R1-Zero refers to
+skipping the SFT cold start and directly conducting RL training. The results
+show that RL data filtering improves model performance, particularly in the
+absence of cold start.
+
+##  4 Experiment
+
+###  4.1 Experimental Setups
+
+##### Benchmarks and Evaluation Metrics
+
+We conduct comprehensive experiments on three benchmarks to evaluate the
+effectiveness of our approach. Specifically, we report results on the ReXTime
+[[22](https://arxiv.org/html/2507.18100v1#bib.bib22)], NExT-GQA
+[[28](https://arxiv.org/html/2507.18100v1#bib.bib28)], and Charades-STA
+[[21](https://arxiv.org/html/2507.18100v1#bib.bib21)] datasets. For
+evaluation, we adopt the R1@m metric for temporal video grounding (TVG). R1@m
+denotes the percentage of instances where the top-1 predicted segment achieves
+an Intersection-over-Union (IoU) greater than a threshold m𝑚mitalic_m, where
+m∈0.3,0.5,0.7𝑚0.30.50.7m\in{0.3,0.5,0.7}italic_m ∈ 0.3 , 0.5 , 0.7.
+Additionally, we report the mean IoU (mIoU) across all samples as an overall
+indicator of TVG accuracy.
+
+##### Baselines
+
+We compare our approach with several strong baselines, including instruction-
+tuned temporal localization models such as VTimeLLM
+[[23](https://arxiv.org/html/2507.18100v1#bib.bib23)], TimeChat
+[[35](https://arxiv.org/html/2507.18100v1#bib.bib35)], and VideoChat-TPO
+[[45](https://arxiv.org/html/2507.18100v1#bib.bib45)], as well as general-
+purpose multimodal large models like Qwen2.5-VL 7B and 32B
+[[2](https://arxiv.org/html/2507.18100v1#bib.bib2)]. For models marked with
+“thinking,” we employ the TVG-R1 prompt template to guide temporal grounding.
+
+##### Training Details.
+
+All experiments are conducted on 16 NVIDIA H100 (80GB) GPUs. For both training
+and inference, we limit the number of video frames to 64, with each frame
+processed at a resolution of 128×28×281282828128\times 28\times 28128 × 28 ×
+28 pixels. The backbone model is Qwen2.5-VL-7B
+[[2](https://arxiv.org/html/2507.18100v1#bib.bib2)]. The hyperparameters
+ϵ1subscriptitalic-ϵ1\epsilon_{1}italic_ϵ start_POSTSUBSCRIPT 1
+end_POSTSUBSCRIPT and ϵ2subscriptitalic-ϵ2\epsilon_{2}italic_ϵ
+start_POSTSUBSCRIPT 2 end_POSTSUBSCRIPT are set to 0.8 and 0.4, respectively.
+We first perform supervised fine-tuning (SFT) on the TVG-Coldstart-13K dataset
+for one epoch to obtain the TVG-cold start model. Next, we apply reinforcement
+learning (RL) on the TVG-RL-18K dataset to obtain the final TVG-R1 model,
+where the hyperparameter β𝛽\betaitalic_β in the KL divergence term of the GRPO
+algorithm is set to 0.0. The maximum response length is set to 2048 tokens,
+and the loss weights λtIoUsubscript𝜆tIoU\lambda_{\text{tIoU}}italic_λ
+start_POSTSUBSCRIPT tIoU end_POSTSUBSCRIPT and
+λformsubscript𝜆form\lambda_{\text{form}}italic_λ start_POSTSUBSCRIPT form
+end_POSTSUBSCRIPT are set to 0.9 and 0.1, respectively. Due to computational
+resource constraints, RL training is limited to 600 steps. Additional details
+can be found in the Appendix.
+
+Model | R@0.3 | R@0.5 | R@0.7 | mIoU  
+---|---|---|---|---  
+Base | 68.98 | 48.18 | 22.87 | 46.14  
+Base thinking | 36.48 | 21.83 | 9.76 | 23.48  
+VTimeLLM | 55.3 | 34.3 | 14.7 | 34.6  
+TimeChat | 51.5 | 32.2 | 13.4 | -  
+VideoChat-TPO | 58.3 | 40.2 | 18.4 | 38.1  
+TVG-ColdStart | 42.23 | 29.38 | 14.95 | 28.91  
+TVG-R1 | 70.75 | 50.46 | 23.92 | 46.73  
+  
+Table 5: Performance comparison on Charades dataset
+
+###  4.2 Main Results
+
+As shown in Tables [2](https://arxiv.org/html/2507.18100v1#S3.T2 "Table 2 ‣
+Final Reward 𝑟_𝑖 ‣ 3.3.1 Reward Modeling ‣ 3.3 Reinforcement Learning \(RL\)
+Stage ‣ 3 Datasets and Recipes ‣ Datasets and Recipes for Video Temporal
+Grounding via Reinforcement Learning") and
+[5](https://arxiv.org/html/2507.18100v1#S4.T5 "Table 5 ‣ Training Details. ‣
+4.1 Experimental Setups ‣ 4 Experiment ‣ Datasets and Recipes for Video
+Temporal Grounding via Reinforcement Learning"), our experiments across three
+different benchmarks demonstrate the effectiveness of VTG-R1 on video temporal
+grounding tasks. Two key observations can be drawn.
+
+Outstanding Performance of VTG-R1: VTG-R1 consistently outperforms previous
+models on most benchmarks, highlighting the importance of explicit reasoning
+in addressing video temporal grounding challenges. These results further
+underscore the impact of reinforcement learning in boosting model performance.
+
+Importance of Reinforcement Learning: The SFT-based model, TVG-ColdStart, does
+not consistently yield performance gains and even exhibits a slight decrease
+after SFT, possibly due to overfitting or limited generalization to unseen
+scenarios. In contrast, after reinforcement learning, VTG-R1 achieves
+substantial improvements, strongly suggesting that RL is essential for
+developing robust reasoning capabilities that generalize effectively.
+
+###  4.3 Analysis
+
+To gain deeper insights into the impact of different variants, we present
+experimental results under additional configurations. Specifically, we analyze
+variants associated with cold start process and RL data selection.
+
+##### Finding 1: High-Quality cold start data is crucial.
+
+As shown in Fig. [2](https://arxiv.org/html/2507.18100v1#S3.F2 "Figure 2 ‣
+3.3.2 GRPO Training ‣ 3.3 Reinforcement Learning \(RL\) Stage ‣ 3 Datasets and
+Recipes ‣ Datasets and Recipes for Video Temporal Grounding via Reinforcement
+Learning"), we compare the RL training curves of TVG-R1 and TVG-R1-Zero, where
+TVG-R1-Zero refers to skipping the SFT cold start and directly performing RL
+training. It can be observed that, in terms of both total rewards during
+training and test set performance, TVG-R1 converges to higher scores,
+suggesting that a high-quality cold start helps unlock the model’s potential
+in the RL phase. Furthermore, as illustrated in Fig.
+[2](https://arxiv.org/html/2507.18100v1#S3.F2 "Figure 2 ‣ 3.3.2 GRPO Training
+‣ 3.3 Reinforcement Learning \(RL\) Stage ‣ 3 Datasets and Recipes ‣ Datasets
+and Recipes for Video Temporal Grounding via Reinforcement Learning")(b), the
+model initialized with a cold start exhibits a higher response length at the
+outset, with a more pronounced increase throughout training. This indicates
+that the cold start enhances the model’s reasoning ability, enabling it to
+derive correct answers through more detailed reasoning.
+
+We further examine the impact of cold start response length on model
+performance by limiting the maximum output length of Gemini-2.5-Pro. We re-
+annotate different cold start datasets, and the final results after RL
+training are reported in Table [6](https://arxiv.org/html/2507.18100v1#S4.T6
+"Table 6 ‣ Finding 1: High-Quality cold start data is crucial. ‣ 4.3 Analysis
+‣ 4 Experiment ‣ Datasets and Recipes for Video Temporal Grounding via
+Reinforcement Learning"). The results indicate that longer response lengths
+during the cold start phase are more beneficial for model optimization.
+
+Additionally, as shown in Table [4](https://arxiv.org/html/2507.18100v1#S3.T4
+"Table 4 ‣ 3.3.2 GRPO Training ‣ 3.3 Reinforcement Learning \(RL\) Stage ‣ 3
+Datasets and Recipes ‣ Datasets and Recipes for Video Temporal Grounding via
+Reinforcement Learning"), we compare TVG-R1 and TVG-R1-U, where TVG-R1-U
+denotes using the unfiltered 56K dataset for cold start followed by RL. Note
+that all RL is performed on the TVG-RL-18K dataset. The results show that
+TVG-R1 significantly outperforms TVG-R1-U, demonstrating that selecting high-
+quality cold start data is more effective for learning robust reasoning
+abilities than simply increasing the quantity of training data.
+
+Max Length | NExTGQA | RexTime | Charades  
+---|---|---|---  
+2048 | 30.41 | 26.38 | 48.78  
+1024 | 21.80 | 25.71 | 41.38  
+512 | 24.09 | 24.91 | 46.31  
+  
+Table 6: Impact of cold start length on performance. The results after RL
+training show that longer response lengths during cold start are more
+beneficial for the model’s optimization.
+
+##### Finding 2: Controlling the difficulty of RL training data is necessary.
+
+As shown in Table [4](https://arxiv.org/html/2507.18100v1#S3.T4 "Table 4 ‣
+3.3.2 GRPO Training ‣ 3.3 Reinforcement Learning \(RL\) Stage ‣ 3 Datasets and
+Recipes ‣ Datasets and Recipes for Video Temporal Grounding via Reinforcement
+Learning"), we compare the results of RL training with and without data
+filtering under both the TVG-R1 and TVG-R1-Zero settings. Note that TVG-R1 is
+initialized with the TVG-Coldstart-13K dataset. The results indicate that,
+without cold start, models trained on unfiltered data struggle to learn,
+whereas data filtering leads to substantial performance improvements.
+Moreover, for models initialized with cold start, filtering the RL data
+further benefits model optimization. These findings suggest that if the
+training data is too challenging or confusing in the early stages, the model
+may have difficulty learning and achieving convergence.
+
+##  5 Conclusion
+
+In this work, we present a novel two-stage training framework for Video
+Temporal Grounding (VTG) to enhance the capabilities of large vision-language
+models. Extensive experiments on multiple benchmarks demonstrate that high-
+quality cold-start data and difficulty-controlled RL training are both crucial
+for improving model performance and generalization. Our approach is shown to
+be scalable and effective for real-world deployment.
+
+## Limitations
+
+While our proposed framework demonstrates significant improvements for Video
+Temporal Grounding (VTG), several limitations remain. First, the approach
+relies heavily on high-quality, curated cold-start data, which may be
+difficult to obtain in certain domains or low-resource scenarios. Second, the
+reinforcement learning stage introduces considerable computational overhead,
+potentially limiting accessibility for smaller organizations or academic users
+with constrained resources. Future work should explore ways to improve data
+efficiency, optimize RL for resource-limited settings, and broaden the
+applicability of this training paradigm to more complex or diverse multimodal
+tasks.
+
+## References
+
+  * Anne Hendricks et al. [2017] Lisa Anne Hendricks, Oliver Wang, Eli Shechtman, Josef Sivic, Trevor Darrell, and Bryan Russell.  Localizing moments in video with natural language.  In _Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV)_ , 2017. 
+  * Bai et al. [2025] Shuai Bai, Keqin Chen, Xuejing Liu, Jialin Wang, Wenbin Ge, Sibo Song, Kai Dang, Peng Wang, Shijie Wang, Jun Tang, et al.  Qwen2. 5-vl technical report.  _arXiv preprint arXiv:2502.13923_ , 2025. 
+  * Bai et al. [2022] Yuntao Bai, Andy Jones, Kamal Ndousse, Amanda Askell, Anna Chen, Nova DasSarma, Dawn Drain, Stanislav Fort, Deep Ganguli, Tom Henighan, et al.  Training a helpful and harmless assistant with reinforcement learning from human feedback.  _arXiv preprint arXiv:2204.05862_ , 2022. 
+  * Chen et al. [2023] Ruizhe Chen, Jianfei Yang, Huimin Xiong, Jianhong Bai, Tianxiang Hu, Jin Hao, Yang Feng, Joey Tianyi Zhou, Jian Wu, and Zuozhu Liu.  Fast model debias with machine unlearning.  _Advances in Neural Information Processing Systems_ , 36:14516–14539, 2023. 
+  * Chen et al. [2024a] Ruizhe Chen, Tianxiang Hu, Yang Feng, and Zuozhu Liu.  Learnable privacy neurons localization in language models.  _arXiv preprint arXiv:2405.10989_ , 2024a. 
+  * Chen et al. [2024b] Ruizhe Chen, Yichen Li, Jianfei Yang, Joey Tianyi Zhou, Jian Wu, and Zuozhu Liu.  Identifying and mitigating social bias knowledge in language models.  _arXiv preprint arXiv:2408.11843_ , 2024b. 
+  * Chen et al. [2024c] Ruizhe Chen, Xiaotian Zhang, Meng Luo, Wenhao Chai, and Zuozhu Liu.  Pad: Personalized alignment of llms at decoding-time.  _arXiv preprint arXiv:2410.04070_ , 2024c. 
+  * Chen et al. [2025] Ruizhe Chen, Wenhao Chai, Zhifei Yang, Xiaotian Zhang, Joey Tianyi Zhou, Tony Quek, Soujanya Poria, and Zuozhu Liu.  Diffpo: Diffusion-styled preference optimization for efficient inference-time alignment of large language models.  _arXiv preprint arXiv:2503.04240_ , 2025. 
+  * Dai et al. [2023] Wenliang Dai, Junnan Li, Dongxu Li, Anthony M. H. Tiong, Junqi Zhao, Weisheng Wang, Boyang Li, Pascale Fung, and Steven C. H. Hoi.  Instructblip: Towards general-purpose vision-language models with instruction tuning.  _arXiv preprint arXiv:2305.06500_ , 2023. 
+  * Fan et al. [2024a] Zhiting Fan, Ruizhe Chen, Tianxiang Hu, and Zuozhu Liu.  Fairmt-bench: Benchmarking fairness for multi-turn dialogue in conversational llms.  _arXiv preprint arXiv:2410.19317_ , 2024a. 
+  * Fan et al. [2024b] Zhiting Fan, Ruizhe Chen, Ruiling Xu, and Zuozhu Liu.  Biasalert: A plug-and-play tool for social bias detection in llms.  _arXiv preprint arXiv:2407.10241_ , 2024b. 
+  * Feng et al. [2025a] Kaituo Feng, Kaixiong Gong, Bohao Li, Zonghao Guo, Yibing Wang, Tianshuo Peng, Junfei Wu, Xiaoying Zhang, Benyou Wang, and Xiangyu Yue.  Video-r1: Reinforcing video reasoning in mllms.  _arXiv preprint arXiv:2503.21776_ , 2025a. 
+  * Feng et al. [2025b] Zhaopeng Feng, Shaosheng Cao, Jiahan Ren, Jiayuan Su, Ruizhe Chen, Yan Zhang, Zhe Xu, Yao Hu, Jian Wu, and Zuozhu Liu.  Mt-r1-zero: Advancing llm-based machine translation via r1-zero-like reinforcement learning.  _arXiv preprint arXiv:2504.10160_ , 2025b. 
+  * Gan et al. [2023] Tian Gan, Xiao Wang, Yan Sun, Jianlong Wu, Qingpei Guo, and Liqiang Nie.  Temporal sentence grounding in streaming videos.  In _Proceedings of the 31st ACM International Conference on Multimedia_ , pages 4637–4646, 2023. 
+  * Gao et al. [2017] Jiyang Gao, Chen Sun, Zhenheng Yang, and Ram Nevatia.  Tall: Temporal activity localization via language query.  In _Proceedings of the IEEE International Conference on Computer Vision (ICCV)_ , pages 5277–5285. IEEE, 2017.  [10.1109/ICCV.2017.563](https:/doi.org/10.1109/ICCV.2017.563). 
+  * Grauman et al. [2022] Kristen Grauman, Andrew Westbury, Eugene Byrne, Zachary Chavis, Antonino Furnari, Rohit Girdhar, Jackson Hamburger, Hao Jiang, Miao Liu, and Xingyu Liu _et al._ Ego4D: Around the world in 3,000 hours of egocentric video.  In _Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)_ , pages 18995–19012, 2022. 
+  * Guo et al. [2025] Daya Guo, Dejian Yang, Haowei Zhang, Junxiao Song, Ruoyu Zhang, Runxin Xu, Qihao Zhu, Shirong Ma, Peiyi Wang, Xiao Bi, et al.  Deepseek-r1: Incentivizing reasoning capability in llms via reinforcement learning.  _arXiv preprint arXiv:2501.12948_ , 2025. 
+  * Guo et al. [2024] Yongxin Guo, Jingyu Liu, Mingda Li, Dingxin Cheng, Xiaoying Tang, Dianbo Sui, Qingbin Liu, Xi Chen, and Kevin Zhao.  VTG-LLM: Integrating timestamp knowledge into video LLMs for enhanced video temporal grounding.  _arXiv preprint arXiv:2405.13382_ , 2024. 
+  * Hendricks et al. [2017a] Lisa Anne Hendricks, Oliver Wang, Eli Shechtman, Josef Sivic, Trevor Darrell, and Bryan C. Russell.  Localizing moments in video with natural language.  In _Proceedings of the IEEE International Conference on Computer Vision (ICCV)_ , pages 5804–5813. IEEE, 2017a. 
+  * Hendricks et al. [2017b] Lisa Anne Hendricks, Oliver Wang, Eli Shechtman, Josef Sivic, Trevor Darrell, and Bryan C. Russell.  Localizing moments in video with natural language.  In _Proceedings of the IEEE International Conference on Computer Vision (ICCV)_ , pages 5804–5813, 2017b. 
+  * Hendricks et al. [2017c] Lisa Anne Hendricks, Oliver Wang, Eli Shechtman, Josef Sivic, Trevor Darrell, and Bryan C. Russell.  Localizing moments in video with natural language.  In _Proceedings of the IEEE International Conference on Computer Vision (ICCV)_ , pages 5804–5813, 2017c. 
+  * Huang and et al. [2024] Bin Huang and et al.  Rextime: Temporal grounding benchmark for reasoning-intensive videos.  In _Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)_ , pages 14313–14323, 2024. 
+  * Huang et al. [2024a] Bin Huang, Xin Wang, Hong Chen, Zihan Song, and Wenwu Zhu.  Vtimellm: Empower llm to grasp video moments.  In _Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)_ , pages 14271–14280, 2024a. 
+  * Huang et al. [2024b] De-An Huang, Shijia Liao, Subhashree Radhakrishnan, Hongxu Yin, Pavlo Molchanov, Zhiding Yu, and Jan Kautz.  Lita: Language instructed temporal-localization assistant.  In _Computer Vision – ECCV 2024, Part XXX (Proc. 18th European Conference on Computer Vision)_ , pages 202–218. Springer, 2024b. 
+  * Huang et al. [2025] Wenxuan Huang, Bohan Jia, Zijie Zhai, Shaosheng Cao, Zheyu Ye, Fei Zhao, Zhe Xu, Yao Hu, and Shaohui Lin.  Vision-r1: Incentivizing reasoning capability in multimodal large language models.  _arXiv preprint arXiv:2503.06749_ , 2025. 
+  * Li et al. [2021] Hao Li, Shuhui Wang, Ying Zhou, and et al.  Vision-based abnormal event detection in industrial manufacturing processes: A review.  _Computers in Industry_ , 130:103469, 2021.  [10.1016/j.compind.2021.103469](https:/doi.org/10.1016/j.compind.2021.103469). 
+  * Li et al. [2023a] Kunchang Li, Yinan He, Yi Wang, Yizhuo Li, Wenhai Wang, Ping Luo, Yali Wang, Limin Wang, and Yu Qiao.  Videochat: Chat-centric video understanding.  _arXiv preprint arXiv:2305.06355_ , 2023a. 
+  * Li et al. [2023b] Kunchang Li, Yinan He, Yi Wang, Yizhuo Li, Wenhai Wang, Ping Luo, Yali Wang, Limin Wang, and Yu Qiao.  Videochat: Chat-centric video understanding.  In _arXiv preprint arXiv:2305.06355_ , 2023b. 
+  * Liu et al. [2025a] Ye Liu, Kevin Qinghong Lin, Chang Wen Chen, and Mike Zheng Shou.  Videomind: A chain-of-lora agent for long video reasoning.  _arXiv preprint arXiv:2503.13444_ , 2025a. 
+  * Liu et al. [2025b] Zichen Liu, Changyu Chen, Wenjun Li, Penghui Qi, Tianyu Pang, Chao Du, Wee Sun Lee, and Min Lin.  Understanding r1-zero-like training: A critical perspective.  _arXiv preprint arXiv:2503.20783_ , 2025b. 
+  * Meng et al. [2025] Fanqing Meng, Lingxiao Du, Zongkai Liu, Zhixiang Zhou, Quanfeng Lu, Daocheng Fu, Botian Shi, Wenhai Wang, Junjun He, Kaipeng Zhang, et al.  Mm-eureka: Exploring visual aha moment with rule-based large-scale reinforcement learning.  _CoRR_ , 2025. 
+  * Oncescu et al. [2021] Andreea-Maria Oncescu, Joao F Henriques, Yang Liu, Andrew Zisserman, and Samuel Albanie.  Queryd: A video dataset with high-quality text and audio narrations.  In _ICASSP 2021-2021 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)_ , pages 2265–2269. IEEE, 2021. 
+  * Ouyang et al. [2022] Long Ouyang, Jeffrey Wu, Xu Jiang, Diogo Almeida, Carroll Wainwright, Pamela Mishkin, Chong Zhang, Sandhini Agarwal, Katarina Slama, Alex Ray, et al.  Training language models to follow instructions with human feedback.  _Advances in neural information processing systems_ , 35:27730–27744, 2022. 
+  * Qian et al. [2024] Long Qian, Juncheng Li, Yu Wu, Yaobo Ye, Hao Fei, Tat-Seng Chua, Yueting Zhuang, and Siliang Tang.  Momentor: Advancing video large language model with fine-grained temporal reasoning.  In _Proceedings of the 41st International Conference on Machine Learning (ICML)_ , 2024. 
+  * Ren et al. [2024] Shuhuai Ren, Linli Yao, Shicheng Li, Xu Sun, and Lu Hou.  Timechat: A time-sensitive multimodal large language model for long video understanding.  In _Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)_ , pages 14313–14323, 2024. 
+  * Schulman et al. [2017] John Schulman, Filip Wolski, Prafulla Dhariwal, Alec Radford, and Oleg Klimov.  Proximal policy optimization algorithms.  _CoRR_ , abs/1707.06347, 2017.  A simpler and effective first-order alternative to TRPO via surrogate objective and clipping. 
+  * Shao et al. [2024] Zhihong Shao et al.  Deepseekmath: Pushing the limits of mathematical reasoning in open language models.  _arXiv preprint arXiv:2402.03300_ , 2024.  Introduces Group Relative Policy Optimization (GRPO) as a PPO variant enhancing reasoning ability and memory efficiency. 
+  * Stiennon et al. [2020] Nisan Stiennon, Long Ouyang, Jeffrey Wu, Daniel Ziegler, Ryan Lowe, Chelsea Voss, Alec Radford, Dario Amodei, and Paul F Christiano.  Learning to summarize with human feedback.  _Advances in neural information processing systems_ , 33:3008–3021, 2020. 
+  * Sultani et al. [2018] Waqas Sultani, Chen Chen, and Mubarak Shah.  Real-world anomaly detection in surveillance videos.  In _Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition (CVPR)_ , pages 6479–6488, 2018. 
+  * Twinanda et al. [2017] Ap Twinanda, Sherif Shehata, Didier Mutter, Jacques Marescaux, Michel de Mathelin, and Nicolas Padoy.  Endonet: A deep architecture for recognition tasks on laparoscopic videos.  _IEEE Transactions on Medical Imaging_ , 36(1):86–97, 2017.  [10.1109/TMI.2016.2593957](https:/doi.org/10.1109/TMI.2016.2593957). 
+  * Wang et al. [2024] Haibo Wang, Zhiyang Xu, Yu Cheng, Shizhe Diao, Yufan Zhou, Yixin Cao, Qifan Wang, Weifeng Ge, and Lifu Huang.  Grounded-videollm: Sharpening fine-grained temporal grounding in video large language models.  _arXiv preprint arXiv:2410.03290_ , 2024. 
+  * Wang et al. [2025] Ye Wang, Ziheng Wang, Boshen Xu, Yang Du, Kejun Lin, Zihan Xiao, Zihao Yue, Jianzhong Ju, Liang Zhang, Dingyi Yang, et al.  Time-r1: Post-training large vision language model for temporal video grounding.  _arXiv preprint arXiv:2503.13377_ , 2025. 
+  * Wang et al. [2023] Yi Wang, Yinan He, Yizhuo Li, Kunchang Li, Jiashuo Yu, Xin Ma, Xinhao Li, Guo Chen, Xinyuan Chen, Yaohui Wang, et al.  Internvid: A large-scale video-text dataset for multimodal understanding and generation.  _arXiv preprint arXiv:2307.06942_ , 2023. 
+  * Wang et al. [2022] Zhenzhi Wang, Limin Wang, Tao Wu, Tianhao Li, and Gangshan Wu.  Negative sample matters: A renaissance of metric learning for temporal grounding.  In _Proceedings of the AAAI Conference on Artificial Intelligence_ , volume 36, pages 2613–2623, 2022. 
+  * Yan et al. [2025] Ziang Yan, Zhilin Li, Yinan He, Chenting Wang, Kunchang Li, Xinhao Li, Xiangyu Zeng, Zilei Wang, Yali Wang, Yu Qiao, et al.  Task preference optimization: Improving multimodal large language models with vision task alignment.  In _Proceedings of the Computer Vision and Pattern Recognition Conference_ , pages 29880–29892, 2025. 
+  * Yu et al. [2025] Qiying Yu, Zheng Zhang, Ruofei Zhu, Yufeng Yuan, Xiaochen Zuo, Yu Yue, Weinan Dai, Tiantian Fan, Gaohong Liu, Lingjun Liu, et al.  Dapo: An open-source llm reinforcement learning system at scale.  _arXiv preprint arXiv:2503.14476_ , 2025. 
+  * Zala et al. [2023] Abhay Zala, Jaemin Cho, Satwik Kottur, Xilun Chen, Barlas Oguz, Yashar Mehdad, and Mohit Bansal.  Hierarchical video-moment retrieval and step-captioning.  In _Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition_ , pages 23056–23065, 2023. 
+  * Zheng et al. [2025] Yaowei Zheng, Junting Lu, Shenzhi Wang, Zhangchi Feng, Dongdong Kuang, and Yuwen Xiong.  Easyr1: An efficient, scalable, multi-modality rl training framework.  <https://github.com/hiyouga/EasyR1>, 2025. 
+
+##  Appendix A Implementation Details
+
+###  A.1 Recipes
+
+##### TVG-Coldstart Dataset
+
+We use gemini-2.5-pro-preview-05-06 API for annotation and set the max length
+to 8192. Samples with IoU larger than 0.8 are selected for coldstart.
+
+##### Coldstart Stage
+
+We finetune the base model on the TVG-Coldstart dataset. The finetuning is
+performed on 8 H100 GPUs with batch size 8 for 1 epoch. The learning rate is
+set to 1e-6.
+
+##### RL Stage
+
+We perform RL training base on Easy-R1
+[[48](https://arxiv.org/html/2507.18100v1#bib.bib48)] implementations. The
+maximum response length is set to 2048. The batch size is set to 128 and
+trained for 600 steps. The number of GRPO samples G𝐺Gitalic_G is set to 8.
+
+###  A.2 Experiments
+
+Evaluations are conducted using the official VideoMind
+[[29](https://arxiv.org/html/2507.18100v1#bib.bib29)] implementation. The
+maximum response length is set to 2048 tokens, and all other inference
+hyperparameters are kept at their default values as provided by the
+transformers library.
+
+##  Appendix B Qualitative Result
+
+###  B.1 TVG-R1 Evaluation Cases
+
+We provide qualitative cases for TVG-R1 in Fig.
+[3](https://arxiv.org/html/2507.18100v1#A2.F3 "Figure 3 ‣ B.1 TVG-R1
+Evaluation Cases ‣ Appendix B Qualitative Result ‣ Datasets and Recipes for
+Video Temporal Grounding via Reinforcement Learning"). These comprehensive
+data document the reasoning process and prediction results of temporal
+localization models in video segment understanding and localization tasks.
+Each data entry includes basic video information, the query, the annotated
+time span, the model’s step-by-step reasoning process, and the predicted time
+span. The reasoning content typically provides a detailed description of the
+sequence of key events and action nodes in the video, helping the model
+clarify the start and end points of the target segment. The prediction results
+are evaluated by comparing them with the ground-truth spans using metrics such
+as IoU. This type of data not only highlights the combination of multi-step
+reasoning and temporal cues, but also reflects the model’s localization
+capability in concrete cases, providing a solid basis for performance
+evaluation and analysis.
+
+![Refer to caption](extracted/6648788/images/evaluation_case_study.png) Figure
+3: TVG-R1 Evaluation Cases.
+
+###  B.2 TVG-Coldstart Dataset Cases
+
+We provide qualitative cases for TVG-Coldstart Dataset in Fig.
+[4](https://arxiv.org/html/2507.18100v1#A2.F4 "Figure 4 ‣ B.2 TVG-Coldstart
+Dataset Cases ‣ Appendix B Qualitative Result ‣ Datasets and Recipes for Video
+Temporal Grounding via Reinforcement Learning"). These cold-start data samples
+employ step-by-step reasoning to document the model’s decision-making process
+for temporal localization tasks. The data cover the identification of key
+actions and event nodes within video segments, clearly illustrating how the
+model analyzes each segment and filters events to pinpoint the exact time
+period required by the query. This type of data emphasizes multi-step
+reasoning combined with temporal cues, providing high-quality reasoning
+samples for the subsequent training and evaluation of video understanding
+models.
+
+![Refer to caption](extracted/6648788/images/cold_start_case_study.png) Figure
+4: TVG-Coldstart Dataset Cases.
+
+##  Appendix C Additional Related Works
+
+Early studies indicate that Reinforcement Learning with Human Feedback (RLHF)
+can effectively align Large Language Models (LLMs) with human preferences,
+primarily ensuring large models to follow human intentions and values
+[[38](https://arxiv.org/html/2507.18100v1#bib.bib38),
+[3](https://arxiv.org/html/2507.18100v1#bib.bib3),
+[33](https://arxiv.org/html/2507.18100v1#bib.bib33),
+[8](https://arxiv.org/html/2507.18100v1#bib.bib8),
+[4](https://arxiv.org/html/2507.18100v1#bib.bib4),
+[6](https://arxiv.org/html/2507.18100v1#bib.bib6),
+[7](https://arxiv.org/html/2507.18100v1#bib.bib7),
+[5](https://arxiv.org/html/2507.18100v1#bib.bib5),
+[10](https://arxiv.org/html/2507.18100v1#bib.bib10),
+[11](https://arxiv.org/html/2507.18100v1#bib.bib11)]. More recent research has
+shifted attention toward Reinforcement Learning with Verifiable Reward (RLVR)
+for tasks characterized by deterministic answers
+[[46](https://arxiv.org/html/2507.18100v1#bib.bib46),
+[30](https://arxiv.org/html/2507.18100v1#bib.bib30),
+[13](https://arxiv.org/html/2507.18100v1#bib.bib13)].
+
+As a pioneering open-source LLM, DeepSeek-R1
+[[17](https://arxiv.org/html/2507.18100v1#bib.bib17)] employs Generative
+Reward-driven Policy Optimization (GRPO)
+[[37](https://arxiv.org/html/2507.18100v1#bib.bib37)] to augment its reasoning
+performance, leveraging carefully designed rule-based rewards that integrate
+both reasoning templates and final outcomes. Within the context of LVLMs,
+recent methodologies have applied GRPO to multimodal image reasoning tasks,
+thereby substantially improving image comprehension
+[[31](https://arxiv.org/html/2507.18100v1#bib.bib31),
+[25](https://arxiv.org/html/2507.18100v1#bib.bib25)] and video understanding
+[[42](https://arxiv.org/html/2507.18100v1#bib.bib42),
+[12](https://arxiv.org/html/2507.18100v1#bib.bib12)].
+
+Generated on Thu Jul 24 05:23:12 2025 by [LaTeXML![Mascot
+Sammy](data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==)](http://dlmf.nist.gov/LaTeXML/)
+

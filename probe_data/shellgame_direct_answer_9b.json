@@ -1,0 +1,1159 @@
+{
+  "n": 200,
+  "acc": 4.0,
+  "unresolved": 157,
+  "wrong": [
+    {
+      "id": 2,
+      "gt": "B",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's trace the object's movement step by step.\n\n- **Initial Position (00:00):** The object is at `c4`.\n"
+    },
+    {
+      "id": 10,
+      "gt": "B",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's trace the object's movement step by step.\n\n- **Initial Position (00:00):** The object, a red circle, is located"
+    },
+    {
+      "id": 25,
+      "gt": "D",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's trace the object's movement through the video frames.\n\n- **Frame 1:** The object, a red circle, is at position **b1"
+    },
+    {
+      "id": 13,
+      "gt": "D",
+      "pred": "A",
+      "resp": "Let's trace the object's movement through the video frames.\n\n- The video starts with a red circle at position b3.\n- A gray square appears"
+    },
+    {
+      "id": 16,
+      "gt": "A",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's trace the object's movement through the video frames.\n\n- The object starts at position **c2**.\n- It moves to **b3**."
+    },
+    {
+      "id": 0,
+      "gt": "B",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's trace the object's movement step by step.\n\n- **Initial Position (00:00):** The object is at `c2`.\n"
+    },
+    {
+      "id": 17,
+      "gt": "A",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's trace the object's movement through the video frames.\n\n- **Initial Position (00:00):** The object, a red circle, is"
+    },
+    {
+      "id": 24,
+      "gt": "D",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's trace the object's movement through the video frames.\n\n- **Initial Position (00:00):** The object, a red circle, is"
+    },
+    {
+      "id": 21,
+      "gt": "A",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's trace the object's movement through the video frames.\n\n- **Frame 1:** The object is at position `c3`.\n- **Frame"
+    },
+    {
+      "id": 22,
+      "gt": "D",
+      "pred": "A",
+      "resp": "At the end of the video, the object is no longer visible in any of the cells. It was initially at b4, then moved to c2,"
+    },
+    {
+      "id": 31,
+      "gt": "B",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's analyze the video step by step.\n\n- **Initial State (0:00)**: The object is a red circle located at position **b"
+    },
+    {
+      "id": 27,
+      "gt": "D",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's analyze the video step by step:\n\n1. **Initial State (0:00)**:\n   - The grid is 4x4"
+    },
+    {
+      "id": 11,
+      "gt": "D",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's analyze the video step by step:\n\n1. **Initial State (0:00)**: The object is located at position **d3**."
+    },
+    {
+      "id": 12,
+      "gt": "D",
+      "pred": "A",
+      "resp": "At the end of the video, the object is no longer visible in any of the cells. It was initially at d2, then moved to a2,"
+    },
+    {
+      "id": 14,
+      "gt": "B",
+      "pred": "A",
+      "resp": "At the end of the video, the object is located at position c3.\n"
+    },
+    {
+      "id": 19,
+      "gt": "B",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's analyze the video step by step:\n\n1. **Initial State (0:00)**:\n   - The object is located at position **"
+    },
+    {
+      "id": 26,
+      "gt": "A",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's analyze the video step by step.\n\n- **Initial State (00:00):** The object, a red circle, is located at position"
+    },
+    {
+      "id": 18,
+      "gt": "D",
+      "pred": "A",
+      "resp": "At the start, the object is at a1. It then moves to a2 and stays there until the end of the video. Therefore, the final position"
+    },
+    {
+      "id": 1,
+      "gt": "B",
+      "pred": "A",
+      "resp": "At the start of the video, the object is at a1. It then moves to d1. After that, it disappears. So, at the end"
+    },
+    {
+      "id": 5,
+      "gt": "D",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's analyze the video step by step:\n\n1. **Initial State (0.0s - 2.0s):**\n   - The object"
+    },
+    {
+      "id": 9,
+      "gt": "A",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's analyze the video step by step.\n\n- **Initial State (00:00):** The object, a red circle, is located at position"
+    },
+    {
+      "id": 7,
+      "gt": "B",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's trace the object's movement through the video frames.\n\n- **Frame 1:** The object, a red circle, is located at position c1"
+    },
+    {
+      "id": 15,
+      "gt": "D",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's analyze the video step by step:\n\n1. **Initial State (0:00)**:\n   - The object is at position **a"
+    },
+    {
+      "id": 28,
+      "gt": "A",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's analyze the video step by step.\n\n- **Initial state (00:00):** The object is a red circle located at position d2"
+    },
+    {
+      "id": 30,
+      "gt": "D",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's analyze the video step by step:\n\n1. **Initial Position (0:00)**: The red circle is at position **d3**."
+    },
+    {
+      "id": 29,
+      "gt": "D",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's analyze the video step by step:\n\n1. **Initial State (0:00)**:\n   - The object is at position **c"
+    },
+    {
+      "id": 6,
+      "gt": "D",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's analyze the video step by step:\n\n1. **Initial State (0:00)**:\n   - The object is at position **d"
+    },
+    {
+      "id": 8,
+      "gt": "B",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's analyze the video step by step:\n\n1. **Initial State (0.0s - 2.0s):**\n   - The object"
+    },
+    {
+      "id": 20,
+      "gt": "C",
+      "pred": "A",
+      "resp": "Let's analyze the video step by step.\n\n- At the beginning (00:00), the object is at position **d4**.\n-"
+    },
+    {
+      "id": 4,
+      "gt": "B",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's trace the object's movement step by step.\n\n- **Initial Position (00:00):** The object is at a2.\n-"
+    },
+    {
+      "id": 35,
+      "gt": "A",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's trace the object's movement through the video frames.\n\n- The video starts with a red circle in cell c4.\n- In the next frame"
+    },
+    {
+      "id": 33,
+      "gt": "D",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's trace the object's movement through the video frames.\n\n- **Frame 1:** The object, a red circle, is in cell `a1"
+    },
+    {
+      "id": 37,
+      "gt": "A",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's trace the object's movement through the video frames.\n\n- **Frame 1:** The object is at position c1.\n- **Frame "
+    },
+    {
+      "id": 39,
+      "gt": "C",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's trace the object's movement step by step.\n\n- **Initial Position (00:00):** The object is at b3.\n-"
+    },
+    {
+      "id": 43,
+      "gt": "C",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's trace the object's movement through the video frames.\n\n- **Frame 1:** The object, a red circle, is at position c1."
+    },
+    {
+      "id": 48,
+      "gt": "C",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's trace the object's movement through the video frames.\n\n- The video starts with a red circle at position d3.\n- In the next frame"
+    },
+    {
+      "id": 42,
+      "gt": "B",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's trace the object's movement through the video frames.\n\n- **Frame 1:** The object is at position d4.\n- **Frame "
+    },
+    {
+      "id": 45,
+      "gt": "A",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's trace the object's movement through the video frames.\n\n- The video starts with the object at position **c3**.\n- It then moves to"
+    },
+    {
+      "id": 47,
+      "gt": "A",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's trace the object's movement step by step.\n\n- **Start (00:00):** The object is at position **a4**.\n"
+    },
+    {
+      "id": 54,
+      "gt": "C",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's trace the object's movement step by step.\n\n- **Start (00:00):** The object is at position **c4**.\n"
+    },
+    {
+      "id": 40,
+      "gt": "B",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's analyze the video step by step:\n\n1. **Initial State (0:00)**: The object is located at position **c1**."
+    },
+    {
+      "id": 32,
+      "gt": "D",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's analyze the video step by step:\n\n1. **Initial Position (0:00)**: The red circle is at position **c1**."
+    },
+    {
+      "id": 34,
+      "gt": "A",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's trace the object's movement step by step.\n\n- **Initial Position (00:00):** The object is at c3.\n-"
+    },
+    {
+      "id": 38,
+      "gt": "A",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's trace the object's movement through the video frames.\n\n- **Frame 1:** The object is at position a3.\n- **Frame "
+    },
+    {
+      "id": 58,
+      "gt": "A",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's trace the object's movement through the video frames.\n\n- **Initial Position (00:00):** The object, a red circle, is"
+    },
+    {
+      "id": 60,
+      "gt": "B",
+      "pred": "A",
+      "resp": "Let's analyze the video step by step.\n\n- At the beginning (00:00), the red circle is at position **c4**.\n"
+    },
+    {
+      "id": 41,
+      "gt": "D",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's trace the object's movement through the video frames.\n\n- **Frame 1:** The object (a red circle) is at position **b3"
+    },
+    {
+      "id": 50,
+      "gt": "C",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's analyze the video step by step:\n\n1. **Initial State (0:00)**: The object is located at position d4.\n\n"
+    },
+    {
+      "id": 59,
+      "gt": "A",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's trace the object's movement through the video frames.\n\n- **Frame 1:** The object, a red circle, is in cell d1."
+    },
+    {
+      "id": 46,
+      "gt": "B",
+      "pred": "A",
+      "resp": "At the end of the video, the object is located at position **d3**.\n\n\u2705 Correct answer: **A. d3**\n"
+    },
+    {
+      "id": 63,
+      "gt": "A",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's trace the object's movement through the video frames.\n\n- **Frame 1:** The object, a red circle, is located at position `a"
+    },
+    {
+      "id": 53,
+      "gt": "A",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's analyze the video step by step:\n\n1. **Initial Frame (00:00)**: The object is located at position **c3"
+    },
+    {
+      "id": 51,
+      "gt": "A",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's trace the object's movement through the video frames.\n\n- **Frame 1:** The object (a red circle) is at position **a1"
+    },
+    {
+      "id": 49,
+      "gt": "D",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's trace the object's movement through the frames:\n\n- **Frame 1:** The object is at **a2**.\n- **Frame 2"
+    },
+    {
+      "id": 44,
+      "gt": "B",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's analyze the video step by step:\n\n1. **Initial State (0:00)**:\n   - The object is at position **b"
+    },
+    {
+      "id": 55,
+      "gt": "C",
+      "pred": "A",
+      "resp": "At the end of the video, the object is no longer visible in the grid. It was initially at d4 but disappeared by the final frame. Therefore,"
+    },
+    {
+      "id": 57,
+      "gt": "B",
+      "pred": "A",
+      "resp": "Let's analyze the video step by step.\n\n- At the beginning (00:00), there is a red circle in cell b1.\n"
+    },
+    {
+      "id": 52,
+      "gt": "C",
+      "pred": "A",
+      "resp": "Let's analyze the video step by step.\n\n- At the beginning (00:00), the object is at position **a3**.\n-"
+    },
+    {
+      "id": 62,
+      "gt": "C",
+      "pred": "A",
+      "resp": "At the start of the video, the object is at b1. It then moves to b2 and stays there until the end of the video. Therefore,"
+    },
+    {
+      "id": 61,
+      "gt": "B",
+      "pred": "C",
+      "resp": "At the end of the video, the object is located at position c3.\n\nTherefore, the correct answer is:\n\nC. c3\n"
+    },
+    {
+      "id": 56,
+      "gt": "B",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's trace the object's movement step by step.\n\n- **Initial Position (00:00):** The object is at c3.\n-"
+    },
+    {
+      "id": 64,
+      "gt": "B",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's trace the object's movement through the video frames.\n\n- The video starts with the object at position **d4**.\n- It then moves to"
+    },
+    {
+      "id": 66,
+      "gt": "D",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's trace the object's movement step-by-step based on the video frames:\n\n- **Initial Position (00:00):** The object, a"
+    },
+    {
+      "id": 71,
+      "gt": "B",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's trace the object's movement through the video frames.\n\n- **Frame 1:** The object is at position b2.\n- **Frame "
+    },
+    {
+      "id": 70,
+      "gt": "D",
+      "pred": "B",
+      "resp": "At the end of the video, the object is located at position b2.\n\nAnswer: B. b2\n"
+    },
+    {
+      "id": 74,
+      "gt": "D",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's analyze the video step by step:\n\n1. **Initial State (0:00)**:\n   - The object is located at position **"
+    },
+    {
+      "id": 68,
+      "gt": "D",
+      "pred": "A",
+      "resp": "At the start of the video, the object is at b1. It then moves to b2, and finally to b3. So, at the end"
+    },
+    {
+      "id": 78,
+      "gt": "A",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's trace the object's movement through the video frames.\n\n- The video starts with a red circle at position **b1**.\n- In the next"
+    },
+    {
+      "id": 80,
+      "gt": "C",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's trace the object's movement step by step.\n\n- **Initial Position (00:00):** The object, a red circle, is located"
+    },
+    {
+      "id": 81,
+      "gt": "D",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's trace the object's movement through the video frames.\n\n- **Frame 1:** The object is at position b2.\n- **Frame "
+    },
+    {
+      "id": 72,
+      "gt": "D",
+      "pred": "A",
+      "resp": "At the end of the video, the object is located at position c2.\n"
+    },
+    {
+      "id": 67,
+      "gt": "D",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's trace the object's movement through the video frames.\n\n- **Frame 1:** The object, a red circle, is located at position c3"
+    },
+    {
+      "id": 82,
+      "gt": "D",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's trace the object's movement through the video frames.\n\n- **Frame 1:** The object (a red circle) is at position **b1"
+    },
+    {
+      "id": 65,
+      "gt": "A",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's analyze the video step by step:\n\n1. **Initial Position (0:00)**: The object is at **c4**.\n\n2"
+    },
+    {
+      "id": 77,
+      "gt": "C",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's trace the object's movement through the video frames.\n\n- **Initial Position (00:00):** The object, a red circle, is"
+    },
+    {
+      "id": 79,
+      "gt": "A",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's trace the object's movement step by step.\n\n- **Initial Position (00:00):** The object is at `c1`.\n"
+    },
+    {
+      "id": 86,
+      "gt": "B",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's trace the object's movement through the video frames.\n\n- **Frame 1:** The object, a red circle, is located at position `c"
+    },
+    {
+      "id": 89,
+      "gt": "D",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's trace the object's movement step by step.\n\n- **Initial Position (00:00):** The red circle is in cell c1."
+    },
+    {
+      "id": 83,
+      "gt": "B",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's trace the object's movement step by step.\n\n- **Initial Position (00:00):** The object is at d2.\n-"
+    },
+    {
+      "id": 73,
+      "gt": "B",
+      "pred": "A",
+      "resp": "At the end of the video, the object is no longer visible in the grid. It was initially at b2 but disappeared by the final frame. Therefore,"
+    },
+    {
+      "id": 69,
+      "gt": "A",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's trace the object's movement step by step.\n\n- **Initial Position (00:00):** The object is at b3.\n-"
+    },
+    {
+      "id": 85,
+      "gt": "A",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's trace the object's movement through the video frames.\n\n- **Frame 1:** The object, a red circle, is at position a1."
+    },
+    {
+      "id": 92,
+      "gt": "B",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's trace the object's movement step by step.\n\n- **Initial Position (00:00):** The object is at `b3`.\n"
+    },
+    {
+      "id": 76,
+      "gt": "D",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's analyze the video step by step:\n\n1. **Initial Frame (00:00)**: The object is located at position **b4"
+    },
+    {
+      "id": 87,
+      "gt": "C",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's analyze the video step by step:\n\n1. **Initial State (0:00)**:\n   - The grid is 4x4"
+    },
+    {
+      "id": 88,
+      "gt": "A",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's analyze the video step by step.\n\n- **Initial State (00:00):** The object is a red circle located at position d1"
+    },
+    {
+      "id": 75,
+      "gt": "C",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's trace the object's movement through the video frames.\n\n- **Frame 1:** The object is a red circle located at position **b2**."
+    },
+    {
+      "id": 84,
+      "gt": "D",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's analyze the video step by step:\n\n1. **Initial Frame (00:00)**: The object is located at position **a4"
+    },
+    {
+      "id": 90,
+      "gt": "D",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's analyze the video step by step:\n\n1. **Initial State (0:00)**:\n   - The object is located at position **"
+    },
+    {
+      "id": 91,
+      "gt": "B",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's analyze the video step by step:\n\n1. **Initial State (0:00)**:\n   - The object is located at position **"
+    },
+    {
+      "id": 93,
+      "gt": "B",
+      "pred": "A",
+      "resp": "At the end of the video, the object is located at position c2.\n"
+    },
+    {
+      "id": 95,
+      "gt": "D",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's trace the object's movement through the video frames.\n\n- **Frame 1:** The object, a red circle, is located at position c1"
+    },
+    {
+      "id": 94,
+      "gt": "D",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's analyze the video step by step:\n\n1. **Initial State (0:00)**:\n   - The object is located at position d"
+    },
+    {
+      "id": 97,
+      "gt": "D",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's trace the object's movement through the video frames.\n\n- **Frame 1:** The object (a red circle) is at position **a3"
+    },
+    {
+      "id": 96,
+      "gt": "C",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's trace the object's movement through the video frames.\n\n- The object starts at position **c3**.\n- It moves to **c2**."
+    },
+    {
+      "id": 103,
+      "gt": "A",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's trace the object's movement step-by-step based on the provided frames.\n\n- **Initial Position (00:00):** The object, a"
+    },
+    {
+      "id": 102,
+      "gt": "A",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's trace the object's movement step by step.\n\n- **Start (00:00):** The object is at position **c2**.\n"
+    },
+    {
+      "id": 99,
+      "gt": "B",
+      "pred": "A",
+      "resp": "At the end of the video, the object is located at position d3.\n"
+    },
+    {
+      "id": 98,
+      "gt": "B",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's analyze the video step by step:\n\n1. **Initial Frame (00:00)**: The object is located at position **c3"
+    },
+    {
+      "id": 111,
+      "gt": "A",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's analyze the video step by step:\n\n1. **Initial State (0:00)**:\n   - The object is at position **a"
+    },
+    {
+      "id": 110,
+      "gt": "D",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's trace the object's movement through the video frames.\n\n- **Initial Position (00:00):** The object, a red circle, is"
+    },
+    {
+      "id": 105,
+      "gt": "B",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's analyze the video step by step:\n\n1. **Initial State (0:00)**:\n   - The object is located at position **"
+    },
+    {
+      "id": 108,
+      "gt": "D",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's analyze the video step by step:\n\n1. **Initial State (0:00)**: The object is at position **a4**.\n\n"
+    },
+    {
+      "id": 109,
+      "gt": "B",
+      "pred": "A",
+      "resp": "Let's analyze the video step by step:\n\n1. **Initial State (0:00)**: The grid is empty. All cells are gray squares"
+    },
+    {
+      "id": 117,
+      "gt": "D",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's trace the object's movement through the video frames.\n\n- **Frame 1:** The object, a red circle, is located at position d1"
+    },
+    {
+      "id": 114,
+      "gt": "A",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's trace the object's movement step by step.\n\n- **Initial Position (00:00):** The object is at `c1`.\n"
+    },
+    {
+      "id": 104,
+      "gt": "B",
+      "pred": "A",
+      "resp": "At the end of the video, the object is no longer visible in the grid. It was initially at c4 but disappeared by the final frame. Therefore,"
+    },
+    {
+      "id": 101,
+      "gt": "D",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's trace the object's movement through the video frames.\n\n- **Frame 1:** The object (a red circle) is at position **b1"
+    },
+    {
+      "id": 119,
+      "gt": "C",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's trace the object's movement through the video frames.\n\n- **Frame 1:** The object (a red circle) is at position **b4"
+    },
+    {
+      "id": 106,
+      "gt": "B",
+      "pred": "A",
+      "resp": "At the start, the object is at d1. It then moves to a1, and finally to d2. So, at the end of the video"
+    },
+    {
+      "id": 100,
+      "gt": "C",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's trace the object's movement through the video frames.\n\n- **Frame 1:** The object (a red circle) is at position **b1"
+    },
+    {
+      "id": 113,
+      "gt": "B",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's analyze the video step by step:\n\n1. **Initial State (0:00)**:\n   - The object is located at position **"
+    },
+    {
+      "id": 122,
+      "gt": "A",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's trace the object's movement through the video frames.\n\n- **Initial State (00:00):** The object, a red circle, is"
+    },
+    {
+      "id": 112,
+      "gt": "D",
+      "pred": "A",
+      "resp": "At the end of the video, the object is no longer visible in the grid. It was initially at b4 but disappeared by the final frame. Therefore,"
+    },
+    {
+      "id": 107,
+      "gt": "D",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's analyze the video step by step:\n\n1. **Initial Position (0:00)**: The object is at **b3**.\n\n2"
+    },
+    {
+      "id": 115,
+      "gt": "C",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's analyze the video step by step:\n\n1. **Initial Frame (00:00)**: The object is located at position **d4"
+    },
+    {
+      "id": 118,
+      "gt": "A",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's trace the object's movement through the video frames.\n\n- **Frame 1:** The object (a red circle) is at position **a1"
+    },
+    {
+      "id": 124,
+      "gt": "D",
+      "pred": "A",
+      "resp": "At the end of the video, the object is no longer visible in the grid. It was initially at b4 but disappeared by the final frame. Therefore,"
+    },
+    {
+      "id": 126,
+      "gt": "A",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's analyze the video step by step:\n\n1. **Initial State (0:00)**:\n   - The object is located at position **"
+    },
+    {
+      "id": 120,
+      "gt": "D",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's trace the object's movement through the video frames.\n\n- **Frame 1:** The object (a red circle) is in cell `d4"
+    },
+    {
+      "id": 116,
+      "gt": "B",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's analyze the video step by step:\n\n1. **Initial State (0:00)**:\n   - The object is located at position **"
+    },
+    {
+      "id": 121,
+      "gt": "D",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's analyze the video step by step:\n\n1. **Initial State (0:00)**:\n   - The object is at position **a"
+    },
+    {
+      "id": 123,
+      "gt": "A",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's analyze the video step by step:\n\n1. **Initial State (Frame 1)**:\n   - The object is at position **b4"
+    },
+    {
+      "id": 125,
+      "gt": "A",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's trace the object's movement through the video frames.\n\n- **Frame 1:** The object is at position `c2`.\n- **Frame"
+    },
+    {
+      "id": 127,
+      "gt": "C",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's trace the object's movement through the video frames:\n\n- **Frame 1 (00:00):** The object is at position **c"
+    },
+    {
+      "id": 129,
+      "gt": "C",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's analyze the video step by step:\n\n1. **Initial State (0:00)**: The object is located at position **d1**."
+    },
+    {
+      "id": 128,
+      "gt": "D",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's trace the object's movement through the video frames.\n\n- **Frame 1:** The object is at position **a4**.\n- **Frame"
+    },
+    {
+      "id": 130,
+      "gt": "C",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's analyze the video step by step:\n\n1. **Initial State (0:00)**: The object is at position **a1**.\n\n"
+    },
+    {
+      "id": 135,
+      "gt": "C",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's trace the object's movement through the video frames.\n\n- **Frame 1:** The object (a red circle) is located at position **d"
+    },
+    {
+      "id": 132,
+      "gt": "D",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's analyze the video step by step:\n\n1. **Initial State (0:00)**:\n   - The grid is 4x4"
+    },
+    {
+      "id": 142,
+      "gt": "C",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's trace the object's movement step by step.\n\n- **Initial Position (00:00):** The object is at d3.\n-"
+    },
+    {
+      "id": 141,
+      "gt": "A",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's trace the object's movement through the video frames.\n\n- **Frame 1:** The object is at position b3.\n- **Frame "
+    },
+    {
+      "id": 131,
+      "gt": "B",
+      "pred": "D",
+      "resp": "At the end of the video, the object is located at position b2.\n\nAnswer: D. b2\n"
+    },
+    {
+      "id": 134,
+      "gt": "D",
+      "pred": "A",
+      "resp": "At the start, the object is at c2. It then moves to b2, and finally to a2. Since a2 isn't one of the"
+    },
+    {
+      "id": 147,
+      "gt": "C",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's trace the object's movement through the video frames.\n\n- **Frame 1:** The object is at position c1.\n- **Frame "
+    },
+    {
+      "id": 144,
+      "gt": "C",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's trace the object's movement step by step.\n\n- **Start (00:00):** The object is at position **a3**.\n"
+    },
+    {
+      "id": 133,
+      "gt": "B",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's trace the object's movement through the video frames.\n\n- **Frame 1:** The object, a red circle, is located at position `a"
+    },
+    {
+      "id": 140,
+      "gt": "D",
+      "pred": "A",
+      "resp": "At the start of the video, the object is at d2. It then moves to c2, and finally to c3. Therefore, at the end"
+    },
+    {
+      "id": 145,
+      "gt": "C",
+      "pred": "A",
+      "resp": "At the end of the video, the object is no longer visible in the grid. It was initially at d2 but disappeared by the end. Therefore, the"
+    },
+    {
+      "id": 139,
+      "gt": "A",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's trace the object's movement through the video frames.\n\n- **Initial State (00:00):** The object, a red circle, is"
+    },
+    {
+      "id": 137,
+      "gt": "C",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's trace the object's movement through the video frames.\n\n- **Frame 1:** The object is a red circle located at position `c1`."
+    },
+    {
+      "id": 143,
+      "gt": "B",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's trace the object's movement through the video frames.\n\n- **Frame 1:** The object is at position `a4`.\n- **Frame"
+    },
+    {
+      "id": 138,
+      "gt": "D",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's trace the object's movement step by step.\n\n- **Initial Position (00:00):** The red circle is at position **c1"
+    },
+    {
+      "id": 146,
+      "gt": "C",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's analyze the video step by step.\n\n- **Initial state (00:00):** The object is a red circle located at position **a"
+    },
+    {
+      "id": 153,
+      "gt": "D",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's trace the object's movement through the video frames.\n\n- **Frame 1:** The object, a red circle, is in cell `a3"
+    },
+    {
+      "id": 155,
+      "gt": "C",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's trace the object's movement step by step.\n\n- The video starts with the object at position **d4**.\n- In the first move,"
+    },
+    {
+      "id": 149,
+      "gt": "B",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's analyze the video step by step:\n\n1. **Initial State (0:00)**:\n   - The object is at position c1"
+    },
+    {
+      "id": 152,
+      "gt": "B",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's analyze the video step by step:\n\n1. **Initial State (0:00)**: The object is located at position d1.\n\n"
+    },
+    {
+      "id": 156,
+      "gt": "A",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's trace the object's movement through the video frames.\n\n- The video starts with the object at position **b4**.\n- In the next frame"
+    },
+    {
+      "id": 150,
+      "gt": "D",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's analyze the video step by step:\n\n1. **Initial State (0:00)**:\n   - The object is at position **d"
+    },
+    {
+      "id": 157,
+      "gt": "B",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's trace the object's movement through the video frames.\n\n- The video starts with the object at position **a4**.\n- It then moves to"
+    },
+    {
+      "id": 151,
+      "gt": "D",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's analyze the video step by step:\n\n1. **Initial State (0:00)**:\n   - The object is at position **a"
+    },
+    {
+      "id": 158,
+      "gt": "D",
+      "pred": "A",
+      "resp": "At the start of the video, the object is at a2. It then moves to a1 and stays there until the end. Therefore, the final position"
+    },
+    {
+      "id": 154,
+      "gt": "C",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's trace the object's movement step by step.\n\n- **Initial Position (00:00):** The object is at c4.\n-"
+    },
+    {
+      "id": 159,
+      "gt": "D",
+      "pred": "A",
+      "resp": "At the end of the video, the object is no longer visible in the grid. It was initially at d3 but disappeared by the final frame. Therefore,"
+    },
+    {
+      "id": 160,
+      "gt": "C",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's trace the object's movement step-by-step based on the video frames.\n\n- **Initial Position (00:00):** The object, a"
+    },
+    {
+      "id": 167,
+      "gt": "B",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's trace the object's movement step by step.\n\n- **Initial Position (00:00):** The object is at `d2`.\n"
+    },
+    {
+      "id": 161,
+      "gt": "A",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's trace the object's movement through the video frames.\n\n- **Frame 1:** The object is a red circle located at position c3.\n"
+    },
+    {
+      "id": 168,
+      "gt": "B",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's analyze the video step by step:\n\n1. **Initial State (0:00)**:\n   - The object is located at position **"
+    },
+    {
+      "id": 169,
+      "gt": "D",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's analyze the video step by step:\n\n1. **Initial State (0:00)**:\n   - The object is located at position **"
+    },
+    {
+      "id": 162,
+      "gt": "C",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's analyze the video step by step:\n\n1. **Initial State (0:00)**:\n   - The object is at position **a"
+    },
+    {
+      "id": 174,
+      "gt": "A",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's trace the object's movement step-by-step based on the video frames:\n\n- **Initial Position (00:00):** The object, a"
+    },
+    {
+      "id": 165,
+      "gt": "C",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's trace the object's movement through the video frames.\n\n- **Frame 1:** The object (a red circle) is at position **c1"
+    },
+    {
+      "id": 178,
+      "gt": "B",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's trace the object's movement through the video frames.\n\n- **Frame 1:** The object, a red circle, is located at position `a"
+    },
+    {
+      "id": 164,
+      "gt": "A",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's analyze the video step by step:\n\n1. **Initial Position (0:00)**: The red circle is at position **c2**."
+    },
+    {
+      "id": 179,
+      "gt": "B",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's trace the object's movement through the video frames.\n\n- **Frame 1:** The object is at position c3.\n- **Frame "
+    },
+    {
+      "id": 166,
+      "gt": "D",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's analyze the video step by step:\n\n1. **Initial State (0:00)**: The object is at position **c4**.\n\n"
+    },
+    {
+      "id": 180,
+      "gt": "C",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's trace the object's movement step by step.\n\n- **Initial Position (00:00):** The object, a red circle, is located"
+    },
+    {
+      "id": 170,
+      "gt": "D",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's analyze the video step by step.\n\n1. **Initial Position (0:00)**: The red circle is at position **c4**."
+    },
+    {
+      "id": 171,
+      "gt": "D",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's analyze the video step by step.\n\n1. **Initial State (0:00)**:\n   - The grid is 4x4"
+    },
+    {
+      "id": 176,
+      "gt": "D",
+      "pred": "B",
+      "resp": "At the end of the video, the object is located at position **b2**.\n\n\u2705 Correct answer: **B. b2**\n"
+    },
+    {
+      "id": 175,
+      "gt": "A",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's trace the object's movement through the video frames.\n\n- **Frame 1:** The object, a red circle, is located at position d2"
+    },
+    {
+      "id": 187,
+      "gt": "A",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's trace the object's movement through the video frames.\n\n- The video starts with the object at position **d4**.\n- It then moves to"
+    },
+    {
+      "id": 172,
+      "gt": "B",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's trace the object's movement step by step.\n\n- **Initial Position (00:00):** The object is at `c3`.\n"
+    },
+    {
+      "id": 173,
+      "gt": "C",
+      "pred": "A",
+      "resp": "Let's analyze the video step by step.\n\n- At the beginning (0:00), the object is at position **a4**.\n- From"
+    },
+    {
+      "id": 186,
+      "gt": "C",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's trace the object's movement through the video frames.\n\n- **Initial Position (00:00):** The object, a red circle, is"
+    },
+    {
+      "id": 181,
+      "gt": "A",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's trace the object's movement through the video frames.\n\n- **Frame 1:** The object is at position **b3**.\n- **Frame"
+    },
+    {
+      "id": 182,
+      "gt": "B",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's trace the object's movement through the video frames.\n\n- **Frame 1:** The object, a red circle, is in cell `a1"
+    },
+    {
+      "id": 183,
+      "gt": "A",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's analyze the video step by step:\n\n1. **Initial State (0:00)**:\n   - The object is located at position **"
+    },
+    {
+      "id": 189,
+      "gt": "B",
+      "pred": "A",
+      "resp": "At the end of the video, the object is no longer visible in the grid. It was initially at b2, then moved to c3, and finally"
+    },
+    {
+      "id": 192,
+      "gt": "C",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's trace the object's movement through the video frames.\n\n- **Initial Position (00:00):** The object, a red circle, is"
+    },
+    {
+      "id": 185,
+      "gt": "A",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's trace the object's movement step by step.\n\n- **Initial Position (00:00):** The object is at d4.\n-"
+    },
+    {
+      "id": 191,
+      "gt": "D",
+      "pred": "A",
+      "resp": "At the end of the video, the object is no longer visible in the grid. It was initially at c4 but disappeared by the final frame. Therefore,"
+    },
+    {
+      "id": 188,
+      "gt": "C",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's trace the object's movement through the video frames.\n\n- **Frame 1:** The object is at position **c1**.\n- **Frame"
+    },
+    {
+      "id": 190,
+      "gt": "D",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's analyze the video step by step:\n\n1. **Initial Position (0:00)**: The object is at **a3**.\n\n2"
+    },
+    {
+      "id": 197,
+      "gt": "A",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's trace the object's movement through the video frames.\n\n- **Frame 1:** The object (a red circle) is at position **b1"
+    },
+    {
+      "id": 195,
+      "gt": "C",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's analyze the video step by step:\n\n1. **Initial State (0:00)**: The object is located at position **c2**."
+    },
+    {
+      "id": 194,
+      "gt": "A",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's analyze the video step by step:\n\n1. **Initial Frame (00:00)**: The object is located at position **b2"
+    },
+    {
+      "id": 198,
+      "gt": "B",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's analyze the video step by step.\n\n- **Initial State (00:00):** The object, a red circle, is located at position"
+    },
+    {
+      "id": 193,
+      "gt": "A",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's trace the object's movement step by step.\n\n- **Initial Position (00:00):** The red circle is at position **c2"
+    },
+    {
+      "id": 196,
+      "gt": "B",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's trace the object's movement through the video frames.\n\n- **Frame 1:** The object (a red circle) is in cell `c1"
+    },
+    {
+      "id": 199,
+      "gt": "B",
+      "pred": "(\u672a\u89e3\u6790)",
+      "resp": "Let's trace the object's movement through the video frames.\n\n- **Frame 1:** The object (a red circle) is in cell `a3"
+    }
+  ]
+}

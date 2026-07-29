@@ -1,0 +1,627 @@
+  1. [1 Introduction](https://arxiv.org/html/2504.06958v5#S1 "In VideoChat-R1: Enhancing Spatio-Temporal Perception via Reinforcement Fine-Tuning")
+  2. [2 Related work](https://arxiv.org/html/2504.06958v5#S2 "In VideoChat-R1: Enhancing Spatio-Temporal Perception via Reinforcement Fine-Tuning")
+     1. [Reasoning in MLLMs.](https://arxiv.org/html/2504.06958v5#S2.SS0.SSS0.Px1 "In 2 Related work ‣ VideoChat-R1: Enhancing Spatio-Temporal Perception via Reinforcement Fine-Tuning")
+     2. [Spatio-Temporal Understanding with MLLMs.](https://arxiv.org/html/2504.06958v5#S2.SS0.SSS0.Px2 "In 2 Related work ‣ VideoChat-R1: Enhancing Spatio-Temporal Perception via Reinforcement Fine-Tuning")
+  3. [3 Methodology](https://arxiv.org/html/2504.06958v5#S3 "In VideoChat-R1: Enhancing Spatio-Temporal Perception via Reinforcement Fine-Tuning")
+     1. [3.1 Preliminary](https://arxiv.org/html/2504.06958v5#S3.SS1 "In 3 Methodology ‣ VideoChat-R1: Enhancing Spatio-Temporal Perception via Reinforcement Fine-Tuning")
+     2. [3.2 Spatio-Temporal Rewards of Video MLLM in GRPO](https://arxiv.org/html/2504.06958v5#S3.SS2 "In 3 Methodology ‣ VideoChat-R1: Enhancing Spatio-Temporal Perception via Reinforcement Fine-Tuning")
+        1. [Format reward.](https://arxiv.org/html/2504.06958v5#S3.SS2.SSS0.Px1 "In 3.2 Spatio-Temporal Rewards of Video MLLM in GRPO ‣ 3 Methodology ‣ VideoChat-R1: Enhancing Spatio-Temporal Perception via Reinforcement Fine-Tuning")
+        2. [IoU reward in spatio-temporal perception.](https://arxiv.org/html/2504.06958v5#S3.SS2.SSS0.Px2 "In 3.2 Spatio-Temporal Rewards of Video MLLM in GRPO ‣ 3 Methodology ‣ VideoChat-R1: Enhancing Spatio-Temporal Perception via Reinforcement Fine-Tuning")
+        3. [Accuracy reward in classification.](https://arxiv.org/html/2504.06958v5#S3.SS2.SSS0.Px3 "In 3.2 Spatio-Temporal Rewards of Video MLLM in GRPO ‣ 3 Methodology ‣ VideoChat-R1: Enhancing Spatio-Temporal Perception via Reinforcement Fine-Tuning")
+        4. [Recall reward in video captioning.](https://arxiv.org/html/2504.06958v5#S3.SS2.SSS0.Px4 "In 3.2 Spatio-Temporal Rewards of Video MLLM in GRPO ‣ 3 Methodology ‣ VideoChat-R1: Enhancing Spatio-Temporal Perception via Reinforcement Fine-Tuning")
+     3. [3.3 Enhance Spatio-Temporal Perception of Video MLLM through GRPO](https://arxiv.org/html/2504.06958v5#S3.SS3 "In 3 Methodology ‣ VideoChat-R1: Enhancing Spatio-Temporal Perception via Reinforcement Fine-Tuning")
+        1. [The combination of reward functions.](https://arxiv.org/html/2504.06958v5#S3.SS3.SSS0.Px1 "In 3.3 Enhance Spatio-Temporal Perception of Video MLLM through GRPO ‣ 3 Methodology ‣ VideoChat-R1: Enhancing Spatio-Temporal Perception via Reinforcement Fine-Tuning")
+        2. [VideoChat-R1-18k.](https://arxiv.org/html/2504.06958v5#S3.SS3.SSS0.Px2 "In 3.3 Enhance Spatio-Temporal Perception of Video MLLM through GRPO ‣ 3 Methodology ‣ VideoChat-R1: Enhancing Spatio-Temporal Perception via Reinforcement Fine-Tuning")
+        3. [Chat with Enhanced Spatio-Temporal Perception.](https://arxiv.org/html/2504.06958v5#S3.SS3.SSS0.Px3 "In 3.3 Enhance Spatio-Temporal Perception of Video MLLM through GRPO ‣ 3 Methodology ‣ VideoChat-R1: Enhancing Spatio-Temporal Perception via Reinforcement Fine-Tuning")
+  4. [4 Experiments](https://arxiv.org/html/2504.06958v5#S4 "In VideoChat-R1: Enhancing Spatio-Temporal Perception via Reinforcement Fine-Tuning")
+     1. [Implementation details.](https://arxiv.org/html/2504.06958v5#S4.SS0.SSS0.Px1 "In 4 Experiments ‣ VideoChat-R1: Enhancing Spatio-Temporal Perception via Reinforcement Fine-Tuning")
+     2. [Benchmarks.](https://arxiv.org/html/2504.06958v5#S4.SS0.SSS0.Px2 "In 4 Experiments ‣ VideoChat-R1: Enhancing Spatio-Temporal Perception via Reinforcement Fine-Tuning")
+     3. [4.1 Evaluation of VideoChat-R1](https://arxiv.org/html/2504.06958v5#S4.SS1 "In 4 Experiments ‣ VideoChat-R1: Enhancing Spatio-Temporal Perception via Reinforcement Fine-Tuning")
+     4. [4.2 Ablation Studies and Discussions](https://arxiv.org/html/2504.06958v5#S4.SS2 "In 4 Experiments ‣ VideoChat-R1: Enhancing Spatio-Temporal Perception via Reinforcement Fine-Tuning")
+        1. [Muti-task Co-training.](https://arxiv.org/html/2504.06958v5#S4.SS2.SSS0.Px1 "In 4.2 Ablation Studies and Discussions ‣ 4 Experiments ‣ VideoChat-R1: Enhancing Spatio-Temporal Perception via Reinforcement Fine-Tuning")
+        2. [Temporal Grounding and Object tracking.](https://arxiv.org/html/2504.06958v5#S4.SS2.SSS0.Px2 "In 4.2 Ablation Studies and Discussions ‣ 4 Experiments ‣ VideoChat-R1: Enhancing Spatio-Temporal Perception via Reinforcement Fine-Tuning")
+        3. [Video Question Answer.](https://arxiv.org/html/2504.06958v5#S4.SS2.SSS0.Px3 "In 4.2 Ablation Studies and Discussions ‣ 4 Experiments ‣ VideoChat-R1: Enhancing Spatio-Temporal Perception via Reinforcement Fine-Tuning")
+        4. [Video Caption and Video Quality Assessment.](https://arxiv.org/html/2504.06958v5#S4.SS2.SSS0.Px4 "In 4.2 Ablation Studies and Discussions ‣ 4 Experiments ‣ VideoChat-R1: Enhancing Spatio-Temporal Perception via Reinforcement Fine-Tuning")
+        5. [Ablation of Reward Evaluators](https://arxiv.org/html/2504.06958v5#S4.SS2.SSS0.Px5 "In 4.2 Ablation Studies and Discussions ‣ 4 Experiments ‣ VideoChat-R1: Enhancing Spatio-Temporal Perception via Reinforcement Fine-Tuning")
+        6. [Ablation of “Clue-Perception"](https://arxiv.org/html/2504.06958v5#S4.SS2.SSS0.Px6 "In 4.2 Ablation Studies and Discussions ‣ 4 Experiments ‣ VideoChat-R1: Enhancing Spatio-Temporal Perception via Reinforcement Fine-Tuning")
+        7. [GRPO vs. SFT.](https://arxiv.org/html/2504.06958v5#S4.SS2.SSS0.Px7 "In 4.2 Ablation Studies and Discussions ‣ 4 Experiments ‣ VideoChat-R1: Enhancing Spatio-Temporal Perception via Reinforcement Fine-Tuning")
+        8. [Chain-of-thought vs. Direct Output.](https://arxiv.org/html/2504.06958v5#S4.SS2.SSS0.Px8 "In 4.2 Ablation Studies and Discussions ‣ 4 Experiments ‣ VideoChat-R1: Enhancing Spatio-Temporal Perception via Reinforcement Fine-Tuning")
+     5. [4.3 Qualitative Results](https://arxiv.org/html/2504.06958v5#S4.SS3 "In 4 Experiments ‣ VideoChat-R1: Enhancing Spatio-Temporal Perception via Reinforcement Fine-Tuning")
+  5. [5 Conclusions](https://arxiv.org/html/2504.06958v5#S5 "In VideoChat-R1: Enhancing Spatio-Temporal Perception via Reinforcement Fine-Tuning")
+
+# VideoChat-R1: Enhancing Spatio-Temporal Perception via Reinforcement Fine-
+Tuning
+
+Xinhao Li2,1∗, Ziang Yan3,1∗, Desen Meng2∗, Lu Dong4,1, Xiangyu Zeng2,1, Yinan
+He1  
+Yali Wang6,1, Yu Qiao1,6, Yi Wang†1,5, Limin Wang†2,1  
+1Shanghai AI Laboratory 2Nanjing University 3Zhejiang University  
+4University of Science and Technology of China 5Shanghai Innovation Institute  
+6Shenzhen Institutes of Advanced Technology, Chinese Academy of Sciences  
+<https://github.com/OpenGVLab/VideoChat-R1>
+
+###### Abstract
+
+Reinforcement Learning (RL) benefits Large Language Models (LLMs) for complex
+reasoning. Inspired by this, we explore integrating spatio-temporal specific
+rewards into Multimodal Large Language Models (MLLMs) to address the unique
+challenges of video understanding, such as long-range temporal associations.
+This paper investigates how rule-based rewards, particularly temporal ones,
+can improve video reasoning and their generalizability. Our study proposes
+Reinforcement Fine-Tuning (RFT) as a data-efficient method to enhance video
+reasoning on specific tasks without sacrificing original capabilities. Through
+joint RFT on multiple spatio-temporal perception tasks, we developed
+VideoChat-R1, a powerful Video MLLM. VideoChat-R1 achieves state-of-the-art
+spatio-temporal perception, demonstrating significant improvements in tasks
+like temporal grounding (+31.8) and object tracking (+31.2), while also
+improving general QA benchmarks. The enhanced perception and preserved chat
+abilities contribute to a more reliable video dialogue system, leading to our
+“Temporal Clue-driven Reasoning" inference schema. This work provides a
+foundation for developing robust, real-world video comprehension agents.
+
+00footnotetext: * Equal contribution. †\dagger Corresponding authors.
+
+##  1 Introduction
+
+The integration of reinforcement learning (RL) has notably propelled the
+capabilities of large language models (LLMs) forward, particularly in complex
+reasoning. Studies, such as o-series from OpenAI [jaech2024openai] and R1 of
+DeepSeek [guo2025deepseek], demonstrated that test-time scaling improves model
+reasoning and such reasoning is elicit-able via only rule-based rewarding.
+Inspired by these advances, community is interested in tuning multimodal large
+language models (MLLMs) with vision-related verifications in Group Relative
+Policy Optimization (GRPO) [guo2025deepseek] manner [zhou2025r1, segzero,
+visonr1, deng2025boosting, peng2025lmm, visualrft, r1ov, r1vl,
+zhan2025visionr1, deng2025openvlthinker]. They primarily consider visual
+mathematical reasoning and spatial localization.
+
+Regarding video understanding, reasoning is also crucial as some of its core
+abilties (e.g. its long-range temporal association, fine-grained
+spatiotemporal understanding based on user queries) are barely addressed via
+perception or simple analysis. Initial works [r1omni, wang2025timezero,
+videor1] have validated the superiority of the GRPO algorithm over supervised
+fine-tuning in some specific video tasks, such as temporal grounding and video
+question answer. Considering advancing the agent development with real-world
+video comprehension, we need to investigate and integrate spatio-temporal
+specific rewards or verification mechanisms directly into the learning of
+current MLLMs in a scalable manner. This could foster a more tightly coupled,
+near-closed-loop learning environment, enabling MLLMs to master intricate
+spatio-temporal skills. While our current work may not fully achieve this
+ambitious goal, it endeavors to lay foundational groundwork for the community
+by exploring how to embed such mechanisms effectively. Specifically, we in
+this paper chart the landscape of how rule-based rewards (especially temporal
+related ones) work in video understanding, along with systematic evaluations
+of the its generalizability across diverse video-based reasoning scenarios.
+
+![Refer to caption](x1.png) Figure 1:  Overview of VideoChat-R1. Through
+reinforcement learning fine-tuning using GRPO, VideoChat-R1 has powerful
+spatio-temporal perception capabilities and can apply these capabilities in
+chatting scenarios.
+
+Our study begins with spatio-temporal perception, extending to other popular
+video tasks (e.g. video caption), forming a practical recipe to enhance video
+reasoning via proper Reinforcement Fine-Tuning (RFT). We evaluate the
+robustness of various video verifications through different training and
+testing setting, also benchmarking their respective data requirements.
+Moreover, how these rewards interact with each other are also systematically
+explored. Based on these experiences, we give an intuitive and effective
+inference schema named “Temporal Clue-driven Reasoning”. Generally, our main
+findings are as follows.
+
+  * •
+
+Reinforcement fine-tuning is data-efficient for enhancing models on specific
+tasks without sacrificing original capabilities. With a small amount of data,
+training via RFT can yield a remarkable improvement in spatio-temporal
+perception ability, and there is negligible impact on the performance of out-
+domain tasks and the original general capabilities of the model, which
+outperforms traditional supervised fine-tuning significantly.
+
+  * •
+
+Through joint reinforcement fine-tuning on multiple spatio-temporal perception
+tasks, we construct VideoChat-R1, a powerful Video MLLM that boasts state-of-
+the-art spatiotemporal perception capabilities while also taking into account
+chat abilities. We have also discovered that training on spatio-temporal
+perception tasks has slightly strengthened the model’s spatio-temporal
+reasoning abilities. Compared with Qwen2.5-VL-7B, VideoChat-R1 achieves
+several times the performance improvement in spatiotemporal perception tasks
+such as temporal grounding (+31.8) and object track (+31.2). At the same time,
+it also achieves non-trivial improvements on general QA benchmarks, such as
+VideoMME (+0.9), MVBench (+1.0), and Perception Test (+0.9)
+
+  * •
+
+The improvement of spatio-temporal perception ability and the preservation of
+the original chat capability can contribute to a more reliable and efficient
+video dialogue system. Our VideoChat-R1 can provide reference video segments
+when answering users’ questions. Meanwhile, we propose to utilize these video
+segments for “Temporal Clue-driven Reasoning" to further obtain more accurate
+answers. Our experimental results reveal the potential of the approach that
+enhances the model’s spatiotemporal perception ability through reinforcement
+learning for future research in the directions of reliable video dialogue
+systems and long video understanding.
+
+##  2 Related work
+
+#### Reasoning in MLLMs.
+
+The field LLMs has witnessed significant breakthroughs in reasoning,
+exemplified by recent works [jaech2024openai, guo2025deepseek]. These
+developments [shao2024deepseekmath, guo2025deepseek, team2025kimi15] have
+markedly improved LLMs’ proficiency in tackling complex, multi-step tasks,
+such as challenging mathematical problems and coding exercises. Extending
+these RL techniques to multimodal large language models (MLLMs) has seen
+numerous efforts [zhou2025r1, segzero, visonr1, deng2025boosting, peng2025lmm,
+visualrft, r1ov, r1vl, zhan2025visionr1, deng2025openvlthinker] focused on
+leveraging verifiable reward mechanisms to boost visual reasoning performance.
+However, the application of RL-based strategies to spatio-temporal reasoning
+within the video domain remains comparatively less explored, with a few
+studies [wang2025timezero, r1omni, videor1] investigating this area.
+[wang2025timezero] and [r1omni] show GRPO’s potential in temporal grounding
+and sentiment analysis, while, [videor1] demonstrates how GRPO can facilitate
+temporal reasoning.
+
+#### Spatio-Temporal Understanding with MLLMs.
+
+Video understanding heavily relies on spatio-temporal perception. Progress in
+Video Multimodal Large Language Models (video MLLMs) [li2023videochat,
+maaz2023video, li2024mvbench, wang2024internvideo2, zhang2024video,
+wang2025internvideo25, li2024videochatf, videochatonline, qwen25vl] addresses
+video question answering and captioning in the unfied dialogue format,
+leveraging LLMs to organize predictions over visual perceptions.
+[yu2024merlin] and [zeng2024timesuite] leverage data augmentation for temporal
+modeling, yet compromising their general performance. [yan2024task] improves
+fine-grained spatio-temporal perception by task preference optimization with
+solid supervised fine-tuning using a lot of data.
+
+##  3 Methodology
+
+We present how to exploit the spatio-temporal rewards to improve MLLMs in
+video domains using GRPO. Before that, we revisit the Group Relative Policy
+Optimization (GRPO) [shao2024deepseekmath] first.
+
+###  3.1 Preliminary
+
+Group Relative Policy Optimization (GRPO) [shao2024deepseekmath] compares
+groups of candidates responses directly, independent on critic models.
+Regarding this, it significantly lowers training resources. Formally, with an
+input query qq, GRPO initiates by generating a set of GG distinct candidate
+responses, denoted as o={o1,…,oG}o=\\{o_{1},\dots,o_{G}\\}, via policy
+sampling. Each of these candidates is then assigned a score from a predefined
+reward function, yielding R1,…,RG{R_{1},\dots,R_{G}}. To normalize these
+scores and ascertain the relative quality of each response, GRPO computes
+their mean and standard deviation:
+
+| Ai=Ri−mean​({Ri}i=1G)std​({Ri}i=1G)​.A_{i}=\frac{R_{i}-\mathrm{mean}(\\{R_{i}\\}_{i=1}^{G})}{\mathrm{std}(\\{R_{i}\\}_{i=1}^{G})}\text{.} |  | (1)  
+---|---|---|---  
+  
+Here AiA_{i} quantifies the relative quality of the ii-th candidate response
+within its group. The objective of GRPO is to encourage the model to
+prioritize and generate responses that achieve higher relative scores within
+such groups. Furthermore, the overall training objective incorporates a KL-
+divergence term DKL(⋅|⋅)\mathrm{D}_{\mathrm{KL}}(\cdot|\cdot), which serves to
+constrain the optimized policy πθ\pi_{\theta} from diverging excessively from
+the original MLLM parameters πref\pi_{\mathrm{ref}}.
+
+###  3.2 Spatio-Temporal Rewards of Video MLLM in GRPO
+
+We explore how to use GRPO to enhance the performance of Video MLLM in video-
+language understanding. We consider the five most common types of video
+related tasks: temporal grounding, object tracking, video question answering,
+captioning, and quality assessment in our experiments.
+
+#### Format reward.
+
+To enable the model to output responses in the format we desire. For example,
+we expect the model to enclose its thought process with <think>...</think> and
+the answer with <answer>...</answer>, we designed a format reward
+RformatR_{\mathrm{format}} for each task. We use regular expression matching
+to determine whether the model adheres to our specified format:
+
+| Rformat={1,if output matches format,0,if output doesn’t match format.R_{\mathrm{format}}=\begin{cases}1,&\text{if output matches format},\\\ 0,&\text{if output doesn't match format}.\end{cases} |  | (2)  
+---|---|---|---  
+  
+#### IoU reward in spatio-temporal perception.
+
+For the spatio-temporal perception such as temporal grounding and object
+tracking, it requires the Video MLLM to output the time interval in the video
+that is associated with the content of a given textual query. Evidently, we
+can use the Intersection over Union (IoU) between the predicted interval by
+the model and the ground-truth interval as the reward function. This reward
+function effectively characterizes the accuracy of the interval predicted by
+the model.
+
+| RIoU=|ℐpred∩ℐgt||ℐpred∪ℐgt|,R_{\mathrm{IoU}}=\frac{|\mathcal{I}_{\mathrm{pred}}\cap\mathcal{I}_{\mathrm{gt}}|}{|\mathcal{I}_{\mathrm{pred}}\cup\mathcal{I}_{\mathrm{gt}}|}, |  | (3)  
+---|---|---|---  
+  
+where ℐpred\mathcal{I}_{\mathrm{pred}} and ℐgt\mathcal{I}_{\mathrm{gt}} are
+the predicted and the ground truth of time intervals or detection boxes,
+respectively.
+
+#### Accuracy reward in classification.
+
+Discriminative tasks, such as multiple-choice video question answering and
+classification, aim to determine whether the model’s prediction is consistent
+with the answer to the question. Therefore, we define:
+
+| Raccuacy={0,if ​Apred≠Agt1,if ​Apred=Agt,R_{\mathrm{accuacy}}=\begin{cases}0,&\text{if }A_{\mathrm{pred}}\neq A_{\mathrm{gt}}\\\ 1,&\text{if }A_{\mathrm{pred}}=A_{\mathrm{gt}},\end{cases} |  | (4)  
+---|---|---|---  
+  
+where ApredA_{\mathrm{pred}} and AgtA_{\mathrm{gt}} denote the predicted and
+the ground truth answers, respectively.
+
+#### Recall reward in video captioning.
+
+For tasks like video captioning with open-ended outputs, it is impossible to
+simply compare and determine the gap between the generated caption and the
+ground truth caption. Therefore, we use a LLM as a “judge" to provide a reward
+score. In order to reduce the uncertainty of the evaluation criteria for the
+LLM, we first make the LLM decompose the ground truth and predicted captions
+into events list. Specifically, we utilize Qwen2.5-72B [qwen25] to extract the
+events in the description and judge whether the events in a ground truth
+description can be entailed by the description predicted by the model. We
+calculate the event recall score as the ratio of events in a ground truth
+description that are entailed by the predicted description, and set different
+rewards according to the event recall score:
+
+| Rrecall=Recallevent​(Cpred,Cgt),R_{\mathrm{recall}}=\mathrm{Recall_{event}}(C_{\mathrm{pred}},C_{\mathrm{gt}}), |  | (5)  
+---|---|---|---  
+  
+where CpredC_{\mathrm{pred}} and CgtC_{\mathrm{gt}} represent the predicted
+and the ground truth captions, respectively.
+
+By combining the above reward functions, we explored how to utilize GRPO to
+enhance the performance of Video MLLM in various tasks. The specific details
+can be found in the Section [4](https://arxiv.org/html/2504.06958v5#S4 "4
+Experiments ‣ VideoChat-R1: Enhancing Spatio-Temporal Perception via
+Reinforcement Fine-Tuning").
+
+###  3.3 Enhance Spatio-Temporal Perception of Video MLLM through GRPO
+
+#### The combination of reward functions.
+
+We adopt different combinations of reward functions for training in different
+tasks. Specifically, for the temporal grounding and object tracking task,
+Rst=Rformat+RIoUR_{\mathrm{st}}=R_{\mathrm{format}}+R_{\mathrm{IoU}}. For the
+multi-choice QA and video quality assessment,
+Rqa=Rformat+RaccuacyR_{\mathrm{qa}}=R_{\mathrm{format}}+R_{\mathrm{accuacy}}.
+For the multi-choice QA with glue (e.g. Grounding QA),
+Rgqa=Rformat+RIoU+RA​c​cR_{\mathrm{gqa}}=R_{\mathrm{format}}+R_{\mathrm{IoU}}+R_{Acc}.
+For the video caption,
+Rcap=Rformat+RCaptionR_{\mathrm{cap}}=R_{\mathrm{format}}+R_{\mathrm{Caption}}.
+
+#### VideoChat-R1-18k.
+
+We collect diverse video corpus from existing public video datasets for
+reinforcement learning training to enhance the model’s spatiotemporal
+perception ability. For the temporal grounding task, we use the training set
+of Charade - STA [charadesta] (5,338 samples) for training. For the object
+tracking task, training is conducted on the GoT - 10k [got] dataset, which has
+9,335 samples. For the QA and grounding QA tasks, the validation set of
+NExTGQA [nextgqa] (3,358 samples) is used for training. For video captioning,
+FIBER-1k [fiber1k] (1,000 samples) is adopted for training. For video quality
+assessment, we use the quality assessment task from VidTAB [videoeval] under
+the 100-shot setting, with 200 samples for training. Finally, for the training
+of VideoChat-R1, we perform joint training on three spatio-temporal
+perception-related tasks: temporal grounding, object tracking, and grounding
+QA. In total, 18,031 samples are used for training.
+
+Input: VlowV_{\text{low}}: Low-resolution/low-fps video
+
+QQ: User question
+
+Δres\Delta_{\text{res}}: Resolution boost factor
+
+Δfps\Delta_{\text{fps}}: Frame rate boost factor
+
+Output: A(2)A^{(2)}: Final refined answer
+
+Initial Answer Generation:
+
+(A(1),𝒞)←ℳ​(Vlow,Q)(A^{(1)},\mathcal{C})\leftarrow\mathcal{M}(V_{\text{low}},Q)
+
+Clue Processing & Upsampling:
+
+𝒯c←ExtractTemporalClues​(𝒞)\mathcal{T}_{c}\leftarrow\text{ExtractTemporalClues}(\mathcal{C})
+
+Vseg←SelectSegments​(Vlow,𝒯c)V_{\text{seg}}\leftarrow\text{SelectSegments}(V_{\text{low}},\mathcal{T}_{c})
+
+Vhigh←Upsample​(Vseg,Δres,Δfps)V_{\text{high}}\leftarrow\text{Upsample}(V_{\text{seg}},\Delta_{\text{res}},\Delta_{\text{fps}})
+
+Final Answer Generation:
+
+A(2)←ℳ​(Vhigh,Q)A^{(2)}\leftarrow\mathcal{M}(V_{\text{high}},Q)
+
+return A(2)A^{(2)}
+
+Algorithm 1 VideoChat ℳ\mathcal{M} with “Clue-Perception"
+
+#### Chat with Enhanced Spatio-Temporal Perception.
+
+After enhancing the spatiotemporal perception capability of MLLMs, we can
+construct a more reliable video chat system. Specifically, after the model
+answers a user’s question, it can provide relatively accurate clues that
+support the answer to that question. We can further leverage these clues to
+improve the accuracy of the responses. Herein, we propose a simple “Temporal
+Clue-driven Reasoning" schema: after the model gives the first answer, we re-
+input the video segments corresponding to the obtained clues into the model at
+a higher resolution and frame rate, prompting it to answer again. By
+perceiving more details, the model can generate more accurate responses.
+Additionally, this operation is also well-suited for long video understanding
+under conditions of limited computing resources.
+
+##  4 Experiments
+
+#### Implementation details.
+
+The main experiments are all conducted based on Qwen2.5-VL-7B [qwen25vl]
+(except for the video captioning, for which Qwen2-VL-7B [qwen2vl] is used).
+
+#### Benchmarks.
+
+We employ MVBench [li2024mvbench], Perception Test [patraucean2023perception],
+VideoMME [videomme] for evaluation of general video understanding. Given that
+the majority of videos in our training set are short-length, we only use the
+short subset of VideoMME in testing. For the temporal grounding task, we use
+the test set of Charade-STA [charadesta] for in-domain testing and the test
+set of ActivityNet-Grounding [anetgrounding] as out-domain test data. For the
+object tracking task, testing is done using the GoT-10k [got] dataset. For the
+QA and grounding QA tasks, the test set of NExTGQA [nextgqa] is used for
+testing. And we use Dream-1k [dream1k] and VidTAB-QA [videoeval] for the video
+captioning and video quality access.
+
+###  4.1 Evaluation of VideoChat-R1
+
+Method Charades-STA ActivityNet NExTGQA GoT VideoMME MVBench Peception Test
+mIoU R@0.5 R@0.7 mIoU R@0.5 R@0.7 mIoU acc Overlap R@0.5 Short-Avg Avg Val
+Baseline Qwen2.5-VL-7B 29.0 24.2 11.1 21.1 15.8 7.5 15.4 59.5 12.6 1.1 71.3
+66.9 69.1 SFT on specific tasks +SFT w/ Charades-STA 46.3 45.0 25.3 20.6 16.7
+7.9 - - - - N/A* N/A* N/A* +SFT w/ GoT - - - - - - - - 41.8 29.5 59.2 58.6
+58.5 +SFT w/ NExTGQA - - - - - - 28.2 64.8 - - 60.1 59.2 60.7 GRPO on various
+tasks VideoChat-R1 60.8 71.7 50.2 36.6 33.4 17.7 32.4 70.6 43.8 38.2 72.2 67.9
+70.0 VideoChat-R1-thinking 59.9 70.6 47.2 35.5 33.3 16.7 36.1 69.2 43.3 33.9
+74.2 66.2 69.6
+
+Table 1: Results of VideoChat-R1 on various Video Benchmarks. * indicates that
+the model has suffered from overfitting and is unable to answer the question
+properly. Since the number of input pixels is fixed during our evaluation, the
+baseline results are slightly lower than those reported in their origin paper
+[qwen25vl].
+
+As shown in Table [1](https://arxiv.org/html/2504.06958v5#S4.T1 "Table 1 ‣ 4.1
+Evaluation of VideoChat-R1 ‣ 4 Experiments ‣ VideoChat-R1: Enhancing Spatio-
+Temporal Perception via Reinforcement Fine-Tuning"), after training with GRPO
+on spatio-temporal perception datasets, both VideoChat-R1 and
+VideoChat-R1-thinking significantly outperform the performance of Qwen2.5-VL
+and that of models fine-tuned through SFT for a single specific task across
+various spatiotemporal perception benchmarks and the general understanding
+benchmark VideoMME. This validates the effectiveness of our approach, which
+leverages multiple spatiotemporal perception datasets and RFT for enhancing
+spatiotemporal perception.
+
+Meanwhile, we observe that for spatio-temporal perception tasks, engaging in
+thinking processes does not necessarily lead to performance gains. However,
+for tasks such as QA and VideoMME, which may require complex reasoning,
+conducting inferences during testing can result in notable performance
+improvements.
+
+###  4.2 Ablation Studies and Discussions
+
+#### Muti-task Co-training.
+
+As shown in Table [2](https://arxiv.org/html/2504.06958v5#S4.T2 "Table 2 ‣
+Muti-task Co-training. ‣ 4.2 Ablation Studies and Discussions ‣ 4 Experiments
+‣ VideoChat-R1: Enhancing Spatio-Temporal Perception via Reinforcement Fine-
+Tuning"), we found that mixed training of different spatiotemporal perception
+tasks using GRPO can yield a synergistic improvement effect. Training with the
+multiple tasks achieves nearly the best results across all benchmarks. This
+reveals the potential of GRPO for larger-scale and multi-task collaborative
+training in the future.
+
+Method Charades-STA ANet NExTGQA GoT VideoMME mIoU R@0.5 R@0.7 mIoU R@0.5
+R@0.7 mIoU acc Overlap R@0.5 Short-Avg Qwen2.5-VL-7B 29.0 24.2 11.1 21.1 15.8
+7.5 15.4 59.5 12.6 1.1 71.3 +GRPO w/ STA 59.3 70.4 46.0 30.7 27.5 12.9 31.4
+61.2 27.8 12.9 72.6 +GRPO w/GQA 36.0 33.5 15.5 24.9 20.6 10.7 35.1 68.7 36.1
+26.7 72.0 +GRPO w/ GoT 28.7 25.1 9.6 20.1 16.2 6.8 15.6 60.5 42.5 30.6 71.4
++GRPO w/ STA-GQA 59.8 69.7 47.0 33.7 31.0 16.0 35.7 67.7 36.5 28.9 72.2 +GRPO
+w/ STA-GQA-GoT 60.8 71.7 50.2 36.6 33.4 17.7 32.4 70.6 43.8 38.2 72.2
+
+Table 2: Ablation results of Cotraining on Spatio-Temporal Tasks.
+
+Method Epochs Training Prompt Test Prompt Charades-STA (in domain) ActivityNet
+(out domain) VideoMME Think Answer Think Answer mIoU R@0.3 R@0.5 R@0.7 mIoU
+R@0.3 R@0.5 R@0.7 Short-Avg Vision Experts FlashVTG [cao2024flashvtg] - - - -
+- - - 70.3 49.9 - - - - - InternVideo2-6B [wang2024internvideo2] - - - - - - -
+70.0 49.0 - - - - - SG-DETR [gordeev2024saliency] - - 71.1 52.8 - - - - -
+MLLMs Qwen2.5-VL-7B - - - ✓ 29.0 44.7 24.2 11.1 21.1 28.3 15.8 7.4 71.3
+(baseline) - - - ✓ ✓ 28.1 41.8 23.4 11.1 17.7 22.7 13.4 7.7 71.3 \+ SFT 1 ✓ ✓
+46.3 63.9 45.0 25.3 20.6 30.2 16.7 7.9 N/A*(-71.3) 3 ✓ ✓ 34.6(+6.5) 51.7 36.3
+20.6 17.3(-3.8) 26.1 10.0 3.9 N/A*(-71.3) \+ GRPO 1 ✓ ✓ 58.7 80.9 67.7 45.4
+31.9 46.3 28.8 14.1 72.6 1 ✓ ✓ ✓ ✓ 59.3(+31.2) 81.7 70.4 46.0 30.7(+13.0) 45.0
+27.5 12.9 73.6(+2.3) 3 ✓ ✓ ✓ ✓ 61.3(+33.2) 83.1 72.8 51.5 34.3(+16.6) 50.4
+32.2 16.2 70.9(-0.4)
+
+Table 3: Ablation results of Temporal Grounding Task. * indicates that the
+model has suffered from overfitting and is unable to answer the question
+properly.
+
+Method GoT VideoMME Average overlap R@0.5 R@0.7 Short-Avg Qwen2.5-VL-7B 12.6
+1.1 0 71.3 +SFT 41.8 29.5 3.9 59.2 +GRPO 42.5(+29.9) 30.6(+29.5) 3.9(+3.9)
+71.4(+0.1)
+
+Table 4: Ablation results of Object Tracking. We use 8 frames as input for
+training and evaluation.
+
+#### Temporal Grounding and Object tracking.
+
+As shown in Table [3](https://arxiv.org/html/2504.06958v5#S4.T3 "Table 3 ‣
+Muti-task Co-training. ‣ 4.2 Ablation Studies and Discussions ‣ 4 Experiments
+‣ VideoChat-R1: Enhancing Spatio-Temporal Perception via Reinforcement Fine-
+Tuning") and Table [4](https://arxiv.org/html/2504.06958v5#S4.T4 "Table 4 ‣
+Muti-task Co-training. ‣ 4.2 Ablation Studies and Discussions ‣ 4 Experiments
+‣ VideoChat-R1: Enhancing Spatio-Temporal Perception via Reinforcement Fine-
+Tuning"), fine-tuning Qwen2.5-VL using GRPO significantly improves the
+performance of temporal grounding and object tracking tasks. Additionally, it
+slightly enhances the performance on the general understanding benchmark
+VideoMME. Even when training for more epochs, GRPO is less prone to
+overfitting compared to SFT. Instead, it can continuously improve the
+performance of temporal grounding, eventually surpassing the performance of
+previous expert models. Moreover, stimulating the model’s thinking ability
+provides some benefits for both temporal grounding and VideoMME tasks.
+
+Method Training Prompt Test Prompt NExTGQA VideoMME Think Answer Glue Think
+Answer Glue mIoU acc Short-Avg Direct Output Qwen2.5-VL-7B ✓ - 41.7 71.3
+(baseline) ✓ ✓ 15.4 59.5 - \+ SFT ✓ ✓ - 65.1 60.2 ✓ ✓ ✓ ✓ 28.2(+12.8)
+64.8(+5.3) 60.1(-11.2) \+ GRPO ✓ ✓ - 70.1 71.7 ✓ ✓ ✓ 16.2 70.2 71.7 ✓ ✓ ✓ ✓
+35.1(+19.7) 68.7(+9.2) 72.0(+0.7) Chain-of-thought Output Qwen2.5-VL-7B ✓ ✓ -
+47.7 73.0 ✓ ✓ ✓ 20.2 53.3 72.2 \+ GRPO ✓ ✓ ✓ ✓ - 68.8 74.7 ✓ ✓ ✓ ✓ ✓ ✓
+32.9(+12.7) 66.9(+13.6) 75.3(+3.1)
+
+Table 5: Ablation results of Multi-Choice Video QA.
+
+#### Video Question Answer.
+
+As shown in Table [5](https://arxiv.org/html/2504.06958v5#S4.T5 "Table 5 ‣
+Temporal Grounding and Object tracking. ‣ 4.2 Ablation Studies and Discussions
+‣ 4 Experiments ‣ VideoChat-R1: Enhancing Spatio-Temporal Perception via
+Reinforcement Fine-Tuning"), for the video question answering task, we
+selected the multi-choice QA task, which is easy to evaluate, for our
+experiments. Additionally, we explored the grounding QA task. In this task,
+when answering questions, the model is required to simultaneously provide the
+temporal cues on which its answers are based. Using merely a little over three
+thousand training data samples, we found that GRPO demonstrated remarkable
+fine-tuning capabilities. Not only did it lead to a substantial improvement in
+the performance of the NExTGQA task, but it also brought about a noticeable
+enhancement in the VideoMME task. We noticed that, unlike the previous
+strongly spatiotemporal perception tasks such as temporal grounding, thinking
+played a significant role in the QA task. Meanwhile, the glue signals also
+provided some assistance for relatively complex video understanding tasks like
+VideoMME.
+
+Method Dream-1k VidTAB-QA F1 Precision Recall Accuracy Baseline 30.6 33.8 27.9
+70.7 \+ SFT 31.4 32.6 30.2 71.7 \+ GRPO 38.2(+7.6) 45.4(+11.6) 33.1(+5.2)
+72.6(+1.9)
+
+Table 6: Results of Video Caption and Video Quality Access.
+
+Method LLM Judge Dream-1k F1 Precision Recall Baseline - 30.6 33.8 27.9 \+
+GRPO GPT-3.5-turbo-0125 37.9(+7.3) 44.4(+10.6) 33(+5.1) Qwen2.5-72B 38.2(+7.6)
+45.4(+11.6) 33.1(+5.2)
+
+Table 7: Ablation of Video Caption Task.
+
+#### Video Caption and Video Quality Assessment.
+
+For the Video Caption and Video Quality Assessment tasks, we found that GRPO
+still demonstrated its advantages over SFT, As shown in Table
+[6](https://arxiv.org/html/2504.06958v5#S4.T6 "Table 6 ‣ Video Question
+Answer. ‣ 4.2 Ablation Studies and Discussions ‣ 4 Experiments ‣ VideoChat-R1:
+Enhancing Spatio-Temporal Perception via Reinforcement Fine-Tuning"). The
+significant metric improvements on these two benchmarks demonstrate the
+effectiveness of our approach.
+
+#### Ablation of Reward Evaluators
+
+To assess the impact of different large language models (LLMs) as reward
+evaluators, we conducted parallel experiments using GPT-3.5-turbo-0125 and
+Qwen2.5-72B as distinct judges (Table
+[7](https://arxiv.org/html/2504.06958v5#S4.T7 "Table 7 ‣ Video Question
+Answer. ‣ 4.2 Ablation Studies and Discussions ‣ 4 Experiments ‣ VideoChat-R1:
+Enhancing Spatio-Temporal Perception via Reinforcement Fine-Tuning")). Models
+trained under both evaluators achieved nearly identical performance,
+demonstrating consistent caption reward generation across LLMs. We attribute
+this consistency to GRPO’s fundamental mechanism: it relies on relative
+differential scoring within response groups rather than absolute reward
+values. This confirms that Rr​e​c​a​l​lR_{recall} produces discriminative
+reward signals for predicted captions independent of the choice of LLM judge,
+validating both the efficacy of our reward design and the stability of its
+signaling mechanism. Crucially, when guided by these reliable reward signals,
+our approach delivers substantial performance gains in description tasks using
+only limited high-quality data, demonstrating remarkable data-efficiency and
+significant optimization potential.
+
+Model Clue VideoMME LongVideoBench Avg. Duration Perception 1010s 473s
+Qwen2.5-VL-7B 64.4 56.0 ✓ 63.3(-1.1) 55.2(-0.8) VideoChat-R1-thinking 62.1
+51.9 ✓ 63.6(+1.5) 58.2(+6.3)
+
+Table 8: Ablation results of “Clue-Perception". It should be noted that due to
+our adoption of a lower number of input pixels, the absolute performance is
+not entirely consistent with that reported for Qwen2.5-VL.
+
+#### Ablation of “Clue-Perception"
+
+As shown in Table. [8](https://arxiv.org/html/2504.06958v5#S4.T8 "Table 8 ‣
+Ablation of Reward Evaluators ‣ 4.2 Ablation Studies and Discussions ‣ 4
+Experiments ‣ VideoChat-R1: Enhancing Spatio-Temporal Perception via
+Reinforcement Fine-Tuning"), we compared the performance changes of the model
+with and without perception enhancement when applying the "Clue-Perception"
+strategy on two representative long video benchmarks [videomme,
+longvideobench]. It is noteworthy that without the use of "Clue-Perception",
+VideoChat-R1 showed no significant performance improvement over Qwen2.5-VL-7B
+in long video tasks, which can be attributed to the fact that our training
+dataset consists entirely of short videos under 1 minute. However, after the
+application of the "Clue-Perception" operation, VideoChat-R1 demonstrated a
+significant performance enhancement, indicating that the clues it provides are
+more accurate and thus revealing the potential of clue-perception in long
+video understanding. In contrast, due to its insufficient spatiotemporal
+perception capability, Qwen2.5-VL-7B even exhibited a performance decline
+after the implementation of the "Clue-Perception" operation.
+
+#### GRPO vs. SFT.
+
+It can be observed that across various types of tasks, GRPO outperforms SFT.
+Whether it is in terms of the performance on in-domain tasks, out-domain
+tasks, or the preservation of the original general performance, our
+experimental results demonstrate that GRPO is a promising fine-tuning
+approach. We will leave the large-scale comparison for future research.
+
+#### Chain-of-thought vs. Direct Output.
+
+Based on the video tasks and experiments we have explored, which focus on
+spatiotemporal perception, the output of the chain of thought has not
+demonstrated obvious advantages. In some cases, it is even inferior to the
+direct output. We believe that how to define appropriate video reasoning tasks
+and evaluation methods remains to be explored. The existing training data is
+insufficient to activate the model to output truly effective video reasoning
+chains.
+
+![Refer to caption](x2.png) Figure 2:  Examples on temporal grounding task.
+VideoChat-R1 gives a more accurate time interval after thinking.  ![Refer to
+caption](x3.png) Figure 3:  Examples on Video QA task. It can be seen that
+VideoChat-R1 can not only answer questions correctly but also provide
+relatively accurate reference time periods (clue).
+
+###  4.3 Qualitative Results
+
+As shown in Figure [2](https://arxiv.org/html/2504.06958v5#S4.F2 "Figure 2 ‣
+Chain-of-thought vs. Direct Output. ‣ 4.2 Ablation Studies and Discussions ‣ 4
+Experiments ‣ VideoChat-R1: Enhancing Spatio-Temporal Perception via
+Reinforcement Fine-Tuning") and [3](https://arxiv.org/html/2504.06958v5#S4.F3
+"Figure 3 ‣ Chain-of-thought vs. Direct Output. ‣ 4.2 Ablation Studies and
+Discussions ‣ 4 Experiments ‣ VideoChat-R1: Enhancing Spatio-Temporal
+Perception via Reinforcement Fine-Tuning"), we provide visualizations of
+VideoChat-R1’s outputs for the temporal grounding and video QA tasks. We
+observe that due to the enhanced spatiotemporal perception capability,
+VideoChat-R1 can more accurately locate video segments relevant to the
+question and conduct reasonable reasoning to answer the question. However,
+compared with the complex chains of thought involved in solving mathematical
+problems or coding tasks in text and image domains, the chains of thought
+generated in our current video tasks are relatively simple. We will explore
+more complex video reasoning tasks in future research.
+
+##  5 Conclusions
+
+In this work, we systematically investigate the role of reinforcement fine-
+tuning (RFT) with Group Relative Policy Optimization (GRPO) in enhancing
+video-centric multimodal large language models (MLLMs). Our experiments
+demonstrate that RFT is a highly data-efficient paradigm for task-specific
+improvements, enabling VideoChat-R1—a model trained with limited samples via
+multi-task RFT—to achieve state-of-the-art performance on spatio-temporal
+perception tasks while preserving general chat capabilities and exhibiting
+emergent spatiotemporal reasoning. We believe our work can present relevant
+insights for future research efforts in reinforcement learning of video MLLMs.
+
+Generated on Tue Nov 11 08:25:18 2025 by [LaTeXML![Mascot
+Sammy](data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==)](http://dlmf.nist.gov/LaTeXML/)
+

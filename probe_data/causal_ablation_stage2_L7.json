@@ -1,0 +1,61 @@
+{
+  "baseline": {
+    "Rotation_Direction": 58.0,
+    "Rotation_Count": 46.0,
+    "Bouncing_Counting": 42.0,
+    "Acceleration_Identification": 64.0
+  },
+  "ablations": [
+    {
+      "layer": 7,
+      "head": null,
+      "mode": "zero",
+      "acc": {
+        "Rotation_Direction": 40.0,
+        "Rotation_Count": 36.0,
+        "Bouncing_Counting": 26.0,
+        "Acceleration_Identification": 34.0
+      },
+      "delta": {
+        "Rotation_Direction": 18.0,
+        "Rotation_Count": 10.0,
+        "Bouncing_Counting": 16.0,
+        "Acceleration_Identification": 30.0
+      }
+    },
+    {
+      "layer": 7,
+      "head": 1,
+      "mode": "zero",
+      "acc": {
+        "Rotation_Direction": 50.0,
+        "Rotation_Count": 54.0,
+        "Bouncing_Counting": 34.0,
+        "Acceleration_Identification": 60.0
+      },
+      "delta": {
+        "Rotation_Direction": 8.0,
+        "Rotation_Count": -8.0,
+        "Bouncing_Counting": 8.0,
+        "Acceleration_Identification": 4.0
+      }
+    },
+    {
+      "layer": 7,
+      "head": 7,
+      "mode": "zero",
+      "acc": {
+        "Rotation_Direction": 56.0,
+        "Rotation_Count": 40.0,
+        "Bouncing_Counting": 38.0,
+        "Acceleration_Identification": 44.0
+      },
+      "delta": {
+        "Rotation_Direction": 2.0,
+        "Rotation_Count": 6.0,
+        "Bouncing_Counting": 4.0,
+        "Acceleration_Identification": 20.0
+      }
+    }
+  ]
+}
